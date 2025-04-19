@@ -1,0 +1,195 @@
+/* Main Header */
+header {
+  z-index: 999;
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  left: 20px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+header.gallery {
+  position: sticky !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  padding: 10px 20px !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 0 0 20px 20px !important;
+}
+
+/* Logo */
+header .logo {
+  color: var(--accent-color);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+}
+
+/* Navigation links */
+header .nav-links {
+  display: flex;
+}
+
+header .nav-links li {
+  list-style: none;
+  margin: 0 1px;
+}
+
+header .nav-links li a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--accent-color);
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Active link */
+header .nav-links li a.active {
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect */
+header .nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Menu Toggle Icon */
+header .nav-links .menu-toggle {
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  fill: var(--accent-color);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background 0.3s;
+}
+
+header .nav-links .menu-toggle:hover,
+.off-canvas-header span:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* OffCanvas Style */
+.off-canvas-glass {
+  position: fixed;
+  width: 300px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 15px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  border-radius: 20px 0 0 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.off-canvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.off-canvas-header h3 {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: var(--accent-dark);
+}
+
+.off-canvas-header span {
+  display: block;
+  cursor: pointer;
+  fill: var(--accent-color);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  transition: background 0.3s;
+  font-size: 0;
+  padding: 3px;
+}
+
+.off-canvas-list {
+  overflow-y: auto;
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.off-canvas-list li {
+  padding-top: 15px;
+}
+
+.off-canvas-list li a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: background 0.3s;
+}
+
+/* Active link in off-canvas */
+.off-canvas-list li a.active {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect in off-canvas */
+.off-canvas-list li a:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 992px) {
+  header {
+    position: relative;
+    width: 100%;
+    top: -60px;
+    padding: 20px;
+    right: 0;
+    left: 0;
+  }
+}
+@media (max-width: 500px) {
+  header {
+    position: relative;
+    flex-direction: column;
+  }
+  header.gallery {
+    top: -60px !important;
+  }
+  header .logo {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 350px) {
+  .off-canvas-glass {
+    width: 100%;
+  }
+}
