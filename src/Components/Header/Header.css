@@ -18,7 +18,7 @@ header {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-header.gallery {
+header.course {
   position: sticky !important;
   top: 0 !important;
   right: 0 !important;
@@ -181,7 +181,7 @@ header .nav-links .menu-toggle:hover,
     position: relative;
     flex-direction: column;
   }
-  header.gallery {
+  header.course {
     top: -60px !important;
   }
   header .logo {

@@ -2,11 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: url("web-images/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   padding: 50px;
 }
 
@@ -127,9 +122,6 @@
 }
 
 @media (max-width: 992px) {
-  section {
-    padding: 50px 10px 10px;
-  }
   .container {
     flex-direction: column;
     height: auto;
@@ -140,10 +132,6 @@
     max-width: 100%;
     padding: 30px;
     margin-top: -40px;
-  }
-
-  .imgBx {
-    margin-bottom: 50px;
   }
 
   .content a {
@@ -183,7 +171,7 @@
   }
 }
 @media (max-width: 450px) {
-  .imgBx {
+  /* .imgBx {
     max-width: 250px;
-  }
+  } */
 }

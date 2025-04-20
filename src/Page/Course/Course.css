@@ -1,20 +1,10 @@
-/* Make the full section use flex column layout */
 .course-section {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: url("web-images/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
-/* Allow the gallery wrapper to grow/shrink */
 .course-wrapper {
   padding: 20px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1920px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,19 +67,6 @@
 
 .course-link:hover {
   background: rgba(255, 255, 255, 0.5);
-}
-
-.external-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.external-link:hover {
-  color: rgba(255, 255, 255, 1);
 }
 
 .course-card .course-card:hover {

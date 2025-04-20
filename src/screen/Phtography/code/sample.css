@@ -1,0 +1,8 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  padding: 20px;
+}

@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
 import { toTitleCase } from "../../utils/custom_string";
 import course from "../../data/course_data";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logo } from "../../utils/message";
 
 export const Header = () => {
@@ -92,7 +92,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className={`header ${isHomePage ? "home" : "gallery"}`}>
+      <header className={`header ${isHomePage ? "home" : "course"}`}>
         <NavLink to="/" className="logo">
           {logo}
         </NavLink>

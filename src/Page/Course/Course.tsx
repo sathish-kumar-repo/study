@@ -9,6 +9,8 @@ import { NavLink, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import course from "../../data/course_data";
 import { formatName, toTitleCase } from "../../utils/custom_string";
+import Section from "../../components/Section";
+import Container from "../../components/Container";
 
 const Course = () => {
   const [model, setModel] = useState(false);
@@ -85,15 +87,13 @@ const Course = () => {
   }
 
   const categoryCourses = course[category as keyof typeof course];
-  console.log(category);
-  console.log(categoryCourses);
 
   return (
-    <div className="course-section">
+    <Section className="course-section">
       <Header />
-      <div className="course-wrapper">
+      <Container className="course-wrapper">
         <h1 className="course-heading">{toTitleCase(formatName(category))} </h1>
-        {/* Modal Viewer */}
+
         <div className={model ? "model open" : "model"}>
           <div className="model-glass">
             {mediaType === "image" && mediaSrc && (
@@ -126,20 +126,21 @@ const Course = () => {
         </div>
 
         <div key={category} className="course-list">
-          {categoryCourses.map((item) => (
-            <div key={item.name} className="course-card">
+          {categoryCourses.map((item, index) => (
+            <div key={index} className="course-card">
               <img src={item.img} alt={item.name} className="course-img" />
               <h2>{item.name}</h2>
               <p>{item.description}</p>
-              <NavLink to={`/${category}/${item.link}`} className="course-link">
+              {/* /${category}/${item.link}` */}
+              <NavLink to={`${item.link}`} className="course-link">
                 Learn More
               </NavLink>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
       <Footer />
-    </div>
+    </Section>
   );
 };
 

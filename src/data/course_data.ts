@@ -35,7 +35,79 @@ const course: CourseData = {
     {
       name: "Photography",
       description: "Learn about photography.",
-      link: "/photography",
+      link: "photography",
+      img: "/course-images/photography.jpg",
+    },
+    {
+      name: "Coding",
+      description: "Explore the world of coding.",
+      link: "/coding",
+      img: "/course-images/coding.jpg",
+    },
+    {
+      name: "Design",
+      description: "Master the art of design.",
+      link: "/design",
+      img: "/course-images/design.jpg",
+    },
+    {
+      name: "Photography",
+      description: "Learn about photography.",
+      link: "photography",
+      img: "/course-images/photography.jpg",
+    },
+    {
+      name: "Coding",
+      description: "Explore the world of coding.",
+      link: "/coding",
+      img: "/course-images/coding.jpg",
+    },
+    {
+      name: "Design",
+      description: "Master the art of design.",
+      link: "/design",
+      img: "/course-images/design.jpg",
+    },
+    {
+      name: "Photography",
+      description: "Learn about photography.",
+      link: "photography",
+      img: "/course-images/photography.jpg",
+    },
+    {
+      name: "Coding",
+      description: "Explore the world of coding.",
+      link: "/coding",
+      img: "/course-images/coding.jpg",
+    },
+    {
+      name: "Design",
+      description: "Master the art of design.",
+      link: "/design",
+      img: "/course-images/design.jpg",
+    },
+    {
+      name: "Photography",
+      description: "Learn about photography.",
+      link: "photography",
+      img: "/course-images/photography.jpg",
+    },
+    {
+      name: "Coding",
+      description: "Explore the world of coding.",
+      link: "/coding",
+      img: "/course-images/coding.jpg",
+    },
+    {
+      name: "Design",
+      description: "Master the art of design.",
+      link: "/design",
+      img: "/course-images/design.jpg",
+    },
+    {
+      name: "Photography",
+      description: "Learn about photography.",
+      link: "photography",
       img: "/course-images/photography.jpg",
     },
     {
@@ -72,6 +144,22 @@ const course: CourseData = {
     },
   ],
   photography2: [
+    {
+      name: "Photography2",
+      description: "Learn about photography.",
+      link: "/photography1",
+      img: "/course-images/photography.jpg",
+    },
+  ],
+  photography3: [
+    {
+      name: "Photography2",
+      description: "Learn about photography.",
+      link: "/photography1",
+      img: "/course-images/photography.jpg",
+    },
+  ],
+  photography4: [
     {
       name: "Photography2",
       description: "Learn about photography.",
