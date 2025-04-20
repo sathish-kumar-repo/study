@@ -3,8 +3,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
 import { toTitleCase } from "../../utils/custom_string";
-import course from "../../data/course";
+import course from "../../data/course_data";
 import { Link, NavLink } from "react-router-dom";
+import { logo } from "../../utils/message";
 
 export const Header = () => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
@@ -93,7 +94,7 @@ export const Header = () => {
     <>
       <header className={`header ${isHomePage ? "home" : "gallery"}`}>
         <NavLink to="/" className="logo">
-          Pixora
+          {logo}
         </NavLink>
 
         <ul ref={navRef} className="nav-links">

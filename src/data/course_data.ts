@@ -1,5 +1,5 @@
 // Define the structure of a single course
-type Course = {
+export type Course = {
   name: string;
   description: string;
   link: string;
@@ -7,7 +7,7 @@ type Course = {
 };
 
 // Define the structure of the course categories
-type CourseData = {
+export type CourseData = {
   [category: string]: Course[];
 };
 
@@ -17,38 +17,38 @@ const course: CourseData = {
     {
       name: "Photography",
       description: "Learn about photography.",
-      link: "/photography",
-      img: "/images/photography.jpg",
+      link: "photography",
+      img: "/course-images/photography.jpg",
     },
     {
       name: "Coding",
       description: "Explore the world of coding.",
       link: "/coding",
-      img: "/images/coding.jpg",
+      img: "/course-images/coding.jpg",
     },
     {
       name: "Design",
       description: "Master the art of design.",
       link: "/design",
-      img: "/images/design.jpg",
+      img: "/course-images/design.jpg",
     },
     {
       name: "Photography",
       description: "Learn about photography.",
       link: "/photography",
-      img: "/images/photography.jpg",
+      img: "/course-images/photography.jpg",
     },
     {
       name: "Coding",
       description: "Explore the world of coding.",
       link: "/coding",
-      img: "/images/coding.jpg",
+      img: "/course-images/coding.jpg",
     },
     {
       name: "Design",
       description: "Master the art of design.",
       link: "/design",
-      img: "/images/design.jpg",
+      img: "/course-images/design.jpg",
     },
   ],
   photography1: [
@@ -56,19 +56,19 @@ const course: CourseData = {
       name: "Photography1",
       description: "Learn about photography.",
       link: "/photography1",
-      img: "/images/photography1.jpg",
+      img: "/course-images/photography.jpg",
     },
     {
       name: "Coding1",
       description: "Explore the world of coding.",
       link: "/coding1",
-      img: "/images/coding1.jpg",
+      img: "/course-images/coding.jpg",
     },
     {
       name: "Design1",
       description: "Master the art of design.",
       link: "/design1",
-      img: "/images/design1.jpg",
+      img: "/course-images/design.jpg",
     },
   ],
   photography2: [
@@ -76,7 +76,7 @@ const course: CourseData = {
       name: "Photography2",
       description: "Learn about photography.",
       link: "/photography1",
-      img: "/images/photography1.jpg",
+      img: "/course-images/photography.jpg",
     },
   ],
 };

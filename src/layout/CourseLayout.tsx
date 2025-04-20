@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../Components/Header/Header";
+import { Header } from "../components/Header/Header";
 
 // Master Layout
-const RootLayout = () => {
+const CourseLayout = () => {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default CourseLayout;

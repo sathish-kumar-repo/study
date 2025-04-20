@@ -1,13 +1,14 @@
 import "./Course.css";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { Header } from "../../Components/Header/Header";
-import { Footer } from "../../Components/Footer/Footer";
-import ImageZoom from "../../Components/ImageZoom";
-import RotateButtons from "../../Components/RotateButton";
+import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
+import ImageZoom from "../../components/ImageZoom";
+import RotateButtons from "../../components/RotateButton";
 import { NavLink, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
-import course from "../../data/course";
+import course from "../../data/course_data";
+import { formatName, toTitleCase } from "../../utils/custom_string";
 
 const Course = () => {
   const [model, setModel] = useState(false);
@@ -21,6 +22,8 @@ const Course = () => {
 
   const openModal = () => {
     setModel(true);
+    setMediaSrc("");
+    setMediaType(null);
   };
 
   const closeModal = () => {
@@ -89,7 +92,7 @@ const Course = () => {
     <div className="course-section">
       <Header />
       <div className="course-wrapper">
-        <h1 className="course-heading">{category} </h1>
+        <h1 className="course-heading">{toTitleCase(formatName(category))} </h1>
         {/* Modal Viewer */}
         <div className={model ? "model open" : "model"}>
           <div className="model-glass">
@@ -121,14 +124,14 @@ const Course = () => {
             />
           </div>
         </div>
-        {/* Media Grid */}
+
         <div key={category} className="course-list">
           {categoryCourses.map((item) => (
             <div key={item.name} className="course-card">
               <img src={item.img} alt={item.name} className="course-img" />
               <h2>{item.name}</h2>
               <p>{item.description}</p>
-              <NavLink to={`/${category}/${item.name}`} className="course-link">
+              <NavLink to={`/${category}/${item.link}`} className="course-link">
                 Learn More
               </NavLink>
             </div>

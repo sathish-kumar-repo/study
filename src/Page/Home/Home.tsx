@@ -1,9 +1,8 @@
 import "./Home.css";
-import { useState } from "react";
 import { description, footerMessage, heading } from "../../utils/message";
 import { SocialMedia } from "./Components/SocialMedia";
-import { Character } from "./Components/Character";
-import { Header } from "../../Components/Header/Header";
+import LottieAnimation from "./Components/LottieAnimation";
+import { Header } from "../../components/Header/Header";
 
 export const Home = () => {
   return (
@@ -23,7 +22,7 @@ export const Home = () => {
             My Memories..
           </a>
         </div>
-        <Character />
+        <LottieAnimation />
         <SocialMedia />
         <p className="copyrightText">{footerMessage}</p>
       </div>
