@@ -3,19 +3,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
 import { toTitleCase } from "../../utils/custom_string";
+import course from "../../data/course";
+import { Link, NavLink } from "react-router-dom";
 
-export type HeaderProps = {
-  activeFolder: string;
-  list: string[];
-  onItemClick: (selectedFolder: string) => void;
-};
-
-export const Header = ({ list, onItemClick, activeFolder }: HeaderProps) => {
+export const Header = () => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const navRef = useRef<HTMLUListElement>(null);
   const [visibleFolders, setVisibleFolders] = useState<string[]>([]);
   const [overflowFolders, setOverflowFolders] = useState<string[]>([]);
   const offCanvasRef = useRef<HTMLDivElement>(null);
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const calculateFolders = () => {
@@ -30,7 +27,7 @@ export const Header = ({ list, onItemClick, activeFolder }: HeaderProps) => {
       const visible: string[] = [];
       const overflow: string[] = [];
 
-      for (let folder of list) {
+      Object.keys(course).map((courseName) => {
         const temp = document.createElement("span");
         temp.style.visibility = "hidden";
         temp.style.position = "absolute";
@@ -38,19 +35,19 @@ export const Header = ({ list, onItemClick, activeFolder }: HeaderProps) => {
         temp.style.fontSize = "1rem";
         temp.style.fontWeight = "500";
         temp.style.padding = "8px 15px";
-        temp.innerText = folder;
+        temp.innerText = courseName;
         document.body.appendChild(temp);
 
         const folderWidth = temp.offsetWidth + 300; // padding and margin
         document.body.removeChild(temp);
 
         if (usedWidth + folderWidth + toggleBuffer <= containerWidth) {
-          visible.push(folder);
+          visible.push(courseName);
           usedWidth += folderWidth;
         } else {
-          overflow.push(folder);
+          overflow.push(courseName);
         }
-      }
+      });
 
       setVisibleFolders(visible);
       setOverflowFolders(overflow);
@@ -59,7 +56,7 @@ export const Header = ({ list, onItemClick, activeFolder }: HeaderProps) => {
     calculateFolders();
     window.addEventListener("resize", calculateFolders);
     return () => window.removeEventListener("resize", calculateFolders);
-  }, [list]);
+  }, [course]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -94,30 +91,23 @@ export const Header = ({ list, onItemClick, activeFolder }: HeaderProps) => {
 
   return (
     <>
-      <header className={`header ${activeFolder !== "Home" ? "gallery" : ""}`}>
-        <a href="#" className="logo">
+      <header className={`header ${isHomePage ? "home" : "gallery"}`}>
+        <NavLink to="/" className="logo">
           Pixora
-        </a>
+        </NavLink>
 
         <ul ref={navRef} className="nav-links">
           <li key="Home">
-            <a
-              href="#"
-              className={"Home" === activeFolder ? "active" : ""}
-              onClick={() => onItemClick("Home")}
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Home
-            </a>
+            </NavLink>
           </li>
           {visibleFolders.map((folder) => (
             <li key={folder}>
-              <a
-                href="#"
-                className={folder === activeFolder ? "active" : ""}
-                onClick={() => onItemClick(folder)}
-              >
-                {toTitleCase(folder)}
-              </a>
+              <NavLink to={`/${folder}`}>{toTitleCase(folder)}</NavLink>
             </li>
           ))}
           {overflowFolders.length > 0 && (
@@ -138,16 +128,14 @@ export const Header = ({ list, onItemClick, activeFolder }: HeaderProps) => {
           <ul className="off-canvas-list">
             {overflowFolders.map((folder) => (
               <li key={folder}>
-                <a
-                  href="#"
-                  className={folder === activeFolder ? "active" : ""}
+                <NavLink
+                  to={`/${folder}`}
                   onClick={() => {
-                    onItemClick(folder);
                     setShowOffCanvas(false);
                   }}
                 >
                   {toTitleCase(folder)}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

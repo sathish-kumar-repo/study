@@ -1,7 +1,10 @@
+import Lottie from "lottie-react";
+import data from "./lottie.json";
+
 export const Character = () => {
   return (
     <div className="imgBx">
-      <img src="/character.png" alt="" />
+      <Lottie animationData={data} loop={true} />
     </div>
   );
 };

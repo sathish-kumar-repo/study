@@ -1,0 +1,218 @@
+/* Make the full section use flex column layout */
+.course-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url("/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Allow the gallery wrapper to grow/shrink */
+.course-wrapper {
+  padding: 0 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+}
+
+/* .course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+} */
+.course-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.course-card {
+  width: 350px;
+  height: 250px;
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.course-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.course-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.course-card p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.course-link {
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.course-link:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.external-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.external-link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+/* .course-card {
+  width: 300px;
+  height: 300px;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+.course-card .course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Model */
+.model {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("/bg2.jpg");
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: opacity 0.4s ease, visibility 0.4s ease,
+    transform 0.5s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  overflow: hidden;
+  z-index: 1000;
+}
+.model-glass {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+}
+.model.open {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+.model .img,
+.model video {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.video-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.model.open svg {
+  padding: 5px;
+  fill: var(--accent-color);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.model.open svg:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.model.open .close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Subfolder Heading (Date or Custom Name) */
+.course-heading {
+  margin: 1rem;
+  padding: 0.75rem 1.25rem;
+  display: inline-block;
+  border-radius: 12px;
+  color: var(--accent-dark); /* your brand text color */
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

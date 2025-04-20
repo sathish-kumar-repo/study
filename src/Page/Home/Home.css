@@ -1,4 +1,4 @@
-section {
+.home-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,7 @@ section {
 
 .container {
   position: relative;
+  max-width: 1200px;
   width: calc(100% - 100px);
   min-height: calc(100vh - 200px);
   min-height: 300px;
@@ -26,7 +27,7 @@ section {
 
 .content {
   transform: translateX(-100px);
-  max-width: 700px;
+  max-width: 600px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -36,6 +37,7 @@ section {
   padding: 40px;
   padding-left: 110px;
 }
+
 @media (max-width: 1380px) {
   .content {
     margin: 30px 0;
@@ -73,19 +75,8 @@ section {
   box-shadow: 0 5px 10px ☐ rgba(0, 0, 0, 0.1);
 }
 
-.imgBx img {
-  max-width: 400px;
-  animation: animate 5s linear infinite;
-}
-
-@keyframes animate {
-  0%,
-  100% {
-    transform: translateY(50px);
-  }
-  50% {
-    transform: translateY(100px);
-  }
+.imgBx {
+  width: 700px;
 }
 
 .sci {
@@ -144,7 +135,7 @@ section {
     height: auto;
     padding: 20px;
   }
-  .container .content {
+  .content {
     transform: translateX(0px);
     max-width: 100%;
     padding: 30px;
@@ -154,15 +145,7 @@ section {
   .imgBx {
     margin-bottom: 50px;
   }
-  @keyframes animate {
-    0%,
-    100% {
-      transform: translateY(-20px);
-    }
-    50% {
-      transform: translateY(20px);
-    }
-  }
+
   .content a {
     font-size: 1em;
     padding: 10px 20px;
@@ -200,7 +183,7 @@ section {
   }
 }
 @media (max-width: 450px) {
-  .imgBx img {
+  .imgBx {
     max-width: 250px;
   }
 }
