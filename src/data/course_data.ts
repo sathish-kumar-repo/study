@@ -17,13 +17,13 @@ const course: CourseData = {
     {
       name: "Photography",
       description: "Learn about photography.",
-      link: "photography",
+      link: "intro",
       img: "/course-images/photography.jpg",
     },
     {
       name: "Coding",
       description: "Explore the world of coding.",
-      link: "/coding",
+      link: "coding",
       img: "/course-images/coding.jpg",
     },
     {

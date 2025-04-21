@@ -132,7 +132,7 @@ const Course = () => {
               <h2>{item.name}</h2>
               <p>{item.description}</p>
               {/* /${category}/${item.link}` */}
-              <NavLink to={`${item.link}`} className="course-link">
+              <NavLink to={`/${category}/${item.link}`} className="course-link">
                 Learn More
               </NavLink>
             </div>

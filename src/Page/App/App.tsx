@@ -8,6 +8,8 @@ import { Home } from "../Home/Home";
 import Course from "../Course/Course";
 import NotFound from "../NotFound/NotFound";
 import Photography from "../../screen/Phtography/code/Intro";
+import Intro from "../../screen/Phtography/code/Intro";
+import HowToInstall from "../../screen/Phtography/code/HowToInstall";
 
 function App() {
   const router = createBrowserRouter(
@@ -18,7 +20,10 @@ function App() {
         {/* Course Page */}
         <Route path=":category/">
           <Route index element={<Course />} />
-          <Route path=":course_name" element={<Photography />} />
+          <Route path="intro" element={<Intro />} />
+          <Route path="how_to_install" element={<HowToInstall />} />
+
+          <Route path="coding" element={<Intro />} />
         </Route>
 
         {/* 404 Not Found Page */}

@@ -6,14 +6,15 @@ import Section from "../../components/Section";
 import "./Tutorial.css";
 import { toSnakeCase } from "../../utils/custom_string";
 import { ReactNode } from "react";
+import { content } from "../../screen/Phtography/content/photography_content";
 
 interface TutorialProps {
-  listOfTopics: string[];
+  listOfTopics: content[];
   children?: ReactNode;
 }
 
 const Tutorial = ({ listOfTopics, children }: TutorialProps) => {
-  const { course_name } = useParams();
+  const { course_name, category } = useParams();
 
   return (
     <Section className="section">
@@ -23,11 +24,16 @@ const Tutorial = ({ listOfTopics, children }: TutorialProps) => {
         <div className="content-topic">
           <h1>Photography</h1>
           <ul>
-            {listOfTopics.map((topic, index) => (
+            {listOfTopics.map((content, index) => (
               <li key={index}>
-                <NavLink to={`/${course_name}/${toSnakeCase(topic)}`}>
-                  {topic}
+                <NavLink to={`/${category}/${toSnakeCase(content["topic"])}`}>
+                  {content["topic"]}
                 </NavLink>
+                {/* <NavLink
+                  to={`/${category}/${course_name}/${toSnakeCase(topic)}`}
+                >
+                  {topic}
+                </NavLink> */}
               </li>
             ))}
           </ul>
