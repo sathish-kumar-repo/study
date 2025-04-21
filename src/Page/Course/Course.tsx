@@ -79,7 +79,7 @@ const Course = () => {
     };
   }, [model]);
 
-  const { category } = useParams();
+  const { category, course_name } = useParams();
   const isValidFolder = category && course[category];
 
   if (!isValidFolder) {
@@ -136,7 +136,10 @@ const Course = () => {
               <h2>{item.name}</h2>
               <p>{item.description}</p>
               {/* /${category}/${item.link}` */}
-              <NavLink to={`/${category}/${item.link}`} className="course-link">
+              <NavLink
+                to={`/${category}/${item.name}/${item.link}`}
+                className="course-link"
+              >
                 Learn More
               </NavLink>
             </div>

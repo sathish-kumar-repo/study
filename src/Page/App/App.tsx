@@ -17,20 +17,32 @@ function App() {
       <Route path="/">
         {/* Home Page */}
         <Route index element={<Home />} />
-        {/* Course Page */}
 
+        {/* Course Page */}
         <Route path=":category/">
           <Route index element={<Course />} />
+
+          {/* <Route index element={<Course />} /> */}
           {contentData.map((contents, index) => {
+            console.log("1222", contents);
+
             return (
-              <Route key={index} element={<Tutorial listOfTopics={contents} />}>
-                {contents.map((eachContent, index) => (
-                  <Route
-                    key={index}
-                    path={toSnakeCase(eachContent.topic)}
-                    element={eachContent.page}
-                  />
-                ))}
+              <Route
+                key={index}
+                path=":course_name/"
+                element={<Tutorial key={index} listOfTopics={contents} />}
+              >
+                {contents.map(function (eachContent, topicIndex) {
+                  console.log(eachContent);
+
+                  return (
+                    <Route
+                      key={topicIndex}
+                      path={toSnakeCase(eachContent.topic)}
+                      element={eachContent.page}
+                    />
+                  );
+                })}
               </Route>
             );
           })}

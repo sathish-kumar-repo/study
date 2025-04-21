@@ -12,7 +12,9 @@ interface TutorialProps {
 }
 
 const Tutorial = ({ listOfTopics }: TutorialProps) => {
-  const { category } = useParams();
+  const { course_name, category } = useParams();
+  console.log(course_name, category);
+  console.log(listOfTopics);
 
   return (
     <Section className="section">
@@ -20,20 +22,27 @@ const Tutorial = ({ listOfTopics }: TutorialProps) => {
 
       <Container className="content-wrapper">
         <div className="content-topic">
-          <h1>Photography</h1>
+          <h1>gjgh</h1>
           <ul>
-            {listOfTopics.map((content, index) => (
-              <li key={index}>
-                <NavLink to={`/${category}/${toSnakeCase(content["topic"])}`}>
-                  {content["topic"]}
-                </NavLink>
-                {/* <NavLink
-                  to={`/${category}/${course_name}/${toSnakeCase(topic)}`}
-                >
-                  {topic}
-                </NavLink> */}
-              </li>
-            ))}
+            {listOfTopics.map(function (content, index) {
+              return (
+                <li key={index}>
+                  <NavLink
+                    key={index}
+                    to={`/${category}/${course_name}/${toSnakeCase(
+                      content["topic"]
+                    )}`}
+                  >
+                    {content["topic"]}
+                  </NavLink>
+                  {/* <NavLink
+              to={`/${category}/${course_name}/${toSnakeCase(topic)}`}
+            >
+              {topic}
+            </NavLink> */}
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="content-main">
