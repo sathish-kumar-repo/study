@@ -1,4 +1,3 @@
-import { CourseDataType } from "../model/course_model";
 import flutterContent from "../screen/Flutter/content/flutter_content";
 import photographyContent from "../screen/Phtography/content/photography_content";
 
