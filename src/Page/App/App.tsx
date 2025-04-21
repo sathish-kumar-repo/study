@@ -7,7 +7,7 @@ import {
 import { Home } from "../Home/Home";
 import Course from "../Course/Course";
 import NotFound from "../NotFound/NotFound";
-import Photography from "../../screen/Phtography/code/Photography";
+import Photography from "../../screen/Phtography/code/Intro";
 
 function App() {
   const router = createBrowserRouter(
