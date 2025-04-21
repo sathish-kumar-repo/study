@@ -10,6 +10,7 @@ const Photography = () => {
       <Header />
       <Container className="content-wrapper">
         <div className="content-topic">
+          <h1>Photography</h1>
           <ul>
             <li>sample-1</li>
             <li>sample-2</li>
