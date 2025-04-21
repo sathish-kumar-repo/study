@@ -8,10 +8,12 @@ import { Home } from "../Home/Home";
 import Course from "../Course/Course";
 import NotFound from "../NotFound/NotFound";
 import Tutorial from "../Tutorial/Tutorial";
-import { contentData } from "../../data/content_data";
-import { toSnakeCase } from "../../utils/custom_string";
+
+import getContentData from "../../utils/get_content_data";
 
 function App() {
+  console.log(getContentData());
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
@@ -22,20 +24,19 @@ function App() {
         <Route path=":category/">
           <Route index element={<Course />} />
 
-          {contentData.map((contents, index) => {
+          {getContentData().map((contents, index) => {
             return (
               <Route
                 key={index}
-                path=":course_name/"
-                element={<Tutorial key={index} listOfTopics={contents} />}
+                path={`${contents.about.name}/`}
+                element={<Tutorial key={index} contentData={contents} />}
               >
-                {contents.map(function (eachContent, topicIndex) {
-                  console.log(eachContent);
-
+                {contents.route.map(function (eachContent, topicIndex) {
                   return (
                     <Route
+                      index={topicIndex == 0}
                       key={topicIndex}
-                      path={toSnakeCase(eachContent.topic)}
+                      path={topicIndex == 0 ? "" : eachContent.topic}
                       element={eachContent.page}
                     />
                   );

@@ -7,10 +7,10 @@ import ImageZoom from "../../components/ImageZoom";
 import RotateButtons from "../../components/RotateButton";
 import { NavLink, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
-import course from "../../data/course_data";
-import { formatName, toTitleCase } from "../../utils/custom_string";
+import { toTitleCase } from "../../utils/custom_string";
 import Section from "../../components/Section";
 import Container from "../../components/Container";
+import getCourseData from "../../utils/get_course_data";
 
 const Course = () => {
   const [model, setModel] = useState(false);
@@ -79,20 +79,21 @@ const Course = () => {
     };
   }, [model]);
 
-  const { category, course_name } = useParams();
-  const isValidFolder = category && course[category];
+  const { category } = useParams();
+  const isValidFolder = category && getCourseData()[category];
 
   if (!isValidFolder) {
     return <NotFound />;
   }
 
-  const categoryCourses = course[category as keyof typeof course];
+  const categoryCourses = getCourseData()[category];
+  // const categoryCourses = getCourseData()[category as keyof typeof course];
 
   return (
     <Section className="course-section">
       <Header />
       <Container className="course-wrapper">
-        <h1 className="course-heading">{toTitleCase(formatName(category))} </h1>
+        <h1 className="course-heading">{toTitleCase(category)} </h1>
 
         <div className={model ? "model open" : "model"}>
           <div className="model-glass">

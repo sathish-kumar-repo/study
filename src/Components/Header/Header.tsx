@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
 import { toTitleCase } from "../../utils/custom_string";
-import course from "../../data/course_data";
+import course from "../../data/main_data";
 import { NavLink } from "react-router-dom";
 import { logo } from "../../utils/message";
 

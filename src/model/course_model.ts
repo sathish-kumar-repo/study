@@ -1,5 +1,5 @@
 // Define the structure of a single course
-export type Course = {
+export type CourseType = {
   name: string;
   description: string;
   link: string;
@@ -7,6 +7,6 @@ export type Course = {
 };
 
 // Define the structure of the course categories
-export type CourseData = {
-  [category: string]: Course[];
+export type CourseDataType = {
+  [category: string]: CourseType[];
 };

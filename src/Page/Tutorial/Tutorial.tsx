@@ -4,17 +4,14 @@ import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import "./Tutorial.css";
-import { toSnakeCase } from "../../utils/custom_string";
-import { content } from "../../model/content_model";
+import { ContentDataType } from "../../model/content_model";
 
 interface TutorialProps {
-  listOfTopics: content[];
+  contentData: ContentDataType;
 }
 
-const Tutorial = ({ listOfTopics }: TutorialProps) => {
-  const { course_name, category } = useParams();
-  console.log(course_name, category);
-  console.log(listOfTopics);
+const Tutorial = ({ contentData }: TutorialProps) => {
+  const { category } = useParams();
 
   return (
     <Section className="section">
@@ -22,18 +19,18 @@ const Tutorial = ({ listOfTopics }: TutorialProps) => {
 
       <Container className="content-wrapper">
         <div className="content-topic">
-          <h1>gjgh</h1>
+          <h1>{contentData.about.name}</h1>
           <ul>
-            {listOfTopics.map(function (content, index) {
+            {contentData.route.map(function (content, index) {
               return (
                 <li key={index}>
                   <NavLink
                     key={index}
-                    to={`/${category}/${course_name}/${toSnakeCase(
-                      content["topic"]
-                    )}`}
+                    to={`/${category}/${contentData.about.name}/${
+                      index == 0 ? "" : content.topic
+                    }`}
                   >
-                    {content["topic"]}
+                    {content.topic}
                   </NavLink>
                   {/* <NavLink
               to={`/${category}/${course_name}/${toSnakeCase(topic)}`}
