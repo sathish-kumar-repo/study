@@ -2,13 +2,12 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 
 // Master Layout
-const CourseLayout = () => {
+const TutorialLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
     </>
   );
 };
 
-export default CourseLayout;
+export default TutorialLayout;

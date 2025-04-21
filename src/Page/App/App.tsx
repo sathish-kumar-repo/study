@@ -10,6 +10,9 @@ import NotFound from "../NotFound/NotFound";
 import Photography from "../../screen/Phtography/code/Intro";
 import Intro from "../../screen/Phtography/code/Intro";
 import HowToInstall from "../../screen/Phtography/code/HowToInstall";
+import Tutorial from "../Tutorial/Tutorial";
+import photographyContent from "../../screen/Phtography/content/photography_content";
+import { contentData } from "../../data/content_data";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,11 +22,10 @@ function App() {
         <Route index element={<Home />} />
         {/* Course Page */}
         <Route path=":category/">
-          <Route index element={<Course />} />
-          <Route path="intro" element={<Intro />} />
-          <Route path="how_to_install" element={<HowToInstall />} />
-
-          <Route path="coding" element={<Intro />} />
+          <Route element={<Tutorial listOfTopics={photographyContent} />}>
+            <Route path="intro" element={<Intro />} />
+            <Route path="how_to_install" element={<HowToInstall />} />
+          </Route>
         </Route>
 
         {/* 404 Not Found Page */}

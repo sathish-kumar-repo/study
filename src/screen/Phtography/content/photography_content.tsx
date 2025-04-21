@@ -1,16 +1,21 @@
 import { JSX } from "react";
 import Intro from "../code/Intro";
+import HowToInstall from "../code/HowToInstall";
 
 export type content = {
   topic: string;
   page: JSX.Element;
 };
 
-const flutterContent = [
+const photographyContent = [
   {
-    topic: "photography",
+    topic: "intro",
     page: <Intro />,
+  },
+  {
+    topic: "how to install",
+    page: <HowToInstall />,
   },
 ];
 
-export default flutterContent;
+export default photographyContent;

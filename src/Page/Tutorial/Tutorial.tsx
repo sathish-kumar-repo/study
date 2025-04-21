@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import Container from "../../components/Container";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
@@ -38,7 +38,9 @@ const Tutorial = ({ listOfTopics, children }: TutorialProps) => {
             ))}
           </ul>
         </div>
-        <div className="content-main">{children}</div>
+        <div className="content-main">
+          <Outlet />
+        </div>
       </Container>
       <Footer />
     </Section>
