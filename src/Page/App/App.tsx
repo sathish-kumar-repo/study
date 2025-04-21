@@ -22,10 +22,7 @@ function App() {
         <Route path=":category/">
           <Route index element={<Course />} />
 
-          {/* <Route index element={<Course />} /> */}
           {contentData.map((contents, index) => {
-            console.log("1222", contents);
-
             return (
               <Route
                 key={index}

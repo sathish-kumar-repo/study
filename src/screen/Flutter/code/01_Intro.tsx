@@ -1,5 +1,5 @@
-const Intro = () => {
+const IntroFlutter = () => {
   return <h1>Intro in flutter</h1>;
 };
 
-export default Intro;
+export default IntroFlutter;
