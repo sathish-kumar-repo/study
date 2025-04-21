@@ -128,7 +128,11 @@ const Course = () => {
         <div key={category} className="course-list">
           {categoryCourses.map((item, index) => (
             <div key={index} className="course-card">
-              <img src={item.img} alt={item.name} className="course-img" />
+              <img
+                src={`/course-images/${item.img}`}
+                alt={item.name}
+                className="course-img"
+              />
               <h2>{item.name}</h2>
               <p>{item.description}</p>
               {/* /${category}/${item.link}` */}

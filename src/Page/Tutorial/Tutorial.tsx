@@ -5,16 +5,14 @@ import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import "./Tutorial.css";
 import { toSnakeCase } from "../../utils/custom_string";
-import { ReactNode } from "react";
-import { content } from "../../screen/Phtography/content/photography_content";
+import { content } from "../../model/content_model";
 
 interface TutorialProps {
   listOfTopics: content[];
-  children?: ReactNode;
 }
 
-const Tutorial = ({ listOfTopics, children }: TutorialProps) => {
-  const { course_name, category } = useParams();
+const Tutorial = ({ listOfTopics }: TutorialProps) => {
+  const { category } = useParams();
 
   return (
     <Section className="section">

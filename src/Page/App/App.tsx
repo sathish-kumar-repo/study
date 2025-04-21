@@ -7,12 +7,9 @@ import {
 import { Home } from "../Home/Home";
 import Course from "../Course/Course";
 import NotFound from "../NotFound/NotFound";
-import Photography from "../../screen/Phtography/code/Intro";
-import Intro from "../../screen/Phtography/code/Intro";
-import HowToInstall from "../../screen/Phtography/code/HowToInstall";
 import Tutorial from "../Tutorial/Tutorial";
-import photographyContent from "../../screen/Phtography/content/photography_content";
 import { contentData } from "../../data/content_data";
+import { toSnakeCase } from "../../utils/custom_string";
 
 function App() {
   const router = createBrowserRouter(
@@ -21,11 +18,22 @@ function App() {
         {/* Home Page */}
         <Route index element={<Home />} />
         {/* Course Page */}
+
         <Route path=":category/">
-          <Route element={<Tutorial listOfTopics={photographyContent} />}>
-            <Route path="intro" element={<Intro />} />
-            <Route path="how_to_install" element={<HowToInstall />} />
-          </Route>
+          <Route index element={<Course />} />
+          {contentData.map((contents, index) => {
+            return (
+              <Route key={index} element={<Tutorial listOfTopics={contents} />}>
+                {contents.map((eachContent, index) => (
+                  <Route
+                    key={index}
+                    path={toSnakeCase(eachContent.topic)}
+                    element={eachContent.page}
+                  />
+                ))}
+              </Route>
+            );
+          })}
         </Route>
 
         {/* 404 Not Found Page */}
