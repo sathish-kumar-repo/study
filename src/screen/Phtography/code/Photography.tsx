@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../../../components/Container";
 import { Footer } from "../../../components/Footer/Footer";
 import { Header } from "../../../components/Header/Header";
@@ -12,66 +13,12 @@ const Photography = () => {
         <div className="content-topic">
           <h1>Photography</h1>
           <ul>
-            <li>sample-1</li>
-            <li>sample-2</li>
-            <li>sample-3</li>
-            <li>sample-4</li>
-            <li>sample-5</li>
-            <li>sample-6</li>
-            <li>sample-7</li>
-            <li>sample-8</li>
-            <li>sample-9</li>
-            <li>sample-10</li>
-            <li>sample-11</li>
-            <li>sample-12</li>
-            <li>sample-13</li>
-            <li>sample-14</li>
-            <li>sample-15</li>
-            <li>sample-16</li>
-            <li>sample-17</li>
-            <li>sample-18</li>
-            <li>sample-19</li>
-            <li>sample-20</li>
-            <li>sample-21</li>
-            <li>sample-22</li>
-            <li>sample-23</li>
-            <li>sample-24</li>
-            <li>sample-25</li>
-            <li>sample-26</li>
-            <li>sample-27</li>
-            <li>sample-28</li>
-            <li>sample-29</li>
-            <li>sample-30</li>
-            <li>sample-31</li>
-            <li>sample-32</li>
-            <li>sample-33</li>
-            <li>sample-34</li>
-            <li>sample-35</li>
-            <li>sample-36</li>
-            <li>sample-37</li>
-            <li>sample-38</li>
-            <li>sample-39</li>
-            <li>sample-40</li>
-            <li>sample-41</li>
-            <li>sample-42</li>
-            <li>sample-43</li>
-            <li>sample-44</li>
-            <li>sample-45</li>
-            <li>sample-46</li>
-            <li>sample-47</li>
-            <li>sample-48</li>
-            <li>sample-49</li>
-            <li>sample-50</li>
-            <li>sample-51</li>
-            <li>sample-52</li>
-            <li>sample-53</li>
-            <li>sample-54</li>
-            <li>sample-55</li>
-            <li>sample-56</li>
-            <li>sample-57</li>
-            <li>sample-58</li>
-            <li>sample-59</li>
-            <li>sample-60</li>
+            <li>
+              <Link to="/photography/photography">rgr</Link>
+            </li>
+            <li>
+              <Link to="photography">rgr</Link>
+            </li>
           </ul>
         </div>
         <div className="content-main">
