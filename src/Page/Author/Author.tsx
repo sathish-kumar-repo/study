@@ -1,9 +1,11 @@
 import Section from "../../components/Section";
 import "./Author.css";
+import profile from "../../assets/img/profile.jpg";
+import { Link } from "react-router-dom";
 
 const Author = () => {
   return (
-    <Section className="card-container">
+    <div className="card-container">
       <div className="card">
         <div className="card__top">
           <img
@@ -11,10 +13,7 @@ const Author = () => {
             alt="Sky"
           />
           <div className="profile__photo">
-            <img
-              src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="Profile Photo"
-            />
+            <img src={profile} alt="Profile Photo" />
           </div>
         </div>
 
@@ -39,12 +38,12 @@ const Author = () => {
             </span>
             <a href="#">alison@fantasy.com</a>
           </p>
-          <a href="#" className="button">
+          <Link to={"/"} className="button">
             Read More
-          </a>
+          </Link>
         </div>
       </div>
-    </Section>
+    </div>
   );
 };
 

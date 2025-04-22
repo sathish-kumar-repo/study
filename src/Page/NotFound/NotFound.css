@@ -1,0 +1,4 @@
+.not-found-section {
+  display: flex;
+  flex-direction: column;
+}

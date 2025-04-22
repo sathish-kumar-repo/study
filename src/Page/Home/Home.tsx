@@ -4,6 +4,7 @@ import { SocialMedia } from "./Components/SocialMedia";
 import LottieAnimation from "./Components/LottieAnimation";
 import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -13,15 +14,7 @@ export const Home = () => {
         <div className="content">
           <h2>{heading}</h2>
           <p>{description}</p>
-          <a
-            href="#"
-            // onClick={() => {
-            //   onItemClick(folderKey[0]);
-            //   setAtiveFolder(folderKey[0]);
-            // }}
-          >
-            My Memories..
-          </a>
+          <Link to={"/author"}>My Memories..</Link>
         </div>
         <LottieAnimation />
         <SocialMedia />

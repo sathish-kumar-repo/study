@@ -11,8 +11,9 @@ import NotFound from "../NotFound/NotFound";
 import Tutorial from "../Tutorial/Tutorial";
 import getContentData from "../../utils/get_content_data";
 import Author from "../Author/Author";
-import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
+
 import TermsAndCondition from "../TermsAndCondition/TermsAndCondition";
+import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
 
 function App() {
   const router = createBrowserRouter(
