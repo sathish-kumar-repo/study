@@ -10,7 +10,7 @@
   border-radius: 12px;
   padding: 0.75rem 1.25rem;
   color: var(--accent-dark);
-  margin-bottom: 20px;
+  margin: 20px 0;
   position: relative;
 }
 /* .heading::after {
