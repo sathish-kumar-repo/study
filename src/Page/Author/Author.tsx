@@ -1,4 +1,3 @@
-import Section from "../../components/Section";
 import "./Author.css";
 import profile from "../../assets/img/profile.jpg";
 import { Link } from "react-router-dom";
