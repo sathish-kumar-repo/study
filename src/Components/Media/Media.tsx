@@ -9,7 +9,7 @@ interface MediaProps {
   height?: string | number; // Optional height
 }
 
-const MediaDisplay: React.FC<MediaProps> = ({
+const Media: React.FC<MediaProps> = ({
   src,
   alt = "Media content",
   className = "",
@@ -60,4 +60,4 @@ const MediaDisplay: React.FC<MediaProps> = ({
   );
 };
 
-export default MediaDisplay;
+export default Media;

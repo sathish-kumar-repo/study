@@ -1,5 +1,4 @@
-import MediaDisplay from "../../../components/Media/Media";
-import { H1, H2, List, Para, Title } from "../../../components/UI";
+import { H1, H2, List, Media, Para, Title } from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 
@@ -39,8 +38,8 @@ const IntroFlutter = () => {
       />
 
       <H1>Demo</H1>
-      <MediaDisplay src={flutter} />
-      <MediaDisplay src={demo} />
+      <Media src={flutter} />
+      <Media src={demo} />
 
       <H1>Getting Started</H1>
       <Para>Add this package to your project.</Para>
