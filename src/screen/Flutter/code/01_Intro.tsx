@@ -1,5 +1,4 @@
-import GlassmorphismList from "../../../components/List/List";
-import { H1, H2, Para, Title } from "../../../components/UI";
+import { H1, H2, List, Para, Title } from "../../../components/UI";
 
 const IntroFlutter = () => {
   return (
@@ -12,12 +11,9 @@ const IntroFlutter = () => {
         the usage of your application.
       </Para>
       <H1>Features</H1>
-      <ul>
-        <li>lorem5</li>
-        <li>lorem5</li>
-        <li>lorem5</li>
-      </ul>
-      <GlassmorphismList
+
+      <List
+        type="ordered"
         items={[
           {
             text: "lorem5",
@@ -36,7 +32,7 @@ const IntroFlutter = () => {
           { text: "lorem5", children: [{ text: "lorem5" }] },
           { text: "lorem5" },
         ]}
-      ></GlassmorphismList>
+      />
       <H2>Heading 2</H2>
     </>
   );
