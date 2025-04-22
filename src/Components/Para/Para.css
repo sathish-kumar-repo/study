@@ -1,0 +1,6 @@
+.para {
+  color: var(--accent-light);
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}

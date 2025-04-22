@@ -5,6 +5,7 @@ import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import "./Tutorial.css";
 import { ContentDataType } from "../../model/content_model";
+import { capitalizeFirstLetter } from "../../utils/custom_string";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -27,17 +28,10 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                   <NavLink
                     key={index}
                     end
-                    to={`/${category}/${contentData.about.name}/${
-                      index == 0 ? "" : content.topic
-                    }`}
+                    to={`/${category}/${contentData.about.name}/${content.topic}`}
                   >
-                    {content.topic}
+                    {capitalizeFirstLetter(content.topic)}
                   </NavLink>
-                  {/* <NavLink
-              to={`/${category}/${course_name}/${toSnakeCase(topic)}`}
-            >
-              {topic}
-            </NavLink> */}
                 </li>
               );
             })}

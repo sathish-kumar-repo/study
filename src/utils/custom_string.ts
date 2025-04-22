@@ -4,3 +4,8 @@ export function toTitleCase(str: string) {
     (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
   );
 }
+
+export function capitalizeFirstLetter(input: string): string {
+  if (!input) return input; // Return the input if it's empty or falsy
+  return input[0].toUpperCase() + input.slice(1);
+}

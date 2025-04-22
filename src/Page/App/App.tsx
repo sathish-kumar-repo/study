@@ -24,27 +24,20 @@ function App() {
         <Route path=":category/">
           <Route index element={<Course />} />
 
-          {getContentData().map(function (contents, index) {
+          {getContentData().map((contents, index) => {
             return (
               <Route
                 key={index}
                 path={`${contents.about.name}/`}
-                element={<Tutorial key={index} contentData={contents} />}
+                element={<Tutorial contentData={contents} />}
               >
-                {contents.route.map(function (eachContent, topicIndex) {
+                {contents.route.map((eachContent, topicIndex) => {
                   return topicIndex === 0 ? (
                     <>
                       <Route
                         index
-                        element={eachContent.page}
-                        key={`${contents.about.name}-default`}
+                        element={<Navigate to={eachContent.topic} replace />}
                       />
-                      {/* <Route
-                        path={eachContent.topic}
-                        element={<Navigate to="" replace />}
-                        key={`${contents.about.name}-${eachContent.topic}`}
-                      /> */}
-
                       <Route
                         path={eachContent.topic}
                         element={eachContent.page}
@@ -70,7 +63,7 @@ function App() {
     )
   );
 
-  return <RouterProvider router={router}></RouterProvider>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
