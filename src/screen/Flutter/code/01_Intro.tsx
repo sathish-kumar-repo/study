@@ -1,5 +1,7 @@
 import MediaDisplay from "../../../components/Media/Media";
 import { H1, H2, List, Para, Title } from "../../../components/UI";
+import flutter from "./flutter.png";
+import demo from "./demo.gif";
 
 const IntroFlutter = () => {
   return (
@@ -36,8 +38,12 @@ const IntroFlutter = () => {
         ]}
       />
 
-      <H2>Heading 2</H2>
-      <MediaDisplay src="/course-images/coding.jpg" width={"50%"} />
+      <H1>Demo</H1>
+      <MediaDisplay src={flutter} />
+      <MediaDisplay src={demo} />
+
+      <H1>Getting Started</H1>
+      <Para>Add this package to your project.</Para>
     </>
   );
 };

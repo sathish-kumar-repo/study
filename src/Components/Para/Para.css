@@ -1,6 +1,7 @@
 .para {
   color: var(--accent-light);
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-family-body);
   font-size: 1.1rem;
   margin-bottom: 15px;
+  line-height: 1.5rem;
 }
