@@ -1,28 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Media.css";
 
 interface MediaProps {
-  src: string; // The src can be either a relative path (for public folder) or an imported path.
+  src: string;
   alt?: string;
   className?: string;
+  width?: string | number; // Optional width
+  height?: string | number; // Optional height
 }
 
 const MediaDisplay: React.FC<MediaProps> = ({
   src,
   alt = "Media content",
   className = "",
+  width = "100%",
+  height = "auto",
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Dynamically determine the type based on file extension
   const isVideo = /\.(mp4|webm|ogg)$/i.test(src);
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
-    <div className={`media-container ${className}`}>
-      {isVideo ? (
-        <video src={src} controls className="media-content" />
-      ) : (
-        <img src={src} alt={alt} className="media-content" />
+    <>
+      <div className={`media-container ${className}`} onClick={toggleModal}>
+        {isVideo ? (
+          <video
+            src={src}
+            controls
+            className="media-content"
+            style={{ width, height }}
+          />
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            className="media-content"
+            style={{ width, height }}
+          />
+        )}
+      </div>
+
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={toggleModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            {isVideo ? (
+              <video src={src} controls className="modal-video" />
+            ) : (
+              <img src={src} alt={alt} className="modal-image zoomable" />
+            )}
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -37,7 +37,7 @@ const IntroFlutter = () => {
       />
 
       <H2>Heading 2</H2>
-      <MediaDisplay src="/course-images/coding.jpg" />
+      <MediaDisplay src="/course-images/coding.jpg" width={"50%"} />
     </>
   );
 };
