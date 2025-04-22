@@ -48,14 +48,25 @@
 }
 .content-topic ul li {
   list-style-type: none;
-  margin-top: 10px;
-  /* color: var(--accent-color); */
+  /* margin-top: 10px; */
 }
 
 .content-topic ul li a {
   text-decoration: none;
+  display: block;
+  color: var(--accent-color);
+  font-weight: 500;
+  border-radius: 25px;
+  padding: 8px 15px;
+  transition: background 0.3s, box-shadow 0.3s;
 }
-
+.content-topic ul li a.active {
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+.content-topic ul li a:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
 .content-main {
   flex: 1;
   padding: 2rem 2rem 10rem calc(300px + 2rem);

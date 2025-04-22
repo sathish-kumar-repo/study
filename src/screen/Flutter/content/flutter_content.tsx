@@ -1,5 +1,6 @@
 import IntroFlutter from "../code/01_Intro";
 import { FlutterSdk } from "../code/02_flutterSdk";
+import Widgets from "../code/03_Widgets";
 
 const flutterContent = {
   about: {
@@ -16,6 +17,10 @@ const flutterContent = {
     {
       topic: "flutter sdk",
       page: <FlutterSdk />,
+    },
+    {
+      topic: "widgets",
+      page: <Widgets />,
     },
   ],
 };

@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -19,6 +20,7 @@ function App() {
       <Route path="/">
         {/* Home Page */}
         <Route index element={<Home />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
 
         {/* Course Page */}
         <Route path=":category/">
