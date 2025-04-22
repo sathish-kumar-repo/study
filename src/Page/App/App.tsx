@@ -9,8 +9,10 @@ import { Home } from "../Home/Home";
 import Course from "../Course/Course";
 import NotFound from "../NotFound/NotFound";
 import Tutorial from "../Tutorial/Tutorial";
-
 import getContentData from "../../utils/get_content_data";
+import Author from "../Author/Author";
+import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
+import TermsAndCondition from "../TermsAndCondition/TermsAndCondition";
 
 function App() {
   const router = createBrowserRouter(
@@ -56,6 +58,15 @@ function App() {
             );
           })}
         </Route>
+
+        {/* Author Page */}
+        <Route path="/author" element={<Author />} />
+
+        {/* Privacy Policy Page*/}
+        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+
+        {/* Terms and Condition Page */}
+        <Route path="/terms_and_condition" element={<TermsAndCondition />} />
 
         {/* 404 Not Found Page */}
         <Route path="*" element={<NotFound />} />
