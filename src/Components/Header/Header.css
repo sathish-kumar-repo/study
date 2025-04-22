@@ -57,17 +57,6 @@ header .nav-links li a {
   transition: background 0.3s, box-shadow 0.3s;
 }
 
-/* Active link */
-header .nav-links li a.active {
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Hover effect */
-header .nav-links li a:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
 /* Menu Toggle Icon */
 header .nav-links .menu-toggle {
   cursor: pointer;
@@ -155,13 +144,15 @@ header .nav-links .menu-toggle:hover,
   transition: background 0.3s;
 }
 
-/* Active link in off-canvas */
+/* Active link */
+header .nav-links li a.active,
 .off-canvas-list li a.active {
-  background: rgba(255, 255, 255, 0.6);
+  background: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Hover effect in off-canvas */
+/* Hover effect */
+header .nav-links li a:hover,
 .off-canvas-list li a:hover {
   background: rgba(255, 255, 255, 0.5);
 }

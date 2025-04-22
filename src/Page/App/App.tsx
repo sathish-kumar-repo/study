@@ -13,8 +13,6 @@ import Tutorial from "../Tutorial/Tutorial";
 import getContentData from "../../utils/get_content_data";
 
 function App() {
-  console.log(getContentData());
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
@@ -26,7 +24,7 @@ function App() {
         <Route path=":category/">
           <Route index element={<Course />} />
 
-          {getContentData().map((contents, index) => {
+          {getContentData().map(function (contents, index) {
             return (
               <Route
                 key={index}
@@ -34,11 +32,29 @@ function App() {
                 element={<Tutorial key={index} contentData={contents} />}
               >
                 {contents.route.map(function (eachContent, topicIndex) {
-                  return (
+                  return topicIndex === 0 ? (
+                    <>
+                      <Route
+                        index
+                        element={eachContent.page}
+                        key={`${contents.about.name}-default`}
+                      />
+                      {/* <Route
+                        path={eachContent.topic}
+                        element={<Navigate to="" replace />}
+                        key={`${contents.about.name}-${eachContent.topic}`}
+                      /> */}
+
+                      <Route
+                        path={eachContent.topic}
+                        element={eachContent.page}
+                        key={`${contents.about.name}-${eachContent.topic}`}
+                      />
+                    </>
+                  ) : (
                     <Route
-                      index={topicIndex == 0}
-                      key={topicIndex}
-                      path={topicIndex == 0 ? "" : eachContent.topic}
+                      key={`${contents.about.name}-${eachContent.topic}`}
+                      path={eachContent.topic}
                       element={eachContent.page}
                     />
                   );

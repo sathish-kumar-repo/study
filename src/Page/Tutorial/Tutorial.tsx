@@ -26,6 +26,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 <li key={index}>
                   <NavLink
                     key={index}
+                    end
                     to={`/${category}/${contentData.about.name}/${
                       index == 0 ? "" : content.topic
                     }`}
