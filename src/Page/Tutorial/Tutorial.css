@@ -10,7 +10,6 @@
 
 .content-topic {
   position: fixed;
-  /* width: 25%; */
   width: 300px;
   top: 70px;
   height: 100vh;
@@ -22,7 +21,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
   overflow-y: scroll;
-  transition: all 0.5s;
+  transition: var(--off-canvas-transition);
 }
 
 .content-topic::-webkit-scrollbar {
@@ -98,8 +97,9 @@
 @media (max-width: 1200px) {
   .content-topic {
     top: 0;
-    left: -300px;
+    left: -350px;
     z-index: 1000;
+    border-radius: 0 20px 20px 0;
   }
   .content-topic.active {
     left: 0;
@@ -109,5 +109,11 @@
   }
   .content-main {
     padding: 2rem 2rem 10rem 2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .content-topic {
+    width: 100%;
   }
 }

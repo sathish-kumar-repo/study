@@ -40,3 +40,34 @@
   font-weight: 500;
   top: 0;
 }
+
+@media (max-width: 768px) {
+  .glassmorphic-list {
+    padding: 12px;
+  }
+
+  .list-item {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .glassmorphic-list {
+    padding: 8px;
+  }
+
+  .list-item {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+}
+@media (max-width: 360px) {
+  .glassmorphic-list {
+    padding: 6px;
+  }
+
+  .list-item {
+    font-size: 0.7rem;
+    line-height: 1.1rem;
+  }
+}

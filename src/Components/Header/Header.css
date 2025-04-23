@@ -107,7 +107,7 @@ header .nav-links .menu-toggle:hover,
   width: 300px;
   top: 0;
   bottom: 0;
-  right: -300px;
+  right: -350px;
   padding: 15px;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.2);
@@ -117,7 +117,7 @@ header .nav-links .menu-toggle:hover,
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
-  transition: 0.5s;
+  transition: var(--off-canvas-transition);
 }
 .off-canvas-glass.active {
   right: 0;
@@ -181,7 +181,11 @@ header .nav-links li a:hover,
 .off-canvas-list li a:hover {
   background: rgba(255, 255, 255, 0.5);
 }
-
+@media (max-width: 768px) {
+  header .logo {
+    font-size: 1.5rem;
+  }
+}
 @media (max-width: 992px) {
   header {
     position: relative;
@@ -198,7 +202,7 @@ header .nav-links li a:hover,
     flex-direction: column;
   }
   header.course {
-    top: -60px !important;
+    top: -50px !important;
   }
   header .logo {
     margin-bottom: 10px;
@@ -209,6 +213,9 @@ header .nav-links li a:hover,
   }
   header .nav-links .nav-toggle {
     display: flex;
+  }
+  .off-canvas-header h3 {
+    font-size: 1.2em;
   }
 }
 @media (max-width: 350px) {

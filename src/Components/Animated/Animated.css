@@ -6,7 +6,6 @@
   min-height: 100vh;
   width: 100%;
   position: absolute;
-
   padding: 20px;
 }
 
@@ -149,4 +148,78 @@
   font-size: 1rem;
   padding-left: 2rem;
   line-height: 2rem;
+}
+
+@media (max-width: 768px) {
+  .area h1 {
+    font-size: 2rem;
+    margin-top: 35px;
+    margin-bottom: 15px;
+  }
+  .area h2 {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  .area p {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+  .area ul {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .area h1 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .area h2 {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  .area p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  .area ul {
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+  }
+}
+@media (max-width: 360px) {
+  .area h1 {
+    font-size: 1.5rem;
+    margin-top: 25px;
+  }
+  .area h2 {
+    font-size: 0.9rem;
+  }
+  .area p {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+  .area ul {
+    font-size: 0.7rem;
+    line-height: 1.1rem;
+  }
+}
+@media (max-width: 320px) {
+  .area h1 {
+    font-size: 1.3rem;
+    margin-top: 2px;
+  }
+  .area h2 {
+    font-size: 0.8rem;
+  }
+  .area p {
+    font-size: 0.7rem;
+    line-height: 1.1rem;
+  }
+  .area ul {
+    font-size: 0.6rem;
+    line-height: 1rem;
+  }
 }
