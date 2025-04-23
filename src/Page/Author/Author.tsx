@@ -15,7 +15,6 @@ const Author = () => {
             <img src={profile} alt="Profile Photo" />
           </div>
         </div>
-
         <div className="card__content">
           <h2>Alison Doe</h2>
           <h3>Web Designer</h3>
@@ -41,6 +40,7 @@ const Author = () => {
             Read More
           </Link>
         </div>
+        https://www.youtube.com/watch?app=desktop&v=CAnVhvWZurc
       </div>
     </div>
   );

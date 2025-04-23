@@ -47,6 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 .content-topic-header h1 {
   color: var(--topic-color);
@@ -55,7 +56,7 @@
   letter-spacing: 0.5px;
 }
 .content-topic-header span {
-  display: block;
+  display: none;
   cursor: pointer;
   fill: var(--accent-color);
   background: rgba(255, 255, 255, 0.15);
@@ -102,6 +103,9 @@
   }
   .content-topic.active {
     left: 0;
+  }
+  .content-topic-header span {
+    display: block;
   }
   .content-main {
     padding: 2rem 2rem 10rem 2rem;

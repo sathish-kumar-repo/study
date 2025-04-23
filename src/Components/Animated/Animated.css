@@ -1,12 +1,12 @@
 .area {
-  background: url("../../assets/img/bg2.jpg");
+  background: url("../../assets/img/bg3.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
   position: absolute;
-  color: #ffffffd0;
+
   padding: 20px;
 }
 
@@ -132,7 +132,7 @@
   text-align: center;
 }
 .area h2 {
-  color: var(--accent-light);
+  color: var(--accent-color);
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 10px;
