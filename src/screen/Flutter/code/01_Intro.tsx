@@ -1,4 +1,12 @@
-import { H1, H2, List, Media, Para, Title } from "../../../components/UI";
+import {
+  H1,
+  H2,
+  List,
+  Media,
+  Para,
+  Table,
+  Title,
+} from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 
@@ -44,6 +52,29 @@ const IntroFlutter = () => {
 
       <H1>Getting Started</H1>
       <Para>Add this package to your project.</Para>
+      <Table textAlign="center">
+        <table>
+          <thead>
+            <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+              <th>Column 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Row 1, Col 1</td>
+              <td>Row 1, Col 2</td>
+              <td>Row 1, Col 3</td>
+            </tr>
+            <tr>
+              <td>Row 2, Col 1</td>
+              <td>Row 2, Col 2</td>
+              <td>Row 2, Col 3</td>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
     </>
   );
 };
