@@ -1,16 +1,25 @@
-import { Footer } from "../../components/Footer/Footer";
-import { Header } from "../../components/Header/Header";
-import Section from "../../components/Section";
 import "./NotFound.css";
 
 const NotFound = () => {
   return (
-    <Section className="not-found-section">
-      <Header />
-      <h1>404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-      <Footer />
-    </Section>
+    <>
+      <h1>404</h1>
+      <div className="cloak__wrapper">
+        <div className="cloak__container">
+          <div className="cloak"></div>
+        </div>
+      </div>
+      <div className="info">
+        <h2>We can't find that page</h2>
+        <p>
+          We're fairly sure that page used to be here, but seems to have gone
+          missing. We do apologise on it's behalf.
+        </p>
+        <a href="https://jhey.dev" target="_blank" rel="noreferrer noopener">
+          Home
+        </a>
+      </div>
+    </>
   );
 };
 
