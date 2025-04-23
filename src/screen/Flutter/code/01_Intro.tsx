@@ -21,7 +21,7 @@ const IntroFlutter = () => {
       </Para>
 
       <H1>Features</H1>
-      <H2>simple</H2>
+      <H2>Simple is one of th word</H2>
       <List
         type="ordered"
         items={[

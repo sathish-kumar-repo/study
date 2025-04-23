@@ -16,7 +16,7 @@
     font-size: 1rem;
   }
 }
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .sub-heading {
     font-size: 0.9rem;
   }
@@ -26,4 +26,4 @@
   .sub-heading {
     font-size: 0.8rem;
   }
-}
+} */

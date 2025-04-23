@@ -46,12 +46,12 @@
     padding: 12px;
   }
 
-  .list-item {
+  /* .list-item {
     font-size: 0.9rem;
     line-height: 1.3rem;
-  }
+  } */
 }
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .glassmorphic-list {
     padding: 8px;
   }
@@ -70,4 +70,4 @@
     font-size: 0.7rem;
     line-height: 1.1rem;
   }
-}
+} */

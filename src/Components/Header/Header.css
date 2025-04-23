@@ -184,9 +184,9 @@ header .nav-links li a:hover,
   background: rgba(255, 255, 255, 0.5);
 }
 @media (max-width: 768px) {
-  header .logo {
+  /* header .logo {
     font-size: 1.5rem;
-  }
+  } */
 }
 @media (max-width: 992px) {
   header {
@@ -204,7 +204,7 @@ header .nav-links li a:hover,
     flex-direction: column;
   }
   header.course {
-    top: -50px !important;
+    top: -60px !important;
   }
   header .logo {
     margin-bottom: 10px;

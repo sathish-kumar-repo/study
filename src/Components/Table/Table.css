@@ -65,7 +65,7 @@
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .glass-table th,
   .glass-table td {
     font-size: 0.9rem;
@@ -77,4 +77,4 @@
   .glass-table td {
     font-size: 0.8rem;
   }
-}
+} */
