@@ -1,5 +1,5 @@
 .para {
-  color: var(--accent-light);
+  color: var(--text-color);
   font-family: var(--font-family-body);
   font-size: 1.1rem;
   margin-bottom: 15px;

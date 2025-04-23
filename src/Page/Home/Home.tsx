@@ -1,10 +1,10 @@
 import "./Home.css";
 import { description, footerMessage, heading } from "../../utils/message";
 import { SocialMedia } from "./Components/SocialMedia";
-import LottieAnimation from "./Components/LottieAnimation";
 import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import { Link } from "react-router-dom";
+import { Character } from "./Components/Character";
 
 export const Home = () => {
   return (
@@ -16,7 +16,7 @@ export const Home = () => {
           <p>{description}</p>
           <Link to={"/author"}>My Memories..</Link>
         </div>
-        <LottieAnimation />
+        <Character />
         <SocialMedia />
         <p className="copyrightText">{footerMessage}</p>
       </div>

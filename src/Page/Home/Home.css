@@ -7,7 +7,6 @@
 
 .container {
   position: relative;
-  max-width: 1200px;
   width: calc(100% - 100px);
   min-height: calc(100vh - 200px);
   min-height: 300px;
@@ -22,7 +21,7 @@
 
 .content {
   transform: translateX(-100px);
-  max-width: 600px;
+  max-width: 700px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -70,10 +69,20 @@
   box-shadow: 0 5px 10px ☐ rgba(0, 0, 0, 0.1);
 }
 
-.imgBx {
-  width: 700px;
+.imgBx img {
+  max-width: 400px;
+  animation: imgAnimate 5s linear infinite;
 }
 
+@keyframes imgAnimate {
+  0%,
+  100% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(100px);
+  }
+}
 .sci {
   position: absolute;
   right: -25px;
@@ -122,18 +131,32 @@
 }
 
 @media (max-width: 992px) {
+  .home-section {
+    padding: 50px 10px 10px;
+  }
   .container {
     flex-direction: column;
     height: auto;
     padding: 20px;
   }
-  .content {
+  .container .content {
     transform: translateX(0px);
     max-width: 100%;
     padding: 30px;
     margin-top: -40px;
   }
-
+  .imgBx {
+    margin-bottom: 50px;
+  }
+  @keyframes imgAnimate {
+    0%,
+    100% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
   .content a {
     font-size: 1em;
     padding: 10px 20px;
@@ -171,7 +194,7 @@
   }
 }
 @media (max-width: 450px) {
-  /* .imgBx {
+  .imgBx img {
     max-width: 250px;
-  } */
+  }
 }

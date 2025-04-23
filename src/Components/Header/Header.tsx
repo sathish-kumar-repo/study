@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
+import React, { useState, useEffect, useRef } from "react";
+import ClearAllIcon from "@mui/icons-material/ClearAll";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
 import { toTitleCase } from "../../utils/custom_string";
@@ -7,7 +8,14 @@ import course from "../../data/main_data";
 import { NavLink } from "react-router-dom";
 import { logo } from "../../utils/message";
 
-export const Header = () => {
+interface HeaderProps {
+  onClick?: () => void;
+  isShowTopicButton?: boolean;
+}
+export const Header: React.FC<HeaderProps> = ({
+  onClick,
+  isShowTopicButton = false,
+}) => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const navRef = useRef<HTMLUListElement>(null);
   const [visibleFolders, setVisibleFolders] = useState<string[]>([]);
@@ -93,11 +101,24 @@ export const Header = () => {
   return (
     <>
       <header className={`header ${isHomePage ? "home" : "course"}`}>
-        <NavLink to="/" className="logo">
-          {logo}
-        </NavLink>
+        <div className="menu-logo">
+          {isShowTopicButton && (
+            <div className="toggle-button logo-toggle" onClick={onClick}>
+              <ClearAllIcon />
+            </div>
+          )}
+          <NavLink to="/" className="logo">
+            {logo}
+          </NavLink>
+        </div>
 
         <ul ref={navRef} className="nav-links">
+          {isShowTopicButton && (
+            <li className="toggle-button nav-toggle" onClick={onClick}>
+              <ClearAllIcon />
+            </li>
+          )}
+
           <li key="Home">
             <NavLink
               to="/"
@@ -112,36 +133,41 @@ export const Header = () => {
             </li>
           ))}
           {overflowFolders.length > 0 && (
-            <li className="menu-toggle" onClick={() => setShowOffCanvas(true)}>
-              <MenuIcon />
+            <li
+              className="toggle-button"
+              onClick={() => setShowOffCanvas(true)}
+            >
+              <MoreHorizIcon />
             </li>
           )}
         </ul>
       </header>
-      {showOffCanvas && (
-        <div className="off-canvas-glass" ref={offCanvasRef}>
-          <div className="off-canvas-header">
-            <h3>More Folders</h3>
-            <span>
-              <CloseIcon onClick={() => setShowOffCanvas(false)} />
-            </span>
-          </div>
-          <ul className="off-canvas-list">
-            {overflowFolders.map((folder) => (
-              <li key={folder}>
-                <NavLink
-                  to={`/${folder}`}
-                  onClick={() => {
-                    setShowOffCanvas(false);
-                  }}
-                >
-                  {toTitleCase(folder)}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+
+      <div
+        className={`off-canvas-glass ${showOffCanvas ? "active" : undefined}`}
+        ref={offCanvasRef}
+      >
+        <div className="off-canvas-header">
+          <h3>More Folders</h3>
+          <span>
+            <CloseIcon onClick={() => setShowOffCanvas(false)} />
+          </span>
         </div>
-      )}
+        <ul className="off-canvas-list">
+          {overflowFolders.map((folder) => (
+            <li key={folder}>
+              <NavLink
+                to={`/${folder}`}
+                onClick={() => {
+                  setShowOffCanvas(false);
+                }}
+              >
+                {toTitleCase(folder)}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

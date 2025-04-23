@@ -9,9 +9,11 @@
 
 :root {
   --font-family-body: "Google Sans Text", "Google Sans", "Roboto", sans-serif;
-  --accent-color: #002787;
+  --accent-color: #8a2435;
   --accent-dark: #ffffffbf;
   --accent-light: #ffffff;
+  --text-color: #000;
+  --topic-color: #000000;
 }
 
 .outfit {

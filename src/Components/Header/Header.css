@@ -56,9 +56,16 @@ header .nav-links li a {
   border-radius: 25px;
   transition: background 0.3s, box-shadow 0.3s;
 }
+.menu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
 /* Menu Toggle Icon */
-header .nav-links .menu-toggle {
+header .nav-links .toggle-button,
+.toggle-button {
   cursor: pointer;
   margin-left: 10px;
   display: flex;
@@ -74,6 +81,21 @@ header .nav-links .menu-toggle {
   transition: background 0.3s;
 }
 
+.logo-toggle {
+  padding: 4px;
+}
+
+header .nav-links .nav-toggle,
+.logo-toggle {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .logo-toggle {
+    display: flex;
+  }
+}
+
 header .nav-links .menu-toggle:hover,
 .off-canvas-header span:hover {
   background: rgba(255, 255, 255, 0.3);
@@ -85,7 +107,7 @@ header .nav-links .menu-toggle:hover,
   width: 300px;
   top: 0;
   bottom: 0;
-  right: 0;
+  right: -300px;
   padding: 15px;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.2);
@@ -95,8 +117,11 @@ header .nav-links .menu-toggle:hover,
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
+  transition: 0.5s;
 }
-
+.off-canvas-glass.active {
+  right: 0;
+}
 .off-canvas-header {
   display: flex;
   align-items: center;
@@ -106,7 +131,7 @@ header .nav-links .menu-toggle:hover,
 .off-canvas-header h3 {
   font-size: 1.4em;
   font-weight: 500;
-  color: var(--accent-dark);
+  color: var(--topic-color);
 }
 
 .off-canvas-header span {
@@ -177,6 +202,13 @@ header .nav-links li a:hover,
   }
   header .logo {
     margin-bottom: 10px;
+  }
+
+  .logo-toggle {
+    display: none;
+  }
+  header .nav-links .nav-toggle {
+    display: flex;
   }
 }
 @media (max-width: 350px) {
