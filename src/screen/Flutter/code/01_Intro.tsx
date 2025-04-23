@@ -1,12 +1,4 @@
-import {
-  H1,
-  H2,
-  List,
-  Media,
-  Para,
-  Table,
-  Title,
-} from "../../../components/UI";
+import { H1, H2, List, Media, Para, Title } from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 

@@ -1,0 +1,237 @@
+import React, { useState } from "react";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import DoneIcon from "@mui/icons-material/Done";
+import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import "./Syntax.css";
+
+interface SyntaxProps {
+  language?: language;
+  code: string;
+}
+
+const Syntax: React.FC<SyntaxProps> = ({ language = undefined, code }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="syntax-container">
+      <div className="syntax-header">
+        <h3>Code Snippet</h3>
+        <div
+          onClick={handleCopy}
+          className={`toggle-button copy-button ${copied ? "copied" : ""}`}
+        >
+          {copied ? <DoneIcon /> : <ContentCopyIcon />}
+        </div>
+      </div>
+      <SyntaxHighlighter
+        className="syntax-highlighter"
+        language={language}
+        style={monokai}
+        showLineNumbers={true}
+      >
+        {code}
+      </SyntaxHighlighter>
+    </div>
+  );
+};
+
+type language =
+  | "1c"
+  | "abnf"
+  | "accesslog"
+  | "actionscript"
+  | "ada"
+  | "angelscript"
+  | "apache"
+  | "applescript"
+  | "arcade"
+  | "arduino"
+  | "armasm"
+  | "asciidoc"
+  | "aspectj"
+  | "autohotkey"
+  | "autoit"
+  | "avrasm"
+  | "awk"
+  | "axapta"
+  | "bash"
+  | "basic"
+  | "bnf"
+  | "brainfuck"
+  | "c-like"
+  | "c"
+  | "cal"
+  | "capnproto"
+  | "ceylon"
+  | "clean"
+  | "clojure-repl"
+  | "clojure"
+  | "cmake"
+  | "coffeescript"
+  | "coq"
+  | "cos"
+  | "cpp"
+  | "crmsh"
+  | "crystal"
+  | "csharp"
+  | "csp"
+  | "css"
+  | "d"
+  | "dart"
+  | "delphi"
+  | "diff"
+  | "django"
+  | "dns"
+  | "dockerfile"
+  | "dos"
+  | "dsconfig"
+  | "dts"
+  | "dust"
+  | "ebnf"
+  | "elixir"
+  | "elm"
+  | "erb"
+  | "erlang-repl"
+  | "erlang"
+  | "excel"
+  | "fix"
+  | "flix"
+  | "fortran"
+  | "fsharp"
+  | "gams"
+  | "gauss"
+  | "gcode"
+  | "gherkin"
+  | "glsl"
+  | "gml"
+  | "go"
+  | "golo"
+  | "gradle"
+  | "groovy"
+  | "haml"
+  | "handlebars"
+  | "haskell"
+  | "haxe"
+  | "hsp"
+  | "htmlbars"
+  | "http"
+  | "hy"
+  | "inform7"
+  | "ini"
+  | "irpf90"
+  | "isbl"
+  | "java"
+  | "javascript"
+  | "jboss-cli"
+  | "json"
+  | "julia-repl"
+  | "julia"
+  | "kotlin"
+  | "lasso"
+  | "latex"
+  | "ldif"
+  | "leaf"
+  | "less"
+  | "lisp"
+  | "livecodeserver"
+  | "livescript"
+  | "llvm"
+  | "lsl"
+  | "lua"
+  | "makefile"
+  | "markdown"
+  | "mathematica"
+  | "matlab"
+  | "maxima"
+  | "mel"
+  | "mercury"
+  | "mipsasm"
+  | "mizar"
+  | "mojolicious"
+  | "monkey"
+  | "moonscript"
+  | "n1ql"
+  | "nginx"
+  | "nim"
+  | "nix"
+  | "node-repl"
+  | "nsis"
+  | "objectivec"
+  | "ocaml"
+  | "openscad"
+  | "oxygene"
+  | "parser3"
+  | "perl"
+  | "pf"
+  | "pgsql"
+  | "php-template"
+  | "php"
+  | "plaintext"
+  | "pony"
+  | "powershell"
+  | "processing"
+  | "profile"
+  | "prolog"
+  | "properties"
+  | "protobuf"
+  | "puppet"
+  | "purebasic"
+  | "python-repl"
+  | "python"
+  | "q"
+  | "qml"
+  | "r"
+  | "reasonml"
+  | "rib"
+  | "roboconf"
+  | "routeros"
+  | "rsl"
+  | "ruby"
+  | "ruleslanguage"
+  | "rust"
+  | "sas"
+  | "scala"
+  | "scheme"
+  | "scilab"
+  | "scss"
+  | "shell"
+  | "smali"
+  | "smalltalk"
+  | "sml"
+  | "sqf"
+  | "sql"
+  | "sql_more"
+  | "stan"
+  | "stata"
+  | "step21"
+  | "stylus"
+  | "subunit"
+  | "swift"
+  | "taggerscript"
+  | "tap"
+  | "tcl"
+  | "thrift"
+  | "tp"
+  | "twig"
+  | "typescript"
+  | "vala"
+  | "vbnet"
+  | "vbscript-html"
+  | "vbscript"
+  | "verilog"
+  | "vhdl"
+  | "vim"
+  | "x86asm"
+  | "xl"
+  | "xml"
+  | "xquery"
+  | "yaml"
+  | "zephir";
+export default Syntax;

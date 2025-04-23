@@ -5,5 +5,6 @@ import Para from "./Para/Para";
 import List from "./List/List";
 import Media from "./Media/Media";
 import Table from "./Table/Table";
+import Syntax from "./Syntax/Syntax";
 
-export { Title, H1, H2, Para, List, Media, Table };
+export { Title, H1, H2, Para, List, Media, Table, Syntax };
