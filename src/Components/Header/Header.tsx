@@ -7,6 +7,7 @@ import { toTitleCase } from "../../utils/custom_string";
 import course from "../../data/main_data";
 import { NavLink } from "react-router-dom";
 import { logo } from "../../utils/message";
+import SearchIcon from "@mui/icons-material/Search";
 
 interface HeaderProps {
   onClick?: () => void;
@@ -132,6 +133,10 @@ export const Header: React.FC<HeaderProps> = ({
               <NavLink to={`/${folder}`}>{toTitleCase(folder)}</NavLink>
             </li>
           ))}
+
+          <li className="toggle-button">
+            <SearchIcon />
+          </li>
           {overflowFolders.length > 0 && (
             <li
               className="toggle-button"
