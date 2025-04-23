@@ -8,7 +8,9 @@ interface TableProps {
 
 const Table: FC<TableProps> = ({ children, textAlign = "left" }) => {
   return (
-    <div className={`glass-table text-align-${textAlign}`}>{children}</div>
+    <div className={`glass-table text-align-${textAlign}`}>
+      <table>{children}</table>
+    </div>
   );
 };
 
