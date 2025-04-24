@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
   Navigate,
   Route,
@@ -16,7 +16,7 @@ import TermsAndCondition from "../TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
 
 function App() {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route path="/">
         {/* Home Page */}
