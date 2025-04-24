@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 import Container from "../../components/Container";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
@@ -8,6 +8,8 @@ import { ContentDataType } from "../../model/content_model";
 import { capitalizeFirstLetter } from "../../utils/custom_string";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -17,6 +19,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const { category } = useParams();
   const [showTopic, setShowTopic] = useState(false);
   const offCanvasRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent | TouchEvent) {
@@ -34,6 +37,29 @@ const Tutorial = ({ contentData }: TutorialProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showTopic]);
+
+  // Extract and decode the value from the current URL
+  const getCurrenttopic = (): string => {
+    const url = window.location.href; // Get the current URL
+    const urlObj = new URL(url);
+    const pathSegments = urlObj.pathname.split("/"); // Split the path into segments
+    const encodedValue = pathSegments[pathSegments.length - 1]; // Get the last segment
+    return decodeURIComponent(encodedValue); // Decode the value
+  };
+
+  // Find the index of the current topic
+  const currentIndex = contentData.route.findIndex(
+    (content) => content.topic === getCurrenttopic()
+  );
+
+  const previousTopic =
+    currentIndex > 0 ? contentData.route[currentIndex - 1].topic : null;
+  const nextTopic =
+    currentIndex < contentData.route.length - 1
+      ? contentData.route[currentIndex + 1].topic
+      : null;
+
+  console.log(currentIndex);
 
   return (
     <Section className="section">
@@ -69,6 +95,36 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         </div>
         <div className="content-main">
           <Outlet />
+          <div className="navigation-buttons">
+            {/* {previousTopic && ( */}
+            <div
+              className={`navigation-button ${
+                previousTopic ? "active" : undefined
+              }`}
+              onClick={() =>
+                navigate(
+                  `/${category}/${contentData.about.name}/${previousTopic}`
+                )
+              }
+            >
+              <ArrowBackIosIcon />
+              <span>Previous</span>
+            </div>
+            {/* )} */}
+            {/* {nextTopic && ( */}
+            <div
+              className={`navigation-button ${
+                nextTopic ? "active" : undefined
+              }`}
+              onClick={() =>
+                navigate(`/${category}/${contentData.about.name}/${nextTopic}`)
+              }
+            >
+              <span>Next</span>
+              <ArrowForwardIosIcon />
+            </div>
+            {/* )} */}
+          </div>
         </div>
       </Container>
       <Footer />

@@ -1,3 +1,9 @@
+import { Title } from "../../../../components/UI";
+
 export const Intro = () => {
-  return <div>Intro</div>;
+  return (
+    <>
+      <Title>dfd</Title>
+    </>
+  );
 };
