@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 import Container from "../../components/Container";
 import { Footer } from "../../components/Footer/Footer";
@@ -6,7 +7,6 @@ import Section from "../../components/Section";
 import "./Tutorial.css";
 import { ContentDataType } from "../../model/content_model";
 import { capitalizeFirstLetter } from "../../utils/custom_string";
-import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -19,9 +19,21 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const { category } = useParams();
   const [showTopic, setShowTopic] = useState(false);
   const offCanvasRef = useRef<HTMLDivElement>(null);
+  const activeTopicRef = useRef<HTMLLIElement>(null);
   const navigate = useNavigate();
 
+  const getCurrenttopic = (): string => {
+    const url = window.location.href;
+    const urlObj = new URL(url);
+    const pathSegments = urlObj.pathname.split("/");
+    const encodedValue = pathSegments[pathSegments.length - 1];
+    return decodeURIComponent(encodedValue);
+  };
+
+  const [currentTopic, setCurrentTopic] = useState(getCurrenttopic());
+
   useEffect(() => {
+    // Close the topic menu when clicking outside
     function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (
         showTopic &&
@@ -38,18 +50,19 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     };
   }, [showTopic]);
 
-  // Extract and decode the value from the current URL
-  const getCurrenttopic = (): string => {
-    const url = window.location.href; // Get the current URL
-    const urlObj = new URL(url);
-    const pathSegments = urlObj.pathname.split("/"); // Split the path into segments
-    const encodedValue = pathSegments[pathSegments.length - 1]; // Get the last segment
-    return decodeURIComponent(encodedValue); // Decode the value
-  };
+  useEffect(() => {
+    // Scroll to the active topic whenever the current topic changes
+    if (activeTopicRef.current) {
+      console.log("Scrolling to active topic:", activeTopicRef.current); // Debug
+      activeTopicRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [currentTopic]); // Dependency to update when currentTopic changes
 
-  // Find the index of the current topic
   const currentIndex = contentData.route.findIndex(
-    (content) => content.topic === getCurrenttopic()
+    (content) => content.topic === currentTopic
   );
 
   const previousTopic =
@@ -59,7 +72,15 @@ const Tutorial = ({ contentData }: TutorialProps) => {
       ? contentData.route[currentIndex + 1].topic
       : null;
 
-  console.log(currentIndex);
+  const handleNavigation = (topic: string | null) => {
+    if (topic) {
+      const newPath = `/${category}/${contentData.about.name}/${topic}`;
+      navigate(newPath);
+      setCurrentTopic(topic); // Update the current topic state
+    }
+  };
+
+  console.log("Current Topic Index:", currentIndex); // Debug
 
   return (
     <Section className="section">
@@ -77,20 +98,20 @@ const Tutorial = ({ contentData }: TutorialProps) => {
             </span>
           </div>
           <ul>
-            {contentData.route.map(function (content, index) {
-              return (
-                <li key={index}>
-                  <NavLink
-                    key={index}
-                    end
-                    to={`/${category}/${contentData.about.name}/${content.topic}`}
-                    onClick={() => setShowTopic(false)}
-                  >
-                    {capitalizeFirstLetter(content.topic)}
-                  </NavLink>
-                </li>
-              );
-            })}
+            {contentData.route.map((content, index) => (
+              <li
+                key={index}
+                ref={content.topic === currentTopic ? activeTopicRef : null}
+              >
+                <NavLink
+                  end
+                  to={`/${category}/${contentData.about.name}/${content.topic}`}
+                  onClick={() => setCurrentTopic(content.topic)}
+                >
+                  {capitalizeFirstLetter(content.topic)}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="content-main">
@@ -100,11 +121,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
               className={`navigation-button ${
                 previousTopic ? "active" : undefined
               }`}
-              onClick={() =>
-                navigate(
-                  `/${category}/${contentData.about.name}/${previousTopic}`
-                )
-              }
+              onClick={() => handleNavigation(previousTopic)}
             >
               <ArrowBackIosIcon />
               <span>Previous</span>
@@ -114,9 +131,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
               className={`navigation-button ${
                 nextTopic ? "active" : undefined
               }`}
-              onClick={() =>
-                navigate(`/${category}/${contentData.about.name}/${nextTopic}`)
-              }
+              onClick={() => handleNavigation(nextTopic)}
             >
               <span>Next</span>
               <ArrowForwardIosIcon />
