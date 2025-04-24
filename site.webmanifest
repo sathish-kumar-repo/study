@@ -1,0 +1,11 @@
+{
+  "name": "Study - Tutorials and Learning Materials",
+  "short_name": "Study",
+  "description": "Study is a platform offering tutorials, learning materials, and resources to enhance your skills and knowledge.",
+  "display": "standalone",
+  "start_url": ".",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "lang": "en",
+  "categories": ["education", "learning", "tutorials", "resources"]
+}
