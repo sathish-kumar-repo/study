@@ -157,7 +157,11 @@ export const Header: React.FC<HeaderProps> = ({
           )}
         </ul>
       </header>
-      <Search showSearch={showSearch} ref={searchRef} />
+      <Search
+        showSearch={showSearch}
+        ref={searchRef}
+        onClose={() => setShowSearch(false)}
+      />
       <div
         className={`off-canvas-glass ${showOffCanvas ? "active" : undefined}`}
         ref={offCanvasRef}
