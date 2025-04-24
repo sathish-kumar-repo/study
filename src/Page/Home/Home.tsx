@@ -5,6 +5,7 @@ import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import { Link } from "react-router-dom";
 import { Character } from "./Components/Character";
+import Search from "../../components/Search/Search";
 
 export const Home = () => {
   return (

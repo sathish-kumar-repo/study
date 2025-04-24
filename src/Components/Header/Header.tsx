@@ -8,6 +8,7 @@ import course from "../../data/main_data";
 import { NavLink } from "react-router-dom";
 import { logo } from "../../utils/message";
 import SearchIcon from "@mui/icons-material/Search";
+import Search from "../Search/Search";
 
 interface HeaderProps {
   onClick?: () => void;
@@ -18,10 +19,12 @@ export const Header: React.FC<HeaderProps> = ({
   isShowTopicButton = false,
 }) => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const navRef = useRef<HTMLUListElement>(null);
   const [visibleFolders, setVisibleFolders] = useState<string[]>([]);
   const [overflowFolders, setOverflowFolders] = useState<string[]>([]);
   const offCanvasRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -91,13 +94,20 @@ export const Header: React.FC<HeaderProps> = ({
       ) {
         setShowOffCanvas(false);
       }
+      if (
+        showSearch &&
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
+        setShowSearch(false);
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showOffCanvas]);
+  }, [showOffCanvas, showSearch]);
 
   return (
     <>
@@ -134,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
             </li>
           ))}
 
-          <li className="toggle-button">
+          <li className="toggle-button" onClick={() => setShowSearch(true)}>
             <SearchIcon />
           </li>
           {overflowFolders.length > 0 && (
@@ -147,7 +157,7 @@ export const Header: React.FC<HeaderProps> = ({
           )}
         </ul>
       </header>
-
+      <Search showSearch={showSearch} ref={searchRef} />
       <div
         className={`off-canvas-glass ${showOffCanvas ? "active" : undefined}`}
         ref={offCanvasRef}
