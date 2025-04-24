@@ -1,5 +1,3 @@
-import character from "../../../assets/img/character.png";
-
 export const Character = () => {
   return (
     <div className="imgBx">
