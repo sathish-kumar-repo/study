@@ -10,6 +10,7 @@ import { capitalizeFirstLetter } from "../../utils/custom_string";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Helmet } from "react-helmet";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -61,9 +62,10 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     }
   }, [currentTopic]); // Dependency to update when currentTopic changes
 
-  const currentIndex = contentData.route.findIndex(
+  const index = contentData.route.findIndex(
     (content) => content.topic === currentTopic
   );
+  const currentIndex = index !== -1 ? index : 0; // Default to 0 if not found
 
   const previousTopic =
     currentIndex > 0 ? contentData.route[currentIndex - 1].topic : null;
@@ -80,67 +82,74 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     }
   };
 
-  console.log("Current Topic Index:", currentIndex); // Debug
-
   return (
-    <Section className="section">
-      <Header onClick={() => setShowTopic(true)} isShowTopicButton={true} />
+    <>
+      <Helmet>
+        <title>{contentData.about.name} - My Study Website</title>
+        <meta
+          name="description"
+          content={`Explore the ${contentData.about.name} course on my study website.`}
+        />
+      </Helmet>
+      <Section className="section">
+        <Header onClick={() => setShowTopic(true)} isShowTopicButton={true} />
 
-      <Container className="content-wrapper">
-        <div
-          className={`content-topic ${showTopic ? "active" : undefined}`}
-          ref={offCanvasRef}
-        >
-          <div className="content-topic-header">
-            <h1>{contentData.about.name}</h1>
-            <span>
-              <CloseIcon onClick={() => setShowTopic(false)} />
-            </span>
-          </div>
-          <ul>
-            {contentData.route.map((content, index) => (
-              <li
-                key={index}
-                ref={content.topic === currentTopic ? activeTopicRef : null}
-              >
-                <NavLink
-                  end
-                  to={`/${category}/${contentData.about.name}/${content.topic}`}
-                  onClick={() => setCurrentTopic(content.topic)}
+        <Container className="content-wrapper">
+          <div
+            className={`content-topic ${showTopic ? "active" : undefined}`}
+            ref={offCanvasRef}
+          >
+            <div className="content-topic-header">
+              <h1>{contentData.about.name}</h1>
+              <span>
+                <CloseIcon onClick={() => setShowTopic(false)} />
+              </span>
+            </div>
+            <ul>
+              {contentData.route.map((content, index) => (
+                <li
+                  key={index}
+                  ref={content.topic === currentTopic ? activeTopicRef : null}
                 >
-                  {capitalizeFirstLetter(content.topic)}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="content-main">
-          <Outlet />
-          <div className="navigation-buttons">
-            <div
-              className={`navigation-button ${
-                previousTopic ? "active" : undefined
-              }`}
-              onClick={() => handleNavigation(previousTopic)}
-            >
-              <ArrowBackIosIcon />
-              <span>Previous</span>
-            </div>
+                  <NavLink
+                    end
+                    to={`/${category}/${contentData.about.name}/${content.topic}`}
+                    onClick={() => setCurrentTopic(content.topic)}
+                  >
+                    {capitalizeFirstLetter(content.topic)}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="content-main">
+            <Outlet />
+            <div className="navigation-buttons">
+              <div
+                className={`navigation-button ${
+                  previousTopic ? "active" : undefined
+                }`}
+                onClick={() => handleNavigation(previousTopic)}
+              >
+                <ArrowBackIosIcon />
+                <span>Previous</span>
+              </div>
 
-            <div
-              className={`navigation-button ${
-                nextTopic ? "active" : undefined
-              }`}
-              onClick={() => handleNavigation(nextTopic)}
-            >
-              <span>Next</span>
-              <ArrowForwardIosIcon />
+              <div
+                className={`navigation-button ${
+                  nextTopic ? "active" : undefined
+                }`}
+                onClick={() => handleNavigation(nextTopic)}
+              >
+                <span>Next</span>
+                <ArrowForwardIosIcon />
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
-      <Footer />
-    </Section>
+        </Container>
+        <Footer />
+      </Section>
+    </>
   );
 };
 
