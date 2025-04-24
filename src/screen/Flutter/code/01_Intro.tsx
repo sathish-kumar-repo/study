@@ -1,6 +1,7 @@
 import { H1, H2, List, Media, Para, Title } from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
+import HL from "../../../components/HL/HL";
 
 const IntroFlutter = () => {
   return (
@@ -9,9 +10,10 @@ const IntroFlutter = () => {
 
       <H1>Intro</H1>
       <Para>
-        Readme Changelog Example Installing Versions Scores intro A step-by-step
-        wizard, which can help you to introduce your product or to demonstrate
-        the usage of your application.
+        Readme <b>Changelog</b> <u>Installing</u> <i>Example</i> <s>Versions</s>
+        <HL>ddf</HL>
+        Versions Scores intro A step-by-step wizard, which can help you to
+        introduce your product or to demonstrate the usage of your application.
       </Para>
       <Para>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse sint,

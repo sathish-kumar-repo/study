@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Media.css";
+import ImageZoom from "../ImageZoom";
 
 interface MediaProps {
   src: string;
@@ -17,6 +18,7 @@ const Media: React.FC<MediaProps> = ({
   height = "auto",
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [rotation, setRotation] = useState(0);
 
   // Dynamically determine the type based on file extension
   const isVideo = /\.(mp4|webm|ogg)$/i.test(src);
@@ -24,7 +26,13 @@ const Media: React.FC<MediaProps> = ({
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+  const handleRotateLeft = () => {
+    setRotation((prev) => (prev - 90 + 360) % 360);
+  };
 
+  const handleRotateRight = () => {
+    setRotation((prev) => (prev + 90) % 360);
+  };
   return (
     <>
       <div className={`media-container ${className}`} onClick={toggleModal}>
@@ -51,7 +59,8 @@ const Media: React.FC<MediaProps> = ({
             {isVideo ? (
               <video src={src} controls className="modal-video" />
             ) : (
-              <img src={src} alt={alt} className="modal-image zoomable" />
+              <ImageZoom src={src} />
+              // <img src={src} alt={alt} className="modal-image zoomable" />
             )}
           </div>
         </div>

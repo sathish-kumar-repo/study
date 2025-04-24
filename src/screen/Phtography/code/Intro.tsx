@@ -1,7 +1,11 @@
+import { A } from "../../../components/UI";
+
 const Intro = () => {
   return (
     // <Tutorial listOfTopics={flutterContent}>
-    <h1>Intro</h1>
+    <>
+      <A link="https://pub.dev/packages/flutter_intro">fgf</A>
+    </>
     // </Tutorial>
   );
 };
