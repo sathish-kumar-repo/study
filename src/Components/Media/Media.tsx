@@ -18,7 +18,6 @@ const Media: React.FC<MediaProps> = ({
   height = "auto",
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [rotation, setRotation] = useState(0);
 
   // Dynamically determine the type based on file extension
   const isVideo = /\.(mp4|webm|ogg)$/i.test(src);
@@ -26,13 +25,7 @@ const Media: React.FC<MediaProps> = ({
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  const handleRotateLeft = () => {
-    setRotation((prev) => (prev - 90 + 360) % 360);
-  };
 
-  const handleRotateRight = () => {
-    setRotation((prev) => (prev + 90) % 360);
-  };
   return (
     <>
       <div className={`media-container ${className}`} onClick={toggleModal}>
@@ -53,18 +46,18 @@ const Media: React.FC<MediaProps> = ({
         )}
       </div>
 
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={toggleModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            {isVideo ? (
-              <video src={src} controls className="modal-video" />
-            ) : (
-              <ImageZoom src={src} />
-              // <img src={src} alt={alt} className="modal-image zoomable" />
-            )}
-          </div>
+      <div
+        className={`modal-overlay ${isModalOpen ? "open" : undefined}`}
+        onClick={toggleModal}
+      >
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          {isVideo ? (
+            <video src={src} controls autoPlay className="modal-video" />
+          ) : (
+            <ImageZoom src={src} />
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };

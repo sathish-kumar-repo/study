@@ -96,7 +96,6 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         <div className="content-main">
           <Outlet />
           <div className="navigation-buttons">
-            {/* {previousTopic && ( */}
             <div
               className={`navigation-button ${
                 previousTopic ? "active" : undefined
@@ -110,8 +109,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
               <ArrowBackIosIcon />
               <span>Previous</span>
             </div>
-            {/* )} */}
-            {/* {nextTopic && ( */}
+
             <div
               className={`navigation-button ${
                 nextTopic ? "active" : undefined
@@ -123,7 +121,6 @@ const Tutorial = ({ contentData }: TutorialProps) => {
               <span>Next</span>
               <ArrowForwardIosIcon />
             </div>
-            {/* )} */}
           </div>
         </div>
       </Container>
