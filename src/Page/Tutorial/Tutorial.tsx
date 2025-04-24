@@ -114,7 +114,10 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                   <NavLink
                     end
                     to={`/${category}/${contentData.about.name}/${content.topic}`}
-                    onClick={() => setCurrentTopic(content.topic)}
+                    onClick={() => {
+                      setCurrentTopic(content.topic);
+                      setShowTopic(false);
+                    }}
                   >
                     {capitalizeFirstLetter(content.topic)}
                   </NavLink>
