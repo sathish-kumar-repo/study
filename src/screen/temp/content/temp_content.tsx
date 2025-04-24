@@ -1,5 +1,16 @@
-import Intro from "../code/01_";
-
-const tempContent = [{ topic: "Intro", page: <Intro /> }];
+const tempContent = {
+  about: {
+    name: "",
+    description: "",
+    link: "",
+    img: "",
+  },
+  route: [
+    {
+      topic: "Introduction",
+      //   page: <Intro />,
+    },
+  ],
+};
 
 export default tempContent;

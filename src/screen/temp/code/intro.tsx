@@ -1,5 +1,11 @@
+import { Title } from "../../../components/UI";
+
 const Intro = () => {
-  return <h1>Intro</h1>;
+  return (
+    <>
+      <Title>Title</Title>
+    </>
+  );
 };
 
 export default Intro;

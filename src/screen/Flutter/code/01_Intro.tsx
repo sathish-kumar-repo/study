@@ -1,4 +1,4 @@
-import { H1, H2, List, Media, Para, Title } from "../../../components/UI";
+import { H1, H2, List, Media, Para, Title, Note } from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 import HL from "../../../components/HL/HL";
@@ -46,6 +46,12 @@ const IntroFlutter = () => {
 
       <H1>Getting Started</H1>
       <Para>Add this package to your project.</Para>
+      <Note>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
+        dolorem ullam, quidem officia corporis assumenda quas iusto cupiditate,
+        eligendi aliquam sunt optio eius facilis, hic error laboriosam maxime
+        quo? Dicta.
+      </Note>
     </>
   );
 };

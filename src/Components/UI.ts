@@ -8,5 +8,6 @@ import Table from "./Table/Table";
 import Syntax from "./Syntax/Syntax";
 import A from "./A/A";
 import HL from "./HL/HL";
+import Note from "./Note/Note";
 
-export { Title, H1, H2, Para, List, Media, Table, Syntax, A, HL };
+export { Title, H1, H2, Para, List, Media, Table, Syntax, A, HL, Note };
