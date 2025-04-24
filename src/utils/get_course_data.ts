@@ -25,7 +25,7 @@
 // export default getCourseData;
 
 import mainData from "../data/main_data";
-import { CourseDataType, CourseType } from "../model/course_model";
+import { CourseDataType } from "../model/course_model";
 
 function getCourseData(): CourseDataType {
   // Transform the main data into the required course data structure
