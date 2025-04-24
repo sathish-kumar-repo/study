@@ -13,10 +13,12 @@ import Search from "../Search/Search";
 interface HeaderProps {
   onClick?: () => void;
   isShowTopicButton?: boolean;
+  isHomePage?: boolean;
 }
 export const Header: React.FC<HeaderProps> = ({
   onClick,
   isShowTopicButton = false,
+  isHomePage = false,
 }) => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -25,7 +27,6 @@ export const Header: React.FC<HeaderProps> = ({
   const [overflowFolders, setOverflowFolders] = useState<string[]>([]);
   const offCanvasRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
-  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const calculateFolders = () => {

@@ -38,7 +38,7 @@ const Course = () => {
             {categoryCourses.map((item, index) => (
               <div key={index} className="course-card">
                 <img
-                  src={`/course-images/${item.img}`}
+                  src={`/study/course-images/${item.img}`}
                   alt={item.name}
                   className="course-img"
                 />

@@ -19,7 +19,7 @@ export const Home = () => {
       </Helmet>
       <Section className="home-section">
         <div className="container">
-          <Header />
+          <Header isHomePage={true} />
           <div className="content">
             <h2>{heading}</h2>
             <p>{description}</p>
