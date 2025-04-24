@@ -23,16 +23,19 @@
   margin-top: 10px;
   border-radius: 10px;
 }
-.copy-button {
+.buttons {
+  display: flex;
+}
+.syntax-button {
   padding: 6px;
   transition: background 0.3s, transform 0.2s;
 }
 
-.copy-button:active {
+.syntax-button:active {
   transform: scale(0.95);
 }
 
-.copy-button.copied {
+.syntax-button.copied {
   background: var(--accent-light);
 }
 
@@ -43,7 +46,7 @@
 }
 
 @media (max-width: 450px) {
-  .copy-button {
-    display: none;
+  .syntax-button {
+    /* display: none; */
   }
 }

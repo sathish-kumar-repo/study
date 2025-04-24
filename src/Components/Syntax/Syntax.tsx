@@ -4,6 +4,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import DoneIcon from "@mui/icons-material/Done";
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import "./Syntax.css";
+import ShareIcon from "@mui/icons-material/Share";
 
 interface SyntaxProps {
   language?: language;
@@ -13,21 +14,41 @@ interface SyntaxProps {
 const Syntax: React.FC<SyntaxProps> = ({ language = undefined, code }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const handleShare = async () => {
+    try {
+      await navigator.share({
+        title: "Code Snippet",
+        text: code,
+      });
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
     <div className="syntax-container">
       <div className="syntax-header">
         <h3>Code Snippet</h3>
-        <div
-          onClick={handleCopy}
-          className={`toggle-button copy-button ${copied ? "copied" : ""}`}
-        >
-          {copied ? <DoneIcon /> : <ContentCopyIcon />}
+        <div className="buttons">
+          <span
+            onClick={handleCopy}
+            className={`toggle-button syntax-button ${copied ? "copied" : ""}`}
+          >
+            {copied ? <DoneIcon /> : <ContentCopyIcon />}
+          </span>
+          <span className="toggle-button syntax-button" onClick={handleShare}>
+            <ShareIcon />
+          </span>
         </div>
       </div>
       <SyntaxHighlighter
