@@ -1,6 +1,4 @@
 import "./Author.css";
-import profile from "../../assets/img/profile.jpg";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Section from "../../components/Section";
 import Tilt from "react-parallax-tilt";
