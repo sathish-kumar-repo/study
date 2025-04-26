@@ -6,9 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import RotateRightIcon from "@mui/icons-material/RotateRight";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import CloseIcon from "@mui/icons-material/Close";
 
 interface MediaProps {
   src: string;
