@@ -31,9 +31,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const location = useLocation();
 
   const getCurrenttopic = (): string => {
-    const url = window.location.href;
-    const urlObj = new URL(url);
-    const pathSegments = urlObj.pathname.split("/");
+    const pathSegments = location.pathname.split("/");
     const encodedValue = pathSegments[pathSegments.length - 1];
     return decodeURIComponent(encodedValue);
   };
@@ -41,10 +39,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const [currentTopic, setCurrentTopic] = useState(getCurrenttopic());
 
   useEffect(() => {
-    const pathSegments = location.pathname.split("/");
-    const encodedValue = pathSegments[pathSegments.length - 1];
-    const updatedTopic = decodeURIComponent(encodedValue);
-    setCurrentTopic(updatedTopic);
+    setCurrentTopic(getCurrenttopic());
   }, [location]);
 
   useEffect(() => {
@@ -74,7 +69,6 @@ const Tutorial = ({ contentData }: TutorialProps) => {
       });
     }
   }, [currentTopic]); // Dependency to update when currentTopic changes
-  console.log(currentTopic, "currentTopic");
 
   const index = contentData.route.findIndex(
     (content) => content.topic === currentTopic
@@ -88,14 +82,33 @@ const Tutorial = ({ contentData }: TutorialProps) => {
       ? contentData.route[currentIndex + 1].topic
       : null;
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        handleNavigation(previousTopic);
+      } else if (event.key === "ArrowRight") {
+        handleNavigation(nextTopic);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [previousTopic, nextTopic]);
+
   const handleNavigation = (topic: string | null) => {
     if (topic) {
       const newPath = `/${category}/${contentData.about.name}/${topic}`;
       navigate(newPath);
       setCurrentTopic(topic); // Update the current topic state
+      scrollToTop(); // Scroll to the top of the page
     }
   };
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
   return (
     <>
       <Helmet>
@@ -131,6 +144,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                     onClick={() => {
                       setCurrentTopic(content.topic);
                       setShowTopic(false);
+                      scrollToTop();
                     }}
                   >
                     {capitalizeFirstLetter(content.topic)}

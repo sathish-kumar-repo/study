@@ -16,16 +16,10 @@ const Figure = styled.figure`
   min-width: 100px;
   height: 100%;
   background-position: 50% 50%;
-  background-color: rgba(255, 255, 255, 0.05); /* subtle base */
-  backdrop-filter: blur(12px) saturate(160%);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   cursor: zoom-in;
   position: relative;
   transition: all 0.4s ease-in-out;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 
   img {
     opacity: 0;
@@ -79,68 +73,11 @@ const Figure = styled.figure`
 
   &.zoomed {
     cursor: zoom-out;
-
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px) saturate(160%);
     transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   }
 `;
-
-// const Figure = styled.figure`
-//   min-width: 100px;
-//   height: 100%;
-//   background-position: 50% 50%;
-//   background-color: #eee;
-//   overflow: hidden;
-//   cursor: zoom-in;
-//   position: relative;
-
-//   img {
-//     opacity: 0;
-//     transition: opacity 0s ease-in-out;
-//   }
-//   &:before {
-//     content: "";
-//     background-color: transparent;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     width: 100%;
-//     height: 100%;
-//     opacity: 1;
-//     transition: opacity 0.2s ease-in-out;
-//     z-index: 1;
-//   }
-//   &:after {
-//     content: "";
-//     position: absolute;
-//     top: calc(50% - 25px);
-//     left: calc(50% - 25px);
-//     width: 50px;
-//     height: 50px;
-//     border-radius: 50%;
-//     border: 5px solid transparent;
-//     border-top-color: #333;
-//     border-right-color: #333;
-//     border-bottom-color: #333;
-//     animation: ${rotate} 2s linear infinite;
-//     opacity: 1;
-//     transition: opacity 0.2s ease-in-out;
-//     z-index: 2;
-//   }
-//   &.loaded {
-//     min-height: auto;
-//     img {
-//       opacity: 1;
-//       transition: opacity 0.2s ease-in-out;
-//     }
-//     &:before,
-//     &:after {
-//       opacity: 0;
-//     }
-//   }
-// `;
 
 const ErrorText = styled.p`
   width: 100%;

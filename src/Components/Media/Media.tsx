@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Media.css";
 import ImageZoom from "../ImageZoom";
 
@@ -17,47 +17,22 @@ const Media: React.FC<MediaProps> = ({
   width = "100%",
   height = "auto",
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   // Dynamically determine the type based on file extension
   const isVideo = /\.(mp4|webm|ogg)$/i.test(src);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
   return (
     <>
-      <div className={`media-container ${className}`} onClick={toggleModal}>
+      <div className={`media-container ${className}`}>
         {isVideo ? (
           <video
             src={src}
-            controls
             className="media-content"
+            controls
             style={{ width, height }}
           />
         ) : (
-          <img
-            src={src}
-            alt={alt}
-            className="media-content"
-            style={{ width, height }}
-            loading="lazy"
-          />
+          <ImageZoom src={src} alt={alt} style={{ width, height }} />
         )}
-      </div>
-
-      <div
-        className={`modal-overlay ${isModalOpen ? "open" : undefined}`}
-        onClick={toggleModal}
-      >
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          {isVideo ? (
-            <video src={src} controls autoPlay className="modal-video" />
-          ) : (
-            <ImageZoom src={src} />
-          )}
-        </div>
       </div>
     </>
   );

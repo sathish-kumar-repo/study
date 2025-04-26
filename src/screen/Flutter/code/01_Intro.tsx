@@ -2,7 +2,7 @@ import { H1, H2, List, Media, Para, Title, Note } from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 import HL from "../../../components/HL/HL";
-
+import video from "./VID-20250322-WA0003.mp4";
 const IntroFlutter = () => {
   return (
     <>
@@ -52,6 +52,7 @@ const IntroFlutter = () => {
         eligendi aliquam sunt optio eius facilis, hic error laboriosam maxime
         quo? Dicta.
       </Note>
+      <Media src={video} />
     </>
   );
 };

@@ -5,8 +5,9 @@
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: fit-content;
+  width: 100%;
   margin: 10px 0;
+  overflow: hidden;
 }
 
 .media-content {
@@ -14,45 +15,4 @@
   height: auto;
   border-radius: 0.5rem;
   object-fit: cover;
-}
-
-.modal-overlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-image: url("/study/web-images/bg.jpg");
-  top: 0;
-  left: 0;
-  background-color: #000;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  transition: opacity 0.4s ease, visibility 0.4s ease,
-    transform 0.5s ease-in-out;
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0);
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  z-index: 1000;
-  overflow: auto;
-}
-.modal-overlay.open {
-  visibility: visible;
-  opacity: 1;
-  transform: scale(1);
-}
-.modal-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 1rem;
-}
-
-.modal-image,
-.modal-video {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
 }

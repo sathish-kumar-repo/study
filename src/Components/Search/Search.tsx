@@ -3,7 +3,8 @@ import "./Search.css";
 import SearchIcon from "@mui/icons-material/Search";
 import mainData from "../../data/main_data"; // Replace with the actual path to your data
 import { Link } from "react-router-dom";
-import Section from "../Section";
+
+import ClearIcon from "@mui/icons-material/Clear";
 
 interface SearchProps {
   showSearch: boolean;
@@ -37,6 +38,18 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
     }
   }, [showSearch, inputRef]);
 
+  useEffect(() => {
+    if (showSearch) {
+      inputRef.current?.focus();
+      setTimeout(() => {
+        inputRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100); // slight delay after focus for better behavior on mobile
+    }
+  }, [showSearch]);
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
@@ -59,10 +72,23 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
     )
     .filter((course): course is CourseResult => course !== null);
 
+  const handleScroll = () => {
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+  };
+
+  const handleClear = () => {
+    setSearchTerm("");
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
   return (
-    <Section className={`search-section ${showSearch ? "active" : ""}`}>
+    <section className={`search-section ${showSearch ? "active" : ""}`}>
       <div className="search-container" ref={ref}>
-        <div className="search-card">
+        <div className="search-header">
           <div className="search-bar">
             <span className="search-icon">
               <SearchIcon />
@@ -72,10 +98,21 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
               placeholder="Search here..."
               onChange={handleSearchChange}
               ref={inputRef}
+              value={searchTerm}
             />
+            <span
+              className={`clear-icon ${searchTerm ? "active" : undefined}`}
+              onClick={handleClear}
+            >
+              <ClearIcon />
+            </span>
           </div>
+          <span className="toggle-button cancel" onClick={onClose}>
+            Cancel
+          </span>
         </div>
-        <div className="search-results">
+
+        <div className="search-results" onScroll={handleScroll}>
           {filteredResults.length > 0 ? (
             <div className="result-container">
               {filteredResults.map((result, index) => (
@@ -105,7 +142,7 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
           )}
         </div>
       </div>
-    </Section>
+    </section>
   );
 };
 
