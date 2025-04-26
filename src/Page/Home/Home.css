@@ -32,23 +32,9 @@
   padding-left: 110px;
 }
 
-@media (max-width: 1380px) {
-  .content {
-    margin: 30px 0;
-  }
-}
 .content h2 {
   font-size: 3em;
   color: var(--accent-color);
-}
-
-@media (max-width: 1200px) {
-  .content {
-    transform: translateX(-70px);
-  }
-  .content h2 {
-    font-size: 2em;
-  }
 }
 
 .content p {
@@ -123,7 +109,19 @@
   color: var(--accent-color);
 }
 
+@media (max-width: 1550px) {
+  .content {
+    margin: 30px 0;
+  }
+}
+
 @media (max-width: 1200px) {
+  .content {
+    transform: translateX(-70px);
+  }
+  .content h2 {
+    font-size: 2em;
+  }
   .container {
     position: relative;
     width: calc(100% - 20px);
