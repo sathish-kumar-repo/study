@@ -23,7 +23,7 @@ export const Home = () => {
           <div className="content">
             <h2>{heading}</h2>
             <p>{description}</p>
-            <Link to={"/author"}>By Sathish...</Link>
+            <Link to={"/author"}>Designed by...</Link>
           </div>
           <Character />
           <SocialMedia />
