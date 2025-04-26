@@ -1,4 +1,4 @@
-import { Title, Table } from "../../../components/UI";
+import { Title, Table, Media } from "../../../components/UI";
 
 export const FlutterSdk = () => {
   return (
@@ -24,7 +24,9 @@ export const FlutterSdk = () => {
             <td>Row 2, Col 3</td>
           </tr>
         </tbody>
-      </Table>
+      </Table>{" "}
+      <Media src={"https://youtu.be/9bZkp7q19f0?si=MkL1D6GwoekLX5uj"} />
+      <Media src={"https://youtu.be/k3MseWHyUUE?si=t0FlDdiVR11DIQZQ"} />
     </>
   );
 };

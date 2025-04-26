@@ -9,5 +9,6 @@ import Syntax from "./Syntax/Syntax";
 import A from "./A/A";
 import HL from "./HL/HL";
 import Note from "./Note/Note";
+import Space from "./Space/Space";
 
-export { Title, H1, H2, Para, List, Media, Table, Syntax, A, HL, Note };
+export { Title, H1, H2, Para, List, Media, Table, Syntax, A, HL, Note, Space };

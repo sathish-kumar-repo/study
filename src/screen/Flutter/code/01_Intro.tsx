@@ -52,7 +52,10 @@ const IntroFlutter = () => {
         eligendi aliquam sunt optio eius facilis, hic error laboriosam maxime
         quo? Dicta.
       </Note>
+
       <Media src={video} />
+
+      <Media src="https://images.pexels.com/photos/31737021/pexels-photo-31737021/free-photo-of-serene-rocky-coastline-with-calm-waters.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     </>
   );
 };
