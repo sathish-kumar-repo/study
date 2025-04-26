@@ -3,8 +3,22 @@ import { Helmet } from "react-helmet";
 import Section from "../../components/Section";
 import Tilt from "react-parallax-tilt";
 import SocialMedia from "../Home/Components/SocialMedia";
+import { useEffect, useState } from "react";
 
 const Author = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // You can adjust breakpoint if needed
+    };
+
+    handleResize(); // Run initially
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -16,7 +30,7 @@ const Author = () => {
       </Helmet>
 
       <Section className="author-container">
-        <Tilt>
+        <Tilt tiltEnable={!isMobile}>
           <div className="card">
             <img
               className="profile"
