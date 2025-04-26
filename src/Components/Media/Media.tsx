@@ -1,5 +1,14 @@
 import React from "react";
 import "./Media.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import IconButton from "@mui/material/IconButton";
+import RotateRightIcon from "@mui/icons-material/RotateRight";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import ZoomOutIcon from "@mui/icons-material/ZoomOut";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface MediaProps {
   src: string;
@@ -30,7 +39,37 @@ const Media: React.FC<MediaProps> = ({
             style={{ width, height }}
           />
         ) : (
-          <img src={src} alt={alt} style={{ width, height }} />
+          <PhotoProvider
+            toolbarRender={({ rotate, scale, onScale, onRotate }) => (
+              <div>
+                <IconButton
+                  onClick={() => onRotate(rotate + 90)}
+                  style={{ color: "white" }}
+                  className="PhotoView-Slider__toolbarIcon"
+                >
+                  <RotateRightIcon />
+                </IconButton>
+                <IconButton
+                  onClick={() => onScale(scale + 0.2)}
+                  style={{ color: "white" }}
+                  className="PhotoView-Slider__toolbarIcon"
+                >
+                  <ZoomInIcon />
+                </IconButton>
+                <IconButton
+                  onClick={() => onScale(scale - 0.2)}
+                  style={{ color: "white" }}
+                  className="PhotoView-Slider__toolbarIcon"
+                >
+                  <ZoomOutIcon />
+                </IconButton>
+              </div>
+            )}
+          >
+            <PhotoView src={src}>
+              <img src={src} alt={alt} style={{ width, height }} />
+            </PhotoView>
+          </PhotoProvider>
         )}
       </div>
     </>
@@ -38,3 +77,4 @@ const Media: React.FC<MediaProps> = ({
 };
 
 export default Media;
+//
