@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
+import {
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import Container from "../../components/Container";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
@@ -22,6 +28,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const offCanvasRef = useRef<HTMLDivElement>(null);
   const activeTopicRef = useRef<HTMLLIElement>(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const getCurrenttopic = (): string => {
     const url = window.location.href;
@@ -32,6 +39,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   };
 
   const [currentTopic, setCurrentTopic] = useState(getCurrenttopic());
+
+  useEffect(() => {
+    const pathSegments = location.pathname.split("/");
+    const encodedValue = pathSegments[pathSegments.length - 1];
+    const updatedTopic = decodeURIComponent(encodedValue);
+    setCurrentTopic(updatedTopic);
+  }, [location]);
 
   useEffect(() => {
     // Close the topic menu when clicking outside
@@ -54,13 +68,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   useEffect(() => {
     // Scroll to the active topic whenever the current topic changes
     if (activeTopicRef.current) {
-      console.log("Scrolling to active topic:", activeTopicRef.current); // Debug
       activeTopicRef.current.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     }
   }, [currentTopic]); // Dependency to update when currentTopic changes
+  console.log(currentTopic, "currentTopic");
 
   const index = contentData.route.findIndex(
     (content) => content.topic === currentTopic

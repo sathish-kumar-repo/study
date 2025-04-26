@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Media.css";
 import ImageZoom from "../ImageZoom";
 
@@ -42,6 +42,7 @@ const Media: React.FC<MediaProps> = ({
             alt={alt}
             className="media-content"
             style={{ width, height }}
+            loading="lazy"
           />
         )}
       </div>
