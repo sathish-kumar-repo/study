@@ -1,6 +1,5 @@
 import React from "react";
 import "./Media.css";
-import ImageZoom from "../ImageZoom";
 
 interface MediaProps {
   src: string;
@@ -31,7 +30,7 @@ const Media: React.FC<MediaProps> = ({
             style={{ width, height }}
           />
         ) : (
-          <ImageZoom src={src} alt={alt} style={{ width, height }} />
+          <img src={src} alt={alt} style={{ width, height }} />
         )}
       </div>
     </>
