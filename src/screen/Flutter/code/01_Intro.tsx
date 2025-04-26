@@ -41,7 +41,7 @@ const IntroFlutter = () => {
       />
 
       <H1>Demo</H1>
-      <Media src={flutter} />
+      <Media src={[flutter, demo, flutter]} />
       <Media src={demo} />
 
       <H1>Getting Started</H1>

@@ -8,11 +8,11 @@ import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 
 interface MediaProps {
-  src: string;
+  src: string | string[]; // Accept string or array of strings
   alt?: string;
   className?: string;
-  width?: string | number; // Optional width
-  height?: string | number; // Optional height
+  width?: string | number;
+  height?: string | number;
 }
 
 const Media: React.FC<MediaProps> = ({
@@ -22,56 +22,62 @@ const Media: React.FC<MediaProps> = ({
   width = "100%",
   height = "auto",
 }) => {
-  // Dynamically determine the type based on file extension
-  const isVideo = /\.(mp4|webm|ogg)$/i.test(src);
+  const renderMedia = (file: string, index: number) => {
+    const isVideo = /\.(mp4|webm|ogg)$/i.test(file);
+    if (isVideo) {
+      return (
+        <video
+          key={index}
+          src={file}
+          className="media-content"
+          controls
+          style={{ width, height }}
+        />
+      );
+    } else {
+      return (
+        <PhotoView key={index} src={file}>
+          <img src={file} alt={alt} style={{ width, height }} />
+        </PhotoView>
+      );
+    }
+  };
+
+  const mediaArray = Array.isArray(src) ? src : [src];
 
   return (
-    <>
-      <div className={`media-container ${className}`}>
-        {isVideo ? (
-          <video
-            src={src}
-            className="media-content"
-            controls
-            style={{ width, height }}
-          />
-        ) : (
-          <PhotoProvider
-            toolbarRender={({ rotate, scale, onScale, onRotate }) => (
-              <div>
-                <IconButton
-                  onClick={() => onRotate(rotate + 90)}
-                  style={{ color: "white" }}
-                  className="PhotoView-Slider__toolbarIcon"
-                >
-                  <RotateRightIcon />
-                </IconButton>
-                <IconButton
-                  onClick={() => onScale(scale + 0.2)}
-                  style={{ color: "white" }}
-                  className="PhotoView-Slider__toolbarIcon"
-                >
-                  <ZoomInIcon />
-                </IconButton>
-                <IconButton
-                  onClick={() => onScale(scale - 0.2)}
-                  style={{ color: "white" }}
-                  className="PhotoView-Slider__toolbarIcon"
-                >
-                  <ZoomOutIcon />
-                </IconButton>
-              </div>
-            )}
-          >
-            <PhotoView src={src}>
-              <img src={src} alt={alt} style={{ width, height }} />
-            </PhotoView>
-          </PhotoProvider>
+    <div className={`media-container ${className}`}>
+      <PhotoProvider
+        toolbarRender={({ rotate, scale, onScale, onRotate }) => (
+          <>
+            <IconButton
+              onClick={() => onRotate(rotate + 90)}
+              style={{ color: "white" }}
+              className="PhotoView-Slider__toolbarIcon"
+            >
+              <RotateRightIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => onScale(scale + 0.2)}
+              style={{ color: "white" }}
+              className="PhotoView-Slider__toolbarIcon"
+            >
+              <ZoomInIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => onScale(scale - 0.2)}
+              style={{ color: "white" }}
+              className="PhotoView-Slider__toolbarIcon"
+            >
+              <ZoomOutIcon />
+            </IconButton>
+          </>
         )}
-      </div>
-    </>
+      >
+        {mediaArray.map((file, index) => renderMedia(file, index))}
+      </PhotoProvider>
+    </div>
   );
 };
 
 export default Media;
-//
