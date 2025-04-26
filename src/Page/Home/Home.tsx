@@ -1,6 +1,6 @@
 import "./Home.css";
 import { description, footerMessage, heading } from "../../utils/message";
-import { SocialMedia } from "./Components/SocialMedia";
+import SocialMedia from "./Components/SocialMedia";
 import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import { Link } from "react-router-dom";

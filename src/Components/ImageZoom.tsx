@@ -12,6 +12,7 @@ const rotate = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 `;
+
 const Figure = styled.figure`
   min-width: 100px;
   height: 100%;
@@ -64,7 +65,6 @@ const Figure = styled.figure`
       opacity: 1;
       transition: opacity 0.3s ease-in-out;
     }
-
     &:before,
     &:after {
       opacity: 0;
@@ -143,6 +143,7 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
     naturalHeight: 0,
   });
 
+  const [touchTimeout, setTouchTimeout] = useState<NodeJS.Timeout | null>(null);
   const { position, imgData, error, isOverflowHidden } = state;
 
   const zoomInPosition = useCallback(
@@ -267,6 +268,31 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
     [state.isZoomed, imgData, calculateZoom, position]
   );
 
+  const handleTouchStart = (e: TouchEvent<HTMLElement>) => {
+    const timeout = setTimeout(() => {
+      handleClick(e); // long press triggers zoom
+    }, 400);
+    setTouchTimeout(timeout);
+  };
+
+  const handleTouchMove = (e: TouchEvent<HTMLElement>) => {
+    if (touchTimeout) {
+      clearTimeout(touchTimeout);
+      setTouchTimeout(null);
+    }
+    if (state.isZoomed) {
+      zoomInPosition(e);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (touchTimeout) {
+      clearTimeout(touchTimeout);
+      setTouchTimeout(null);
+    }
+    handleLeave(); // zoom out after finger lifted
+  };
+
   if (error) return errorContent;
 
   return (
@@ -279,9 +305,9 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
       onClick={handleClick}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      onTouchStart={handleClick}
-      onTouchMove={handleMove}
-      onTouchEnd={handleLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       role="button"
       aria-label={`Zoomable image: ${alt}`}
       tabIndex={0}
