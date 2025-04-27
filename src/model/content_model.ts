@@ -8,6 +8,7 @@ export type ContentDataType = {
     img: string;
   };
   route: {
+    heading?: string;
     topic: string;
     page: JSX.Element;
   }[];

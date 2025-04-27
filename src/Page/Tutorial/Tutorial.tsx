@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import {
   NavLink,
   Outlet,
@@ -138,6 +138,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                   key={index}
                   ref={content.topic === currentTopic ? activeTopicRef : null}
                 >
+                  {content.heading && <h3>{content.heading}</h3>}
                   <NavLink
                     end
                     to={`/${category}/${contentData.about.name}/${content.topic}`}
