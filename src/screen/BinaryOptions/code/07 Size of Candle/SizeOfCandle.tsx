@@ -1,10 +1,11 @@
-import { Media, Table, Title } from "../../../../components/UI";
+import { H1, Media, Table, Title } from "../../../../components/UI";
 import img1 from "./img/1.png";
 
 const SizeOfCandle = () => {
   return (
     <>
       <Title>Size of Candle</Title>
+      <H1>Description:</H1>
       <Table>
         <thead>
           <tr>
