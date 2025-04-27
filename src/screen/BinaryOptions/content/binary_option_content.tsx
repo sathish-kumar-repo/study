@@ -3,8 +3,10 @@ import AssetsAndOTC from "../code/02 Assets and OTC/AssetsAndOTC";
 import SupplyAndDemand from "../code/03 Supply and Demand/SupplyAndDemand";
 import TrendLine from "../code/04 Trend Line/TrendLine";
 import TypesOfCandle from "../code/05 Types of Candle/TypesOfCandle";
+import StructureOfCandle from "../code/06 Structure of Candle/StructureOfCandle";
 import SizeOfCandle from "../code/07 Size of Candle/SizeOfCandle";
 import TypesOfBuyerSeller from "../code/08 Types of Buyer Seller/TypesOfBuyerSeller";
+import SingleCandlestick from "../code/09 Single Candlestick/SingleCandlestick";
 
 const BinaryOptionContent = {
   about: {
@@ -37,7 +39,7 @@ const BinaryOptionContent = {
     },
     {
       topic: "Structure of Candle",
-      page: <TypesOfCandle />,
+      page: <StructureOfCandle />,
     },
     {
       topic: "Size of Candle",
@@ -46,6 +48,10 @@ const BinaryOptionContent = {
     {
       topic: "Types of Buyer Seller",
       page: <TypesOfBuyerSeller />,
+    },
+    {
+      topic: "Single Candlestick",
+      page: <SingleCandlestick />,
     },
   ],
 };
