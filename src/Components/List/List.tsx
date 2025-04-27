@@ -10,7 +10,7 @@ type OrderedSymbol =
   | "lowercase-roman";
 
 type ListItem = {
-  text: string;
+  text: string | React.ReactNode; // Allow both strings and components
   children?: ListItem[];
 };
 
@@ -42,7 +42,7 @@ const List: React.FC<ListProps> = ({
   };
 
   const toRoman = (input: number | string): string => {
-    const num = typeof input === "string" ? Number(input) : input; // Ensure number type
+    const num = typeof input === "string" ? Number(input) : input;
     if (isNaN(num)) {
       throw new Error("Invalid input, must be a number or numeric string.");
     }

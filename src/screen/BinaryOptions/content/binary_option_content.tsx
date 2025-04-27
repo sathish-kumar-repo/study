@@ -7,6 +7,9 @@ import StructureOfCandle from "../code/06 Structure of Candle/StructureOfCandle"
 import SizeOfCandle from "../code/07 Size of Candle/SizeOfCandle";
 import TypesOfBuyerSeller from "../code/08 Types of Buyer Seller/TypesOfBuyerSeller";
 import SingleCandlestick from "../code/09 Single Candlestick/SingleCandlestick";
+import PAVSCP from "../code/10 Price Action vs. Candlestick Psychology/PAVSCP";
+import BuyerPyscology from "../code/11 Buyer Pyscology/BuyerPyscology";
+import SellerPyscology from "../code/12 Seller Pyscology/SellerPyscology";
 
 const BinaryOptionContent = {
   about: {
@@ -52,6 +55,18 @@ const BinaryOptionContent = {
     {
       topic: "Single Candlestick",
       page: <SingleCandlestick />,
+    },
+    {
+      topic: "Price action vs. Candlestick Psychology",
+      page: <PAVSCP />,
+    },
+    {
+      topic: "Buyer Pyscology",
+      page: <BuyerPyscology />,
+    },
+    {
+      topic: "Seller Pyscology",
+      page: <SellerPyscology />,
     },
   ],
 };

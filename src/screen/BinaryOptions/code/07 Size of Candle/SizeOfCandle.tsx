@@ -1,4 +1,5 @@
-import { Table, Title } from "../../../../components/UI";
+import { Media, Table, Title } from "../../../../components/UI";
+import img1 from "./img/1.png";
 
 const SizeOfCandle = () => {
   return (
@@ -34,6 +35,7 @@ const SizeOfCandle = () => {
           </tr>
         </tbody>
       </Table>
+      <Media src={img1} />
     </>
   );
 };
