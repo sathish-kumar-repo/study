@@ -2,16 +2,20 @@ import { Intro } from "../code/01 Intro/Intro";
 import AssetsAndOTC from "../code/02 Assets and OTC/AssetsAndOTC";
 import SupplyAndDemand from "../code/03 Supply and Demand/SupplyAndDemand";
 import TrendLine from "../code/04 Trend Line/TrendLine";
+import TypesOfCandle from "../code/05 Types of Candle/TypesOfCandle";
+import SizeOfCandle from "../code/07 Size of Candle/SizeOfCandle";
+import TypesOfBuyerSeller from "../code/08 Types of Buyer Seller/TypesOfBuyerSeller";
 
 const BinaryOptionContent = {
   about: {
     name: "Binary Options",
     description: "Learn about price action and candlestick physcology.",
     link: "",
-    img: "design.jpg",
+    img: "binary-trading.jpg",
   },
   route: [
     {
+      heading: "Part A",
       topic: "Introduction",
       page: <Intro />,
     },
@@ -26,6 +30,22 @@ const BinaryOptionContent = {
     {
       topic: "Trend Line",
       page: <TrendLine />,
+    },
+    {
+      topic: "Types of Candle",
+      page: <TypesOfCandle />,
+    },
+    {
+      topic: "Structure of Candle",
+      page: <TypesOfCandle />,
+    },
+    {
+      topic: "Size of Candle",
+      page: <SizeOfCandle />,
+    },
+    {
+      topic: "Types of Buyer Seller",
+      page: <TypesOfBuyerSeller />,
     },
   ],
 };
