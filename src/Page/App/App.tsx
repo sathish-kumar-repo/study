@@ -35,23 +35,22 @@ function App() {
                 element={<Tutorial contentData={contents} />}
               >
                 {contents.route.map((eachContent, topicIndex) => {
+                  const page = eachContent.page;
+                  const topic = eachContent.topic;
                   return topicIndex === 0 ? (
                     <>
+                      <Route index element={<Navigate to={topic} replace />} />
                       <Route
-                        index
-                        element={<Navigate to={eachContent.topic} replace />}
-                      />
-                      <Route
-                        path={eachContent.topic}
-                        element={eachContent.page}
-                        key={`${contents.about.name}-${eachContent.topic}`}
+                        path={topic}
+                        element={page}
+                        key={`${contents.about.name}-${topic}`}
                       />
                     </>
                   ) : (
                     <Route
-                      key={`${contents.about.name}-${eachContent.topic}`}
-                      path={eachContent.topic}
-                      element={eachContent.page}
+                      key={`${contents.about.name}-${topic}`}
+                      path={topic}
+                      element={page}
                     />
                   );
                 })}
