@@ -138,7 +138,9 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                   key={index}
                   ref={content.topic === currentTopic ? activeTopicRef : null}
                 >
-                  {content.heading && <h3>{content.heading}</h3>}
+                  {content.heading && (
+                    <h3 className="topic-subheading">{content.heading}</h3>
+                  )}
                   <NavLink
                     end
                     to={`/${category}/${contentData.about.name}/${content.topic}`}

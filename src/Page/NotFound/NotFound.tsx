@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import { Footer } from "../../components/Footer/Footer";
-import ForwardIcon from "@mui/icons-material/ArrowForwardIos";
 
 const NotFound = () => {
   return (
