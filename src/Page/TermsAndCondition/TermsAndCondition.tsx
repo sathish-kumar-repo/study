@@ -92,10 +92,10 @@ const TermsAndConditions = () => {
         <h2>8. Governing Law</h2>
         <p>
           These Terms and Conditions are governed by the laws of
-          <strong>India</strong>. Any disputes arising from or related to the
+          <strong> India</strong>. Any disputes arising from or related to the
           use of this website shall be subject to the exclusive jurisdiction of
           the courts located in
-          <strong>India</strong>.
+          <strong> India</strong>.
         </p>
 
         <h2>9. Contact Us</h2>

@@ -25,14 +25,12 @@
 }
 
 .footer-links a {
-  color: #f9fafb;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-weight: 500;
 }
 
 .footer-links a:hover {
-  color: #60a5fa; /* light blue accent on hover */
+  text-decoration: underline;
 }
 
 @media (min-width: 640px) {
