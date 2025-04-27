@@ -1,5 +1,5 @@
 import { Title } from "@mui/icons-material";
-import { H1, List, Para } from "../../../../components/UI";
+import { H1, Para } from "../../../../components/UI";
 
 const PAVSCP = () => {
   return (
