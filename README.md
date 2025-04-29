@@ -1,4 +1,1 @@
-Avoid link attribute
-https://freefrontend.com/css-glassmorphism/
-
-and icon explore
+<img src={`${process.env.PUBLIC_URL}/web-images/bg.jpg`} alt="background" />

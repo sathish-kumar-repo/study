@@ -9,3 +9,7 @@ export function capitalizeFirstLetter(input: string): string {
   if (!input) return input; // Return the input if it's empty or falsy
   return input[0].toUpperCase() + input.slice(1);
 }
+
+export function replaceSlashWithUnderscore(input: string): string {
+  return input.replace(/\//g, "_");
+}
