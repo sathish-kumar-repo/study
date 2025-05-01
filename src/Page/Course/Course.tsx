@@ -8,10 +8,14 @@ import Section from "../../components/Section";
 import Container from "../../components/Container";
 import getCourseData from "../../utils/get_course_data";
 import { Helmet } from "react-helmet";
-import { CourseType } from "../../model/course_model"; // Make sure this path points to your type definition
+import { useState } from "react";
+import { CourseType } from "../../model/course_model";
 
 const Course = () => {
   const { category } = useParams();
+  const [selectedSubCategory, setSelectedSubCategory] = useState("All");
+  const [recentlyAdded, setRecentlyAdded] = useState(false);
+
   const isValidFolder = category && getCourseData()[category];
 
   if (!isValidFolder) {
@@ -20,8 +24,16 @@ const Course = () => {
 
   const categoryCourses = getCourseData()[category];
 
-  // Group courses by subCategory
-  const groupedCourses = categoryCourses.reduce((groups, course) => {
+  const processedCourses = recentlyAdded
+    ? [...categoryCourses].reverse()
+    : categoryCourses;
+
+  // Count total courses
+  const totalCourses = processedCourses.length;
+  const showControls = totalCourses > 1;
+
+  // Group by subcategory
+  const groupedCourses = processedCourses.reduce((groups, course) => {
     const subCat = course.subCategory || "General";
     if (!groups[subCat]) {
       groups[subCat] = [];
@@ -29,6 +41,8 @@ const Course = () => {
     groups[subCat].push(course);
     return groups;
   }, {} as Record<string, CourseType[]>);
+
+  const subCategories = ["All", ...Object.keys(groupedCourses)];
 
   return (
     <>
@@ -43,32 +57,65 @@ const Course = () => {
       <Section className="course-section">
         <Header />
         <Container className="course-wrapper">
-          <h1 className="course-heading">{toTitleCase(category)} </h1>
+          <h1 className="course-heading">{toTitleCase(category)}</h1>
 
-          {Object.entries(groupedCourses).map(([subCat, courses]) => (
-            <div key={subCat} className="subcategory-section">
-              <h2 className="subcategory-title">{subCat}</h2>
-              <div className="course-list">
-                {courses.map((item, index) => (
-                  <div key={index} className="course-card">
-                    <img
-                      src={`/study/course-images/${item.img}`}
-                      alt={item.name}
-                      className="course-img"
-                    />
-                    <h3>{item.name}</h3>
-                    <p>{item.description}</p>
-                    <NavLink
-                      to={`/${category}/${item.name}/${item.link}`}
-                      className="course-link"
-                    >
-                      Learn More
-                    </NavLink>
-                  </div>
-                ))}
+          {/* Filter + Sort Controls */}
+          {showControls && (
+            <div className="course-controls">
+              <div className="subcategory-filter">
+                <label htmlFor="subcategory">Filter by Subcategory:</label>
+                <select
+                  id="subcategory"
+                  value={selectedSubCategory}
+                  onChange={(e) => setSelectedSubCategory(e.target.value)}
+                >
+                  {subCategories.map((sub, index) => (
+                    <option key={index} value={sub}>
+                      {sub}
+                    </option>
+                  ))}
+                </select>
               </div>
+
+              <button
+                className="recent-toggle"
+                onClick={() => setRecentlyAdded(!recentlyAdded)}
+              >
+                {recentlyAdded ? "Sort: Newest First 🔁" : "Sort: Default"}
+              </button>
             </div>
-          ))}
+          )}
+
+          {/* Course Sections */}
+          {Object.entries(groupedCourses).map(([subCat, courses]) => {
+            if (selectedSubCategory !== "All" && selectedSubCategory !== subCat)
+              return null;
+
+            return (
+              <div key={subCat} className="subcategory-section">
+                <h2 className="subcategory-title">{subCat}</h2>
+                <div className="course-list">
+                  {courses.map((item, index) => (
+                    <div key={index} className="course-card">
+                      <img
+                        src={`/study/course-images/${item.img}`}
+                        alt={item.name}
+                        className="course-img"
+                      />
+                      <h3>{item.name}</h3>
+                      <p>{item.description}</p>
+                      <NavLink
+                        to={`/${category}/${item.name}/${item.link}`}
+                        className="course-link"
+                      >
+                        Learn More
+                      </NavLink>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </Container>
         <Footer />
       </Section>

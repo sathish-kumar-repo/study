@@ -68,3 +68,35 @@ export const mathsSem3Content = {
     },
   ],
 };
+export const mathsSem4Content = {
+  about: {
+    subCategory: "2n year",
+    name: "1st year - 4nd sem",
+    description: "Learn about Numerical methods",
+    link: "",
+    img: "maths-sem-2.avif",
+  },
+  route: [
+    {
+      topic: "Newton Forward and backward",
+      page: <NFB />,
+    },
+    {
+      topic: "Langrange Interpolation for Unequal intervals",
+      page: <LIUI />,
+    },
+    {
+      topic: "Newton's Divided Different",
+      page: <NDD />,
+    },
+    {
+      heading: "Numerical Integration",
+      topic: "Simpsons One Third rule",
+      page: <SOTR />,
+    },
+    {
+      topic: "Simpsons Three Eight rule",
+      page: <STER />,
+    },
+  ],
+};

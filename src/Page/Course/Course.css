@@ -89,6 +89,34 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.course-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.subcategory-filter label {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.recent-toggle {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.recent-toggle:hover {
+  background-color: #005fa3;
+}
+
 .subcategory-title {
   font-size: 1.5rem;
   margin-top: 2rem;
