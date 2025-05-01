@@ -33,6 +33,9 @@ function getCourseData(): CourseDataType {
     Object.entries(mainData).map(([category, value]) => [
       category,
       value.map((course) => ({
+        subCategory:
+          "subCategory" in course.about ? course.about.subCategory : undefined,
+
         name: course.about.name,
         description: course.about.description,
         link: course.about.link,

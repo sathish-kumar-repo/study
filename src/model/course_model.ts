@@ -1,5 +1,6 @@
 // Define the structure of a single course
 export type CourseType = {
+  subCategory?: string;
   name: string;
   description: string;
   link: string;
