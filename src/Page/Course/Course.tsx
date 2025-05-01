@@ -15,6 +15,7 @@ const Course = () => {
   const { category } = useParams();
   const [selectedSubCategory, setSelectedSubCategory] = useState("All");
   const [recentlyAdded, setRecentlyAdded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State to store the search query
 
   const isValidFolder = category && getCourseData()[category];
 
@@ -24,9 +25,15 @@ const Course = () => {
 
   const categoryCourses = getCourseData()[category];
 
+  // Filter the courses based on search query (case-insensitive)
+  const filteredCourses = categoryCourses.filter((course) =>
+    course.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Process the courses based on 'recentlyAdded' toggle
   const processedCourses = recentlyAdded
-    ? [...categoryCourses].reverse()
-    : categoryCourses;
+    ? [...filteredCourses].reverse()
+    : filteredCourses;
 
   // Count total courses
   const totalCourses = processedCourses.length;
@@ -58,6 +65,16 @@ const Course = () => {
         <Header />
         <Container className="course-wrapper">
           <h1 className="course-heading">{toTitleCase(category)}</h1>
+
+          {/* Search Bar */}
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search courses by name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
 
           {/* Filter + Sort Controls */}
           {showControls && (
