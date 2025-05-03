@@ -9,7 +9,28 @@ import {
 const mainData = {
   // flutter: [flutterContent],
   trading: [BinaryOptionContent],
-  maths: [mathsSem2Content, mathsSem3Content, mathsSem4Content],
+  maths: [
+    BinaryOptionContent,
+    BinaryOptionContent,
+    mathsSem2Content,
+    mathsSem3Content,
+    mathsSem4Content,
+    mathsSem4Content,
+    mathsSem4Content,
+    BinaryOptionContent,
+    mathsSem4Content,
+    mathsSem4Content,
+    mathsSem4Content,
+    mathsSem4Content,
+    mathsSem4Content,
+    mathsSem4Content,
+    BinaryOptionContent,
+    BinaryOptionContent,
+    BinaryOptionContent,
+    mathsSem4Content,
+
+    mathsSem4Content,
+  ],
 };
 
 export default mainData;

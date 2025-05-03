@@ -70,7 +70,7 @@ export const mathsSem3Content = {
 };
 export const mathsSem4Content = {
   about: {
-    subCategory: "2n year",
+    subCategory: "2nf year",
     name: "1st year - 4nd sem",
     description: "Learn about Numerical methods",
     link: "",

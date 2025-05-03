@@ -10,6 +10,8 @@ import getCourseData from "../../utils/get_course_data";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { CourseType } from "../../model/course_model";
+import Switch from "./component/Switch/Switch";
+import { GlassDropdown } from "./component/GlassDropdown/GlassDropdown";
 
 const Course = () => {
   const { category } = useParams();
@@ -79,7 +81,18 @@ const Course = () => {
           {/* Filter + Sort Controls */}
           {showControls && (
             <div className="course-controls">
+              <Switch
+                checked={recentlyAdded}
+                onChange={() => setRecentlyAdded((prev) => !prev)}
+              />
               <div className="subcategory-filter">
+                <GlassDropdown
+                  options={subCategories}
+                  selected={selectedSubCategory}
+                  onChange={(val) => setSelectedSubCategory(val)}
+                />
+              </div>
+              {/* <div className="subcategory-filter">
                 <label htmlFor="subcategory">Filter by Subcategory:</label>
                 <select
                   id="subcategory"
@@ -92,14 +105,11 @@ const Course = () => {
                     </option>
                   ))}
                 </select>
-              </div>
+              </div> */}
 
-              <button
-                className="recent-toggle"
-                onClick={() => setRecentlyAdded(!recentlyAdded)}
-              >
+              {/* <button className="recent-toggle" onClick={}>
                 {recentlyAdded ? "Sort: Newest First 🔁" : "Sort: Default"}
-              </button>
+              </button> */}
             </div>
           )}
 
