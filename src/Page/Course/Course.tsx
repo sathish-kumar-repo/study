@@ -3,7 +3,6 @@ import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
 import { NavLink, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
-import { toTitleCase } from "../../utils/custom_string";
 import Section from "../../components/Section";
 import Container from "../../components/Container";
 import getCourseData from "../../utils/get_course_data";
@@ -16,7 +15,7 @@ const Course = () => {
   const { category } = useParams();
   const [selectedSubCategory, setSelectedSubCategory] = useState("All");
   const [recentlyAdded, setRecentlyAdded] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // State to store the search query
+  const [searchQuery, setSearchQuery] = useState("");
   const [toggleFilter, setToggleFilter] = useState(window.innerWidth > 1200);
 
   const isValidFolder = category && getCourseData()[category];
@@ -27,22 +26,8 @@ const Course = () => {
 
   const categoryCourses = getCourseData()[category];
 
-  // Filter the courses based on search query (case-insensitive)
-  const filteredCourses = categoryCourses.filter((course) =>
-    course.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  // Process the courses based on 'recentlyAdded' toggle
-  const processedCourses = recentlyAdded
-    ? [...filteredCourses].reverse()
-    : filteredCourses;
-
-  // Count total courses
-  const totalCourses = processedCourses.length;
-  const showControls = totalCourses > 1;
-
-  // Group by subcategory
-  const groupedCourses = processedCourses.reduce((groups, course) => {
+  // Group all courses by subcategory
+  const groupedCourses = categoryCourses.reduce((groups, course) => {
     const subCat = course.subCategory || "General";
     if (!groups[subCat]) {
       groups[subCat] = [];
@@ -51,6 +36,32 @@ const Course = () => {
     return groups;
   }, {} as Record<string, CourseType[]>);
 
+  // Filter by search term (case-insensitive)
+  const filteredCourses = Object.entries(groupedCourses).reduce(
+    (result, [subCat, courses]) => {
+      const filtered = courses.filter((course) =>
+        course.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      result[subCat] = filtered;
+      return result;
+    },
+    {} as Record<string, CourseType[]>
+  );
+
+  // Handle Recently Added: reverse subcategory and course order
+  const processedCourses = recentlyAdded
+    ? Object.fromEntries(
+        Object.entries(filteredCourses)
+          .reverse()
+          .map(([subCat, courses]) => [subCat, [...courses].reverse()])
+      )
+    : filteredCourses;
+
+  const totalCourses = Object.values(processedCourses).reduce(
+    (total, courses) => total + courses.length,
+    0
+  );
+
   const subCategories = ["All", ...Object.keys(groupedCourses)];
 
   const prevWidthRef = useRef(window.innerWidth);
@@ -58,18 +69,12 @@ const Course = () => {
     const handleResize = () => {
       const currentWidth = window.innerWidth;
       const prevWidth = prevWidthRef.current;
-
-      // 📉 Desktop → Mobile: hide sidebar
       if (prevWidth > 1200 && currentWidth <= 1200) {
         setToggleFilter(false);
       }
-
-      // 📈 Mobile → Desktop: show sidebar
       if (prevWidth <= 1200 && currentWidth > 1200) {
         setToggleFilter(true);
       }
-
-      // Update previous width for next comparison
       prevWidthRef.current = currentWidth;
     };
 
@@ -78,22 +83,13 @@ const Course = () => {
   }, []);
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  // Handle scroll to unfocus the input
   useEffect(() => {
     const handleScroll = () => {
-      if (inputRef.current) {
-        inputRef.current.blur(); // Unfocus the input when the user scrolls
-      }
+      if (inputRef.current) inputRef.current.blur();
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [inputRef]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -120,42 +116,76 @@ const Course = () => {
             handelSelectedCategory={setSelectedSubCategory}
             ref={inputRef}
           />
-          {/* <h1 className="course-heading">{toTitleCase(category)}</h1> */}
 
-          {/* Filter + Sort Controls */}
-          {showControls && <div className="course-controls"></div>}
+          {totalCourses > 0 && (
+            <div className="course-controls">
+              <button
+                className="recent-toggle"
+                onClick={() => setRecentlyAdded((prev) => !prev)}
+              >
+                {recentlyAdded ? "Sort: Newest First 🔁" : "Sort: Default"}
+              </button>
+            </div>
+          )}
+
+          {/* {selectedSubCategory !== "All" &&
+            processedCourses[selectedSubCategory]?.length === 0 && (
+              <div className="subcategory-section">
+                <h2 className="subcategory-title">{selectedSubCategory}</h2>
+                <div className="no-courses-message">
+                  <p>No courses found in this subcategory.</p>
+                </div>
+              </div>
+            )} */}
 
           <div className={`course-main ${toggleFilter && "active"}`}>
-            {/* Course Sections */}
-            {Object.entries(groupedCourses).map(([subCat, courses]) => {
-              if (
-                selectedSubCategory !== "All" &&
-                selectedSubCategory !== subCat
-              )
-                return null;
+            {selectedSubCategory === "All" &&
+              Object.values(processedCourses).every((c) => c.length === 0) && (
+                <div className="no-courses-message">
+                  <h2>No Courses Found</h2>
+                  <p>
+                    We couldn't find any courses that match your search or
+                    selection.
+                  </p>
+                </div>
+              )}
+            {Object.entries(processedCourses).map(([subCat, courses]) => {
+              const isAll = selectedSubCategory === "All";
+              const isSelected = selectedSubCategory === subCat;
+
+              if (isAll && courses.length === 0) return null;
+              if (!isAll && !isSelected) return null;
 
               return (
                 <div key={subCat} className="subcategory-section">
                   <h2 className="subcategory-title">{subCat}</h2>
-                  <div className="course-list">
-                    {courses.map((item, index) => (
-                      <div key={index} className="course-card">
-                        <img
-                          src={`/study/course-images/${item.img}`}
-                          alt={item.name}
-                          className="course-img"
-                        />
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
-                        <NavLink
-                          to={`/${category}/${item.name}/${item.link}`}
-                          className="course-link"
-                        >
-                          Learn More
-                        </NavLink>
+                  {courses.length > 0 ? (
+                    <div className="course-list">
+                      {courses.map((item, index) => (
+                        <div key={index} className="course-card">
+                          <img
+                            src={`/study/course-images/${item.img}`}
+                            alt={item.name}
+                            className="course-img"
+                          />
+                          <h3>{item.name}</h3>
+                          <p>{item.description}</p>
+                          <NavLink
+                            to={`/${category}/${item.name}/${item.link}`}
+                            className="course-link"
+                          >
+                            Learn More
+                          </NavLink>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    !isAll && (
+                      <div className="no-courses-message">
+                        <p>No courses found in this subcategory.</p>
                       </div>
-                    ))}
-                  </div>
+                    )
+                  )}
                 </div>
               );
             })}

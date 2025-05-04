@@ -1,5 +1,6 @@
 import BinaryOptionContent from "../screen/BinaryOptions/content/binary_option_content";
 import {
+  mathsSem1Content,
   mathsSem2Content,
   mathsSem3Content,
   mathsSem4Content,
@@ -30,6 +31,7 @@ const mainData = {
     mathsSem4Content,
 
     mathsSem4Content,
+    mathsSem1Content,
   ],
 };
 
