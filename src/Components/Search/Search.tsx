@@ -1,10 +1,9 @@
 import { JSX, useEffect, useRef, useState } from "react";
 import "./Search.css";
-import SearchIcon from "@mui/icons-material/Search";
 import mainData from "../../data/main_data"; // Replace with the actual path to your data
 import { Link } from "react-router-dom";
 
-import ClearIcon from "@mui/icons-material/Clear";
+import SearchBar from "../SearchBar/SearchBar";
 
 interface SearchProps {
   showSearch: boolean;
@@ -50,10 +49,6 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
     }
   }, [showSearch]);
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value.toLowerCase());
-  };
-
   const filteredResults: CourseResult[] = Object.entries(mainData)
     .flatMap(([category, courses]) =>
       courses.map((course: Course) => {
@@ -78,35 +73,15 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
     }
   };
 
-  const handleClear = () => {
-    setSearchTerm("");
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
   return (
     <section className={`search-section ${showSearch ? "active" : ""}`}>
       <div className="search-container" ref={ref}>
         <div className="search-header">
-          <div className="search-bar">
-            <span className="search-icon">
-              <SearchIcon />
-            </span>
-            <input
-              type="text"
-              placeholder="Search here..."
-              onChange={handleSearchChange}
-              ref={inputRef}
-              value={searchTerm}
-            />
-            <span
-              className={`clear-icon ${searchTerm ? "active" : undefined}`}
-              onClick={handleClear}
-            >
-              <ClearIcon />
-            </span>
-          </div>
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            inputRef={inputRef}
+          />
           <span className="toggle-button cancel" onClick={onClose}>
             Cancel
           </span>

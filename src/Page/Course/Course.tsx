@@ -8,16 +8,16 @@ import Section from "../../components/Section";
 import Container from "../../components/Container";
 import getCourseData from "../../utils/get_course_data";
 import { Helmet } from "react-helmet";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CourseType } from "../../model/course_model";
-import Switch from "./component/Switch/Switch";
-import { GlassDropdown } from "./component/GlassDropdown/GlassDropdown";
+import FilterSidebar from "./component/FilterSidebar/FilterSidebar";
 
 const Course = () => {
   const { category } = useParams();
   const [selectedSubCategory, setSelectedSubCategory] = useState("All");
   const [recentlyAdded, setRecentlyAdded] = useState(false);
   const [searchQuery, setSearchQuery] = useState(""); // State to store the search query
+  const [toggleFilter, setToggleFilter] = useState(window.innerWidth > 1200);
 
   const isValidFolder = category && getCourseData()[category];
 
@@ -53,6 +53,52 @@ const Course = () => {
 
   const subCategories = ["All", ...Object.keys(groupedCourses)];
 
+  const prevWidthRef = useRef(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      const prevWidth = prevWidthRef.current;
+
+      // 📉 Desktop → Mobile: hide sidebar
+      if (prevWidth > 1200 && currentWidth <= 1200) {
+        setToggleFilter(false);
+      }
+
+      // 📈 Mobile → Desktop: show sidebar
+      if (prevWidth <= 1200 && currentWidth > 1200) {
+        setToggleFilter(true);
+      }
+
+      // Update previous width for next comparison
+      prevWidthRef.current = currentWidth;
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    let lastScrollTop = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollTop = window.scrollY;
+
+      // Detect scroll up
+      if (currentScrollTop < lastScrollTop) {
+        if (inputRef.current) {
+          inputRef.current.blur(); // blur input when scrolling up
+        }
+      }
+
+      lastScrollTop = currentScrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -66,83 +112,58 @@ const Course = () => {
       <Section className="course-section">
         <Header />
         <Container className="course-wrapper">
-          <h1 className="course-heading">{toTitleCase(category)}</h1>
-
-          {/* Search Bar */}
-          <div className="search-bar">
-            <input
-              type="text"
-              placeholder="Search courses by name..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+          <FilterSidebar
+            toggleFilter={toggleFilter}
+            handleToggleFilter={() => setToggleFilter((prev) => !prev)}
+            searchQuery={searchQuery}
+            setSearchQuery={(query) => setSearchQuery(query)}
+            recentlyAdded={recentlyAdded}
+            handleRecentlyAdded={() => setRecentlyAdded((prev) => !prev)}
+            categoryOptions={subCategories}
+            selectedCategory={selectedSubCategory}
+            handelSelectedCategory={setSelectedSubCategory}
+            ref={inputRef}
+          />
+          {/* <h1 className="course-heading">{toTitleCase(category)}</h1> */}
 
           {/* Filter + Sort Controls */}
-          {showControls && (
-            <div className="course-controls">
-              <Switch
-                checked={recentlyAdded}
-                onChange={() => setRecentlyAdded((prev) => !prev)}
-              />
-              <div className="subcategory-filter">
-                <GlassDropdown
-                  options={subCategories}
-                  selected={selectedSubCategory}
-                  onChange={(val) => setSelectedSubCategory(val)}
-                />
-              </div>
-              {/* <div className="subcategory-filter">
-                <label htmlFor="subcategory">Filter by Subcategory:</label>
-                <select
-                  id="subcategory"
-                  value={selectedSubCategory}
-                  onChange={(e) => setSelectedSubCategory(e.target.value)}
-                >
-                  {subCategories.map((sub, index) => (
-                    <option key={index} value={sub}>
-                      {sub}
-                    </option>
-                  ))}
-                </select>
-              </div> */}
+          {showControls && <div className="course-controls"></div>}
 
-              {/* <button className="recent-toggle" onClick={}>
-                {recentlyAdded ? "Sort: Newest First 🔁" : "Sort: Default"}
-              </button> */}
-            </div>
-          )}
-          <aside className="sidebar"></aside>
-          {/* Course Sections */}
-          {Object.entries(groupedCourses).map(([subCat, courses]) => {
-            if (selectedSubCategory !== "All" && selectedSubCategory !== subCat)
-              return null;
+          <div className={`course-main ${toggleFilter && "active"}`}>
+            {/* Course Sections */}
+            {Object.entries(groupedCourses).map(([subCat, courses]) => {
+              if (
+                selectedSubCategory !== "All" &&
+                selectedSubCategory !== subCat
+              )
+                return null;
 
-            return (
-              <div key={subCat} className="subcategory-section">
-                <h2 className="subcategory-title">{subCat}</h2>
-                <div className="course-list">
-                  {courses.map((item, index) => (
-                    <div key={index} className="course-card">
-                      <img
-                        src={`/study/course-images/${item.img}`}
-                        alt={item.name}
-                        className="course-img"
-                      />
-                      <h3>{item.name}</h3>
-                      <p>{item.description}</p>
-                      <NavLink
-                        to={`/${category}/${item.name}/${item.link}`}
-                        className="course-link"
-                      >
-                        Learn More
-                      </NavLink>
-                    </div>
-                  ))}
+              return (
+                <div key={subCat} className="subcategory-section">
+                  <h2 className="subcategory-title">{subCat}</h2>
+                  <div className="course-list">
+                    {courses.map((item, index) => (
+                      <div key={index} className="course-card">
+                        <img
+                          src={`/study/course-images/${item.img}`}
+                          alt={item.name}
+                          className="course-img"
+                        />
+                        <h3>{item.name}</h3>
+                        <p>{item.description}</p>
+                        <NavLink
+                          to={`/${category}/${item.name}/${item.link}`}
+                          className="course-link"
+                        >
+                          Learn More
+                        </NavLink>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </Container>
         <Footer />
       </Section>

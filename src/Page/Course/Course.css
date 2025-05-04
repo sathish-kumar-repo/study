@@ -4,20 +4,55 @@
 }
 
 .course-wrapper {
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+}
+
+.course-main {
+  padding: 0 1rem 2rem 1rem;
+  transition: var(--off-canvas-transition);
+}
+
+.course-main.active {
+  padding-left: calc(var(--filter-width) + 1rem);
+}
+
+@media (max-width: 1200px) {
+  .course-main.active {
+    padding-left: 1rem;
+  }
+}
+
+.subcategory-section {
+  /* width: 100%; */
+  margin-bottom: 4rem;
+}
+.subcategory-title {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  /* border-bottom: 2px solid #ddd; */
+  padding-bottom: 0.5rem;
 }
 
 .course-list {
-  display: flex;
+  /* display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; */
+  /* flex: 1; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  transition: var(--off-canvas-transition);
+  /* padding: 1rem; */
+  /* background: #000; */
 }
 .course-card {
-  width: 350px;
+  /* width: 350px; */
   padding: 1.5rem;
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -87,54 +122,4 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.course-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-
-  /* margin-bottom: 1.5rem; */
-  /* flex-wrap: wrap; */
-  /* gap: 1rem; */
-
-  /* margin: 1.5rem auto; */
-  padding: 1rem 1.5rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(12px);
-}
-
-.subcategory-filter label {
-  margin-right: 0.5rem;
-  font-weight: bold;
-}
-
-.recent-toggle {
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
-
-.recent-toggle:hover {
-  background-color: #005fa3;
-}
-
-.subcategory-title {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #222;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 0.5rem;
-}
-
-.subcategory-section {
-  margin-bottom: 2rem;
 }
