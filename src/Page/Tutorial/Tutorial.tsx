@@ -15,7 +15,8 @@ import { ContentDataType } from "../../model/content_model";
 import { capitalizeFirstLetter } from "../../utils/custom_string";
 import CloseIcon from "@mui/icons-material/Close";
 import { Helmet } from "react-helmet";
-import ContentMain from "./components/ContentMain";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -113,7 +114,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
 
   // Helper function to scroll the page to the top
   function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   }
 
   return (
@@ -129,6 +130,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         <Header onClick={() => setShowTopic(true)} isShowTopicButton={true} />
 
         <Container className="content-wrapper">
+          {/* Content Topic */}
           <div
             className={`content-topic ${showTopic ? "active" : undefined}`}
             ref={offCanvasRef}
@@ -163,12 +165,9 @@ const Tutorial = ({ contentData }: TutorialProps) => {
               ))}
             </ul>
           </div>
-          <ContentMain
-            previousTopic={previousTopic}
-            nextTopic={nextTopic}
-            handleNavigation={handleNavigation}
-          />
-          {/* <div className="content-main">
+
+          {/* Content Main */}
+          <div className="content-main">
             <Outlet />
             <div className="navigation-buttons">
               <div
@@ -191,7 +190,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 <ArrowForwardIosIcon />
               </div>
             </div>
-          </div> */}
+          </div>
         </Container>
         <Footer />
       </Section>

@@ -3,6 +3,7 @@
   display: flex;
 }
 
+/* Content Topic */
 .content-topic {
   position: sticky;
   width: 300px;
@@ -90,6 +91,8 @@
 .content-topic ul li a:hover {
   background: rgba(255, 255, 255, 0.5);
 }
+
+/* Content Main */
 .content-main {
   flex: 1;
   width: 100%;
