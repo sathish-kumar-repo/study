@@ -14,24 +14,20 @@
 
 .filter-header {
   display: flex;
-  /* justify-content: center; */
-
-  /* position: sticky;
-  top: 70px;
-  z-index: 1000; */
-  /* width: 50%; */
-  /* width: 800px; */
-  padding: 1rem 2rem 0 2rem;
+  padding: 1rem 1rem 0 1rem;
   gap: 1rem;
   transition: var(--off-canvas-transition);
 }
+
 .filter-header.active {
-  padding-left: calc(var(--filter-width) + 2rem);
+  padding-left: var(--filter-width);
 }
+
 .filter-header .search-bar {
   flex: none;
   width: 400px;
 }
+
 .filter-button {
   padding: 0.5rem 1rem;
   border-radius: 12px;
@@ -49,9 +45,9 @@
 }
 
 .filter-button h4 {
-  /* display: none; */
   font-weight: 500;
 }
+
 .filter-button span {
   font-size: 0px;
   margin-left: 8px;
@@ -176,7 +172,7 @@
     z-index: 1001;
   }
   .filter-header.active {
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
   .recently-added h4 {
     color: var(--accent-light);

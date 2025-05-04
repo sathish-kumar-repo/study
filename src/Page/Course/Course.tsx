@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import { useEffect, useRef, useState } from "react";
 import { CourseType } from "../../model/course_model";
 import FilterSidebar from "./component/FilterSidebar/FilterSidebar";
+import NoResultFound from "../../components/NoResultFound/NoResultFound";
 
 const Course = () => {
   const { category } = useParams();
@@ -56,13 +57,10 @@ const Course = () => {
           .map(([subCat, courses]) => [subCat, [...courses].reverse()])
       )
     : filteredCourses;
+  const baseSubCategories = Object.keys(processedCourses);
+  const subCategories = ["All", ...baseSubCategories];
 
-  const totalCourses = Object.values(processedCourses).reduce(
-    (total, courses) => total + courses.length,
-    0
-  );
-
-  const subCategories = ["All", ...Object.keys(groupedCourses)];
+  // const subCategories = ["All", ...Object.keys(groupedCourses)];
 
   const prevWidthRef = useRef(window.innerWidth);
   useEffect(() => {
@@ -117,37 +115,10 @@ const Course = () => {
             ref={inputRef}
           />
 
-          {totalCourses > 0 && (
-            <div className="course-controls">
-              <button
-                className="recent-toggle"
-                onClick={() => setRecentlyAdded((prev) => !prev)}
-              >
-                {recentlyAdded ? "Sort: Newest First 🔁" : "Sort: Default"}
-              </button>
-            </div>
-          )}
-
-          {/* {selectedSubCategory !== "All" &&
-            processedCourses[selectedSubCategory]?.length === 0 && (
-              <div className="subcategory-section">
-                <h2 className="subcategory-title">{selectedSubCategory}</h2>
-                <div className="no-courses-message">
-                  <p>No courses found in this subcategory.</p>
-                </div>
-              </div>
-            )} */}
-
           <div className={`course-main ${toggleFilter && "active"}`}>
             {selectedSubCategory === "All" &&
               Object.values(processedCourses).every((c) => c.length === 0) && (
-                <div className="no-courses-message">
-                  <h2>No Courses Found</h2>
-                  <p>
-                    We couldn't find any courses that match your search or
-                    selection.
-                  </p>
-                </div>
+                <NoResultFound />
               )}
             {Object.entries(processedCourses).map(([subCat, courses]) => {
               const isAll = selectedSubCategory === "All";
@@ -191,7 +162,7 @@ const Course = () => {
             })}
           </div>
         </Container>
-        <Footer />
+        <Footer isCourse={true} />
       </Section>
     </>
   );

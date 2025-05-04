@@ -109,6 +109,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
             ))}
           </div>
         </Tilt>
+        <DoneButton onClick={handleToggleFilter} />
         {isMobileView && <DoneButton onClick={handleToggleFilter} />}
       </aside>
     </>
