@@ -70,6 +70,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         block: "center",
       });
     }
+    scrollToTop();
   }, [currentTopic]); // Dependency to update when currentTopic changes
 
   // Find the index of the current topic in the route
@@ -108,13 +109,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
       const newPath = `/${category}/${contentData.about.name}/${topic}`;
       navigate(newPath);
       setCurrentTopic(topic); // Update the current topic state
-      scrollToTop(); // Scroll to the top of the page
+      // scrollToTop(); // Scroll to the top of the page
     }
   };
 
   // Helper function to scroll the page to the top
   function scrollToTop() {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
