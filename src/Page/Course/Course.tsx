@@ -79,25 +79,21 @@ const Course = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Handle scroll to unfocus the input
   useEffect(() => {
-    let lastScrollTop = window.scrollY;
-
     const handleScroll = () => {
-      const currentScrollTop = window.scrollY;
-
-      // Detect scroll up
-      if (currentScrollTop < lastScrollTop) {
-        if (inputRef.current) {
-          inputRef.current.blur(); // blur input when scrolling up
-        }
+      if (inputRef.current) {
+        inputRef.current.blur(); // Unfocus the input when the user scrolls
       }
-
-      lastScrollTop = currentScrollTop;
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [inputRef]);
 
   return (
     <>

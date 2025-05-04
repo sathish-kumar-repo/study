@@ -107,30 +107,6 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
                 <span>{option}</span>
               </label>
             ))}
-            {categoryOptions.map((option) => (
-              <label key={option} className="radio-option">
-                <input
-                  type="radio"
-                  name={"radio-list"}
-                  value={option}
-                  checked={selectedCategory === option}
-                  onChange={() => handelSelectedCategory(option)}
-                />
-                <span>{option}</span>
-              </label>
-            ))}
-            {categoryOptions.map((option) => (
-              <label key={option} className="radio-option">
-                <input
-                  type="radio"
-                  name={"radio-list"}
-                  value={option}
-                  checked={selectedCategory === option}
-                  onChange={() => handelSelectedCategory(option)}
-                />
-                <span>{option}</span>
-              </label>
-            ))}
           </div>
         </Tilt>
         {isMobileView && <DoneButton onClick={handleToggleFilter} />}
