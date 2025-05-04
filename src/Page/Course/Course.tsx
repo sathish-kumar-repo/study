@@ -118,7 +118,10 @@ const Course = () => {
           <div className={`course-main ${toggleFilter && "active"}`}>
             {selectedSubCategory === "All" &&
               Object.values(processedCourses).every((c) => c.length === 0) && (
-                <NoResultFound />
+                <NoResultFound
+                  searchTerm={searchQuery}
+                  style={{ marginTop: "2rem" }}
+                />
               )}
             {Object.entries(processedCourses).map(([subCat, courses]) => {
               const isAll = selectedSubCategory === "All";
@@ -151,11 +154,7 @@ const Course = () => {
                       ))}
                     </div>
                   ) : (
-                    !isAll && (
-                      <div className="no-courses-message">
-                        <p>No courses found in this subcategory.</p>
-                      </div>
-                    )
+                    !isAll && <NoResultFound searchTerm={searchQuery} />
                   )}
                 </div>
               );
