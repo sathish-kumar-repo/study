@@ -1,7 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 import "./FilterSidebar.css";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import SearchBar from "../../../../components/SearchBar/SearchBar";
 import Switch from "../../../../components/Switch/Switch";
 import ClearIcon from "@mui/icons-material/Clear";
 import Tilt from "react-parallax-tilt";
@@ -10,27 +8,21 @@ import DoneButton from "../DoneButton/DoneButton";
 interface FilterSidebarProps {
   toggleFilter: boolean;
   handleToggleFilter: () => void;
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
   recentlyAdded: boolean;
   handleRecentlyAdded: () => void;
   categoryOptions: string[];
   selectedCategory: string;
   handelSelectedCategory: (value: string) => void;
-  ref: RefObject<HTMLInputElement | null>;
 }
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({
   toggleFilter,
   handleToggleFilter,
-  searchQuery,
-  setSearchQuery,
   recentlyAdded,
   handleRecentlyAdded,
   categoryOptions,
   selectedCategory,
   handelSelectedCategory,
-  ref,
 }) => {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1200);
   const prevIsMobileRef = useRef(isMobileView);
@@ -64,21 +56,6 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   return (
     <>
-      <div className={`filter-header ${toggleFilter && "active"}`}>
-        <div className="filter-button" onClick={handleToggleFilter}>
-          <h4>Filter</h4>
-          <span>
-            <FilterListIcon />
-          </span>
-        </div>
-        <SearchBar
-          searchTerm={searchQuery}
-          setSearchTerm={setSearchQuery}
-          placeholder="Search courses..."
-          inputRef={ref}
-        />
-      </div>
-
       {/* 🔳 Backdrop only on mobile */}
       {toggleFilter && isMobileView && (
         <div className="sidebar-backdrop" onClick={handleToggleFilter}></div>
@@ -109,7 +86,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
             ))}
           </div>
         </Tilt>
-        <DoneButton onClick={handleToggleFilter} />
+        {/* <DoneButton onClick={handleToggleFilter} /> */}
         {isMobileView && <DoneButton onClick={handleToggleFilter} />}
       </aside>
     </>

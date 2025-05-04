@@ -11,6 +11,8 @@ import { useEffect, useRef, useState } from "react";
 import { CourseType } from "../../model/course_model";
 import FilterSidebar from "./component/FilterSidebar/FilterSidebar";
 import NoResultFound from "../../components/NoResultFound/NoResultFound";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import FilterListIcon from "@mui/icons-material/FilterList";
 
 const Course = () => {
   const { category } = useParams();
@@ -99,23 +101,37 @@ const Course = () => {
         />
       </Helmet>
 
-      <Section className="course-section">
+      <Section>
         <Header />
         <Container className="course-wrapper">
           <FilterSidebar
             toggleFilter={toggleFilter}
             handleToggleFilter={() => setToggleFilter((prev) => !prev)}
-            searchQuery={searchQuery}
-            setSearchQuery={(query) => setSearchQuery(query)}
             recentlyAdded={recentlyAdded}
             handleRecentlyAdded={() => setRecentlyAdded((prev) => !prev)}
             categoryOptions={subCategories}
             selectedCategory={selectedSubCategory}
             handelSelectedCategory={setSelectedSubCategory}
-            ref={inputRef}
           />
 
-          <div className={`course-main ${toggleFilter && "active"}`}>
+          <div className="course-main">
+            <div className="filter-header">
+              <div
+                className="filter-button"
+                onClick={() => setToggleFilter((prev) => !prev)}
+              >
+                <h4>Filter</h4>
+                <span>
+                  <FilterListIcon />
+                </span>
+              </div>
+              <SearchBar
+                searchTerm={searchQuery}
+                setSearchTerm={setSearchQuery}
+                placeholder="Search courses..."
+                inputRef={inputRef}
+              />
+            </div>
             {selectedSubCategory === "All" &&
               Object.values(processedCourses).every((c) => c.length === 0) && (
                 <NoResultFound

@@ -1,22 +1,12 @@
-.course-section,
 .course-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .course-main {
+  flex: 1;
   padding: 0 1rem 2rem 1rem;
   transition: var(--off-canvas-transition);
-}
-
-.course-main.active {
-  padding-left: var(--filter-width);
-}
-
-@media (max-width: 1200px) {
-  .course-main.active {
-    padding-left: 1rem;
-  }
 }
 
 .subcategory-section {
