@@ -1,7 +1,7 @@
 import "./Course.css";
 import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import Section from "../../components/Section";
 import Container from "../../components/Container";
@@ -13,6 +13,7 @@ import FilterSidebar from "./component/FilterSidebar/FilterSidebar";
 import NoResultFound from "../../components/NoResultFound/NoResultFound";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import CourseList from "./component/CourseList/CourseList";
 
 const Course = () => {
   const { category } = useParams();
@@ -59,11 +60,12 @@ const Course = () => {
           .map(([subCat, courses]) => [subCat, [...courses].reverse()])
       )
     : filteredCourses;
+
+  // Get subcategory keys from the processed courses
   const baseSubCategories = Object.keys(processedCourses);
   const subCategories = ["All", ...baseSubCategories];
 
-  // const subCategories = ["All", ...Object.keys(groupedCourses)];
-
+  // Track previous window width to manage filter sidebar visibility on resize
   const prevWidthRef = useRef(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
@@ -82,6 +84,7 @@ const Course = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Blur the search input when scrolling
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     const handleScroll = () => {
@@ -104,6 +107,7 @@ const Course = () => {
       <Section>
         <Header />
         <Container className="course-wrapper">
+          {/* Filter Sidebar Component */}
           <FilterSidebar
             toggleFilter={toggleFilter}
             handleToggleFilter={() => setToggleFilter((prev) => !prev)}
@@ -115,6 +119,7 @@ const Course = () => {
           />
 
           <div className="course-main">
+            {/* Filter Header with Search Bar */}
             <div className="filter-header">
               <div
                 className="filter-button"
@@ -132,6 +137,8 @@ const Course = () => {
                 inputRef={inputRef}
               />
             </div>
+
+            {/* No result found if the filtered courses are empty */}
             {selectedSubCategory === "All" &&
               Object.values(processedCourses).every((c) => c.length === 0) && (
                 <NoResultFound
@@ -139,42 +146,13 @@ const Course = () => {
                   style={{ marginTop: "2rem" }}
                 />
               )}
-            {Object.entries(processedCourses).map(([subCat, courses]) => {
-              const isAll = selectedSubCategory === "All";
-              const isSelected = selectedSubCategory === subCat;
 
-              if (isAll && courses.length === 0) return null;
-              if (!isAll && !isSelected) return null;
-
-              return (
-                <div key={subCat} className="subcategory-section">
-                  <h2 className="subcategory-title">{subCat}</h2>
-                  {courses.length > 0 ? (
-                    <div className="course-list">
-                      {courses.map((item, index) => (
-                        <div key={index} className="course-card">
-                          <img
-                            src={`/study/course-images/${item.img}`}
-                            alt={item.name}
-                            className="course-img"
-                          />
-                          <h3>{item.name}</h3>
-                          <p>{item.description}</p>
-                          <NavLink
-                            to={`/${category}/${item.name}/${item.link}`}
-                            className="course-link"
-                          >
-                            Learn More
-                          </NavLink>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    !isAll && <NoResultFound searchTerm={searchQuery} />
-                  )}
-                </div>
-              );
-            })}
+            {/* Course List Component */}
+            <CourseList
+              processedCourses={processedCourses}
+              selectedSubCategory={selectedSubCategory}
+              searchQuery={searchQuery}
+            />
           </div>
         </Container>
         <Footer isCourse={true} />

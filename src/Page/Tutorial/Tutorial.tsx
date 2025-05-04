@@ -14,9 +14,8 @@ import "./Tutorial.css";
 import { ContentDataType } from "../../model/content_model";
 import { capitalizeFirstLetter } from "../../utils/custom_string";
 import CloseIcon from "@mui/icons-material/Close";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Helmet } from "react-helmet";
+import ContentMain from "./components/ContentMain";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -30,6 +29,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Helper function to get the current topic from the URL
   const getCurrenttopic = (): string => {
     const pathSegments = location.pathname.split("/");
     const encodedValue = pathSegments[pathSegments.length - 1];
@@ -38,12 +38,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
 
   const [currentTopic, setCurrentTopic] = useState(getCurrenttopic());
 
+  // Update the current topic whenever the URL changes
   useEffect(() => {
     setCurrentTopic(getCurrenttopic());
   }, [location]);
 
+  // Close the topic menu when clicking outside
   useEffect(() => {
-    // Close the topic menu when clicking outside
     function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (
         showTopic &&
@@ -60,8 +61,8 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     };
   }, [showTopic]);
 
+  // Scroll to the active topic whenever the current topic changes
   useEffect(() => {
-    // Scroll to the active topic whenever the current topic changes
     if (activeTopicRef.current) {
       activeTopicRef.current.scrollIntoView({
         behavior: "smooth",
@@ -70,11 +71,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     }
   }, [currentTopic]); // Dependency to update when currentTopic changes
 
+  // Find the index of the current topic in the route
   const index = contentData.route.findIndex(
     (content) => content.topic === currentTopic
   );
   const currentIndex = index !== -1 ? index : 0; // Default to 0 if not found
 
+  // Get the previous and next topics based on the current topic's index
   const previousTopic =
     currentIndex > 0 ? contentData.route[currentIndex - 1].topic : null;
   const nextTopic =
@@ -82,6 +85,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
       ? contentData.route[currentIndex + 1].topic
       : null;
 
+  // Handle keyboard navigation for left and right arrows
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
@@ -97,6 +101,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     };
   }, [previousTopic, nextTopic]);
 
+  // Navigation handler that updates the URL and scrolls to the top
   const handleNavigation = (topic: string | null) => {
     if (topic) {
       const newPath = `/${category}/${contentData.about.name}/${topic}`;
@@ -106,9 +111,11 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     }
   };
 
+  // Helper function to scroll the page to the top
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
   return (
     <>
       <Helmet>
@@ -156,7 +163,12 @@ const Tutorial = ({ contentData }: TutorialProps) => {
               ))}
             </ul>
           </div>
-          <div className="content-main">
+          <ContentMain
+            previousTopic={previousTopic}
+            nextTopic={nextTopic}
+            handleNavigation={handleNavigation}
+          />
+          {/* <div className="content-main">
             <Outlet />
             <div className="navigation-buttons">
               <div
@@ -179,7 +191,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 <ArrowForwardIosIcon />
               </div>
             </div>
-          </div>
+          </div> */}
         </Container>
         <Footer />
       </Section>
