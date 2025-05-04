@@ -112,7 +112,7 @@ const Course = () => {
               </button> */}
             </div>
           )}
-
+          <aside className="sidebar"></aside>
           {/* Course Sections */}
           {Object.entries(groupedCourses).map(([subCat, courses]) => {
             if (selectedSubCategory !== "All" && selectedSubCategory !== subCat)

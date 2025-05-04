@@ -3,4 +3,4 @@ import "./index.css";
 import App from "./page/App/App";
 import Temp from "./page/temp/Temp";
 
-createRoot(document.getElementById("root")!).render(<Temp />);
+createRoot(document.getElementById("root")!).render(<App />);

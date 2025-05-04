@@ -47,7 +47,9 @@ body {
 /* Sidebar styles */
 .sidebar {
   width: 220px;
-
+  position: fixed;
+  top: 0;
+  bottom: 0;
   background-color: #fafafa;
   border-right: 1px solid #ddd;
   padding: 1rem;
@@ -82,6 +84,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   padding: 1rem;
+  padding-left: 220px;
 }
 
 .course-card {
@@ -92,6 +95,7 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  /* height: 150px; */
 }
 
 .course-card:hover {
