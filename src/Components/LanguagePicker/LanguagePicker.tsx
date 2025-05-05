@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./LanguagePicker.module.scss";
 import { flags } from "./assets/flags";
-import { log } from "console";
 
 interface LanguagePickerProps {
   current?: string;
