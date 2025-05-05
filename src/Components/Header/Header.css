@@ -120,10 +120,13 @@ header .nav-links .toggle-button:hover,
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   transition: var(--off-canvas-transition);
+  display: flex;
+  flex-direction: column;
 }
 .off-canvas-glass.active {
   right: 0;
 }
+
 .off-canvas-header {
   display: flex;
   align-items: center;
@@ -156,6 +159,24 @@ header .nav-links .toggle-button:hover,
   list-style-type: none;
   display: flex;
   flex-direction: column;
+}
+
+.off-canvas-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.off-canvas-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.off-canvas-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+
+.off-canvas-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .off-canvas-list li {

@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { logo } from "../../utils/message";
 import SearchIcon from "@mui/icons-material/Search";
 import Search from "../Search/Search";
+import { useLocation } from "react-router-dom";
 
 interface HeaderProps {
   onClick?: () => void;
@@ -27,6 +28,17 @@ export const Header: React.FC<HeaderProps> = ({
   const [overflowFolders, setOverflowFolders] = useState<string[]>([]);
   const offCanvasRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
+  const activeItemRef = useRef<HTMLAnchorElement | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (showOffCanvas && activeItemRef.current) {
+      activeItemRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [showOffCanvas]);
 
   useEffect(() => {
     const calculateFolders = () => {
@@ -174,18 +186,24 @@ export const Header: React.FC<HeaderProps> = ({
           </span>
         </div>
         <ul className="off-canvas-list">
-          {overflowFolders.map((folder) => (
-            <li key={folder}>
-              <NavLink
-                to={`/${folder}`}
-                onClick={() => {
-                  setShowOffCanvas(false);
-                }}
-              >
-                {toTitleCase(folder)}
-              </NavLink>
-            </li>
-          ))}
+          {overflowFolders.map((folder) => {
+            const basePath = location.pathname.split("/")[1]; // This gives you only the first segment (e.g., "trading38")
+            const isActive = basePath === folder; // Compare only the base path
+
+            return (
+              <li key={folder}>
+                <NavLink
+                  to={`/${folder}`}
+                  ref={isActive ? activeItemRef : null}
+                  onClick={() => {
+                    setShowOffCanvas(false);
+                  }}
+                >
+                  {toTitleCase(folder)}
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

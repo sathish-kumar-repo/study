@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { CourseType } from "../../../../model/course_model";
 import NoResultFound from "../../../../components/NoResultFound/NoResultFound";
 import "./CourseList.css";
@@ -14,6 +14,7 @@ const CourseList: React.FC<CourseListProps> = ({
   selectedSubCategory,
   searchQuery,
 }) => {
+  const { category } = useParams();
   return (
     <>
       {Object.entries(processedCourses).map(([subCat, courses]) => {
@@ -38,7 +39,7 @@ const CourseList: React.FC<CourseListProps> = ({
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
                     <NavLink
-                      to={`/${subCat}/${item.name}/${item.link}`}
+                      to={`/${category}/${item.name}/${item.link}`}
                       className="course-link"
                     >
                       Learn More
