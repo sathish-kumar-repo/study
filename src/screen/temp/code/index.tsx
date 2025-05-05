@@ -1,6 +1,6 @@
 import { Title } from "../../../components/UI";
 
-const Intro = () => {
+const YourTitle = () => {
   return (
     <>
       <Title>Title</Title>
@@ -8,4 +8,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default YourTitle;

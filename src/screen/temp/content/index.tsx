@@ -1,5 +1,6 @@
-const tempContent = {
+const yourContent = {
   about: {
+    subCategory: "",
     name: "",
     description: "",
     link: "",
@@ -13,4 +14,4 @@ const tempContent = {
   ],
 };
 
-export default tempContent;
+export default yourContent;
