@@ -71,6 +71,14 @@ const Course = () => {
     setSearchParams(searchParams);
   };
 
+  // Clear all filters
+  const clearFilters = () => {
+    searchParams.delete("sub");
+    searchParams.delete("q");
+    searchParams.delete("recent");
+    setSearchParams(searchParams); // Reset search params to clear filters
+  };
+
   // Now do getCourseData after all hooks
   const courseData = getCourseData();
   const isValidFolder = category && courseData[category];
@@ -116,6 +124,10 @@ const Course = () => {
   const baseSubCategories = Object.keys(processedCourses);
   const subCategories = ["All", ...baseSubCategories];
 
+  // Check if any filter is applied
+  const isAnyFilterApplied =
+    selectedSubCategory !== "All" || recentlyAdded || searchQuery;
+
   return (
     <>
       <Helmet>
@@ -159,6 +171,12 @@ const Course = () => {
                 placeholder="Search courses..."
                 inputRef={inputRef}
               />
+
+              {isAnyFilterApplied && (
+                <button onClick={clearFilters} className="clear-filters-btn">
+                  Clear Filters
+                </button>
+              )}
             </div>
 
             {/* No result found if the filtered courses are empty */}
