@@ -1,4 +1,5 @@
 import BinaryOptionContent from "../screen/BinaryOptions/content/binary_option_content";
+import basicRulesToLiveHealthyLifestyleContent from "../screen/LifeStyle/BasicRulesToLiveHealthyLifeStyle/content";
 import {
   mathsSem1Content,
   mathsSem2Content,
@@ -9,6 +10,7 @@ import {
 // The course data object
 const mainData = {
   // flutter: [flutterContent],
+  "Life Style": [basicRulesToLiveHealthyLifestyleContent],
   trading1: [BinaryOptionContent],
   trading2: [BinaryOptionContent],
   trading3: [BinaryOptionContent],

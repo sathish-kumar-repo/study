@@ -118,6 +118,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  const isSinglePage = !(contentData.route.length === 1);
   return (
     <>
       <Helmet>
@@ -128,44 +129,50 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         />
       </Helmet>
       <Section className="tutorial-section">
-        <Header onClick={() => setShowTopic(true)} isShowTopicButton={true} />
+        <Header
+          onClick={() => setShowTopic(true)}
+          isShowTopicButton={isSinglePage}
+        />
 
         <Container className="content-wrapper">
           {/* Content Topic */}
-          <div
-            className={`content-topic ${showTopic ? "active" : undefined}`}
-            ref={offCanvasRef}
-          >
-            <div className="content-topic-header">
-              <h1>{contentData.about.name}</h1>
-              <span>
-                <CloseIcon onClick={() => setShowTopic(false)} />
-              </span>
-            </div>
-            <ul>
-              {contentData.route.map((content, index) => (
-                <li
-                  key={index}
-                  ref={content.topic === currentTopic ? activeTopicRef : null}
-                >
-                  {content.heading && (
-                    <h3 className="topic-subheading">{content.heading}</h3>
-                  )}
-                  <NavLink
-                    end
-                    to={`/${category}/${contentData.about.name}/${content.topic}`}
-                    onClick={() => {
-                      setCurrentTopic(content.topic);
-                      setShowTopic(false);
-                      scrollToTop();
-                    }}
+
+          {isSinglePage && (
+            <div
+              className={`content-topic ${showTopic ? "active" : undefined}`}
+              ref={offCanvasRef}
+            >
+              <div className="content-topic-header">
+                <h1>{contentData.about.name}</h1>
+                <span>
+                  <CloseIcon onClick={() => setShowTopic(false)} />
+                </span>
+              </div>
+              <ul>
+                {contentData.route.map((content, index) => (
+                  <li
+                    key={index}
+                    ref={content.topic === currentTopic ? activeTopicRef : null}
                   >
-                    {capitalizeFirstLetter(content.topic)}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    {content.heading && (
+                      <h3 className="topic-subheading">{content.heading}</h3>
+                    )}
+                    <NavLink
+                      end
+                      to={`/${category}/${contentData.about.name}/${content.topic}`}
+                      onClick={() => {
+                        setCurrentTopic(content.topic);
+                        setShowTopic(false);
+                        scrollToTop();
+                      }}
+                    >
+                      {capitalizeFirstLetter(content.topic)}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Content Main */}
           <div className="content-main">
