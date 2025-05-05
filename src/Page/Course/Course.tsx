@@ -14,12 +14,15 @@ import NoResultFound from "../../components/NoResultFound/NoResultFound";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CourseList from "./component/CourseList/CourseList";
+import { useSearchParams } from "react-router-dom";
 
 const Course = () => {
   const { category } = useParams();
-  const [selectedSubCategory, setSelectedSubCategory] = useState("All");
-  const [recentlyAdded, setRecentlyAdded] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const selectedSubCategory = searchParams.get("sub") || "All";
+  const recentlyAdded = searchParams.get("recent") === "true";
+  const searchQuery = searchParams.get("q") || "";
 
   const [toggleFilter, setToggleFilter] = useState(window.innerWidth > 1200);
   const prevWidthRef = useRef(window.innerWidth);
@@ -52,6 +55,21 @@ const Course = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSubCategoryChange = (value: string) => {
+    searchParams.set("sub", value);
+    setSearchParams(searchParams);
+  };
+
+  const handleRecentlyAddedChange = () => {
+    searchParams.set("recent", (!recentlyAdded).toString());
+    setSearchParams(searchParams);
+  };
+
+  const handleSearchQueryChange = (value: string) => {
+    searchParams.set("q", value);
+    setSearchParams(searchParams);
+  };
 
   // Now do getCourseData after all hooks
   const courseData = getCourseData();
@@ -117,10 +135,10 @@ const Course = () => {
             toggleFilter={toggleFilter}
             handleToggleFilter={() => setToggleFilter((prev) => !prev)}
             recentlyAdded={recentlyAdded}
-            handleRecentlyAdded={() => setRecentlyAdded((prev) => !prev)}
+            handleRecentlyAdded={handleRecentlyAddedChange}
             categoryOptions={subCategories}
             selectedCategory={selectedSubCategory}
-            handelSelectedCategory={setSelectedSubCategory}
+            handelSelectedCategory={handleSubCategoryChange}
           />
 
           <div className="course-main">
@@ -137,7 +155,7 @@ const Course = () => {
               </div>
               <SearchBar
                 searchTerm={searchQuery}
-                setSearchTerm={setSearchQuery}
+                setSearchTerm={handleSearchQueryChange}
                 placeholder="Search courses..."
                 inputRef={inputRef}
               />
