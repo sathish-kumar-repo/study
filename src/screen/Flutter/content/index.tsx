@@ -4,8 +4,8 @@ import Widgets from "../code/03_Widgets";
 
 const flutterContent = {
   about: {
-    name: "Flutter dfdf",
-    description: "Learn about photography.",
+    name: "My Ui Component",
+    description: "Learn about My Ui Component via Flutter documention.",
     link: "",
     img: "design.jpg",
   },
