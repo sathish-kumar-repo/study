@@ -57,17 +57,30 @@ const Course = () => {
   }, []);
 
   const handleSubCategoryChange = (value: string) => {
-    searchParams.set("sub", value);
+    if (value === "All") {
+      searchParams.delete("sub");
+    } else {
+      searchParams.set("sub", value);
+    }
     setSearchParams(searchParams);
   };
 
   const handleRecentlyAddedChange = () => {
-    searchParams.set("recent", (!recentlyAdded).toString());
+    const newValue = !recentlyAdded;
+    if (!newValue) {
+      searchParams.delete("recent");
+    } else {
+      searchParams.set("recent", "true");
+    }
     setSearchParams(searchParams);
   };
 
   const handleSearchQueryChange = (value: string) => {
-    searchParams.set("q", value);
+    if (value.trim() === "") {
+      searchParams.delete("q");
+    } else {
+      searchParams.set("q", value);
+    }
     setSearchParams(searchParams);
   };
 
