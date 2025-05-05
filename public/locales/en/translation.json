@@ -32,7 +32,7 @@
     "limitationOfLiability": "In no event shall Study be liable for any direct, indirect, incidental, special, consequential, or punitive damages...",
     "changesToTerms": "We reserve the right to modify these Terms and Conditions at any time without prior notice.",
     "governingLaw": "These Terms and Conditions are governed by the laws of India. Any disputes arising...",
-    "contactUs": "If you have any questions regarding these Terms and Conditions, please contact us at {email}."
+    "contactUs": "If you have any questions regarding these Terms and Conditions, please contact us at {{email}}."
   },
 
   "filter": "Filter",
