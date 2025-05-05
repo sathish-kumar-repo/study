@@ -1,8 +1,7 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./FilterSidebar.css";
 import Switch from "../../../../components/Switch/Switch";
 import ClearIcon from "@mui/icons-material/Clear";
-import Tilt from "react-parallax-tilt";
 import DoneButton from "../DoneButton/DoneButton";
 import { toTitleCase } from "../../../../utils/custom_string";
 
@@ -73,7 +72,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
           <h4>Recently Added</h4>
         </div>
         <h2 className="category-title">{toTitleCase(category)}</h2>
-        <Tilt className="radio-list">
+        <div className="radio-list">
           <div>
             {categoryOptions.map((option) => (
               <label key={option} className="radio-option">
@@ -88,7 +87,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
               </label>
             ))}
           </div>
-        </Tilt>
+        </div>
         {/* <DoneButton onClick={handleToggleFilter} /> */}
         {isMobileView && <DoneButton onClick={handleToggleFilter} />}
       </aside>
