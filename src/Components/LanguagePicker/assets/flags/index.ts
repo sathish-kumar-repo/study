@@ -1,54 +1,19 @@
-import GR from "./GR.jpg";
-import UK from "./UK.jpg";
-import IT from "./IT.jpg";
-import RU from "./RU.jpg";
-import BR from "./BR.jpg";
-import RO from "./RO.jpg";
-import PT from "./PT.jpg";
-import FR from "./FR.jpg";
-import ES from "./ES.jpg";
-import DE from "./DE.jpg";
+import EN from "./EN.png";
+import TA from "./TA.png";
+import HI from "./HI.png";
 
 // Define the structure for each language flag object
 export const flags: Record<string, { name: string; img: string }> = {
-  GR: {
-    name: "GR",
-    img: GR,
+  en: {
+    name: "en",
+    img: EN,
   },
-  EN: {
-    name: "UK",
-    img: UK,
+  ta: {
+    name: "ta",
+    img: TA,
   },
-  IT: {
-    name: "IT",
-    img: IT,
-  },
-  RU: {
-    name: "RU",
-    img: RU,
-  },
-  BR: {
-    name: "BR",
-    img: BR,
-  },
-  RO: {
-    name: "RO",
-    img: RO,
-  },
-  PT: {
-    name: "PT",
-    img: PT,
-  },
-  FR: {
-    name: "FR",
-    img: FR,
-  },
-  ES: {
-    name: "ES",
-    img: ES,
-  },
-  DE: {
-    name: "DE",
-    img: DE,
+  hi: {
+    name: "hi",
+    img: HI,
   },
 };

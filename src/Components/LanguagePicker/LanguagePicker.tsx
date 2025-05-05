@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./LanguagePicker.module.scss";
 import { flags } from "./assets/flags";
+import { log } from "console";
 
 interface LanguagePickerProps {
   current?: string;
@@ -144,6 +145,10 @@ const LanguagePicker: React.FC<LanguagePickerProps> = ({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  console.log(current);
+
+  console.log(flags[current]);
 
   return (
     <div

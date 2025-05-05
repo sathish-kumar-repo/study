@@ -94,6 +94,9 @@
 }
 
 .sci li a img {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
   transform: scale(0.6);
   transition: 0.5s;
 }

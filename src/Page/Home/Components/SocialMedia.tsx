@@ -2,18 +2,43 @@ const SocialMedia = () => {
   return (
     <ul className="sci">
       <li>
-        <a href="https://www.facebook.com/">
+        <a
+          href="https://facebook.com"
+          aria-label="Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="/study/web-images/facebook.png" alt="facebook.png" />
         </a>
       </li>
       <li>
-        <a href="https://www.twitter.com/">
+        <a
+          href="https://twitter.com"
+          aria-label="Twitter"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="/study/web-images/twitter.png" alt="twitter.png" />
         </a>
       </li>
       <li>
-        <a href="https://www.instagram.com/">
+        <a
+          href="https://instagram.com"
+          aria-label="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="/study/web-images/instagram.png" alt="instagram.png" />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/sathish-kumar-repo/"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/study/web-images/github.png" alt="instagram.png" />
         </a>
       </li>
     </ul>
