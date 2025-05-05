@@ -4,8 +4,10 @@ import Switch from "../../../../components/Switch/Switch";
 import ClearIcon from "@mui/icons-material/Clear";
 import Tilt from "react-parallax-tilt";
 import DoneButton from "../DoneButton/DoneButton";
+import { toTitleCase } from "../../../../utils/custom_string";
 
 interface FilterSidebarProps {
+  category: string;
   toggleFilter: boolean;
   handleToggleFilter: () => void;
   recentlyAdded: boolean;
@@ -16,6 +18,7 @@ interface FilterSidebarProps {
 }
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({
+  category,
   toggleFilter,
   handleToggleFilter,
   recentlyAdded,
@@ -69,7 +72,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
           <Switch checked={recentlyAdded} onChange={handleRecentlyAdded} />
           <h4>Recently Added</h4>
         </div>
-        <h2 className="category-title">Category</h2>
+        <h2 className="category-title">{toTitleCase(category)}</h2>
         <Tilt className="radio-list">
           <div>
             {categoryOptions.map((option) => (

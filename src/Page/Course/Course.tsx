@@ -20,15 +20,48 @@ const Course = () => {
   const [selectedSubCategory, setSelectedSubCategory] = useState("All");
   const [recentlyAdded, setRecentlyAdded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [toggleFilter, setToggleFilter] = useState(window.innerWidth > 1200);
 
-  const isValidFolder = category && getCourseData()[category];
+  const [toggleFilter, setToggleFilter] = useState(window.innerWidth > 1200);
+  const prevWidthRef = useRef(window.innerWidth);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  //! EFFECTS HERE...
+  // Track previous window width to manage filter sidebar visibility on resize
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      const prevWidth = prevWidthRef.current;
+      if (prevWidth > 1200 && currentWidth <= 1200) {
+        setToggleFilter(false);
+      }
+      if (prevWidth <= 1200 && currentWidth > 1200) {
+        setToggleFilter(true);
+      }
+      prevWidthRef.current = currentWidth;
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Blur the search input when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (inputRef.current) inputRef.current.blur();
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Now do getCourseData after all hooks
+  const courseData = getCourseData();
+  const isValidFolder = category && courseData[category];
 
   if (!isValidFolder) {
     return <NotFound />;
   }
 
-  const categoryCourses = getCourseData()[category];
+  const categoryCourses = courseData[category];
 
   // Group all courses by subcategory
   const groupedCourses = categoryCourses.reduce((groups, course) => {
@@ -65,35 +98,6 @@ const Course = () => {
   const baseSubCategories = Object.keys(processedCourses);
   const subCategories = ["All", ...baseSubCategories];
 
-  // Track previous window width to manage filter sidebar visibility on resize
-  const prevWidthRef = useRef(window.innerWidth);
-  useEffect(() => {
-    const handleResize = () => {
-      const currentWidth = window.innerWidth;
-      const prevWidth = prevWidthRef.current;
-      if (prevWidth > 1200 && currentWidth <= 1200) {
-        setToggleFilter(false);
-      }
-      if (prevWidth <= 1200 && currentWidth > 1200) {
-        setToggleFilter(true);
-      }
-      prevWidthRef.current = currentWidth;
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Blur the search input when scrolling
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (inputRef.current) inputRef.current.blur();
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <>
       <Helmet>
@@ -109,6 +113,7 @@ const Course = () => {
         <Container className="course-wrapper">
           {/* Filter Sidebar Component */}
           <FilterSidebar
+            category={category}
             toggleFilter={toggleFilter}
             handleToggleFilter={() => setToggleFilter((prev) => !prev)}
             recentlyAdded={recentlyAdded}
