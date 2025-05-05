@@ -34,7 +34,7 @@ export const Intro = () => {
         // current={language}
         available={["GR", "EN", "IT", "RU", "BR", "RO", "PT", "FR", "ES", "DE"]}
         // direction={"down"}
-        // colDirection={"left"}
+
         // onChange={handleLanguageOnChange}
         // onChangeEnd={handleLanguageOnChangeEnd}
       />
