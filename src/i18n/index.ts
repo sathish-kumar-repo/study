@@ -1,19 +1,25 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import HttpBackend from "i18next-http-backend";
 
-import enTranslation from "./locales/en/translation.json";
-import taTranslation from "./locales/ta/translation.json";
-
-i18n.use(initReactI18next).init({
-  resources: {
-    en: { translation: enTranslation },
-    ta: { translation: taTranslation },
-  },
-  lng: "en", // Default language
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
+i18n
+  .use(HttpBackend) // load translations via HTTP
+  .use(LanguageDetector) // auto-detects user's language
+  .use(initReactI18next) // pass i18n instance to react-i18next
+  .init({
+    fallbackLng: "en",
+    supportedLngs: ["en", "ta"],
+    interpolation: {
+      escapeValue: false,
+    },
+    backend: {
+      loadPath: "/study/locales/{{lng}}/translation.json", // translation path
+    },
+    detection: {
+      order: ["querystring", "localStorage", "navigator"],
+      caches: ["localStorage"],
+    },
+  });
 
 export default i18n;

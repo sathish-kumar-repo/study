@@ -1,0 +1,42 @@
+{
+  "logo": "Study",
+  "heading": "Personal Study Hub",
+  "description": "Study is your personal hub for organizing and accessing learning materials and notes. It helps you stay organized, focused, and efficient, making it easier to manage your educational resources and achieve your goals. Access your materials anytime, anywhere, and streamline your learning process. Simplify your studies and boost productivity. Stay on track with ease. Enhance your learning experience effortlessly.",
+
+  "homeTitle": "Home - My Study Website",
+  "homeDescription": "Welcome to my personal study website with tutorials and resources.",
+
+  "coursesTitle": "Courses - My Study Website",
+  "coursesDescription": "Browse various courses and tutorials on different subjects.",
+
+  "tutorialTitle": "My Study Website",
+  "tutorialDescription": "",
+
+  "notFoundTitle": "404 - Page Not Found",
+  "notFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+
+  "authorTitle": "Author - My Study Website",
+  "authorDescription": "Learn more about the author and the study materials provided.",
+
+  "privacyTitle": "Privacy Policy - My Study Website",
+  "privacyDescription": "Review the Privacy Policy for using our study platform.",
+
+  "termsAndConditions": {
+    "title": "Terms and Conditions - My Study Website",
+    "description": "Review the Terms and Conditions for using our study platform.",
+    "intellectualProperty": "All content on this website, including but not limited to learning materials, tutorials, text, graphics, logos, and images, is the intellectual property of Study unless otherwise noted. Unauthorized use, reproduction, or distribution of any content is strictly prohibited without prior written consent.",
+    "useOfWebsite": "You may use Study solely for personal and educational purposes. You agree not to...",
+    "userContributions": "If you submit content, such as comments or suggestions, you grant Study a non-exclusive, royalty-free, perpetual, and worldwide license...",
+    "thirdPartyLinks": "Study may contain links to external websites operated by third parties. We do not control or endorse the content...",
+    "disclaimer": "The content provided on Study is for informational purposes only. While we strive to maintain accuracy...",
+    "limitationOfLiability": "In no event shall Study be liable for any direct, indirect, incidental, special, consequential, or punitive damages...",
+    "changesToTerms": "We reserve the right to modify these Terms and Conditions at any time without prior notice.",
+    "governingLaw": "These Terms and Conditions are governed by the laws of India. Any disputes arising...",
+    "contactUs": "If you have any questions regarding these Terms and Conditions, please contact us at {email}."
+  },
+
+  "filter": "Filter",
+  "clearFilters": "Clear Filters",
+  "searchPlaceholder": "Search courses...",
+  "noResult": "No results found for"
+}
