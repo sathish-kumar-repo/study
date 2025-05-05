@@ -10,6 +10,7 @@
 :root {
   --font-family-body: "Google Sans Text", "Google Sans", "Roboto", sans-serif;
   --accent-color: #8a2435;
+  --accent-color-tint: #8a243522;
   --accent-dark: #ffffffbf;
   --accent-light: #ffffff;
   --text-color: #000;

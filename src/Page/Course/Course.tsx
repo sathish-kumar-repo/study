@@ -164,6 +164,8 @@ const Course = () => {
             categoryOptions={subCategories}
             selectedCategory={selectedSubCategory}
             handelSelectedCategory={handleSubCategoryChange}
+            enableClearFilter={isAnyFilterApplied}
+            handleClearFilter={clearFilters}
           />
 
           <div className="course-main">
@@ -184,12 +186,6 @@ const Course = () => {
                 placeholder="Search courses..."
                 inputRef={inputRef}
               />
-
-              {isAnyFilterApplied && (
-                <button onClick={clearFilters} className="clear-filters-btn">
-                  Clear Filters
-                </button>
-              )}
             </div>
 
             {/* No result found if the filtered courses are empty */}

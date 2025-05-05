@@ -79,6 +79,22 @@
   margin-left: 8px;
 }
 
+.clear-filter {
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  color: var(--accent-color);
+  background-color: var(--accent-color-tint);
+  margin-left: 15px;
+  font-size: 0.85rem;
+  scale: 0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.clear-filter.active {
+  scale: 1;
+}
+
 .category-title {
   font-weight: 600;
   font-size: 1.5rem;

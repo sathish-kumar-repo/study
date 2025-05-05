@@ -1,6 +1,29 @@
 {
+  "logo": "Study",
+  "heading": "Personal Study Hub",
+  "description": "Study is your personal hub for organizing and accessing learning materials and notes. It helps you stay organized, focused, and efficient, making it easier to manage your educational resources and achieve your goals. Access your materials anytime, anywhere, and streamline your learning process. Simplify your studies and boost productivity. Stay on track with ease. Enhance your learning experience effortlessly.",
+
+  "homeTitle": "Home - My Study Website",
+  "homeDescription": "Welcome to my personal study website with tutorials and resources.",
+
   "coursesTitle": "Courses - My Study Website",
   "coursesDescription": "Browse various courses and tutorials on different subjects.",
+
+  "tutorialTitle": "My Study Website",
+  "tutorialDescription": "",
+
+  "notFoundTitle": "404 - Page Not Found",
+  "notFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+
+  "authorTitle": "Author - My Study Website",
+  "authorDescription": "Learn more about the author and the study materials provided.",
+
+  "privacyTitle": "Privacy Policy - My Study Website",
+  "privacyDescription": "Review the Privacy Policy for using our study platform.",
+
+  "termsAndConditionsTitle": "",
+  "termsAndConditionsDescription": "",
+
   "filter": "Filter",
   "clearFilters": "Clear Filters",
   "searchPlaceholder": "Search courses...",

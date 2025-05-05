@@ -14,6 +14,8 @@ interface FilterSidebarProps {
   categoryOptions: string[];
   selectedCategory: string;
   handelSelectedCategory: (value: string) => void;
+  enableClearFilter: string | true;
+  handleClearFilter: () => void;
 }
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({
@@ -25,6 +27,8 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   categoryOptions,
   selectedCategory,
   handelSelectedCategory,
+  enableClearFilter,
+  handleClearFilter,
 }) => {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1200);
   const prevIsMobileRef = useRef(isMobileView);
@@ -70,6 +74,17 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
         <div className="recently-added">
           <Switch checked={recentlyAdded} onChange={handleRecentlyAdded} />
           <h4>Recently Added</h4>
+          <div
+            className={`clear-filter ${enableClearFilter && "active"}`}
+            onClick={() => {
+              handleClearFilter();
+              if (isMobileView) {
+                handleToggleFilter();
+              }
+            }}
+          >
+            Clear
+          </div>
         </div>
         <h2 className="category-title">{toTitleCase(category)}</h2>
         <div className="radio-list">
