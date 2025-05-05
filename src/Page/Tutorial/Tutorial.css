@@ -14,7 +14,6 @@
   position: sticky;
   width: 300px;
   top: 70px;
-  /* height: 100vh; */
   height: calc(100vh - 70px);
   padding: 10px 20px 10px 20px;
   background: rgba(255, 255, 255, 0.2);
@@ -23,26 +22,10 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
   transition: var(--off-canvas-transition);
-}
-
-.content-topic::-webkit-scrollbar {
-  width: 10px;
-}
-
-.content-topic::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-.content-topic::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
-}
-
-.content-topic::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
 }
 
 .content-topic-header {
@@ -76,9 +59,32 @@
   font-size: 0;
   padding: 3px;
 }
+.content-topic ul {
+  overflow-y: auto;
+  height: 100%;
+}
+.content-topic ul::-webkit-scrollbar {
+  width: 10px;
+}
+
+.content-topic ul::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.content-topic ul::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+
+.content-topic ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
 .content-topic ul li {
   list-style-type: none;
   margin-top: 5px;
+  margin-right: 10px;
 }
 
 .content-topic ul li a {

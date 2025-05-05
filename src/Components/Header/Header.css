@@ -110,7 +110,8 @@ header .nav-links .toggle-button:hover,
   top: 0;
   bottom: 0;
   right: -350px;
-  padding: 15px;
+  /* padding: 15px; */
+  padding: 10px 20px 10px 20px;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
@@ -131,6 +132,7 @@ header .nav-links .toggle-button:hover,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .off-canvas-header h3 {
@@ -180,7 +182,8 @@ header .nav-links .toggle-button:hover,
 }
 
 .off-canvas-list li {
-  padding-top: 15px;
+  margin-top: 15px;
+  margin-right: 10px;
 }
 
 .off-canvas-list li a {
