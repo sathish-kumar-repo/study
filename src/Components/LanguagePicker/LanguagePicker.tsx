@@ -24,18 +24,27 @@ const LanguagePicker: React.FC<LanguagePickerProps> = ({
   const pickerRef = useRef<HTMLDivElement>(null);
   const [language, setLanguage] = useState<string>(current);
   const [style, setStyle] = useState<React.CSSProperties>({});
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleLanguagePicker = () => {
     if (!pickerRef.current) return;
-    pickerRef.current.classList.toggle("is--active");
-    pickerRef.current.dataset.active = pickerRef.current.classList
-      .contains("is--active")
-      .toString();
+    const willOpen = !isOpen;
+    pickerRef.current.classList.toggle("is--active", willOpen);
+    pickerRef.current.dataset.active = willOpen.toString();
+    setIsOpen(willOpen);
+  };
+
+  const closeLanguagePicker = () => {
+    if (!pickerRef.current) return;
+    pickerRef.current.classList.remove("is--active");
+    pickerRef.current.dataset.active = "false";
+    setIsOpen(false);
   };
 
   const handleChangeLanguage = (lang: string) => {
     onChange(lang);
     setLanguage(lang);
+    closeLanguagePicker();
     setTimeout(() => {
       onChangeEnd(lang);
     }, 300);
@@ -113,6 +122,18 @@ const LanguagePicker: React.FC<LanguagePickerProps> = ({
 
   const handleResize = () => {
     calculateStyle();
+    if (isOpen) {
+      closeLanguagePicker();
+    }
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      pickerRef.current &&
+      !pickerRef.current.contains(event.target as Node)
+    ) {
+      closeLanguagePicker();
+    }
   };
 
   useEffect(() => {
@@ -139,15 +160,13 @@ const LanguagePicker: React.FC<LanguagePickerProps> = ({
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    handleResize();
+    document.addEventListener("click", handleClickOutside);
+
     return () => {
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
-
-  console.log(current);
-
-  console.log(flags[current]);
+  }, [isOpen]);
 
   return (
     <div
