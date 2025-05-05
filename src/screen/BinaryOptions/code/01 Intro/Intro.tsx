@@ -29,15 +29,6 @@ export const Intro = () => {
         buy. If you think it won’t be, you sell.
       </Para>
       <Media src={binaryOption} />
-
-      <LanguagePicker
-        // current={language}
-        available={["GR", "EN", "IT", "RU", "BR", "RO", "PT", "FR", "ES", "DE"]}
-        // direction={"down"}
-
-        // onChange={handleLanguageOnChange}
-        // onChangeEnd={handleLanguageOnChangeEnd}
-      />
     </>
   );
 };

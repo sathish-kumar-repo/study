@@ -205,7 +205,7 @@ const Course = () => {
             />
           </div>
         </Container>
-        <Footer isCourse={true} />
+        <Footer />
       </Section>
     </>
   );
