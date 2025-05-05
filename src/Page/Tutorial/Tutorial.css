@@ -1,5 +1,11 @@
+.tutorial-section {
+  display: flex;
+  flex-direction: column;
+}
+
 .content-wrapper {
-  height: 100%;
+  flex: 1;
+  /* height: 100%; */
   display: flex;
 }
 
@@ -95,7 +101,6 @@
 /* Content Main */
 .content-main {
   flex: 1;
-  width: 100%;
   padding: 2rem 2rem 10rem 2rem;
 }
 

@@ -127,7 +127,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
           content={`Explore the ${contentData.about.name} course on my study website.`}
         />
       </Helmet>
-      <Section>
+      <Section className="tutorial-section">
         <Header onClick={() => setShowTopic(true)} isShowTopicButton={true} />
 
         <Container className="content-wrapper">

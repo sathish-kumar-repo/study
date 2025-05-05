@@ -151,7 +151,7 @@ const Course = () => {
         />
       </Helmet>
 
-      <Section>
+      <Section className="course-section">
         <Header />
         <Container className="course-wrapper">
           {/* Filter Sidebar Component */}
