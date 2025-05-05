@@ -1,4 +1,3 @@
-import LanguagePicker from "../../../../components/LanguagePicker/LanguagePicker";
 import { H1, Media, Para, Title } from "../../../../components/UI";
 import binaryOption from "./img/binary-option.png";
 
