@@ -5,12 +5,16 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { useSearchParams } from "react-router-dom";
 import NotFound from "../../page/NotFound/NotFound";
 import styles from "./style.module.css";
+import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const PDFViewerPage = () => {
   const [searchParams] = useSearchParams();
   const pdfUrl = searchParams.get("file") || " ";
   //   const pdfName = queryParams.get("name") || "PDF Document";
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+  const { t } = useTranslation();
 
   const renderError = (error: LoadError) => {
     let message = "";
@@ -33,15 +37,21 @@ const PDFViewerPage = () => {
   };
 
   return (
-    <div className={styles.pdf_viewer_page}>
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-        <Viewer
-          fileUrl={`/study/pdf/${pdfUrl}`}
-          plugins={[defaultLayoutPluginInstance]}
-          renderError={renderError}
-        />
-      </Worker>
-    </div>
+    <>
+      <Helmet>
+        <title>{t("pdf.title")}</title>
+        <meta name="description" content={t("pdf.description")} />
+      </Helmet>
+      <div className={styles.pdf_viewer_page}>
+        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+          <Viewer
+            fileUrl={`/study/pdf/${pdfUrl}`}
+            plugins={[defaultLayoutPluginInstance]}
+            renderError={renderError}
+          />
+        </Worker>
+      </div>
+    </>
   );
 };
 

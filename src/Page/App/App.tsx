@@ -15,7 +15,6 @@ import Author from "../Author/Author";
 import TermsAndCondition from "../TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
 import PDFViewerPage from "../../components/PDF/PDFViewPage";
-import PDF from "../../components/PDF/PDF";
 
 function App() {
   const router = createHashRouter(

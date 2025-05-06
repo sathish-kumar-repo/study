@@ -75,6 +75,7 @@
 
   "terms": {
     "title": "Terms and Conditions - My Study Website",
+    "description": "Understand the terms and conditions for using the Study website effectively.",
     "heading": "Terms and Conditions",
     "intro": "Welcome to Study! These Terms and Conditions govern your use of our website, accessible at <strong>https://sathish-kumar-repo.github.io/study/ </strong>. By accessing or using Study, you agree to be bound by these terms. If you do not agree to all of the terms, please discontinue using our website immediately.",
     "sections": {
@@ -130,6 +131,10 @@
     }
   },
 
+  "pdf": {
+    "title": "View PDFs - My Study Website",
+    "description": "Read and explore high-quality PDF documents online from Study."
+  },
   "footer": {
     "about": "About Study",
     "description": "Study Hub organizes, simplifies, and enhances your learning experience efficiently.",
