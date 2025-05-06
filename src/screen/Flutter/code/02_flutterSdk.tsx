@@ -1,3 +1,4 @@
+import PDF from "../../../components/PDF/PDF";
 import { Title, Table, Media } from "../../../components/UI";
 
 export const FlutterSdk = () => {
@@ -25,6 +26,7 @@ export const FlutterSdk = () => {
           </tr>
         </tbody>
       </Table>{" "}
+      <PDF pdfUrl="/study/dummy.pdf" pdfName="something.pdf" />
       <Media src={"https://youtu.be/9bZkp7q19f0?si=MkL1D6GwoekLX5uj"} />
       <Media src={"https://youtu.be/k3MseWHyUUE?si=t0FlDdiVR11DIQZQ"} />
     </>
