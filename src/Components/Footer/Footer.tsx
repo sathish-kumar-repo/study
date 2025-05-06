@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { email } from "../../utils/message";
+import { email, getYear } from "../../utils/message";
 import "./Footer.css";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import SocialMedia from "../../page/Home/Components/SocialMedia";
@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className="footer-bottom">
-        <p> {t("footer.courseCopyright", { year: 22 })}</p>
+        <p> {t("footer.courseCopyright", { year: getYear })}</p>
         <span className="toggle-button back-to-top" aria-label="Back to top">
           <KeyboardArrowUpIcon onClick={scrollToTop} />
         </span>
