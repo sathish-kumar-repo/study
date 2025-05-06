@@ -1,39 +1,27 @@
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
-import "@react-pdf-viewer/core/lib/styles/index.css";
-import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
 import styles from "./PDF.module.css";
 
 interface PDFViewProps {
   pdfUrl: string;
   pdfName: string;
 }
+
 const PDF: React.FC<PDFViewProps> = ({ pdfUrl, pdfName }) => {
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  const navigate = useNavigate(); // Initialize navigate hook
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openViewer = () => setIsOpen(true);
-  const closeViewer = () => setIsOpen(false);
+  // Handle click to navigate to the PDF viewer page
+  const openViewer = () => {
+    navigate(
+      `/pdf-viewer?url=${encodeURIComponent(pdfUrl)}&name=${encodeURIComponent(
+        pdfName
+      )}`
+    );
+  };
 
   return (
-    <>
-      <div className="pdf-glass-item" onClick={openViewer}>
-        {/* <FileText className="pdf-icon" /> */}
-        <span>{pdfName}</span>
-      </div>
-
-      {/* {isOpen && ( */}
-      <div className={styles.model}>
-        <Worker
-          workerUrl={`https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js`}
-        >
-          <Viewer fileUrl={pdfUrl} plugins={[defaultLayoutPluginInstance]} />
-        </Worker>
-      </div>
-      {/* )} */}
-    </>
+    <div className="pdf-glass-item" onClick={openViewer}>
+      <span>{pdfName}</span>
+    </div>
   );
 };
 
