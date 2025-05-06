@@ -2,6 +2,7 @@ import React from "react";
 import "./NoResultFound.css";
 import Lottie from "react-lottie";
 import animationData from "../../assets/json/no-result-found.json";
+import { useTranslation } from "react-i18next";
 
 interface NoResultFoundProps extends React.HTMLAttributes<HTMLDivElement> {
   searchTerm: string;
@@ -19,6 +20,7 @@ const NoResultFound: React.FC<NoResultFoundProps> = ({
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const { t } = useTranslation();
 
   return (
     <div className="no-courses-message" {...props}>
@@ -26,12 +28,14 @@ const NoResultFound: React.FC<NoResultFoundProps> = ({
         <Lottie options={defaultOptions} height={150} width={150} />
       </div>
       <div className="message">
-        <h5>Sorry, we couldn't find any results "{searchTerm}"</h5>
-        <p>Try adjusting your search. Here are some ideas:</p>
+        <h5>
+          {t("searchNotFound.heading")} "{searchTerm}"
+        </h5>
+        <p>{t("searchNotFound.subheading")}</p>
         <ul>
-          <li>Make sure all words are spelled correctly</li>
-          <li>Try different search terms</li>
-          <li>Try more general search terms</li>
+          <li>{t("searchNotFound.ideas1")}</li>
+          <li>{t("searchNotFound.ideas2")}</li>
+          <li>{t("searchNotFound.ideas3")}</li>
         </ul>
       </div>
     </div>

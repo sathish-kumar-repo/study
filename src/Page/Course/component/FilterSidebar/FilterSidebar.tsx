@@ -4,6 +4,7 @@ import Switch from "../../../../components/Switch/Switch";
 import ClearIcon from "@mui/icons-material/Clear";
 import DoneButton from "../DoneButton/DoneButton";
 import { toTitleCase } from "../../../../utils/custom_string";
+import { useTranslation } from "react-i18next";
 
 interface FilterSidebarProps {
   category: string;
@@ -32,6 +33,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 }) => {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1200);
   const prevIsMobileRef = useRef(isMobileView);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,7 +75,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
         </span>
         <div className="recently-added">
           <Switch checked={recentlyAdded} onChange={handleRecentlyAdded} />
-          <h4>Recently Added</h4>
+          <h4>{t("general.recentlyAdded")}</h4>
           <div
             className={`clear-filter ${enableClearFilter && "active"}`}
             onClick={() => {
@@ -83,7 +85,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
               }
             }}
           >
-            Clear
+            {t("general.clear")}
           </div>
         </div>
         <h2 className="category-title">{toTitleCase(category)}</h2>

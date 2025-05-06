@@ -4,6 +4,7 @@ import mainData from "../../data/main_data"; // Replace with the actual path to 
 import { Link } from "react-router-dom";
 
 import SearchBar from "../SearchBar/SearchBar";
+import { useTranslation } from "react-i18next";
 
 interface SearchProps {
   showSearch: boolean;
@@ -30,6 +31,7 @@ interface CourseResult {
 const Search = ({ showSearch, ref, onClose }: SearchProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (showSearch) {
@@ -81,9 +83,10 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             inputRef={inputRef}
+            placeholder={t("general.topicSearchPlaceholder")}
           />
           <span className="toggle-button cancel" onClick={onClose}>
-            Cancel
+            {t("general.cancel")}
           </span>
         </div>
 

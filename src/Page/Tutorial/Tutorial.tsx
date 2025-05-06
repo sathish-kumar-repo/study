@@ -17,6 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Helmet } from "react-helmet";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useTranslation } from "react-i18next";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -29,6 +30,8 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   const activeTopicRef = useRef<HTMLLIElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { t } = useTranslation();
 
   // Helper function to get the current topic from the URL
   const getCurrenttopic = (): string => {
@@ -122,10 +125,14 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   return (
     <>
       <Helmet>
-        <title>{contentData.about.name} - My Study Website</title>
+        <title>
+          {contentData.about.name} - {t("tutorial.title")}
+        </title>
         <meta
           name="description"
-          content={`Explore the ${contentData.about.name} course on my study website.`}
+          content={t("tutorial.description", {
+            course: contentData.about.name,
+          })}
         />
       </Helmet>
       <Section className="tutorial-section">
@@ -185,7 +192,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 onClick={() => handleNavigation(previousTopic)}
               >
                 <ArrowBackIosIcon />
-                <span>Previous</span>
+                <span>{t("tutorial.previous")}</span>
               </div>
 
               <div
@@ -194,7 +201,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 }`}
                 onClick={() => handleNavigation(nextTopic)}
               >
-                <span>Next</span>
+                <span>{t("tutorial.next")}</span>
                 <ArrowForwardIosIcon />
               </div>
             </div>

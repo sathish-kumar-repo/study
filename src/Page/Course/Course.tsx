@@ -15,6 +15,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CourseList from "./component/CourseList/CourseList";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Course = () => {
   const { category } = useParams();
@@ -27,6 +28,8 @@ const Course = () => {
   const [toggleFilter, setToggleFilter] = useState(window.innerWidth > 1200);
   const prevWidthRef = useRef(window.innerWidth);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const { t } = useTranslation();
 
   //! EFFECTS HERE...
   // Track previous window width to manage filter sidebar visibility on resize
@@ -144,11 +147,8 @@ const Course = () => {
   return (
     <>
       <Helmet>
-        <title>Courses - My Study Website</title>
-        <meta
-          name="description"
-          content="Browse various courses and tutorials on different subjects."
-        />
+        <title>{t("course.title")}</title>
+        <meta name="description" content={t("course.description")} />
       </Helmet>
 
       <Section className="course-section">
@@ -175,7 +175,7 @@ const Course = () => {
                 className="filter-button"
                 onClick={() => setToggleFilter((prev) => !prev)}
               >
-                <h4>Filter</h4>
+                <h4>{t("course.filter")}</h4>
                 <span>
                   <FilterListIcon />
                 </span>
@@ -183,7 +183,7 @@ const Course = () => {
               <SearchBar
                 searchTerm={searchQuery}
                 setSearchTerm={handleSearchQueryChange}
-                placeholder="Search courses..."
+                placeholder={t("course.searchPlaceholder")}
                 inputRef={inputRef}
               />
             </div>

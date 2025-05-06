@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { footerMessage } from "../../utils/message";
+import { email } from "../../utils/message";
 import "./Footer.css";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 import SocialMedia from "../../page/Home/Components/SocialMedia";
@@ -27,32 +27,29 @@ export const Footer: React.FC = () => {
       <div className="footer-container">
         {/* About */}
         <div className="footer-section">
-          <h3>{t("filter")}</h3>
-          <p>
-            Pixora is your memory vault — save, share, and relive your best
-            moments with ease.
-          </p>
+          <h3>{t("footer.about")}</h3>
+          <p>{t("footer.description")}</p>
           {/* Social Media Icons */}
           <SocialMedia />
         </div>
 
         {/* Links */}
         <div className="footer-section">
-          <h3>Quick Links</h3>
+          <h3>{t("footer.links")}</h3>
           <ul>
             <li>
               <Link to="/privacy_policy" aria-label="Privacy Policy">
-                Privacy Policy
+                {t("footer.privacy")}
               </Link>
             </li>
             <li>
               <Link to="/terms_and_condition" aria-label="Terms and Conditions">
-                Terms & Conditions
+                {t("footer.terms")}
               </Link>
             </li>
             <li>
               <Link to="/author" aria-label="About Us">
-                About Us
+                {t("footer.author")}
               </Link>
             </li>
           </ul>
@@ -60,7 +57,7 @@ export const Footer: React.FC = () => {
 
         {/* Language Section */}
         <div className="footer-section">
-          <h3>Lang</h3>
+          <h3>{t("footer.lang")}</h3>
           <div className="language-selector">
             <p>{languageNames[lang]}</p>
             <LanguagePicker
@@ -76,17 +73,16 @@ export const Footer: React.FC = () => {
         <div className="footer-section">
           <h3>Contact</h3>
           <address>
-            <a href="mailto:support@pixora.com">support@pixora.com</a>
+            <a href={`mailto:${email}`}>{email}</a>
             <br />
-            <a href="tel:+919876543210">+91-9876543210</a>
-            <br />
-            Chennai, Tamil Nadu, India
+            <a href="tel:+919566506832">+91-9566506832</a>
+            <br /> {t("footer.contact")}
           </address>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>{footerMessage} | Made with ❤️ in India</p>
+        <p> {t("footer.courseCopyright", { year: 22 })}</p>
         <span className="toggle-button back-to-top" aria-label="Back to top">
           <KeyboardArrowUpIcon onClick={scrollToTop} />
         </span>
@@ -97,12 +93,12 @@ export const Footer: React.FC = () => {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Pixora",
-          url: "https://pixora.com",
+          name: "Study",
+          url: "https://sathish-kumar-repo.github.io/study/",
           contactPoint: {
             "@type": "ContactPoint",
-            email: "support@pixora.com",
-            telephone: "+91-9876543210",
+            email: email,
+            telephone: "+91-9566506832",
             contactType: "Customer Service",
           },
           address: {

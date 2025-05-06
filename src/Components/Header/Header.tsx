@@ -6,10 +6,11 @@ import "./Header.css";
 import { toTitleCase } from "../../utils/custom_string";
 import course from "../../data/main_data";
 import { NavLink } from "react-router-dom";
-import { logo } from "../../utils/message";
+
 import SearchIcon from "@mui/icons-material/Search";
 import Search from "../Search/Search";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface HeaderProps {
   onClick?: () => void;
@@ -30,6 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
   const searchRef = useRef<HTMLDivElement>(null);
   const activeItemRef = useRef<HTMLAnchorElement | null>(null);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (showOffCanvas && activeItemRef.current) {
@@ -132,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           )}
           <NavLink to="/" className="logo">
-            {logo}
+            {t("header.logo")}
           </NavLink>
         </div>
 
@@ -180,7 +182,7 @@ export const Header: React.FC<HeaderProps> = ({
         ref={offCanvasRef}
       >
         <div className="off-canvas-header">
-          <h3>More Folders</h3>
+          <h3>{t("header.moreFolders")}</h3>
           <span>
             <CloseIcon onClick={() => setShowOffCanvas(false)} />
           </span>

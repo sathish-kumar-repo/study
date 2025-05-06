@@ -4,28 +4,26 @@ import { Helmet } from "react-helmet";
 import { Header } from "../../components/Header/Header";
 import Section from "../../components/Section";
 import { Footer } from "../../components/Footer/Footer";
+import { useTranslation } from "react-i18next";
 
 const NotFound = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Helmet>
-        <title>404 - Page Not Found</title>
-        <meta
-          name="description"
-          content="The page you are looking for could not be found."
-        />
+        <title>{t("notfound.title")}</title>
+        <meta name="description" content={t("notfound.description")} />
       </Helmet>
       <Section className="not-found-section">
         <Header />
         <div className="not-found-container">
           <p className="error-code">404</p>
-          <h1 className="title">Page not found</h1>
-          <p className="subtitle">
-            Sorry, we couldn’t find the page you’re looking for.
-          </p>
+          <h1 className="title">{t("notfound.heading")}</h1>
+          <p className="subtitle">{t("notfound.subtitle")}</p>
 
-          <Link to={"/"} className="action">
-            Go back home
+          <Link to="/" className="action">
+            {t("notfound.action")}
           </Link>
         </div>
         <Footer />

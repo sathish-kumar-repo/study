@@ -4,29 +4,27 @@ import Section from "../../components/Section";
 import Tilt from "react-parallax-tilt";
 import SocialMedia from "../Home/Components/SocialMedia";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Author = () => {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // You can adjust breakpoint if needed
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Run initially
+    handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <>
       <Helmet>
-        <title>Author - My Study Website</title>
-        <meta
-          name="description"
-          content="Learn more about the author and the study materials provided."
-        />
+        <title>{t("author.title")}</title>
+        <meta name="description" content={t("author.description")} />
       </Helmet>
 
       <Section className="author-container">
@@ -35,17 +33,17 @@ const Author = () => {
             <img
               className="profile"
               src="/study/web-images/profile.jpg"
-              alt="Profile"
+              alt={t("author.alt")}
             />
-            <h2>Sathish Kumar</h2>
-            <p>I'm student of MKU Madurai and I like to learn new thing</p>
+            <h2>{t("author.name")}</h2>
+            <p>{t("author.bio")}</p>
             <SocialMedia />
             <a
               href="https://wa.me/919566506832"
               className="btn"
               rel="noopener noreferrer"
             >
-              Whatsapp me
+              {t("author.whatsapp")}
             </a>
           </div>
         </Tilt>
