@@ -7,14 +7,19 @@ import NotFound from "../../page/NotFound/NotFound";
 import styles from "./style.module.css";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 const PDFViewerPage = () => {
   const [searchParams] = useSearchParams();
   const pdfUrl = searchParams.get("file") || " ";
-  //   const pdfName = queryParams.get("name") || "PDF Document";
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   const { t } = useTranslation();
+
+  // Load theme from localStorage, defaulting to 'light'
+  const storedTheme = localStorage.getItem("theme") || "light";
+
+  const [theme, setTheme] = useState(storedTheme);
 
   const renderError = (error: LoadError) => {
     let message = "";
@@ -36,6 +41,11 @@ const PDFViewerPage = () => {
     return <NotFound />;
   };
 
+  const handleSwitchTheme = (newTheme: string) => {
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme); // Save the new theme to localStorage
+  };
+
   return (
     <>
       <Helmet>
@@ -48,6 +58,8 @@ const PDFViewerPage = () => {
             fileUrl={`/study/pdf/${pdfUrl}`}
             plugins={[defaultLayoutPluginInstance]}
             renderError={renderError}
+            theme={theme} // Use the state value for theme
+            onSwitchTheme={handleSwitchTheme}
           />
         </Worker>
       </div>
