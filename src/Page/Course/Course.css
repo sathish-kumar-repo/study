@@ -6,11 +6,13 @@
 .course-wrapper {
   flex: 1;
   display: flex;
+
   /* justify-content: center; */
 }
 
 .course-main {
   flex: 1;
+  width: 100%;
   padding: 0 1rem 2rem 1rem;
   transition: var(--off-canvas-transition);
 }
