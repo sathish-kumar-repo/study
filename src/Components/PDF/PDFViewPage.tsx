@@ -4,10 +4,11 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { useSearchParams } from "react-router-dom";
 import NotFound from "../../page/NotFound/NotFound";
+import styles from "./style.module.css";
 
 const PDFViewerPage = () => {
   const [searchParams] = useSearchParams();
-  const pdfUrl = searchParams.get("url") || " ";
+  const pdfUrl = searchParams.get("file") || " ";
   //   const pdfName = queryParams.get("name") || "PDF Document";
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
@@ -32,10 +33,10 @@ const PDFViewerPage = () => {
   };
 
   return (
-    <div className="pdf-viewer-page">
+    <div className={styles.pdf_viewer_page}>
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
         <Viewer
-          fileUrl={pdfUrl}
+          fileUrl={`/study/pdf/${pdfUrl}`}
           plugins={[defaultLayoutPluginInstance]}
           renderError={renderError}
         />

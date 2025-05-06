@@ -1,10 +1,9 @@
-import { H1, List, Title } from "../../../../components/UI";
+import { H1, List, PDF, Title } from "../../../../components/UI";
 
 const Rules = () => {
   return (
     <>
       <Title>Basic Rules to Live Healthy Lifestyle</Title>
-
       <H1>Follow Rules</H1>
       <List
         type="ordered"
@@ -19,7 +18,8 @@ const Rules = () => {
           },
           { text: "Don’t be in comfort zone" },
         ]}
-      />
+      />{" "}
+      <PDF file="HealthyLifestyle.pdf" />
     </>
   );
 };

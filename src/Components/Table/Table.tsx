@@ -5,14 +5,15 @@ import "./Table.css";
 interface TableProps {
   children?: ReactNode;
   textAlign?: "left" | "center" | "right";
-  url?: string;
+  file?: string;
 }
 
 interface RowData {
   [key: string]: string | number;
 }
 
-const Table: FC<TableProps> = ({ children, textAlign = "left", url }) => {
+const Table: FC<TableProps> = ({ children, textAlign = "left", file }) => {
+  const url = `/study/excel/${file}`;
   const [data, setData] = useState<RowData[]>([]);
   const [headers, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

@@ -64,7 +64,7 @@ const IntroFlutter = () => {
       </Note>
 
       <Media src={video} />
-      <Table url="/study/RandomData.xlsx" />
+      <Table file="RandomData.xlsx" />
       <Media src="https://images.pexels.com/photos/31737021/pexels-photo-31737021/free-photo-of-serene-rocky-coastline-with-calm-waters.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     </>
   );

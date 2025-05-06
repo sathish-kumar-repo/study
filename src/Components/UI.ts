@@ -10,5 +10,20 @@ import A from "./A/A";
 import HL from "./HL/HL";
 import Note from "./Note/Note";
 import Space from "./Space/Space";
+import PDF from "./PDF/PDF";
 
-export { Title, H1, H2, Para, List, Media, Table, Syntax, A, HL, Note, Space };
+export {
+  Title,
+  H1,
+  H2,
+  Para,
+  List,
+  Media,
+  Table,
+  Syntax,
+  A,
+  HL,
+  Note,
+  Space,
+  PDF,
+};
