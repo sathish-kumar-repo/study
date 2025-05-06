@@ -1,21 +1,44 @@
-import { Worker, Viewer } from "@react-pdf-viewer/core";
+import { Worker, Viewer, LoadError } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { useSearchParams } from "react-router-dom";
+import NotFound from "../../page/NotFound/NotFound";
 
 const PDFViewerPage = () => {
   const [searchParams] = useSearchParams();
-  const pdfUrl = searchParams.get("url") || "";
-
+  const pdfUrl = searchParams.get("url") || " ";
   //   const pdfName = queryParams.get("name") || "PDF Document";
-
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+  const renderError = (error: LoadError) => {
+    let message = "";
+    switch (error.name) {
+      case "InvalidPDFException":
+        message = "The document is invalid or corrupted";
+        break;
+      case "MissingPDFException":
+        message = "The document is missing";
+        break;
+      case "UnexpectedResponseException":
+        message = "Unexpected server response";
+        break;
+      default:
+        message = "Cannot load the document";
+        break;
+    }
+    console.log(message);
+    return <NotFound />;
+  };
 
   return (
     <div className="pdf-viewer-page">
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-        <Viewer fileUrl={pdfUrl} plugins={[defaultLayoutPluginInstance]} />
+        <Viewer
+          fileUrl={pdfUrl}
+          plugins={[defaultLayoutPluginInstance]}
+          renderError={renderError}
+        />
       </Worker>
     </div>
   );

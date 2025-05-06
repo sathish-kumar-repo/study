@@ -73,6 +73,9 @@ function App() {
         {/* PDF Viewer Route */}
         <Route path="/pdf-viewer" element={<PDFViewerPage />} />
 
+        {/* Explicit 404 Page Route */}
+        <Route path="/not-found" element={<NotFound />} />
+
         {/* 404 Not Found Page */}
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
-import styles from "./PDF.module.css";
+import styles from "./style.module.css";
 
 interface PDFViewProps {
   pdfUrl: string;
@@ -19,8 +19,16 @@ const PDF: React.FC<PDFViewProps> = ({ pdfUrl, pdfName }) => {
   };
 
   return (
-    <div className="pdf-glass-item" onClick={openViewer}>
-      <span>{pdfName}</span>
+    <div className={styles.pdf_glass_item}>
+      <p className={styles.name}>{pdfName}</p>
+      <div className={styles.pdf_info} onClick={openViewer}>
+        <img
+          className={styles.icon}
+          src="/study/web-images/pdf.png"
+          alt="pdf icon"
+        />
+        <p className={styles.url}>{pdfUrl.split("/")[2]}</p>
+      </div>
     </div>
   );
 };

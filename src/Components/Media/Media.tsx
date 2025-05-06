@@ -57,11 +57,11 @@ const Media: React.FC<MediaProps> = ({
 
       {/* Render YouTube videos */}
       {youtubeVideos.map((ytSrc, index) => (
-        <div className="video-wrapper">
+        <div className="video-wrapper" key={`yt-${index}`}>
           <iframe
             key={`yt-${index}`}
             src={getYouTubeEmbedUrl(ytSrc)}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" //  picture-in-picture
             allowFullScreen
             title={`youtube-video-${index}`}
           ></iframe>
