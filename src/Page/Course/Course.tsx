@@ -105,6 +105,9 @@ const Course = () => {
 
   const categoryCourses = courseData[category];
 
+  // Check if there's only one course
+  const onlyOneCourse = categoryCourses.length === 1;
+
   // Group all courses by subcategory
   const groupedCourses = categoryCourses.reduce((groups, course) => {
     const subCat = course.subCategory || "General";
@@ -155,38 +158,42 @@ const Course = () => {
         <Header />
         <Container className="course-wrapper">
           {/* Filter Sidebar Component */}
-          <FilterSidebar
-            category={category}
-            toggleFilter={toggleFilter}
-            handleToggleFilter={() => setToggleFilter((prev) => !prev)}
-            recentlyAdded={recentlyAdded}
-            handleRecentlyAdded={handleRecentlyAddedChange}
-            categoryOptions={subCategories}
-            selectedCategory={selectedSubCategory}
-            handelSelectedCategory={handleSubCategoryChange}
-            enableClearFilter={isAnyFilterApplied}
-            handleClearFilter={clearFilters}
-          />
+          {!onlyOneCourse && (
+            <FilterSidebar
+              category={category}
+              toggleFilter={toggleFilter}
+              handleToggleFilter={() => setToggleFilter((prev) => !prev)}
+              recentlyAdded={recentlyAdded}
+              handleRecentlyAdded={handleRecentlyAddedChange}
+              categoryOptions={subCategories}
+              selectedCategory={selectedSubCategory}
+              handelSelectedCategory={handleSubCategoryChange}
+              enableClearFilter={isAnyFilterApplied}
+              handleClearFilter={clearFilters}
+            />
+          )}
 
           <div className="course-main">
             {/* Filter Header with Search Bar */}
-            <div className="filter-header">
-              <div
-                className="filter-button"
-                onClick={() => setToggleFilter((prev) => !prev)}
-              >
-                <h4>{t("course.filter")}</h4>
-                <span>
-                  <FilterListIcon />
-                </span>
+            {!onlyOneCourse && (
+              <div className="filter-header">
+                <div
+                  className="filter-button"
+                  onClick={() => setToggleFilter((prev) => !prev)}
+                >
+                  <h4>{t("course.filter")}</h4>
+                  <span>
+                    <FilterListIcon />
+                  </span>
+                </div>
+                <SearchBar
+                  searchTerm={searchQuery}
+                  setSearchTerm={handleSearchQueryChange}
+                  placeholder={t("course.searchPlaceholder")}
+                  inputRef={inputRef}
+                />
               </div>
-              <SearchBar
-                searchTerm={searchQuery}
-                setSearchTerm={handleSearchQueryChange}
-                placeholder={t("course.searchPlaceholder")}
-                inputRef={inputRef}
-              />
-            </div>
+            )}
 
             {/* No result found if the filtered courses are empty */}
             {selectedSubCategory === "All" &&

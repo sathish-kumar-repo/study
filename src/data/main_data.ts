@@ -6,7 +6,7 @@ import mathsSem2Content from "../screen/Maths/Sem 2/content";
 // The course data object
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent],
-  trading: [BinaryOptionContent],
+  trading: [BinaryOptionContent, basicRulesToLiveHealthyLifestyleContent],
   maths: [mathsSem2Content],
   flutter: [flutterContent],
 };
