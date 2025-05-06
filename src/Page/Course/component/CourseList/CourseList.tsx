@@ -2,6 +2,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { CourseType } from "../../../../model/course_model";
 import NoResultFound from "../../../../components/NoResultFound/NoResultFound";
 import "./CourseList.css";
+import { useTranslation } from "react-i18next";
 
 interface CourseListProps {
   processedCourses: Record<string, CourseType[]>;
@@ -15,6 +16,8 @@ const CourseList: React.FC<CourseListProps> = ({
   searchQuery,
 }) => {
   const { category } = useParams();
+  const { t } = useTranslation();
+
   return (
     <>
       {Object.entries(processedCourses).map(([subCat, courses]) => {
@@ -42,7 +45,7 @@ const CourseList: React.FC<CourseListProps> = ({
                       to={`/${category}/${item.name}/${item.link}`}
                       className="course-link"
                     >
-                      Learn More
+                      {t("course.learnMore")}
                     </NavLink>
                   </div>
                 ))}

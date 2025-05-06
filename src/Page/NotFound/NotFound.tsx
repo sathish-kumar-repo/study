@@ -12,18 +12,18 @@ const NotFound = () => {
   return (
     <>
       <Helmet>
-        <title>{t("notfound.title")}</title>
-        <meta name="description" content={t("notfound.description")} />
+        <title>{t("notFound.title")}</title>
+        <meta name="description" content={t("notFound.description")} />
       </Helmet>
       <Section className="not-found-section">
         <Header />
         <div className="not-found-container">
           <p className="error-code">404</p>
-          <h1 className="title">{t("notfound.heading")}</h1>
-          <p className="subtitle">{t("notfound.subtitle")}</p>
+          <h1 className="title">{t("notFound.heading")}</h1>
+          <p className="subtitle">{t("notFound.subHeading")}</p>
 
           <Link to="/" className="action">
-            {t("notfound.action")}
+            {t("notFound.action")}
           </Link>
         </div>
         <Footer />

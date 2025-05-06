@@ -1,7 +1,7 @@
 {
   "header": {
     "logo": "Study",
-    "moreFolders": "More Folders.."
+    "moreFolders": "More.."
   },
 
   "home": {
@@ -16,7 +16,8 @@
     "title": "Courses - My Study Website",
     "description": "Browse various courses and tutorials on different subjects.",
     "filter": "Filter",
-    "searchPlaceholder": "Search courses..."
+    "searchPlaceholder": "Search courses...",
+    "learnMore": "Learn More"
   },
 
   "tutorial": {
