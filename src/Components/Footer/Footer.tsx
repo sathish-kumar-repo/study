@@ -51,6 +51,11 @@ export const Footer: React.FC = () => {
               <Link to="/author" aria-label="About Us">
                 {t("footer.author")}
               </Link>
+            </li>{" "}
+            <li>
+              <Link to="/faq" aria-label="Frequently Asked Questions">
+                {t("footer.faq")}
+              </Link>
             </li>
           </ul>
         </div>

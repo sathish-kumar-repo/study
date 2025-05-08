@@ -15,6 +15,7 @@ import Author from "../Author/Author";
 import TermsAndCondition from "../TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
 import PDFViewerPage from "../../components/PDF/PDFViewPage";
+import Faq from "../Faq/Faq";
 
 function App() {
   const router = createHashRouter(
@@ -68,6 +69,9 @@ function App() {
 
         {/* Terms and Condition Page */}
         <Route path="/terms_and_condition" element={<TermsAndCondition />} />
+
+        {/* FAQ Page */}
+        <Route path="/faq" element={<Faq />} />
 
         {/* PDF Viewer Route */}
         <Route path="/pdf-viewer" element={<PDFViewerPage />} />
