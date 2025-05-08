@@ -8,6 +8,7 @@ import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 
 interface MediaProps {
+  poster?: string | undefined;
   src: string | string[];
   alt?: string;
   className?: string;
@@ -21,6 +22,7 @@ const Media: React.FC<MediaProps> = ({
   className = "",
   width = "100%",
   height = "auto",
+  poster,
 }) => {
   const mediaArray = Array.isArray(src) ? src : [src];
 
@@ -47,6 +49,7 @@ const Media: React.FC<MediaProps> = ({
       {/* Render normal videos */}
       {videos.map((videoSrc, index) => (
         <video
+          poster={poster}
           key={`video-${index}`}
           src={videoSrc}
           controls

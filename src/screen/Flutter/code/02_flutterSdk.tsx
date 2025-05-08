@@ -25,11 +25,10 @@ export const FlutterSdk = () => {
             <td>Row 2, Col 3</td>
           </tr>
         </tbody>
-      </Table>{" "}
+      </Table>
       <PDF file="dummy.pdf" name="something.pdf" />
       <Table file="weight_loss_plan.xlsx" textAlign="center" />
       <Media src={"https://youtu.be/9bZkp7q19f0?si=MkL1D6GwoekLX5uj"} />
-      <Media src={"https://youtu.be/k3MseWHyUUE?si=t0FlDdiVR11DIQZQ"} />
     </>
   );
 };

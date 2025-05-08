@@ -13,14 +13,14 @@ interface RowData {
 }
 
 const Table: FC<TableProps> = ({ children, textAlign = "left", file }) => {
-  const url = `/study/excel/${file}`;
   const [data, setData] = useState<RowData[]>([]);
   const [headers, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Function to fetch the Excel file, parse it, and update state
   const fetchExcelData = async (fileUrl: string) => {
     setLoading(true);
+    setError(null);
 
     try {
       const response = await fetch(fileUrl);
@@ -32,40 +32,55 @@ const Table: FC<TableProps> = ({ children, textAlign = "left", file }) => {
       const jsonData = XLSX.utils.sheet_to_json(ws, { header: 1 });
 
       if (jsonData.length > 0) {
-        const [headerRow, ...bodyRows] = jsonData as (string[] | any)[];
+        const [headerRow, ...bodyRows] = jsonData as (string[] | any[])[];
         setHeaders(headerRow as string[]);
-        const formattedData = bodyRows.map((row: any) => {
-          return Object.fromEntries(
-            headerRow.map((h: string, i: number) => [h, row[i]])
-          );
-        });
+        const formattedData = bodyRows.map((row) =>
+          Object.fromEntries(headerRow.map((h, i) => [h, row[i]]))
+        );
         setData(formattedData);
       }
-    } catch (error) {
-      console.error("Error fetching or parsing Excel file:", error);
+    } catch (err) {
+      console.error("Error fetching or parsing Excel file:", err);
+      setError("Failed to load Excel data.");
     } finally {
       setLoading(false);
     }
   };
 
-  // Fetch data when the component mounts or URL changes
   useEffect(() => {
-    if (url) {
-      fetchExcelData(url);
+    if (file && !children) {
+      const fileUrl = `/study/excel/${file}`;
+      fetchExcelData(fileUrl);
     }
-  }, [url]);
+  }, [file, children]);
+
+  // Handle invalid usage
+  if (file && children) {
+    return (
+      <div className="glass-table error-message">
+        ⚠️ Error: Provide either `file` or `children`, not both.
+      </div>
+    );
+  }
 
   return (
     <div className={`glass-table text-align-${textAlign}`}>
       <table>
-        {url ? (
-          // If URL is provided, render table from the fetched Excel data
+        {file ? (
           <>
             {loading ? (
               <thead>
                 <tr>
                   <td colSpan={headers.length} style={{ textAlign }}>
                     Loading...
+                  </td>
+                </tr>
+              </thead>
+            ) : error ? (
+              <thead>
+                <tr>
+                  <td colSpan={headers.length} style={{ textAlign }}>
+                    {error}
                   </td>
                 </tr>
               </thead>
@@ -95,7 +110,6 @@ const Table: FC<TableProps> = ({ children, textAlign = "left", file }) => {
             )}
           </>
         ) : (
-          // If URL is not provided, render the children (static content)
           <>{children}</>
         )}
       </table>
