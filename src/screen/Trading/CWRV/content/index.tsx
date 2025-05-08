@@ -1,3 +1,5 @@
+import { Intro } from "../../BinaryOptions/code/01 Intro";
+
 const cwrvContent = {
   about: {
     subCategory: "Binary Options",
@@ -9,6 +11,7 @@ const cwrvContent = {
   route: [
     {
       topic: "Introduction",
+      page: <Intro />,
     },
   ],
 };
