@@ -1,7 +1,7 @@
 import { H1, Media, Para, Title } from "../../../../../components/UI";
 import binaryOption from "./img/binary-option.png";
 
-export const Intro = () => {
+const Intro = () => {
   return (
     <>
       <Title>Introduction</Title>
@@ -31,3 +31,4 @@ export const Intro = () => {
     </>
   );
 };
+export default Intro;

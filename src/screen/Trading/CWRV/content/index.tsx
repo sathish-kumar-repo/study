@@ -1,4 +1,4 @@
-import { Intro } from "../../BinaryOptions/code/01 Intro";
+import Intro from "../../BinaryOptions/code/01 Intro";
 
 const cwrvContent = {
   about: {
