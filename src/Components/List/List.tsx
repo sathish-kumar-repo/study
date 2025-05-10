@@ -11,11 +11,11 @@ type OrderedSymbol =
 
 type ListItem = {
   text: string | React.ReactNode; // Allow both strings and components
-  children?: ListItem[];
+  children?: ListItem[]; // Option for nested items
 };
 
 type ListProps = {
-  items: ListItem[];
+  items: (string | ListItem)[]; // Items can now be strings or full ListItem objects
   type?: ListType;
   orderedSymbol?: OrderedSymbol; // New prop for ordered list symbol
   glass?: boolean;
@@ -78,7 +78,7 @@ const List: React.FC<ListProps> = ({
     return result;
   };
 
-  const renderList = (items: ListItem[], nested = false) => {
+  const renderList = (items: (string | ListItem)[], nested = false) => {
     const ListTag = type === "ordered" ? "ol" : "ul";
     return (
       <ListTag
@@ -86,19 +86,24 @@ const List: React.FC<ListProps> = ({
           glass ? "glass" : ""
         }`}
       >
-        {items.map((item, index) => (
-          <li key={index} className="list-item">
-            <span
-              className={`list-symbol ${
-                type === "unordered" ? "circle-symbol" : "number-symbol"
-              }`}
-            >
-              {type === "ordered" ? `${getOrderedSymbol(index)}.` : ""}
-            </span>
-            {item.text}
-            {item.children && renderList(item.children, true)}
-          </li>
-        ))}
+        {items.map((item, index) => {
+          const itemText = typeof item === "string" ? item : item.text;
+          return (
+            <li key={index} className="list-item">
+              <span
+                className={`list-symbol ${
+                  type === "unordered" ? "circle-symbol" : "number-symbol"
+                }`}
+              >
+                {type === "ordered" ? `${getOrderedSymbol(index)}.` : ""}
+              </span>
+              {itemText}
+              {typeof item !== "string" &&
+                item.children &&
+                renderList(item.children, true)}
+            </li>
+          );
+        })}
       </ListTag>
     );
   };
