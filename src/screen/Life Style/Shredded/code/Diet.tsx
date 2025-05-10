@@ -62,11 +62,11 @@ const Diet = () => {
 
       <H1>Total Macros</H1>
 
-      <Para>🔥 Calories (kcal): 2499kcal</Para>
-      <Para>🍗 Protein (g): 234g</Para>
-      <Para>🍞 Carbohydrates (g): 264.3g</Para>
-      <Para>🥜 Fat (g): 57.5g</Para>
-      <Para>🌾 Fiber (g): 40.1g</Para>
+      <Para tab={false}>🔥 Calories (kcal): 2499kcal</Para>
+      <Para tab={false}>🍗 Protein (g): 234g</Para>
+      <Para tab={false}>🍞 Carbohydrates (g): 264.3g</Para>
+      <Para tab={false}>🥜 Fat (g): 57.5g</Para>
+      <Para tab={false}>🌾 Fiber (g): 40.1g</Para>
     </>
   );
 };
