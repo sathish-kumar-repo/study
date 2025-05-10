@@ -1,4 +1,4 @@
-import { H, H1, List, Para, Table, Title } from "../../../../components/UI";
+import { H, H1, List, Para, Title } from "../../../../components/UI";
 
 const Diet = () => {
   return (
