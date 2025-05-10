@@ -1,13 +1,4 @@
-import {
-  H1,
-  H2,
-  List,
-  Media,
-  Para,
-  Title,
-  Note,
-  Table,
-} from "../../../components/UI";
+import { H1, H2, List, Media, Para, Title, Note } from "../../../components/UI";
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 import HL from "../../../components/HL/HL";
@@ -64,7 +55,7 @@ const IntroFlutter = () => {
       </Note>
 
       <Media src={video} />
-      <Table file="RandomData.xlsx" />
+
       <Media src="https://images.pexels.com/photos/31737021/pexels-photo-31737021/free-photo-of-serene-rocky-coastline-with-calm-waters.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     </>
   );

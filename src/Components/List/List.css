@@ -1,28 +1,35 @@
 .glassmorphic-list-container {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  overflow: hidden; /* prevent margin collaps*/
 }
 
 .glassmorphic-list {
   display: block;
   list-style: none;
-  padding: 16px;
+  padding: 0 16px;
   margin: 0 0 10px 0;
   border-radius: 16px;
   color: var(--text-color);
 }
-
+.glassmorphic-list .glassmorphic-list {
+  margin-top: 10px;
+  padding: 16px;
+}
 .glassmorphic-list.glass {
+  padding: 16px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+.glassmorphic-list.main .list-item {
+  font-size: 1.1rem;
+}
 .list-item {
   position: relative;
   padding-left: 24px;
   margin-bottom: 8px;
-  font-family: var(--font-family-body);
   line-height: 1.5rem;
+  font-family: var(--font-family-body);
 }
 
 .list-symbol {

@@ -4,7 +4,13 @@
   font-size: 1.1rem;
   margin-bottom: 15px;
   line-height: 1.8rem;
+  text-align: justify;
 }
+
+.para.tabbed {
+  text-indent: 2em; /* Apply space to the first line only */
+}
+
 /* @media (max-width: 768px) {
   .para {
     font-size: 1rem;
