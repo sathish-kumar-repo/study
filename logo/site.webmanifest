@@ -28,7 +28,7 @@
     }
   ],
   "theme_color": "#F16EB0",
-  "background_color": "#000000",
+  "background_color": "#010D20",
   "display": "standalone",
   "start_url": "/study/",
   "scope": "/study/"
