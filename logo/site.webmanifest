@@ -30,5 +30,6 @@
   "theme_color": "#F16EB0",
   "background_color": "#000000",
   "display": "standalone",
-  "start_url": "."
+  "start_url": "/study/",
+  "scope": "/study/"
 }
