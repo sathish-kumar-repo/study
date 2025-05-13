@@ -8,6 +8,9 @@ const TrendLine = () => {
     <>
       <Title>Trend Line</Title>
 
+      <H1>Tutorial:</H1>
+      <Media src="https://youtu.be/Qnd06fMR3BI" />
+
       <H1>Uptrend</H1>
       <Media src={uptrend} />
       <Media src={uptrendEg} />

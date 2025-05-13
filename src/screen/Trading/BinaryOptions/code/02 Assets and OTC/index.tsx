@@ -7,6 +7,9 @@ const AssetsAndOTC = () => {
     <>
       <Title>Assets and OTC</Title>
 
+      <H1>Tutorial:</H1>
+      <Media src="https://youtu.be/fgRfV2lilRY" />
+
       <H1>Asset:</H1>
       <Media src={asset} />
 

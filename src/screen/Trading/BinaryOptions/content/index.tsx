@@ -8,6 +8,7 @@ import SizeOfCandle from "../code/07 Size of Candle";
 import TypesOfBuyerSeller from "../code/08 Types of Buyer Seller";
 import SingleCandlestick from "../code/09 Single Candlestick";
 import PAVSCP from "../code/10 Price Action vs. Candlestick Psychology";
+import Conformation from "../code/10(1) Conformation";
 import BuyerPyscology from "../code/11 Buyer Pyscology";
 import SellerPyscology from "../code/12 Seller Pyscology";
 import UpDownTrend from "../code/13 Up Down Trand";
@@ -91,6 +92,10 @@ const BinaryOptionContent = {
     {
       topic: "Price action vs. Candlestick Psychology",
       page: <PAVSCP />,
+    },
+    {
+      topic: "Conformation",
+      page: <Conformation />,
     },
     {
       topic: "Buyer Pyscology",
@@ -215,11 +220,11 @@ const BinaryOptionContent = {
       page: <News />,
     },
     {
-      topic: "Money Management",
+      topic: "Money Management Story",
       page: <MoneyManagement />,
     },
     {
-      topic: "Money Management1",
+      topic: "Money Management",
       page: <MoneyManagement1 />,
     },
     {

@@ -5,6 +5,10 @@ const TypesOfCandle = () => {
   return (
     <>
       <Title>Types of Candle</Title>
+
+      <H1>Tutorial:</H1>
+      <Media src="https://youtu.be/1JuYd3UrvPc" />
+
       <H1>Types</H1>
       <List
         items={[

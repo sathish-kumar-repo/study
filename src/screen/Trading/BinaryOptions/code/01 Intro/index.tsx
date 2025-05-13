@@ -5,6 +5,12 @@ const Intro = () => {
   return (
     <>
       <Title>Introduction</Title>
+      <H1>Basic of trading knowledge</H1>
+      <Media src="https://youtu.be/spUZ3tWnUH4" />
+
+      <H1>Broker Interface</H1>
+      <Media src="https://youtu.be/UuXWGKlIA64" />
+
       <Para>
         Binary option contracts offer defined risk and clear outcomes. They are
         considered ‘binary’ because there are only two possible outcomes at
@@ -19,7 +25,6 @@ const Intro = () => {
         And if they don’t, you know the exact size of your potential profit,
         making this a controlled, yet exciting way to trade.{" "}
       </Para>
-
       <H1>What is a binary option?</H1>
       <Para>
         A binary option is a financial instrument that turns every trade into a

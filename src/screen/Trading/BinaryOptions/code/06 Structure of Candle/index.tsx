@@ -6,6 +6,7 @@ const StructureOfCandle = () => {
   return (
     <>
       <Title>Structure of Candle</Title>
+
       <Media src={[img1, img2]} />
     </>
   );

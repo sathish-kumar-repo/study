@@ -1,9 +1,12 @@
-import { Title } from "../../../../../components/UI";
+import { H1, Media, Title } from "../../../../../components/UI";
 
 const Momentum4 = () => {
   return (
     <>
       <Title>Momentum4</Title>
+
+      <H1>Tutorial:</H1>
+      <Media src="https://youtu.be/X8r89tx0v6c" />
     </>
   );
 };

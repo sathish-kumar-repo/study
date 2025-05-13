@@ -4,6 +4,7 @@ const PAVSCP = () => {
   return (
     <>
       <Title>Price action vs. Candlestick Psychology</Title>
+
       <Para>
         Price action and candlestick psychology are closely related, but they
         focus on different aspects of market behavior. Let's break them down:

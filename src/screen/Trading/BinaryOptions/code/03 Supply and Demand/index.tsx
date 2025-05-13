@@ -7,6 +7,9 @@ const SupplyAndDemand = () => {
     <>
       <Title>Supply and Demand</Title>
 
+      <H1>Tutorial:</H1>
+      <Media src="https://youtu.be/mlyfWrWvpkg" />
+
       <H1>Supply:</H1>
       <Media src={resistance} />
 

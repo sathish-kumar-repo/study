@@ -5,6 +5,10 @@ const SizeOfCandle = () => {
   return (
     <>
       <Title>Size of Candle</Title>
+
+      <H1>Tutorial:</H1>
+      <Media src="https://youtu.be/H1X4P7puQ_w" />
+
       <H1>Description:</H1>
       <Table>
         <thead>
