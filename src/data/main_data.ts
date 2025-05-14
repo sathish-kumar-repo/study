@@ -16,8 +16,6 @@ const mainData = {
     flutterContent,
     flutterContent,
     flutterContent,
-
-
   ],
 };
 
