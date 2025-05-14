@@ -73,8 +73,12 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         block: "center",
       });
     }
+  }, [currentTopic, showTopic]); // Dependency to update when currentTopic changes
+
+  // Scroll to the top of the page when a new topic is selected
+  useEffect(() => {
     scrollToTop();
-  }, [currentTopic]); // Dependency to update when currentTopic changes
+  }, [currentTopic]);
 
   // Find the index of the current topic in the route
   const index = contentData.route.findIndex(
