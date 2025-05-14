@@ -1,7 +1,7 @@
 {
-  "name": "Nessis Life - Personal Growth and Learning Resources",
-  "short_name": "Nessis Life",
-  "description": "Nessis Life is a platform offering personal growth resources, tutorials, and learning materials.",
+  "name": "Giga Life - Personal Growth and Learning Resources",
+  "short_name": "Giga Life",
+  "description": "Giga Life is a platform offering personal growth resources, tutorials, and learning materials.",
   "lang": "en",
   "categories": [
     "resources",
@@ -28,7 +28,7 @@
     }
   ],
   "theme_color": "#F16EB0",
-  "background_color": "#010D20",
+  "background_color": "#000000",
   "display": "standalone",
   "start_url": "/study/",
   "scope": "/study/"

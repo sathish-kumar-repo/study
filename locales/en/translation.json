@@ -1,19 +1,19 @@
 {
   "header": {
-    "logo": "Nessis Life",
+    "logo": "Giga Life",
     "moreFolders": "More.."
   },
 
   "home": {
-    "title": "Home - Nessis Life",
-    "description": "Welcome to Nessis Life – your personal space for self-growth, knowledge, and meaningful living.",
-    "heading": "Thrive with Nessis Life",
-    "about": "Nessis Life is your all-in-one hub for personal growth, wellbeing, and life balance. Discover curated insights across wealth, health, habits, mindset, and relationships — all designed to help you live with more clarity, purpose, and confidence. Access trusted resources anytime, stay motivated daily, and transform your lifestyle, one simple step at a time. Join a growing community committed to living smarter, healthier, and more fulfilled lives.",
+    "title": "Home - Giga Life",
+    "description": "Welcome to Giga Life – your personal space for self-growth, knowledge, and meaningful living.",
+    "heading": "Thrive with Giga Life",
+    "about": "Giga Life is your all-in-one hub for personal growth, wellbeing, and life balance. Discover curated insights across wealth, health, habits, mindset, and relationships — all designed to help you live with more clarity, purpose, and confidence. Access trusted resources anytime, stay motivated daily, and transform your lifestyle, one simple step at a time. Join a growing community committed to living smarter, healthier, and more fulfilled lives.",
     "designedBy": "Created by"
   },
 
   "course": {
-    "title": "Courses - Nessis Life",
+    "title": "Courses - Giga Life",
     "description": "Explore guides, tutorials, and courses across life skills, wellness, and personal growth.",
     "filter": "Filter",
     "searchPlaceholder": "Search topics...",
@@ -21,8 +21,8 @@
   },
 
   "tutorial": {
-    "title": "Nessis Life",
-    "description": "Explore the ${course} tutorial on Nessis Life",
+    "title": "Giga Life",
+    "description": "Explore the ${course} tutorial on Giga Life",
     "previous": "Previous",
     "next": "Next"
   },
@@ -36,8 +36,8 @@
   },
 
   "author": {
-    "title": "Creator - Nessis Life",
-    "description": "Meet the creator and learn why Nessis Life exists.",
+    "title": "Creator - Giga Life",
+    "description": "Meet the creator and learn why Giga Life exists.",
     "alt": "Profile",
     "name": "Sathish Kumar",
     "bio": "I’m passionate about learning and sharing life-enhancing knowledge on health, wealth, and relationships.",
@@ -45,22 +45,22 @@
   },
 
   "privacy": {
-    "title": "Privacy Policy - Nessis Life",
-    "description": "Learn how we respect and protect your data on Nessis Life.",
+    "title": "Privacy Policy - Giga Life",
+    "description": "Learn how we respect and protect your data on Giga Life.",
     "heading": "Privacy Policy",
-    "intro": "Welcome to Nessis Life! This Privacy Policy outlines how we collect, use, and protect your information. By using our website, you agree to our policy. If you disagree, please refrain from using our platform.",
+    "intro": "Welcome to Giga Life! This Privacy Policy outlines how we collect, use, and protect your information. By using our website, you agree to our policy. If you disagree, please refrain from using our platform.",
     "sections": {
       "section1": {
         "title": "1. No Personal Data Collected",
-        "content": "Nessis Life is committed to protecting your privacy. We do not collect, store, or share any personally identifiable information. Our platform operates entirely without the need for your personal data, allowing you to use it anonymously and securely."
+        "content": "Giga Life is committed to protecting your privacy. We do not collect, store, or share any personally identifiable information. Our platform operates entirely without the need for your personal data, allowing you to use it anonymously and securely."
       },
       "section2": {
         "title": "2. Cookies",
-        "content": "We use cookies to enhance your user experience on Nessis Life. Cookies are small files stored on your device to improve navigation, remember preferences, and provide minimal site analytics. These cookies do not store personal information and are used solely for improving site functionality."
+        "content": "We use cookies to enhance your user experience on Giga Life. Cookies are small files stored on your device to improve navigation, remember preferences, and provide minimal site analytics. These cookies do not store personal information and are used solely for improving site functionality."
       },
       "section3": {
         "title": "3. Third-Party Links",
-        "content": "You may encounter links to external websites from Nessis Life. We are not responsible for the content, privacy practices, or security of these third-party sites. We recommend reviewing their privacy policies before engaging with them."
+        "content": "You may encounter links to external websites from Giga Life. We are not responsible for the content, privacy practices, or security of these third-party sites. We recommend reviewing their privacy policies before engaging with them."
       },
       "section4": {
         "title": "4. Updates to Policy",
@@ -74,18 +74,18 @@
   },
 
   "terms": {
-    "title": "Terms - Nessis Life",
-    "description": "Understand the terms for using Nessis Life responsibly.",
+    "title": "Terms - Giga Life",
+    "description": "Understand the terms for using Giga Life responsibly.",
     "heading": "Terms and Conditions",
-    "intro": "Welcome to Nessis Life! By using our platform, you agree to the following terms and conditions. If you do not agree, please exit the site.",
+    "intro": "Welcome to Giga Life! By using our platform, you agree to the following terms and conditions. If you do not agree, please exit the site.",
     "sections": {
       "section1": {
         "title": "1. Intellectual Property",
-        "content": "All content on Nessis Life, including text, images, and videos, is owned by us unless stated otherwise. You may not reproduce, modify, or reuse any content without our permission."
+        "content": "All content on Giga Life, including text, images, and videos, is owned by us unless stated otherwise. You may not reproduce, modify, or reuse any content without our permission."
       },
       "section2": {
         "title": "2. Platform Use",
-        "intro": "You may use Nessis Life for personal growth and learning only. You agree not to:",
+        "intro": "You may use Giga Life for personal growth and learning only. You agree not to:",
         "content": {
           "item1": "Use the platform for illegal activities.",
           "item2": "Disrupt or damage the functionality of the site.",
@@ -94,19 +94,19 @@
       },
       "section3": {
         "title": "3. User Contributions",
-        "content": "Any content you share with us, such as suggestions, feedback, or materials, can be freely used and modified by Nessis Life for an indefinite period."
+        "content": "Any content you share with us, such as suggestions, feedback, or materials, can be freely used and modified by Giga Life for an indefinite period."
       },
       "section4": {
         "title": "4. External Links",
-        "content": "Nessis Life may include links to third-party websites. We are not responsible for the content or privacy practices of these external sites."
+        "content": "Giga Life may include links to third-party websites. We are not responsible for the content or privacy practices of these external sites."
       },
       "section5": {
         "title": "5. Disclaimer",
-        "content": "The information provided on Nessis Life is for informational and educational purposes only. We do not guarantee specific results and encourage you to apply the content thoughtfully."
+        "content": "The information provided on Giga Life is for informational and educational purposes only. We do not guarantee specific results and encourage you to apply the content thoughtfully."
       },
       "section6": {
         "title": "6. Limitation of Liability",
-        "content": "Nessis Life is not liable for any damages or losses arising from the use of this platform. You use the platform at your own risk."
+        "content": "Giga Life is not liable for any damages or losses arising from the use of this platform. You use the platform at your own risk."
       },
       "section7": {
         "title": "7. Changes to Terms",
@@ -125,63 +125,63 @@
 
   "faq": {
     "title": "Frequently Asked Questions",
-    "description": "Answers to common questions about Nessis Life content and offerings.",
+    "description": "Answers to common questions about Giga Life content and offerings.",
     "faqs": [
       {
-        "question": "What is Nessis Life?",
-        "answer": "Nessis Life is a personal website that provides a diverse range of content, including study materials, tutorials, personal development books, and resources related to health, wealth, lifestyle, and relationships."
+        "question": "What is Giga Life?",
+        "answer": "Giga Life is a personal website that provides a diverse range of content, including study materials, tutorials, personal development books, and resources related to health, wealth, lifestyle, and relationships."
       },
       {
         "question": "Is the content available in Tamil and Hindi?",
-        "answer": "Yes, Nessis Life content is available in English, Tamil, and Hindi to cater to a broader audience and make learning more inclusive."
+        "answer": "Yes, Giga Life content is available in English, Tamil, and Hindi to cater to a broader audience and make learning more inclusive."
       },
       {
-        "question": "Can I download Nessis Life Content?",
-        "answer": "Yes! Many PDFs, notes, and other learning resources from Nessis Life are available for download. Look for the download icons or links on each page to access them."
+        "question": "Can I download Giga Life Content?",
+        "answer": "Yes! Many PDFs, notes, and other learning resources from Giga Life are available for download. Look for the download icons or links on each page to access them."
       },
       {
         "question": "How can I contact you?",
-        "answer": "You can find all contact details for Nessis Life in the footer section below."
+        "answer": "You can find all contact details for Giga Life in the footer section below."
       },
       {
-        "question": "What topics are covered on Nessis Life?",
-        "answer": "Nessis Life covers a wide range of topics, including academics, personal growth, mental health, wealth-building strategies, lifestyle tips, fitness, and relationship advice."
+        "question": "What topics are covered on Giga Life?",
+        "answer": "Giga Life covers a wide range of topics, including academics, personal growth, mental health, wealth-building strategies, lifestyle tips, fitness, and relationship advice."
       },
       {
         "question": "Is all the content free?",
-        "answer": "Yes, all content on Nessis Life is available for free personal use. Some external resources, such as books or courses, may redirect you to other platforms."
+        "answer": "Yes, all content on Giga Life is available for free personal use. Some external resources, such as books or courses, may redirect you to other platforms."
       },
       {
-        "question": "Are there any paid courses on Nessis Life?",
-        "answer": "No, currently all courses and materials on Nessis Life are free. However, we may link to external paid courses if applicable."
+        "question": "Are there any paid courses on Giga Life?",
+        "answer": "No, currently all courses and materials on Giga Life are free. However, we may link to external paid courses if applicable."
       },
       {
         "question": "How often is the content updated?",
-        "answer": "Nessis Life content is updated regularly, with new tutorials, books, and resources being added on a weekly basis. Keep an eye on our social media channels for the latest updates."
+        "answer": "Giga Life content is updated regularly, with new tutorials, books, and resources being added on a weekly basis. Keep an eye on our social media channels for the latest updates."
       },
       {
-        "question": "Is there a mobile app for Nessis Life?",
-        "answer": "At the moment, there is no dedicated mobile app for Nessis Life. However, the website is fully responsive and optimized for mobile use."
+        "question": "Is there a mobile app for Giga Life?",
+        "answer": "At the moment, there is no dedicated mobile app for Giga Life. However, the website is fully responsive and optimized for mobile use."
       },
       {
         "question": "Can I contribute or suggest content?",
-        "answer": "Absolutely! Nessis Life welcomes contributions and suggestions. Use the contact methods above to send your ideas or content for consideration."
+        "answer": "Absolutely! Giga Life welcomes contributions and suggestions. Use the contact methods above to send your ideas or content for consideration."
       },
       {
         "question": "Do you offer certifications?",
-        "answer": "Currently, Nessis Life does not offer certifications. However, we do link to certified courses on external platforms when relevant."
+        "answer": "Currently, Giga Life does not offer certifications. However, we do link to certified courses on external platforms when relevant."
       }
     ]
   },
 
   "pdf": {
-    "title": "PDF Library - Nessis Life",
+    "title": "PDF Library - Giga Life",
     "description": "Explore downloadable life-enhancing PDFs anytime."
   },
 
   "footer": {
-    "about": "About Nessis Life",
-    "description": "Nessis Life helps you grow in wealth, health, and relationships – all in one place.",
+    "about": "About Giga Life",
+    "description": "Giga Life helps you grow in wealth, health, and relationships – all in one place.",
     "links": "Quick Links",
     "privacy": "Privacy Policy",
     "terms": "Terms and Conditions",
@@ -190,8 +190,8 @@
     "lang": "Lang",
     "contact": "Chennai, Tamil Nadu, India",
     "address": "Address",
-    "copyright": "© {{year}} Nessis Life. All rights reserved.",
-    "courseCopyright": "© {{year}} Nessis Life. Made with ❤️ in India"
+    "copyright": "© {{year}} Giga Life. All rights reserved.",
+    "courseCopyright": "© {{year}} Giga Life. Made with ❤️ in India"
   },
 
   "general": {
