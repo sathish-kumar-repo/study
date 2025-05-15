@@ -8,34 +8,50 @@ import RotateRightIcon from "@mui/icons-material/RotateRight";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 
-import { getDomainUrl, normalizeUrl, DomainKey } from "../../utils/domain";
+import {
+  getDomainUrl,
+  normalizeUrl,
+  resolveDomainKeyFromProps,
+  DomainKey,
+} from "../../utils/domain";
 
-interface MediaProps {
+interface MediaProps extends Record<string, any> {
   poster?: string;
   src: string | string[];
   alt?: string;
   className?: string;
   width?: string | number;
   height?: string | number;
-
-  domainKey?: DomainKey; // e.g. 'a', 'b', 'c', 'd', 'e'
-  customDomain?: string; // overrides all domains if provided
+  domainKey?: DomainKey;
+  customDomain?: string;
 }
 
-const Media: React.FC<MediaProps> = ({
-  src,
-  alt = "Media content",
-  className = "",
-  width = "100%",
-  height = "auto",
-  poster,
-  domainKey,
-  customDomain,
-}) => {
-  const baseDomain = useMemo(
-    () => getDomainUrl(domainKey, customDomain),
-    [domainKey, customDomain]
-  );
+const Media: React.FC<MediaProps> = (props) => {
+  const {
+    src,
+    alt = "Media content",
+    className = "",
+    width = "100%",
+    height = "auto",
+    poster,
+    domainKey: directKey,
+    customDomain,
+  } = props;
+
+  const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
+
+  if (customDomain && resolvedKey) {
+    return (
+      <div className="media-container error-message">
+        ❌ Error: Use only one of `customDomain` or a boolean domain flag like
+        `a`, `b`, `c`.
+      </div>
+    );
+  }
+
+  const baseDomain = useMemo(() => {
+    return getDomainUrl(resolvedKey, customDomain);
+  }, [resolvedKey, customDomain]);
 
   const mediaArray = useMemo(() => {
     const arr = Array.isArray(src) ? src : [src];
@@ -65,9 +81,9 @@ const Media: React.FC<MediaProps> = ({
       {/* Normal videos */}
       {videos.map((videoSrc, index) => (
         <video
-          poster={poster}
           key={`video-${index}`}
           src={videoSrc}
+          poster={poster}
           controls
           crossOrigin="anonymous"
           style={{ width, height }}

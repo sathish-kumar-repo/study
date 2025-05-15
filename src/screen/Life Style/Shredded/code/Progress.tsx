@@ -4,7 +4,7 @@ const Progress = () => {
   return (
     <>
       <Title>Progress</Title>
-      <Table file="weight_loss_plan.xlsx" />
+      <Table file="/study/excel/weight_loss_plan.xlsx" />
     </>
   );
 };

@@ -1,42 +1,53 @@
+// src/components/Table.tsx
+
 import { FC, ReactNode, useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 import "./Table.css";
-import { getDomainUrl, normalizeUrl, DomainKey } from "../../utils/domain";
+import {
+  getDomainUrl,
+  normalizeUrl,
+  resolveDomainKeyFromProps,
+  DomainKey,
+} from "../../utils/domain";
 
-interface TableProps {
+interface TableProps extends Record<string, any> {
   children?: ReactNode;
   textAlign?: "left" | "center" | "right";
   file?: string;
-  domainKey?: DomainKey;
   customDomain?: string;
+  domainKey?: DomainKey;
 }
 
 interface RowData {
   [key: string]: string | number;
 }
 
-const Table: FC<TableProps> = ({
-  children,
-  textAlign = "left",
-  file,
-  domainKey,
-  customDomain,
-}) => {
+const Table: FC<TableProps> = (props) => {
+  const {
+    children,
+    textAlign = "left",
+    file,
+    customDomain,
+    domainKey: directKey,
+  } = props;
+
   const [data, setData] = useState<RowData[]>([]);
   const [headers, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Error if both customDomain and domainKey are provided
-  if (file && customDomain && domainKey) {
+  const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
+
+  // ❌ Error: if both are set
+  if (file && customDomain && resolvedKey) {
     return (
       <div className="glass-table error-message">
-        ❌ Error: Provide either `domainKey` or `customDomain`, not both.
+        ❌ Error: Use only one of `customDomain` or a boolean domain flag (like
+        `a`, `b`, `c`).
       </div>
     );
   }
 
-  // Error if both file and children provided
   if (file && children) {
     return (
       <div className="glass-table error-message">
@@ -75,11 +86,11 @@ const Table: FC<TableProps> = ({
 
   useEffect(() => {
     if (file && !children) {
-      const baseDomain = getDomainUrl(domainKey, customDomain);
+      const baseDomain = getDomainUrl(resolvedKey, customDomain);
       const fullUrl = normalizeUrl(file, baseDomain);
       fetchExcelData(fullUrl);
     }
-  }, [file, children, domainKey, customDomain]);
+  }, [file, children, resolvedKey, customDomain]);
 
   return (
     <div className={`glass-table text-align-${textAlign}`}>

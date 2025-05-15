@@ -2,7 +2,9 @@
 
 export const DOMAINS = {
   a: "https://sathish-kumar-repo.github.io/study-img/",
-  b: "https://satfggfb.io/study-img/",
+  b: "https://your-second-domain.com/",
+  c: "https://your-third-domain.com/",
+  // Add more as needed...
 };
 
 export type DomainKey = keyof typeof DOMAINS;
@@ -12,22 +14,27 @@ export const getDomainUrl = (
   customDomain?: string
 ): string => {
   if (customDomain) return customDomain;
-
-  if (!domainKey) return DOMAINS.a; // default domain
-
-  if (!DOMAINS[domainKey]) {
-    console.warn(
-      `Invalid domainKey "${domainKey}" provided. Falling back to default domain.`
-    );
+  if (!domainKey || !DOMAINS[domainKey]) {
+    console.warn(`Invalid or missing domainKey "${domainKey}". Using default.`);
     return DOMAINS.a;
   }
-
   return DOMAINS[domainKey];
 };
 
 export const normalizeUrl = (url: string, baseDomain: string) => {
-  if (/^(http|https|\/)/.test(url)) {
-    return url;
-  }
+  if (/^(http|https|\/)/.test(url)) return url;
   return `${baseDomain}${url}`;
+};
+
+// 💡 Dynamically detect boolean domain key (like a, b, c)
+export const resolveDomainKeyFromProps = (
+  props: Record<string, any>
+): DomainKey | undefined => {
+  const domainFlags = Object.keys(DOMAINS);
+  const activeFlags = domainFlags.filter((key) => props[key]);
+  if (activeFlags.length > 1) {
+    console.error("⚠️ Only one domain key should be used as a boolean prop.");
+    return undefined;
+  }
+  return activeFlags[0] as DomainKey;
 };
