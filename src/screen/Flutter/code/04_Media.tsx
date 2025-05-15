@@ -32,7 +32,7 @@ const MediaOverview = () => {
       />
 
       <H1>Online Video</H1>
-      <Media src={"https://media.w3.org/2010/05/sintel/trailer_hd.mp4"} />
+      <Media src={"video/trailer_hd.mp4"} />
 
       <H1>Online Multiple Video</H1>
       <Media
