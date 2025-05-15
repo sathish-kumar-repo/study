@@ -11,14 +11,11 @@ import { useState } from "react";
 
 const PDFViewerPage = () => {
   const [searchParams] = useSearchParams();
-  const pdfUrl = searchParams.get("file") || " ";
+  const pdfUrl = searchParams.get("file") || "";
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
   const { t } = useTranslation();
 
-  // Load theme from localStorage, defaulting to 'light'
   const storedTheme = localStorage.getItem("theme") || "light";
-
   const [theme, setTheme] = useState(storedTheme);
 
   const renderError = (error: LoadError) => {
@@ -43,7 +40,7 @@ const PDFViewerPage = () => {
 
   const handleSwitchTheme = (newTheme: string) => {
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // Save the new theme to localStorage
+    localStorage.setItem("theme", newTheme);
   };
 
   return (
@@ -55,10 +52,10 @@ const PDFViewerPage = () => {
       <div className={styles.pdf_viewer_page}>
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <Viewer
-            fileUrl={`/study/pdf/${pdfUrl}`}
+            fileUrl={pdfUrl}
             plugins={[defaultLayoutPluginInstance]}
             renderError={renderError}
-            theme={theme} // Use the state value for theme
+            theme={theme}
             onSwitchTheme={handleSwitchTheme}
           />
         </Worker>

@@ -87,7 +87,14 @@ const Table: FC<TableProps> = (props) => {
   useEffect(() => {
     if (file && !children) {
       const baseDomain = getDomainUrl(resolvedKey, customDomain);
-      const fullUrl = normalizeUrl(file, baseDomain);
+      // Automatically prefix with /study/excel/ if file path is simple (no slashes or only root slash)
+      const normalizedFile =
+        file.startsWith("/") && !file.startsWith("/study/")
+          ? `/study/excel${file}`
+          : file;
+
+      const fullUrl = normalizeUrl(normalizedFile, baseDomain);
+
       fetchExcelData(fullUrl);
     }
   }, [file, children, resolvedKey, customDomain]);

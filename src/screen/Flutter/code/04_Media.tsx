@@ -1,12 +1,23 @@
 import flutter from "./flutter.png";
 import demo from "./demo.gif";
 import video from "./VID-20250322-WA0003.mp4";
-import { Title, H1, Media } from "../../../components/UI";
+import { Title, H1, Media, PDF } from "../../../components/UI";
 
 const MediaOverview = () => {
   return (
     <>
       <Title>Media Overview</Title>
+
+      <PDF
+        file="/study/pdf/candlestickpattern.pdf" // The relative path or filename
+        name="Weight Loss Plan"
+      />
+
+      <PDF
+        file="pdf/dummy.pdf"
+        name="Plan with domain"
+        // customDomain="https://cdn.example.com" // optionally
+      />
 
       <H1>Image</H1>
       <Media src={demo} />

@@ -1,17 +1,45 @@
-import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
+import { useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
+import {
+  getDomainUrl,
+  normalizeUrl,
+  resolveDomainKeyFromProps,
+  DomainKey,
+} from "../../utils/domain";
 
-interface PDFViewProps {
+interface PDFViewProps extends Record<string, any> {
   file: string;
   name?: string;
+  customDomain?: string;
+  domainKey?: DomainKey;
 }
 
-const PDF: React.FC<PDFViewProps> = ({ file, name = "Refrence" }) => {
-  const navigate = useNavigate(); // Initialize navigate hook
+const PDF: React.FC<PDFViewProps> = (props) => {
+  const {
+    file,
+    name = "Reference",
+    customDomain,
+    domainKey: directKey,
+  } = props;
+  const navigate = useNavigate();
 
-  // Handle click to navigate to the PDF viewer page
+  const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
+
+  // ❌ Prevent misuse
+  if (file && customDomain && resolvedKey) {
+    return (
+      <div className={styles.pdf_glass_item}>
+        ❌ Error: Use only one of `customDomain` or a domain key (`a`, `b`,
+        etc.)
+      </div>
+    );
+  }
+
+  const baseDomain = getDomainUrl(resolvedKey, customDomain);
+  const fileUrl = normalizeUrl(file, baseDomain);
+
   const openViewer = () => {
-    navigate(`/pdf-viewer?file=${encodeURIComponent(file)}`);
+    navigate(`/pdf-viewer?file=${encodeURIComponent(fileUrl)}`);
   };
 
   return (
