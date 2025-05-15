@@ -1,8 +1,6 @@
-import { H1, H2, List, Media, Para, Title, Note } from "../../../components/UI";
-import flutter from "./flutter.png";
-import demo from "./demo.gif";
+import { H1, H2, List, Para, Title, Note } from "../../../components/UI";
+
 import HL from "../../../components/HL/HL";
-import video from "./VID-20250322-WA0003.mp4";
 
 const IntroFlutter = () => {
   return (
@@ -41,10 +39,6 @@ const IntroFlutter = () => {
         ]}
       />
 
-      <H1>Demo</H1>
-      <Media src={[flutter, demo, flutter]} />
-      <Media src={demo} />
-
       <H1>Getting Started</H1>
       <Para>Add this package to your project.</Para>
       <Note>
@@ -53,10 +47,6 @@ const IntroFlutter = () => {
         eligendi aliquam sunt optio eius facilis, hic error laboriosam maxime
         quo? Dicta.
       </Note>
-
-      <Media src={video} />
-
-      <Media src="https://images.pexels.com/photos/31737021/pexels-photo-31737021/free-photo-of-serene-rocky-coastline-with-calm-waters.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     </>
   );
 };

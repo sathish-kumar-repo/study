@@ -1,4 +1,5 @@
-import React from "react";
+// src/components/Media.tsx
+import React, { useMemo } from "react";
 import "./Media.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
@@ -7,13 +8,18 @@ import RotateRightIcon from "@mui/icons-material/RotateRight";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 
+import { getDomainUrl, normalizeUrl, DomainKey } from "../../utils/domain";
+
 interface MediaProps {
-  poster?: string | undefined;
+  poster?: string;
   src: string | string[];
   alt?: string;
   className?: string;
   width?: string | number;
   height?: string | number;
+
+  domainKey?: DomainKey; // e.g. 'a', 'b', 'c', 'd', 'e'
+  customDomain?: string; // overrides all domains if provided
 }
 
 const Media: React.FC<MediaProps> = ({
@@ -23,8 +29,18 @@ const Media: React.FC<MediaProps> = ({
   width = "100%",
   height = "auto",
   poster,
+  domainKey,
+  customDomain,
 }) => {
-  const mediaArray = Array.isArray(src) ? src : [src];
+  const baseDomain = useMemo(
+    () => getDomainUrl(domainKey, customDomain),
+    [domainKey, customDomain]
+  );
+
+  const mediaArray = useMemo(() => {
+    const arr = Array.isArray(src) ? src : [src];
+    return arr.map((url) => normalizeUrl(url, baseDomain));
+  }, [src, baseDomain]);
 
   const isYouTubeLink = (url: string) =>
     /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
@@ -46,7 +62,7 @@ const Media: React.FC<MediaProps> = ({
 
   return (
     <div className={`media-container ${className}`}>
-      {/* Render normal videos */}
+      {/* Normal videos */}
       {videos.map((videoSrc, index) => (
         <video
           poster={poster}
@@ -58,20 +74,19 @@ const Media: React.FC<MediaProps> = ({
         />
       ))}
 
-      {/* Render YouTube videos */}
+      {/* YouTube videos */}
       {youtubeVideos.map((ytSrc, index) => (
         <div className="video-wrapper" key={`yt-${index}`}>
           <iframe
-            key={`yt-${index}`}
             src={getYouTubeEmbedUrl(ytSrc)}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" //  picture-in-picture
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
             allowFullScreen
             title={`youtube-video-${index}`}
-          ></iframe>
+          />
         </div>
       ))}
 
-      {/* Render images */}
+      {/* Images */}
       {images.length > 0 && (
         <PhotoProvider
           toolbarRender={({ rotate, scale, onScale, onRotate }) => (
@@ -105,6 +120,7 @@ const Media: React.FC<MediaProps> = ({
               <img
                 src={imgSrc}
                 alt={alt}
+                loading="lazy"
                 style={{
                   width,
                   height,
