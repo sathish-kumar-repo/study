@@ -2,6 +2,7 @@
 
 export const DOMAINS = {
   a: "https://sathish-kumar-repo.github.io/study-img/",
+  b: "https://satfggfb.io/study-img/",
 };
 
 export type DomainKey = keyof typeof DOMAINS;
