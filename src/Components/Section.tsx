@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import img from "../assets/img/bg3.jpg";
 
 const Section = styled.section`
-  background: url("/study/web-images/bg.jpg");
+  background: url(${img});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

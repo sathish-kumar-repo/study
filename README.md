@@ -95,3 +95,7 @@ import i18n from "i18next";
 
 <button onClick={() => i18n.changeLanguage("en")}>English</button>
 <button onClick={() => i18n.changeLanguage("ta")}>தமிழ்</button>
+
+git count-objects -vH
+git count-objects -vH | grep 'size-pack'
+git gc
