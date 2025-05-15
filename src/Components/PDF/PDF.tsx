@@ -38,6 +38,13 @@ const PDF: React.FC<PDFViewProps> = (props) => {
   const baseDomain = getDomainUrl(resolvedKey, customDomain);
   const fileUrl = normalizeUrl(file, baseDomain);
 
+  // const normalizedFile =
+  //   file.startsWith("/") && !file.startsWith("/study/")
+  //     ? `/study/pdf${file}`
+  //     : file;
+
+  // const fileUrl = normalizeUrl(normalizedFile, baseDomain);
+
   const openViewer = () => {
     navigate(`/pdf-viewer?file=${encodeURIComponent(fileUrl)}`);
   };

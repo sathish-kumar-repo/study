@@ -9,7 +9,7 @@ const MediaOverview = () => {
       <Title>Media Overview</Title>
 
       <PDF
-        file="/study/pdf/candlestickpattern.pdf" // The relative path or filename
+        file="/candlestickpattern.pdf" // The relative path or filename
         name="Weight Loss Plan"
       />
 

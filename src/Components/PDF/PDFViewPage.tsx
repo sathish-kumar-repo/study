@@ -1,3 +1,5 @@
+// src/pages/PDFViewerPage.tsx
+
 import { Worker, Viewer, LoadError } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
@@ -9,14 +11,31 @@ import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-const PDFViewerPage = () => {
+import {
+  getDomainUrl,
+  normalizeUrl,
+  resolveDomainKeyFromProps,
+  DomainKey,
+} from "../../utils/domain";
+
+const PDFViewerPage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const pdfUrl = searchParams.get("file") || "";
+  const pdfFileParam = searchParams.get("file") || "";
+  const customDomain = searchParams.get("customDomain") || undefined;
+  const domainKey = (searchParams.get("domainKey") as DomainKey) || undefined;
+
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const { t } = useTranslation();
 
   const storedTheme = localStorage.getItem("theme") || "light";
   const [theme, setTheme] = useState(storedTheme);
+
+  // Resolve domainKey with utility
+  const resolvedKey = resolveDomainKeyFromProps({ domainKey }) || domainKey;
+
+  // Compute base domain and full file url
+  const baseDomain = getDomainUrl(resolvedKey, customDomain);
+  const fullPdfUrl = normalizeUrl(pdfFileParam, baseDomain);
 
   const renderError = (error: LoadError) => {
     let message = "";
@@ -34,7 +53,7 @@ const PDFViewerPage = () => {
         message = "Cannot load the document";
         break;
     }
-    console.log(message);
+    console.error(message);
     return <NotFound />;
   };
 
@@ -52,7 +71,7 @@ const PDFViewerPage = () => {
       <div className={styles.pdf_viewer_page}>
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <Viewer
-            fileUrl={pdfUrl}
+            fileUrl={fullPdfUrl}
             plugins={[defaultLayoutPluginInstance]}
             renderError={renderError}
             theme={theme}
