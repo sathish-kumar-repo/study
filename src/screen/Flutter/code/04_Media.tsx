@@ -18,6 +18,11 @@ const MediaOverview = () => {
         name="Plan with domain"
         // customDomain="https://cdn.example.com" // optionally
       />
+      <PDF
+        file="pdf/dummy.pdf"
+        name="Plan with domain"
+        // customDomain="https://cdn.example.com" // optionally
+      />
 
       <H1>Image</H1>
       <Media src={demo} />

@@ -11,18 +11,9 @@ import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-import {
-  getDomainUrl,
-  normalizeUrl,
-  resolveDomainKeyFromProps,
-  DomainKey,
-} from "../../utils/domain";
-
 const PDFViewerPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const pdfFileParam = searchParams.get("file") || "";
-  const customDomain = searchParams.get("customDomain") || undefined;
-  const domainKey = (searchParams.get("domainKey") as DomainKey) || undefined;
 
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const { t } = useTranslation();
@@ -30,12 +21,10 @@ const PDFViewerPage: React.FC = () => {
   const storedTheme = localStorage.getItem("theme") || "light";
   const [theme, setTheme] = useState(storedTheme);
 
-  // Resolve domainKey with utility
-  const resolvedKey = resolveDomainKeyFromProps({ domainKey }) || domainKey;
-
-  // Compute base domain and full file url
-  const baseDomain = getDomainUrl(resolvedKey, customDomain);
-  const fullPdfUrl = normalizeUrl(pdfFileParam, baseDomain);
+  const fullPdfUrl =
+    pdfFileParam.startsWith("/") && !pdfFileParam.startsWith("/study/")
+      ? `/study/pdf${pdfFileParam}`
+      : pdfFileParam;
 
   const renderError = (error: LoadError) => {
     let message = "";

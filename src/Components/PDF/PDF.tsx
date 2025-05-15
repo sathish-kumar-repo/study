@@ -38,13 +38,6 @@ const PDF: React.FC<PDFViewProps> = (props) => {
   const baseDomain = getDomainUrl(resolvedKey, customDomain);
   const fileUrl = normalizeUrl(file, baseDomain);
 
-  // const normalizedFile =
-  //   file.startsWith("/") && !file.startsWith("/study/")
-  //     ? `/study/pdf${file}`
-  //     : file;
-
-  // const fileUrl = normalizeUrl(normalizedFile, baseDomain);
-
   const openViewer = () => {
     navigate(`/pdf-viewer?file=${encodeURIComponent(fileUrl)}`);
   };
@@ -58,7 +51,9 @@ const PDF: React.FC<PDFViewProps> = (props) => {
           src="/study/web-images/pdf.png"
           alt="pdf icon"
         />
-        <p className={styles.url}>{file}</p>
+        <p className={styles.url}>
+          {file.substring(file.lastIndexOf("/") + 1)}
+        </p>
       </div>
     </div>
   );
