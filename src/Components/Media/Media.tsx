@@ -176,6 +176,7 @@ const Media: React.FC<MediaProps> = (props) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
             allowFullScreen
             title={`youtube-video-${index}`}
+            loading="lazy"
           />
         </div>
       ))}
