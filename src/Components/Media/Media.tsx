@@ -19,7 +19,7 @@ interface SequenceConfig {
   end: number;
   ext?: string;
   leadingZeros?: number;
-  pattern?: string; // e.g., "img_${n}.jpg"
+  pattern?: string;
 }
 
 type MediaEntry = string | { sequence: SequenceConfig };
@@ -28,14 +28,14 @@ interface MediaProps extends Record<string, any> {
   poster?: string;
   src?: string | string[];
   sequence?: SequenceConfig | SequenceConfig[];
-  media?: MediaEntry[]; // ✅ new mixed format
+  media?: MediaEntry[];
   alt?: string;
   className?: string;
   width?: string | number;
   height?: string | number;
   domainKey?: DomainKey;
   customDomain?: string;
-  sort?: boolean; // whether to sort final media list
+  sort?: boolean;
 }
 
 const padNumber = (num: number, width: number): string =>
@@ -55,6 +55,28 @@ const generateSequenceUrls = (
   }
 
   return list;
+};
+
+const getExtension = (url: string): string => {
+  try {
+    const clean = url.split(/[?#]/)[0];
+    return clean.slice(((clean.lastIndexOf(".") - 1) >>> 0) + 2).toLowerCase();
+  } catch {
+    return "";
+  }
+};
+
+const isYouTubeLink = (url: string) =>
+  /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
+
+const isAudio = (file: string) => {
+  const ext = getExtension(file);
+  return ["mp3", "wav", "ogg"].includes(ext);
+};
+
+const isVideo = (file: string) => {
+  const ext = getExtension(file);
+  return ["mp4", "webm", "ogg"].includes(ext) && !isAudio(file);
 };
 
 const Media: React.FC<MediaProps> = (props) => {
@@ -116,18 +138,12 @@ const Media: React.FC<MediaProps> = (props) => {
     return sort ? list.sort() : list;
   }, [media, src, sequence, baseDomain, sort]);
 
-  const isYouTubeLink = (url: string) =>
-    /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
-  const isAudio = (file: string) => /\.(mp3|wav|ogg)$/i.test(file);
-  const isVideo = (file: string) =>
-    /\.(mp4|webm|ogg)$/i.test(file) && !isAudio(file);
-
   const images = mediaArray.filter(
     (file) => !isVideo(file) && !isAudio(file) && !isYouTubeLink(file)
   );
-  const videos = mediaArray.filter((file) => isVideo(file));
-  const audios = mediaArray.filter((file) => isAudio(file));
-  const youtubeVideos = mediaArray.filter((file) => isYouTubeLink(file));
+  const videos = mediaArray.filter(isVideo);
+  const audios = mediaArray.filter(isAudio);
+  const youtubeVideos = mediaArray.filter(isYouTubeLink);
 
   const getYouTubeEmbedUrl = (url: string) => {
     if (url.includes("watch?v=")) {
