@@ -10,6 +10,7 @@ const MediaOverview = () => {
       dfdsdf
       <Media
         media={[
+          "vite.svg",
           "video/sample.mp4",
           { sequence: { base: "video/", start: 1, end: 1, ext: "mp4" } },
           "video/trailer_hd.mp4",

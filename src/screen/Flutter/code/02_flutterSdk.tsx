@@ -26,8 +26,8 @@ export const FlutterSdk = () => {
           </tr>
         </tbody>
       </Table>
-      <PDF file="dummy.pdf" name="something.pdf" />
-      <Table file="weight_loss_plan.xlsx" textAlign="center" />
+      <PDF file="/dummy.pdf" name="something.pdf" />
+      <Table file="/weight_loss_plan.xlsx" textAlign="center" />
       <Media src={"https://youtu.be/9bZkp7q19f0?si=MkL1D6GwoekLX5uj"} />
     </>
   );
