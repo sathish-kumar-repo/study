@@ -1,5 +1,6 @@
 .media-container img,
 .media-container video,
+.audio-wrapper,
 .video-wrapper {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -11,6 +12,10 @@
   border-radius: 20px;
   display: block;
   margin-bottom: 15px;
+}
+
+.audio-wrapper {
+  padding: 10px;
 }
 
 .video-wrapper {

@@ -12,7 +12,6 @@ import {
   resolveDomainKeyFromProps,
   DomainKey,
 } from "../../utils/domain";
-import AudioPlayer from "./AudioPlayer";
 
 interface SequenceConfig {
   base: string;
@@ -183,14 +182,15 @@ const Media: React.FC<MediaProps> = (props) => {
 
       {/* Audios */}
       {audios.map((audioSrc, index) => (
-        // <audio
-        //   key={`audio-${index}`}
-        //   src={audioSrc}
-        //   controls
-        //   crossOrigin="anonymous"
-        //   style={{ width }}
-        // />
-        <AudioPlayer key={`audio-${index}`} src={audioSrc} />
+        <div className="audio-wrapper">
+          <audio
+            key={`audio-${index}`}
+            src={audioSrc}
+            controls
+            crossOrigin="anonymous"
+            style={{ width }}
+          />
+        </div>
       ))}
 
       {/* Images */}
