@@ -18,7 +18,9 @@ interface SequenceConfig {
   base: string;
   start: number;
   end: number;
-  ext: string;
+  ext?: string;
+  leadingZeros?: number;
+  pattern?: string; // e.g., "img_${n}.jpg"
 }
 
 interface MediaProps extends Record<string, any> {
@@ -31,12 +33,33 @@ interface MediaProps extends Record<string, any> {
   height?: string | number;
   domainKey?: DomainKey;
   customDomain?: string;
+  sort?: boolean; // whether to sort final media list
 }
+
+const padNumber = (num: number, width: number): string =>
+  num.toString().padStart(width, "0");
+
+const generateSequenceUrls = (
+  config: SequenceConfig,
+  domain: string
+): string[] => {
+  const { base, start, end, ext = "jpg", leadingZeros = 0, pattern } = config;
+
+  const list: string[] = [];
+
+  for (let i = start; i <= end; i++) {
+    const n = leadingZeros > 0 ? padNumber(i, leadingZeros) : i.toString();
+    const filename = pattern ? pattern.replace("${n}", n) : `${n}.${ext}`;
+    list.push(normalizeUrl(`${base}${filename}`, domain));
+  }
+
+  return list;
+};
 
 const Media: React.FC<MediaProps> = (props) => {
   const {
     src,
-    sequence = [],
+    sequence,
     alt = "Media content",
     className = "",
     width = "100%",
@@ -44,6 +67,7 @@ const Media: React.FC<MediaProps> = (props) => {
     poster,
     domainKey: directKey,
     customDomain,
+    sort = true,
   } = props;
 
   const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
@@ -61,32 +85,40 @@ const Media: React.FC<MediaProps> = (props) => {
     return getDomainUrl(resolvedKey, customDomain);
   }, [resolvedKey, customDomain]);
 
-  const sequenceFiles: string[] = useMemo(() => {
-    const seqArray = Array.isArray(sequence) ? sequence : [sequence];
-    return seqArray.flatMap(({ base, start, end, ext }) =>
-      Array.from(
-        { length: end - start + 1 },
-        (_, i) => `${base}/${start + i}.${ext}`
-      )
-    );
-  }, [sequence]);
+  const mediaArray = useMemo(() => {
+    const rawSources = Array.isArray(src) ? src : src ? [src] : [];
 
-  const allSources = useMemo(() => {
-    const srcArray = src ? (Array.isArray(src) ? src : [src]) : [];
-    const combined = [...srcArray, ...sequenceFiles];
-    return combined.map((url) => normalizeUrl(url, baseDomain));
-  }, [src, sequenceFiles, baseDomain]);
+    const sequenceList: SequenceConfig[] = sequence
+      ? Array.isArray(sequence)
+        ? sequence
+        : [sequence]
+      : [];
+
+    const sequenceSources = sequenceList.flatMap((conf) =>
+      generateSequenceUrls(conf, baseDomain)
+    );
+
+    const all = [
+      ...rawSources.map((url) => normalizeUrl(url, baseDomain)),
+      ...sequenceSources,
+    ];
+
+    return sort ? all.sort() : all;
+  }, [src, sequence, baseDomain, sort]);
 
   const isYouTubeLink = (url: string) =>
     /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
 
-  const images = allSources.filter(
-    (file) =>
-      !/\.(mp4|webm|ogg|mp3|wav|m4a)$/i.test(file) && !isYouTubeLink(file)
+  const isAudio = (file: string) => /\.(mp3|wav|ogg)$/i.test(file);
+  const isVideo = (file: string) =>
+    /\.(mp4|webm|ogg)$/i.test(file) && !isAudio(file);
+
+  const images = mediaArray.filter(
+    (file) => !isVideo(file) && !isAudio(file) && !isYouTubeLink(file)
   );
-  const videos = allSources.filter((file) => /\.(mp4|webm|ogg)$/i.test(file));
-  const audios = allSources.filter((file) => /\.(mp3|wav|m4a)$/i.test(file));
-  const youtubeVideos = allSources.filter((file) => isYouTubeLink(file));
+  const videos = mediaArray.filter((file) => isVideo(file));
+  const audios = mediaArray.filter((file) => isAudio(file));
+  const youtubeVideos = mediaArray.filter((file) => isYouTubeLink(file));
 
   const getYouTubeEmbedUrl = (url: string) => {
     if (url.includes("watch?v=")) {
@@ -99,7 +131,7 @@ const Media: React.FC<MediaProps> = (props) => {
 
   return (
     <div className={`media-container ${className}`}>
-      {/* Normal videos */}
+      {/* Videos */}
       {videos.map((videoSrc, index) => (
         <video
           key={`video-${index}`}
@@ -111,17 +143,7 @@ const Media: React.FC<MediaProps> = (props) => {
         />
       ))}
 
-      {/* Audio files */}
-      {audios.map((audioSrc, index) => (
-        <audio
-          key={`audio-${index}`}
-          src={audioSrc}
-          controls
-          style={{ width }}
-        />
-      ))}
-
-      {/* YouTube videos */}
+      {/* YouTube */}
       {youtubeVideos.map((ytSrc, index) => (
         <div className="video-wrapper" key={`yt-${index}`}>
           <iframe
@@ -131,6 +153,17 @@ const Media: React.FC<MediaProps> = (props) => {
             title={`youtube-video-${index}`}
           />
         </div>
+      ))}
+
+      {/* Audios */}
+      {audios.map((audioSrc, index) => (
+        <audio
+          key={`audio-${index}`}
+          src={audioSrc}
+          controls
+          crossOrigin="anonymous"
+          style={{ width }}
+        />
       ))}
 
       {/* Images */}
