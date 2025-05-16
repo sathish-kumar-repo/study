@@ -15,27 +15,31 @@ import {
 } from "../../utils/domain";
 
 interface SequenceOptions {
-  base: string; // e.g., "content/img/"
+  base: string;
   start: number;
   end: number;
-  ext?: string; // default "png"
-  pad?: number; // optional zero-padding
+  ext?: string;
+  pad?: number;
 }
 
+type MediaInputItem = string | { sequence: SequenceOptions };
+
 interface MediaProps extends Record<string, any> {
-  poster?: string;
+  media?: MediaInputItem[];
   src?: string | string[];
+  sequence?: SequenceOptions;
+  poster?: string;
   alt?: string;
   className?: string;
   width?: string | number;
   height?: string | number;
   domainKey?: DomainKey;
   customDomain?: string;
-  sequence?: SequenceOptions;
 }
 
 const Media: React.FC<MediaProps> = (props) => {
   const {
+    media,
     src,
     sequence,
     alt = "Media content",
@@ -61,35 +65,46 @@ const Media: React.FC<MediaProps> = (props) => {
     return getDomainUrl(resolvedKey, customDomain);
   }, [resolvedKey, customDomain]);
 
-  // Generate sequence images if given
-  const sequenceArray = useMemo(() => {
-    if (!sequence) return [];
-    const { base, start, end, ext = "png", pad = 0 } = sequence;
+  // Function to resolve one sequence block
+  const resolveSequence = (opts: SequenceOptions): string[] => {
+    const { base, start, end, ext = "png", pad = 0 } = opts;
     const length = end - start + 1;
     return Array.from({ length }, (_, i) => {
       const index = (start + i).toString().padStart(pad, "0");
       return `${base}${index}.${ext}`;
     });
-  }, [sequence]);
+  };
 
-  // Merge src + sequence
-  const combinedArray = useMemo(() => {
-    const srcArray = Array.isArray(src) ? src : src ? [src] : [];
-    return [...srcArray, ...sequenceArray].map((url) =>
-      normalizeUrl(url, baseDomain)
-    );
-  }, [src, sequenceArray, baseDomain]);
+  const resolvedMedia = useMemo(() => {
+    let final: string[] = [];
+
+    if (media && Array.isArray(media)) {
+      for (const item of media) {
+        if (typeof item === "string") {
+          final.push(item);
+        } else if ("sequence" in item) {
+          final.push(...resolveSequence(item.sequence));
+        }
+      }
+    } else {
+      const srcArray = Array.isArray(src) ? src : src ? [src] : [];
+      const seqArray = sequence ? resolveSequence(sequence) : [];
+      final = [...srcArray, ...seqArray];
+    }
+
+    return final.map((url) => normalizeUrl(url, baseDomain));
+  }, [media, src, sequence, baseDomain]);
 
   const isYouTubeLink = (url: string) =>
     /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
 
-  const images = combinedArray.filter(
+  const images = resolvedMedia.filter(
     (file) => !/\.(mp4|webm|ogg)$/i.test(file) && !isYouTubeLink(file)
   );
-  const videos = combinedArray.filter((file) =>
+  const videos = resolvedMedia.filter((file) =>
     /\.(mp4|webm|ogg)$/i.test(file)
   );
-  const youtubeVideos = combinedArray.filter((file) => isYouTubeLink(file));
+  const youtubeVideos = resolvedMedia.filter((file) => isYouTubeLink(file));
 
   const getYouTubeEmbedUrl = (url: string) => {
     if (url.includes("watch?v=")) {

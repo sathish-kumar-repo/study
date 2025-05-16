@@ -8,10 +8,19 @@ const MediaOverview = () => {
     <>
       <Title>Media Overview</Title>
       <Media
-        sequence={{ base: "video/", start: 1, end: 2, ext: "mp4" }}
-        src={"video/trailer_hd.mp4"}
+        media={[
+          "video/sample.mp4",
+          { sequence: { base: "video/", start: 1, end: 1, ext: "mp4" } },
+          "video/trailer_hd.mp4",
+          { sequence: { base: "video/", start: 2, end: 2, ext: "mp4" } },
+          "https://youtu.be/GXlVYDUCAwM?si=NSjH8x9zgLYMNboI",
+        ]}
       />
-
+      dfd
+      <Media
+        src={"video/trailer_hd.mp4"}
+        sequence={{ base: "video/", start: 1, end: 2, ext: "mp4" }}
+      />
       <PDF
         file="/candlestickpattern.pdf" // The relative path or filename
         name="Weight Loss Plan"
