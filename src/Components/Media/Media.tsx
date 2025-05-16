@@ -1,4 +1,3 @@
-// src/components/Media.tsx
 import React, { useMemo } from "react";
 import "./Media.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
@@ -15,20 +14,30 @@ import {
   DomainKey,
 } from "../../utils/domain";
 
+interface SequenceOptions {
+  base: string; // e.g., "content/img/"
+  start: number;
+  end: number;
+  ext?: string; // default "png"
+  pad?: number; // optional zero-padding
+}
+
 interface MediaProps extends Record<string, any> {
   poster?: string;
-  src: string | string[];
+  src?: string | string[];
   alt?: string;
   className?: string;
   width?: string | number;
   height?: string | number;
   domainKey?: DomainKey;
   customDomain?: string;
+  sequence?: SequenceOptions;
 }
 
 const Media: React.FC<MediaProps> = (props) => {
   const {
     src,
+    sequence,
     alt = "Media content",
     className = "",
     width = "100%",
@@ -43,8 +52,7 @@ const Media: React.FC<MediaProps> = (props) => {
   if (customDomain && resolvedKey) {
     return (
       <div className="media-container error-message">
-        ❌ Error: Use only one of `customDomain` or a boolean domain flag like
-        `a`, `b`, `c`.
+        ❌ Error: Use only one of `customDomain` or a domainKey prop.
       </div>
     );
   }
@@ -53,19 +61,35 @@ const Media: React.FC<MediaProps> = (props) => {
     return getDomainUrl(resolvedKey, customDomain);
   }, [resolvedKey, customDomain]);
 
-  const mediaArray = useMemo(() => {
-    const arr = Array.isArray(src) ? src : [src];
-    return arr.map((url) => normalizeUrl(url, baseDomain));
-  }, [src, baseDomain]);
+  // Generate sequence images if given
+  const sequenceArray = useMemo(() => {
+    if (!sequence) return [];
+    const { base, start, end, ext = "png", pad = 0 } = sequence;
+    const length = end - start + 1;
+    return Array.from({ length }, (_, i) => {
+      const index = (start + i).toString().padStart(pad, "0");
+      return `${base}${index}.${ext}`;
+    });
+  }, [sequence]);
+
+  // Merge src + sequence
+  const combinedArray = useMemo(() => {
+    const srcArray = Array.isArray(src) ? src : src ? [src] : [];
+    return [...srcArray, ...sequenceArray].map((url) =>
+      normalizeUrl(url, baseDomain)
+    );
+  }, [src, sequenceArray, baseDomain]);
 
   const isYouTubeLink = (url: string) =>
     /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
 
-  const images = mediaArray.filter(
+  const images = combinedArray.filter(
     (file) => !/\.(mp4|webm|ogg)$/i.test(file) && !isYouTubeLink(file)
   );
-  const videos = mediaArray.filter((file) => /\.(mp4|webm|ogg)$/i.test(file));
-  const youtubeVideos = mediaArray.filter((file) => isYouTubeLink(file));
+  const videos = combinedArray.filter((file) =>
+    /\.(mp4|webm|ogg)$/i.test(file)
+  );
+  const youtubeVideos = combinedArray.filter((file) => isYouTubeLink(file));
 
   const getYouTubeEmbedUrl = (url: string) => {
     if (url.includes("watch?v=")) {
@@ -78,7 +102,7 @@ const Media: React.FC<MediaProps> = (props) => {
 
   return (
     <div className={`media-container ${className}`}>
-      {/* Normal videos */}
+      {/* Videos */}
       {videos.map((videoSrc, index) => (
         <video
           key={`video-${index}`}
@@ -90,7 +114,7 @@ const Media: React.FC<MediaProps> = (props) => {
         />
       ))}
 
-      {/* YouTube videos */}
+      {/* YouTube Videos */}
       {youtubeVideos.map((ytSrc, index) => (
         <div className="video-wrapper" key={`yt-${index}`}>
           <iframe
@@ -110,21 +134,18 @@ const Media: React.FC<MediaProps> = (props) => {
               <IconButton
                 onClick={() => onRotate(rotate + 90)}
                 style={{ color: "white" }}
-                className="PhotoView-Slider__toolbarIcon"
               >
                 <RotateRightIcon />
               </IconButton>
               <IconButton
                 onClick={() => onScale(scale + 0.2)}
                 style={{ color: "white" }}
-                className="PhotoView-Slider__toolbarIcon"
               >
                 <ZoomInIcon />
               </IconButton>
               <IconButton
                 onClick={() => onScale(scale - 0.2)}
                 style={{ color: "white" }}
-                className="PhotoView-Slider__toolbarIcon"
               >
                 <ZoomOutIcon />
               </IconButton>
@@ -132,7 +153,7 @@ const Media: React.FC<MediaProps> = (props) => {
           )}
         >
           {images.map((imgSrc, index) => (
-            <PhotoView key={`image-${index}`} src={imgSrc}>
+            <PhotoView key={`img-${index}`} src={imgSrc}>
               <img
                 src={imgSrc}
                 alt={alt}

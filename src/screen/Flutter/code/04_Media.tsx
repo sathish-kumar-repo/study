@@ -7,12 +7,15 @@ const MediaOverview = () => {
   return (
     <>
       <Title>Media Overview</Title>
+      <Media
+        sequence={{ base: "video/", start: 1, end: 2, ext: "mp4" }}
+        src={"video/trailer_hd.mp4"}
+      />
 
       <PDF
         file="/candlestickpattern.pdf" // The relative path or filename
         name="Weight Loss Plan"
       />
-
       <PDF
         file="pdf/dummy.pdf"
         name="Plan with domain"
@@ -23,22 +26,16 @@ const MediaOverview = () => {
         name="Plan with domain"
         // customDomain="https://cdn.example.com" // optionally
       />
-
       <H1>Image</H1>
       <Media src={demo} />
-
       <H1>Multiple Image</H1>
       <Media src={[flutter, demo]} />
-
       <H1>Video</H1>
       <Media src={video} />
-
       <H1>Multiple video</H1>
       <Media src={[video, video]} />
-
       <H1>Online Image</H1>
       <Media src="https://images.pexels.com/photos/31737021/pexels-photo-31737021/free-photo-of-serene-rocky-coastline-with-calm-waters.jpeg" />
-
       <H1>Online Multiple Image</H1>
       <Media
         src={[
@@ -46,10 +43,8 @@ const MediaOverview = () => {
           "https://images.pexels.com/photos/31737021/pexels-photo-31737021/free-photo-of-serene-rocky-coastline-with-calm-waters.jpeg",
         ]}
       />
-
       <H1>Online Video</H1>
       <Media src={"video/trailer_hd.mp4"} />
-
       <H1>Online Multiple Video</H1>
       <Media
         src={[
@@ -57,10 +52,8 @@ const MediaOverview = () => {
           "https://videos.pexels.com/video-files/5304522/5304522-uhd_2560_1440_30fps.mp4",
         ]}
       />
-
       <H1>Domain Img</H1>
       <Media src={"course-images/binary-trading.jpg"} />
-
       <H1>Domain Muliple Img</H1>
       <Media
         src={[
@@ -68,7 +61,6 @@ const MediaOverview = () => {
           "course-images/photography.jpg",
         ]}
       />
-
       <H1>Domain Video</H1>
       <Media src={"video/sample.mp4"} />
     </>
