@@ -1,5 +1,4 @@
 import { H1, Media, Title } from "../../../../../components/UI";
-import img1 from "./img/1.png";
 
 const SellerPyscology = () => {
   return (
@@ -10,7 +9,7 @@ const SellerPyscology = () => {
       <Media src="https://youtu.be/kaTSIG62nkg" />
 
       <H1>Pyscology and Price Action</H1>
-      <Media src={img1} />
+      <Media src={"Binary OptionsPart A/12 Seller Pyscology/1.png"} />
     </>
   );
 };

@@ -1,8 +1,5 @@
 import { H1, Media, Title } from "../../../../../components/UI";
-import uptrend from "./img/uptrend.png";
-import uptrendEg from "./img/uptrend_eg.png";
-import downtrend from "./img/downtrend.png";
-import downtrendEg from "./img/downtrend_eg.png";
+
 const TrendLine = () => {
   return (
     <>
@@ -12,12 +9,12 @@ const TrendLine = () => {
       <Media src="https://youtu.be/Qnd06fMR3BI" />
 
       <H1>Uptrend</H1>
-      <Media src={uptrend} />
-      <Media src={uptrendEg} />
+      <Media src={"Binary Options/Part A/05 Trend line/uptrend.png"} />
+      <Media src={"Binary Options/Part A/05 Trend line/uptrend_eg.png"} />
 
       <H1>Downtrend</H1>
-      <Media src={downtrend} />
-      <Media src={downtrendEg} />
+      <Media src={"Binary Options/Part A/05 Trend line/downtrend.png"} />
+      <Media src={"Binary Options/Part A/05 Trend line/downtrend_eg.png"} />
     </>
   );
 };

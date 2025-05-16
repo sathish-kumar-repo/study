@@ -45,7 +45,7 @@ const generateSequenceUrls = (
   config: SequenceConfig,
   domain: string
 ): string[] => {
-  const { base, start, end, ext = "jpg", leadingZeros = 0, pattern } = config;
+  const { base, start, end, ext = "png", leadingZeros = 0, pattern } = config;
   const list: string[] = [];
 
   for (let i = start; i <= end; i++) {
@@ -91,7 +91,7 @@ const Media: React.FC<MediaProps> = (props) => {
     poster,
     domainKey: directKey,
     customDomain,
-    sort = true,
+    sort = false,
   } = props;
 
   const resolvedKey = resolveDomainKeyFromProps(props) || directKey;

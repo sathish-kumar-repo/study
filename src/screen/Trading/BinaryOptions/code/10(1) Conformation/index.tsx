@@ -1,6 +1,4 @@
 import { H1, Media, Note, Para, Title } from "../../../../../components/UI";
-import img1 from "./img/1.png";
-import img2 from "./img/2.png";
 
 const Conformation = () => {
   return (
@@ -18,7 +16,13 @@ const Conformation = () => {
         <Para tab={false}>It small help used to analysis the chart</Para>
       </Note>
 
-      <Media src={[img1, img2]} />
+      <Media
+        sequence={{
+          base: "Binary Options/Part A/10 Conformation/",
+          start: 1,
+          end: 2,
+        }}
+      />
     </>
   );
 };

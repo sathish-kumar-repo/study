@@ -1,13 +1,16 @@
 import { Media, Title } from "../../../../../components/UI";
-import img1 from "./img/1.png";
-import img2 from "./img/2.png";
 
 const StructureOfCandle = () => {
   return (
     <>
       <Title>Structure of Candle</Title>
 
-      <Media src={[img1, img2]} />
+      <Media
+        src={[
+          "Binary Options/Part A/07 Size of Candle/1.png",
+          "Binary Options/Part A/08 Types of buyer seller/1.png",
+        ]}
+      />
     </>
   );
 };

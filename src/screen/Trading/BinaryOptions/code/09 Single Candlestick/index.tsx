@@ -1,7 +1,4 @@
 import { H1, Media, Title } from "../../../../../components/UI";
-import img1 from "./img/1.png";
-import img2 from "./img/2.png";
-import img3 from "./img/3.png";
 
 const SingleCandlestick = () => {
   return (
@@ -12,7 +9,13 @@ const SingleCandlestick = () => {
       <Media src="https://youtu.be/fT4Kn4N56qk" />
 
       <H1>Candlestick</H1>
-      <Media src={[img1, img2, img3]} />
+      <Media
+        src={[
+          "Binary Options/Part A/09 Single Candlestick/1.png",
+          "Binary Options/Part A/09 Single Candlestick/2.png",
+          "Binary Options/Part A/07 Size of Candle/3.png",
+        ]}
+      />
     </>
   );
 };

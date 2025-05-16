@@ -1,6 +1,4 @@
 import { H1, Media, Table, Title } from "../../../../../components/UI";
-import asset from "./img/asset.png";
-import otc from "./img/OTC.png";
 
 const AssetsAndOTC = () => {
   return (
@@ -11,10 +9,10 @@ const AssetsAndOTC = () => {
       <Media src="https://youtu.be/fgRfV2lilRY" />
 
       <H1>Asset:</H1>
-      <Media src={asset} />
+      <Media src={"Binary Options/Part A/03 Asset and OTC/asset.png"} />
 
       <H1>OTC:</H1>
-      <Media src={otc} />
+      <Media src={"Binary Options/Part A/03 Asset and OTC/OTC.png"} />
 
       <H1>Option Moneyness:</H1>
       <Table>

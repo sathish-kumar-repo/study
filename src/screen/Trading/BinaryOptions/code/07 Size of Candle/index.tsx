@@ -1,5 +1,4 @@
 import { H1, Media, Table, Title } from "../../../../../components/UI";
-import img1 from "./img/1.png";
 
 const SizeOfCandle = () => {
   return (
@@ -40,7 +39,7 @@ const SizeOfCandle = () => {
           </tr>
         </tbody>
       </Table>
-      <Media src={img1} />
+      <Media src={"Binary Options/Part A/07 Size of Candle/2.png"} />
     </>
   );
 };

@@ -21,7 +21,7 @@ const Rules = () => {
       <H1>Rules</H1>
 
       <H2>1. Day Routine</H2>
-      <Table file="day_routine.xlsx" />
+      <Table file="excel/day_routine.xlsx" />
 
       <Space sB={15} />
 

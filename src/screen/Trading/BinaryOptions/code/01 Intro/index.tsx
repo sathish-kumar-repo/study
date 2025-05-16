@@ -1,5 +1,4 @@
 import { H1, Media, Para, Title } from "../../../../../components/UI";
-import binaryOption from "./img/binary-option.png";
 
 const Intro = () => {
   return (
@@ -32,7 +31,7 @@ const Intro = () => {
         above a certain price, at a certain time. If you think it will be, you
         buy. If you think it won’t be, you sell.
       </Para>
-      <Media src={binaryOption} />
+      <Media src={"Binary Options/Part A/01 Basic Lesson/binary-option.png"} />
     </>
   );
 };

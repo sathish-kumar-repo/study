@@ -1,5 +1,4 @@
 import { H1, Media, Title } from "../../../../../components/UI";
-import img from "./img/1.png";
 
 const TypesOfBuyerSeller = () => {
   return (
@@ -10,7 +9,7 @@ const TypesOfBuyerSeller = () => {
       <Media src="https://youtu.be/5YrjtyIa0Sk" />
 
       <H1>Types:</H1>
-      <Media src={img} />
+      <Media src={"Binary Options/Part A/08 Types of buyer seller/2.png"} />
     </>
   );
 };

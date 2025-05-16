@@ -1,6 +1,4 @@
 import { H1, Media, Title } from "../../../../../components/UI";
-import resistance from "./img/resistance.png";
-import support from "./img/support.png";
 
 const SupplyAndDemand = () => {
   return (
@@ -11,10 +9,12 @@ const SupplyAndDemand = () => {
       <Media src="https://youtu.be/mlyfWrWvpkg" />
 
       <H1>Supply:</H1>
-      <Media src={resistance} />
+      <Media
+        src={"Binary Options/Part A/04 Supply and Demand/resistance.png"}
+      />
 
       <H1>Demand:</H1>
-      <Media src={support} />
+      <Media src={"Binary Options/Part A/04 Supply and Demand/support.png"} />
     </>
   );
 };

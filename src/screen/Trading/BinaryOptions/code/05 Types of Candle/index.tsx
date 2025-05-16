@@ -1,5 +1,4 @@
 import { H1, List, Media, Title } from "../../../../../components/UI";
-import typesOfCandle from "./img/1.png";
 
 const TypesOfCandle = () => {
   return (
@@ -23,7 +22,7 @@ const TypesOfCandle = () => {
           },
         ]}
       />
-      <Media src={typesOfCandle} />
+      <Media src={"Binary Options/Part A/06 Types of candle/1.png"} />
     </>
   );
 };
