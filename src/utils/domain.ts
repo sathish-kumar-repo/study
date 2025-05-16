@@ -15,7 +15,7 @@ export const getDomainUrl = (
 ): string => {
   if (customDomain) return customDomain;
   if (!domainKey || !DOMAINS[domainKey]) {
-    console.warn(`Invalid or missing domainKey "${domainKey}". Using default.`);
+    // console.warn(`Invalid or missing domainKey "${domainKey}". Using default.`);
     return DOMAINS.a;
   }
   return DOMAINS[domainKey];
