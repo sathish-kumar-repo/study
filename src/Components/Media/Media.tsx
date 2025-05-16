@@ -6,7 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import RotateRightIcon from "@mui/icons-material/RotateRight";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
-
 import {
   getDomainUrl,
   normalizeUrl,
@@ -23,10 +22,13 @@ interface SequenceConfig {
   pattern?: string; // e.g., "img_${n}.jpg"
 }
 
+type MediaEntry = string | { sequence: SequenceConfig };
+
 interface MediaProps extends Record<string, any> {
   poster?: string;
   src?: string | string[];
   sequence?: SequenceConfig | SequenceConfig[];
+  media?: MediaEntry[]; // ✅ new mixed format
   alt?: string;
   className?: string;
   width?: string | number;
@@ -44,7 +46,6 @@ const generateSequenceUrls = (
   domain: string
 ): string[] => {
   const { base, start, end, ext = "jpg", leadingZeros = 0, pattern } = config;
-
   const list: string[] = [];
 
   for (let i = start; i <= end; i++) {
@@ -58,6 +59,7 @@ const generateSequenceUrls = (
 
 const Media: React.FC<MediaProps> = (props) => {
   const {
+    media,
     src,
     sequence,
     alt = "Media content",
@@ -86,29 +88,36 @@ const Media: React.FC<MediaProps> = (props) => {
   }, [resolvedKey, customDomain]);
 
   const mediaArray = useMemo(() => {
-    const rawSources = Array.isArray(src) ? src : src ? [src] : [];
+    let list: string[] = [];
 
-    const sequenceList: SequenceConfig[] = sequence
+    const fromMedia =
+      media?.flatMap((entry) => {
+        if (typeof entry === "string") {
+          return [normalizeUrl(entry, baseDomain)];
+        } else if ("sequence" in entry) {
+          return generateSequenceUrls(entry.sequence, baseDomain);
+        }
+        return [];
+      }) ?? [];
+
+    const fromSrc = Array.isArray(src) ? src : src ? [src] : [];
+    const fromSeq = sequence
       ? Array.isArray(sequence)
         ? sequence
         : [sequence]
       : [];
 
-    const sequenceSources = sequenceList.flatMap((conf) =>
+    const fromSrcUrls = fromSrc.map((url) => normalizeUrl(url, baseDomain));
+    const fromSeqUrls = fromSeq.flatMap((conf) =>
       generateSequenceUrls(conf, baseDomain)
     );
 
-    const all = [
-      ...rawSources.map((url) => normalizeUrl(url, baseDomain)),
-      ...sequenceSources,
-    ];
-
-    return sort ? all.sort() : all;
-  }, [src, sequence, baseDomain, sort]);
+    list = [...fromMedia, ...fromSrcUrls, ...fromSeqUrls];
+    return sort ? list.sort() : list;
+  }, [media, src, sequence, baseDomain, sort]);
 
   const isYouTubeLink = (url: string) =>
     /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
-
   const isAudio = (file: string) => /\.(mp3|wav|ogg)$/i.test(file);
   const isVideo = (file: string) =>
     /\.(mp4|webm|ogg)$/i.test(file) && !isAudio(file);
