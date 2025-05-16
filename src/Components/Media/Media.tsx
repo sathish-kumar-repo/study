@@ -165,6 +165,7 @@ const Media: React.FC<MediaProps> = (props) => {
           controls
           crossOrigin="anonymous"
           style={{ width, height }}
+          preload="metadata"
         />
       ))}
 
@@ -190,6 +191,7 @@ const Media: React.FC<MediaProps> = (props) => {
             controls
             crossOrigin="anonymous"
             style={{ width }}
+            preload="metadata"
           />
         </div>
       ))}
