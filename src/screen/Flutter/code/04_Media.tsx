@@ -18,7 +18,7 @@ const MediaOverview = () => {
       />
       dfd
       <Media
-        src={"video/trailer_hd.mp4"}
+        src={["video/trailer_hd.mp4", "mp3/sample.mp3", "mp3/sample.mp3"]}
         sequence={{ base: "video/", start: 1, end: 2, ext: "mp4" }}
       />
       <PDF

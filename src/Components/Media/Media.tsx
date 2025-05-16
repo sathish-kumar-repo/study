@@ -14,21 +14,17 @@ import {
   DomainKey,
 } from "../../utils/domain";
 
-interface SequenceOptions {
+interface SequenceConfig {
   base: string;
   start: number;
   end: number;
-  ext?: string;
-  pad?: number;
+  ext: string;
 }
 
-type MediaInputItem = string | { sequence: SequenceOptions };
-
 interface MediaProps extends Record<string, any> {
-  media?: MediaInputItem[];
-  src?: string | string[];
-  sequence?: SequenceOptions;
   poster?: string;
+  src?: string | string[];
+  sequence?: SequenceConfig | SequenceConfig[];
   alt?: string;
   className?: string;
   width?: string | number;
@@ -39,9 +35,8 @@ interface MediaProps extends Record<string, any> {
 
 const Media: React.FC<MediaProps> = (props) => {
   const {
-    media,
     src,
-    sequence,
+    sequence = [],
     alt = "Media content",
     className = "",
     width = "100%",
@@ -56,7 +51,8 @@ const Media: React.FC<MediaProps> = (props) => {
   if (customDomain && resolvedKey) {
     return (
       <div className="media-container error-message">
-        ❌ Error: Use only one of `customDomain` or a domainKey prop.
+        ❌ Error: Use only one of `customDomain` or a boolean domain flag like
+        `a`, `b`, `c`.
       </div>
     );
   }
@@ -65,46 +61,32 @@ const Media: React.FC<MediaProps> = (props) => {
     return getDomainUrl(resolvedKey, customDomain);
   }, [resolvedKey, customDomain]);
 
-  // Function to resolve one sequence block
-  const resolveSequence = (opts: SequenceOptions): string[] => {
-    const { base, start, end, ext = "png", pad = 0 } = opts;
-    const length = end - start + 1;
-    return Array.from({ length }, (_, i) => {
-      const index = (start + i).toString().padStart(pad, "0");
-      return `${base}${index}.${ext}`;
-    });
-  };
+  const sequenceFiles: string[] = useMemo(() => {
+    const seqArray = Array.isArray(sequence) ? sequence : [sequence];
+    return seqArray.flatMap(({ base, start, end, ext }) =>
+      Array.from(
+        { length: end - start + 1 },
+        (_, i) => `${base}/${start + i}.${ext}`
+      )
+    );
+  }, [sequence]);
 
-  const resolvedMedia = useMemo(() => {
-    let final: string[] = [];
-
-    if (media && Array.isArray(media)) {
-      for (const item of media) {
-        if (typeof item === "string") {
-          final.push(item);
-        } else if ("sequence" in item) {
-          final.push(...resolveSequence(item.sequence));
-        }
-      }
-    } else {
-      const srcArray = Array.isArray(src) ? src : src ? [src] : [];
-      const seqArray = sequence ? resolveSequence(sequence) : [];
-      final = [...srcArray, ...seqArray];
-    }
-
-    return final.map((url) => normalizeUrl(url, baseDomain));
-  }, [media, src, sequence, baseDomain]);
+  const allSources = useMemo(() => {
+    const srcArray = src ? (Array.isArray(src) ? src : [src]) : [];
+    const combined = [...srcArray, ...sequenceFiles];
+    return combined.map((url) => normalizeUrl(url, baseDomain));
+  }, [src, sequenceFiles, baseDomain]);
 
   const isYouTubeLink = (url: string) =>
     /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
 
-  const images = resolvedMedia.filter(
-    (file) => !/\.(mp4|webm|ogg)$/i.test(file) && !isYouTubeLink(file)
+  const images = allSources.filter(
+    (file) =>
+      !/\.(mp4|webm|ogg|mp3|wav|m4a)$/i.test(file) && !isYouTubeLink(file)
   );
-  const videos = resolvedMedia.filter((file) =>
-    /\.(mp4|webm|ogg)$/i.test(file)
-  );
-  const youtubeVideos = resolvedMedia.filter((file) => isYouTubeLink(file));
+  const videos = allSources.filter((file) => /\.(mp4|webm|ogg)$/i.test(file));
+  const audios = allSources.filter((file) => /\.(mp3|wav|m4a)$/i.test(file));
+  const youtubeVideos = allSources.filter((file) => isYouTubeLink(file));
 
   const getYouTubeEmbedUrl = (url: string) => {
     if (url.includes("watch?v=")) {
@@ -117,7 +99,7 @@ const Media: React.FC<MediaProps> = (props) => {
 
   return (
     <div className={`media-container ${className}`}>
-      {/* Videos */}
+      {/* Normal videos */}
       {videos.map((videoSrc, index) => (
         <video
           key={`video-${index}`}
@@ -129,7 +111,17 @@ const Media: React.FC<MediaProps> = (props) => {
         />
       ))}
 
-      {/* YouTube Videos */}
+      {/* Audio files */}
+      {audios.map((audioSrc, index) => (
+        <audio
+          key={`audio-${index}`}
+          src={audioSrc}
+          controls
+          style={{ width }}
+        />
+      ))}
+
+      {/* YouTube videos */}
       {youtubeVideos.map((ytSrc, index) => (
         <div className="video-wrapper" key={`yt-${index}`}>
           <iframe
@@ -149,18 +141,21 @@ const Media: React.FC<MediaProps> = (props) => {
               <IconButton
                 onClick={() => onRotate(rotate + 90)}
                 style={{ color: "white" }}
+                className="PhotoView-Slider__toolbarIcon"
               >
                 <RotateRightIcon />
               </IconButton>
               <IconButton
                 onClick={() => onScale(scale + 0.2)}
                 style={{ color: "white" }}
+                className="PhotoView-Slider__toolbarIcon"
               >
                 <ZoomInIcon />
               </IconButton>
               <IconButton
                 onClick={() => onScale(scale - 0.2)}
                 style={{ color: "white" }}
+                className="PhotoView-Slider__toolbarIcon"
               >
                 <ZoomOutIcon />
               </IconButton>
@@ -168,15 +163,12 @@ const Media: React.FC<MediaProps> = (props) => {
           )}
         >
           {images.map((imgSrc, index) => (
-            <PhotoView key={`img-${index}`} src={imgSrc}>
+            <PhotoView key={`image-${index}`} src={imgSrc}>
               <img
                 src={imgSrc}
                 alt={alt}
                 loading="lazy"
-                style={{
-                  width,
-                  height,
-                }}
+                style={{ width, height }}
               />
             </PhotoView>
           ))}
