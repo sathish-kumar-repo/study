@@ -1,7 +1,7 @@
 // src/utils/domains.ts
 
 export const DOMAINS = {
-  a: "https://sathish-kumar-repo.github.io/study-media/",
+  a: "https://sathish-kumar-repo.github.io/storage1/",
   b: "https://your-second-domain.com/",
   c: "https://your-third-domain.com/",
   // Add more as needed...

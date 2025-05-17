@@ -1,4 +1,5 @@
 import Diet from "../code/Diet";
+import Measurement from "../code/Measurement";
 import Progress from "../code/Progress";
 
 const shreddedContent = {
@@ -17,6 +18,10 @@ const shreddedContent = {
     {
       topic: "Diet",
       page: <Diet />,
+    },
+    {
+      topic: "Measurement",
+      page: <Measurement />,
     },
   ],
 };
