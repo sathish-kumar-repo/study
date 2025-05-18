@@ -1,4 +1,4 @@
-import { Title } from "../../../components/UI";
+import { Title } from "../../../../components/UI";
 
 const YourTitle = () => {
   return (

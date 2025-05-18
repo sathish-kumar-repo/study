@@ -3,7 +3,7 @@ const yourContent = {
     subCategory: "",
     name: "",
     description: "",
-    img: "",
+    img: "github.jpg",
   },
   route: [
     {

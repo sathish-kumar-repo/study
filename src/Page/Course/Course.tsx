@@ -9,11 +9,11 @@ import getCourseData from "../../utils/get_course_data";
 import { Helmet } from "react-helmet";
 import { useEffect, useRef, useState } from "react";
 import { CourseType } from "../../model/course_model";
-import FilterSidebar from "./component/FilterSidebar/FilterSidebar";
+import FilterSidebar from "./components/FilterSidebar/FilterSidebar";
 import NoResultFound from "../../components/NoResultFound/NoResultFound";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import CourseList from "./component/CourseList/CourseList";
+import CourseList from "./components/CourseList/CourseList";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
