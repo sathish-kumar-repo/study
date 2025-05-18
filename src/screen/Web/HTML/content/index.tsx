@@ -3,7 +3,6 @@ const htmlContent = {
     subCategory: "",
     name: "",
     description: "",
-    link: "",
     img: "",
   },
   route: [

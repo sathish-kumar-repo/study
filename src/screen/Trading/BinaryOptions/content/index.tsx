@@ -48,7 +48,6 @@ const BinaryOptionContent = {
     subCategory: "Binary Options",
     name: "Binary Options",
     description: "Learn about price action and candlestick physcology.",
-    link: "",
     img: "binary-trading.jpg",
   },
   route: [

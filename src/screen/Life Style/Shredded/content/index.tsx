@@ -7,7 +7,6 @@ const shreddedContent = {
     subCategory: "Gym Routines",
     name: "Shredded",
     description: "Lean, defined, muscular physique with cuts",
-    link: "",
     img: "chad.jpeg",
   },
   route: [

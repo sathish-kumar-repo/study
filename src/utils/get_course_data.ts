@@ -38,7 +38,6 @@ function getCourseData(): CourseDataType {
 
         name: course.about.name,
         description: course.about.description,
-        link: course.about.link,
         img: course.about.img,
       })),
     ])

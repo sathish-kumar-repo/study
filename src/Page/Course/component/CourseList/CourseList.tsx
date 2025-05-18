@@ -41,8 +41,9 @@ const CourseList: React.FC<CourseListProps> = ({
                     />
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
+                    {/* It navigate to first topic of course */}
                     <NavLink
-                      to={`/${category}/${item.name}/${item.link}`}
+                      to={`/${category}/${item.name}`}
                       className="course-link"
                     >
                       {t("course.learnMore")}

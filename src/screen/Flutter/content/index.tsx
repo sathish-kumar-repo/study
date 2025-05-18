@@ -7,7 +7,6 @@ const flutterContent = {
   about: {
     name: "My Ui Component",
     description: "Learn about My Ui Component via Flutter documention.",
-    link: "",
     img: "design.jpg",
   },
   route: [

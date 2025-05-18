@@ -3,7 +3,6 @@ export type CourseType = {
   subCategory?: string;
   name: string;
   description: string;
-  link: string;
   img: string;
 };
 
