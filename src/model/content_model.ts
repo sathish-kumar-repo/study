@@ -5,7 +5,7 @@ export type ContentDataType = {
     subCategory?: string;
     name: string;
     description: string;
-    link: string;
+    link?: string;
     img: string;
   };
   route: {
