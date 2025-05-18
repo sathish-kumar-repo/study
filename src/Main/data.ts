@@ -10,6 +10,7 @@ import BinaryOptionContent from "../Frontend/Trading/BinaryOptions/content";
 import cwrvContent from "../Frontend/Trading/CWRV/content";
 import bootstrapContent from "../Frontend/Web/Bootstrap/content";
 import cssContent from "../Frontend/Web/CSS/content";
+import webDevCurriculumContent from "../Frontend/Web/Curriculum/content";
 import expressjsContent from "../Frontend/Web/ExpressJs/content";
 import webFirebaseContent from "../Frontend/Web/Firebase/content";
 import htmlContent from "../Frontend/Web/HTML/content";
@@ -24,6 +25,7 @@ import tsContent from "../Frontend/Web/TS/content";
 // The course data object
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
+  curriculum: [webDevCurriculumContent],
   trading: [BinaryOptionContent, cwrvContent],
   language: [jsContent, tsContent, javaContent, pythonContent],
   "python stack": [pythonContent],
