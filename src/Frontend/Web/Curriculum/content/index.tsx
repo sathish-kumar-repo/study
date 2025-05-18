@@ -6,7 +6,7 @@ const webDevCurriculumContent = {
     name: "Full Web Development Curriculum",
     description:
       "A complete roadmap to becoming a modern full-stack web developer — from HTML basics to backend APIs and deployment.",
-    img: "/assets/images/courses/webdev-curriculum.jpg",
+    img: "web-development.jpg",
   },
   route: [
     {
