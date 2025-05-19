@@ -5,6 +5,7 @@ const Widgets = () => {
     <>
       <Title>Widgets</Title>
       <Syntax language="javascript" code={code} />
+      <Syntax language="javascript" src="sample.tsx" />
     </>
   );
 };

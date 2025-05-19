@@ -46,7 +46,7 @@
 }
 
 @media (max-width: 450px) {
-  .syntax-button {
+  .share {
     display: none;
   }
 }

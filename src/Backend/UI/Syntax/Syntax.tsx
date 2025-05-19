@@ -1,27 +1,109 @@
-import React, { useState } from "react";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { FC, useEffect, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import DoneIcon from "@mui/icons-material/Done";
-import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import "./Syntax.css";
+import { vs2015 as theme } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {
+  DomainKey,
+  getDomainUrl,
+  normalizeUrl,
+  resolveDomainKeyFromProps,
+} from "../../utils/domain";
+import { Language } from "./Language";
 import ShareIcon from "@mui/icons-material/Share";
+import DoneIcon from "@mui/icons-material/Done";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import "./Syntax.css";
 
-interface SyntaxProps {
-  language?: language;
-  code: string;
+interface SyntaxProps extends Record<string, any> {
+  src?: string;
+  code?: string;
+  language?: Language;
+  customDomain?: string;
+  domainKey?: DomainKey;
 }
 
-const Syntax: React.FC<SyntaxProps> = ({ language = undefined, code }) => {
-  const [copied, setCopied] = useState(false);
+const Syntax: FC<SyntaxProps> = (props) => {
+  const {
+    src,
+    code: codeProp,
+    language = "typescript",
+    customDomain,
+    domainKey: directKey,
+  } = props;
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (error) {
-      alert(error);
+  const [code, setCode] = useState<string>(codeProp || "");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState<boolean>(false);
+
+  const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
+
+  // Error if both code and src given
+  if (codeProp !== undefined && src !== undefined) {
+    return (
+      <pre className="glass-table error-message">
+        ❌ Error: Provide either `code` (inline) or `src` (URL), but not both.
+      </pre>
+    );
+  }
+
+  if (src && customDomain && resolvedKey) {
+    return (
+      <pre className="glass-table error-message">
+        ❌ Error: Use only one of `customDomain` or a boolean domain flag (like
+        `a`, `b`, `c`).
+      </pre>
+    );
+  }
+
+  // If codeProp changes, update code state
+  useEffect(() => {
+    if (codeProp !== undefined) {
+      setCode(codeProp);
+      setLoading(false);
+      setError(null);
     }
+  }, [codeProp]);
+
+  useEffect(() => {
+    // If inline code given, skip fetch
+    if (codeProp !== undefined) return;
+    if (!src) return;
+
+    const baseDomain = getDomainUrl(resolvedKey, customDomain);
+    const fullUrl = normalizeUrl(src, baseDomain);
+
+    const fetchCode = async () => {
+      console.log(fullUrl);
+
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(fullUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const text = await response.text();
+        setCode(text);
+      } catch (err) {
+        console.error("Error loading code:", err);
+        setError("❌ Failed to load code.");
+        setCode("");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCode();
+  }, [src, resolvedKey, customDomain, codeProp]);
+
+  // Your copy to clipboard logic
+  const handleCopy = (text: string) => {
+    const textField = document.createElement("textarea");
+    textField.innerText = text;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand("copy");
+    textField.remove();
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const handleShare = async () => {
@@ -35,224 +117,49 @@ const Syntax: React.FC<SyntaxProps> = ({ language = undefined, code }) => {
     }
   };
 
+  // If no code and no src, render nothing
+  if (!src && !code) return null;
+
   return (
-    <div className="syntax-container">
-      <div className="syntax-header">
-        <h3>Code Snippet</h3>
-        <div className="buttons">
-          <span
-            onClick={handleCopy}
-            className={`toggle-button syntax-button ${copied ? "copied" : ""}`}
+    <div className={"syntax-container"}>
+      {loading ? (
+        <pre>⏳ Loading...</pre>
+      ) : error ? (
+        <pre>{error}</pre>
+      ) : (
+        <>
+          <div className="syntax-header">
+            <h3>Code Snippet</h3>
+            <div className="buttons">
+              <span
+                onClick={() => handleCopy(code)}
+                className={`toggle-button syntax-button ${
+                  copied ? "copied" : ""
+                }`}
+              >
+                {copied ? <DoneIcon /> : <ContentCopyIcon />}
+              </span>
+              <span
+                className="toggle-button syntax-button share"
+                onClick={handleShare}
+              >
+                <ShareIcon />
+              </span>
+            </div>
+          </div>
+
+          <SyntaxHighlighter
+            className="syntax-highlighter"
+            language={language}
+            style={theme}
+            showLineNumbers
           >
-            {copied ? <DoneIcon /> : <ContentCopyIcon />}
-          </span>
-          <span className="toggle-button syntax-button" onClick={handleShare}>
-            <ShareIcon />
-          </span>
-        </div>
-      </div>
-      <SyntaxHighlighter
-        className="syntax-highlighter"
-        language={language}
-        style={monokai}
-        showLineNumbers={true}
-      >
-        {code}
-      </SyntaxHighlighter>
+            {code}
+          </SyntaxHighlighter>
+        </>
+      )}
     </div>
   );
 };
 
-type language =
-  | "1c"
-  | "abnf"
-  | "accesslog"
-  | "actionscript"
-  | "ada"
-  | "angelscript"
-  | "apache"
-  | "applescript"
-  | "arcade"
-  | "arduino"
-  | "armasm"
-  | "asciidoc"
-  | "aspectj"
-  | "autohotkey"
-  | "autoit"
-  | "avrasm"
-  | "awk"
-  | "axapta"
-  | "bash"
-  | "basic"
-  | "bnf"
-  | "brainfuck"
-  | "c-like"
-  | "c"
-  | "cal"
-  | "capnproto"
-  | "ceylon"
-  | "clean"
-  | "clojure-repl"
-  | "clojure"
-  | "cmake"
-  | "coffeescript"
-  | "coq"
-  | "cos"
-  | "cpp"
-  | "crmsh"
-  | "crystal"
-  | "csharp"
-  | "csp"
-  | "css"
-  | "d"
-  | "dart"
-  | "delphi"
-  | "diff"
-  | "django"
-  | "dns"
-  | "dockerfile"
-  | "dos"
-  | "dsconfig"
-  | "dts"
-  | "dust"
-  | "ebnf"
-  | "elixir"
-  | "elm"
-  | "erb"
-  | "erlang-repl"
-  | "erlang"
-  | "excel"
-  | "fix"
-  | "flix"
-  | "fortran"
-  | "fsharp"
-  | "gams"
-  | "gauss"
-  | "gcode"
-  | "gherkin"
-  | "glsl"
-  | "gml"
-  | "go"
-  | "golo"
-  | "gradle"
-  | "groovy"
-  | "haml"
-  | "handlebars"
-  | "haskell"
-  | "haxe"
-  | "hsp"
-  | "htmlbars"
-  | "http"
-  | "hy"
-  | "inform7"
-  | "ini"
-  | "irpf90"
-  | "isbl"
-  | "java"
-  | "javascript"
-  | "jboss-cli"
-  | "json"
-  | "julia-repl"
-  | "julia"
-  | "kotlin"
-  | "lasso"
-  | "latex"
-  | "ldif"
-  | "leaf"
-  | "less"
-  | "lisp"
-  | "livecodeserver"
-  | "livescript"
-  | "llvm"
-  | "lsl"
-  | "lua"
-  | "makefile"
-  | "markdown"
-  | "mathematica"
-  | "matlab"
-  | "maxima"
-  | "mel"
-  | "mercury"
-  | "mipsasm"
-  | "mizar"
-  | "mojolicious"
-  | "monkey"
-  | "moonscript"
-  | "n1ql"
-  | "nginx"
-  | "nim"
-  | "nix"
-  | "node-repl"
-  | "nsis"
-  | "objectivec"
-  | "ocaml"
-  | "openscad"
-  | "oxygene"
-  | "parser3"
-  | "perl"
-  | "pf"
-  | "pgsql"
-  | "php-template"
-  | "php"
-  | "plaintext"
-  | "pony"
-  | "powershell"
-  | "processing"
-  | "profile"
-  | "prolog"
-  | "properties"
-  | "protobuf"
-  | "puppet"
-  | "purebasic"
-  | "python-repl"
-  | "python"
-  | "q"
-  | "qml"
-  | "r"
-  | "reasonml"
-  | "rib"
-  | "roboconf"
-  | "routeros"
-  | "rsl"
-  | "ruby"
-  | "ruleslanguage"
-  | "rust"
-  | "sas"
-  | "scala"
-  | "scheme"
-  | "scilab"
-  | "scss"
-  | "shell"
-  | "smali"
-  | "smalltalk"
-  | "sml"
-  | "sqf"
-  | "sql"
-  | "sql_more"
-  | "stan"
-  | "stata"
-  | "step21"
-  | "stylus"
-  | "subunit"
-  | "swift"
-  | "taggerscript"
-  | "tap"
-  | "tcl"
-  | "thrift"
-  | "tp"
-  | "twig"
-  | "typescript"
-  | "vala"
-  | "vbnet"
-  | "vbscript-html"
-  | "vbscript"
-  | "verilog"
-  | "vhdl"
-  | "vim"
-  | "x86asm"
-  | "xl"
-  | "xml"
-  | "xquery"
-  | "yaml"
-  | "zephir";
 export default Syntax;
