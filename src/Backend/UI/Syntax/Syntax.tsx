@@ -95,16 +95,53 @@ const Syntax: FC<SyntaxProps> = (props) => {
   }, [src, resolvedKey, customDomain, codeProp]);
 
   // Your copy to clipboard logic
-  const handleCopy = (text: string) => {
-    const textField = document.createElement("textarea");
-    textField.value = text;
-    document.body.appendChild(textField);
-    textField.select();
-    document.execCommand("copy");
-    textField.remove();
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-    document.body.removeChild(textField);
+  const handleCopy = async (text: string) => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      // Modern asynchronous clipboard API (supported by most modern browsers & mobiles)
+      try {
+        await navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        fallbackCopyText(text);
+      }
+    } else {
+      // Fallback for older browsers/mobile browsers without Clipboard API support
+      fallbackCopyText(text);
+    }
+  };
+
+  const fallbackCopyText = (text: string) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    // Avoid scrolling to bottom
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.width = "2em";
+    textArea.style.height = "2em";
+    textArea.style.padding = "0";
+    textArea.style.border = "none";
+    textArea.style.outline = "none";
+    textArea.style.boxShadow = "none";
+    textArea.style.background = "transparent";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand("copy");
+      if (!successful) {
+        throw new Error("Fallback: Copy command was unsuccessful");
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Fallback: Copy command failed", err);
+      alert("Failed to copy text to clipboard");
+    }
+    document.body.removeChild(textArea);
   };
 
   const handleShare = async () => {
