@@ -12,6 +12,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import DoneIcon from "@mui/icons-material/Done";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import "./Syntax.css";
+import { useCopyToClipboard } from "./useCopyToClipboard";
 
 interface SyntaxProps extends Record<string, any> {
   src?: string;
@@ -33,8 +34,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
   const [code, setCode] = useState<string>(codeProp || "");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState<boolean>(false);
-
+  const { copied, copy } = useCopyToClipboard();
   const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
 
   // Error if both code and src given
@@ -94,56 +94,6 @@ const Syntax: FC<SyntaxProps> = (props) => {
     fetchCode();
   }, [src, resolvedKey, customDomain, codeProp]);
 
-  // Your copy to clipboard logic
-  const handleCopy = async (text: string) => {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      // Modern asynchronous clipboard API (supported by most modern browsers & mobiles)
-      try {
-        await navigator.clipboard.writeText(text);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      } catch (err) {
-        fallbackCopyText(text);
-      }
-    } else {
-      // Fallback for older browsers/mobile browsers without Clipboard API support
-      fallbackCopyText(text);
-    }
-  };
-
-  const fallbackCopyText = (text: string) => {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    // Avoid scrolling to bottom
-    textArea.style.position = "fixed";
-    textArea.style.top = "0";
-    textArea.style.left = "0";
-    textArea.style.width = "2em";
-    textArea.style.height = "2em";
-    textArea.style.padding = "0";
-    textArea.style.border = "none";
-    textArea.style.outline = "none";
-    textArea.style.boxShadow = "none";
-    textArea.style.background = "transparent";
-
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    try {
-      const successful = document.execCommand("copy");
-      if (!successful) {
-        throw new Error("Fallback: Copy command was unsuccessful");
-      }
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Fallback: Copy command failed", err);
-      alert("Failed to copy text to clipboard");
-    }
-    document.body.removeChild(textArea);
-  };
-
   const handleShare = async () => {
     try {
       await navigator.share({
@@ -170,7 +120,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
             <h3>Code Snippet</h3>
             <div className="buttons">
               <span
-                onClick={() => handleCopy(code)}
+                onClick={() => copy(code)}
                 className={`toggle-button syntax-button ${
                   copied ? "copied" : ""
                 }`}
