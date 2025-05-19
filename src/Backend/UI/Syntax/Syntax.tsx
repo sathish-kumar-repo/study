@@ -97,13 +97,14 @@ const Syntax: FC<SyntaxProps> = (props) => {
   // Your copy to clipboard logic
   const handleCopy = (text: string) => {
     const textField = document.createElement("textarea");
-    textField.innerText = text;
+    textField.value = text;
     document.body.appendChild(textField);
     textField.select();
     document.execCommand("copy");
     textField.remove();
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+    document.body.removeChild(textField);
   };
 
   const handleShare = async () => {
