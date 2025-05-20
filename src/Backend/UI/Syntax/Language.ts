@@ -1,4 +1,5 @@
 export type Language =
+  | "html" // I added
   | "1c"
   | "abnf"
   | "accesslog"
