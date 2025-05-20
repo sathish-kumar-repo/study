@@ -11,11 +11,11 @@ import HL from "./HL/HL";
 import Note from "./Note/Note";
 import Space from "./Space/Space";
 import PDF from "./PDF/PDF";
-import H from "./H/H";
+import H3 from "./H3/H3";
 
 export {
   Title,
-  H,
+  H3,
   H1,
   H2,
   Para,

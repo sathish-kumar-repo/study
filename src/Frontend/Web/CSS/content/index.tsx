@@ -1,4 +1,5 @@
 import YourTitle from "../code";
+import Selector from "../code/01 Selectors";
 
 const cssContent = {
   about: {
@@ -9,6 +10,10 @@ const cssContent = {
     img: "css.jpg",
   },
   route: [
+    {
+      topic: "Selectors",
+      page: <Selector />,
+    },
     {
       topic: "Your Title",
       page: <YourTitle />,

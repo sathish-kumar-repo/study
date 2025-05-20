@@ -24,16 +24,12 @@ const IntroFlutter = () => {
       <List
         type="ordered"
         items={[
-          {
-            text: "Step by step demonstration",
-          },
-          { text: "Control the demo flow" },
-          { text: "Highlight the target widget" },
-          {
-            text: "Automatically calculates the location and alignment of intro card",
-          },
-          { text: "Customizable style and behavior" },
-          { text: "Full platform support" },
+          "Step by step demonstration",
+          "Control the demo flow",
+          "Highlight the target widget",
+          "Automatically calculates the location and alignment of intro card",
+          "Customizable style and behavior",
+          "Full platform support",
         ]}
       />
 
