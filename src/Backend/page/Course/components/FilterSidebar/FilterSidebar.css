@@ -1,13 +1,3 @@
-.sidebar-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
-  z-index: 99;
-}
-
 .filter-header {
   display: flex;
   padding-top: 1rem;

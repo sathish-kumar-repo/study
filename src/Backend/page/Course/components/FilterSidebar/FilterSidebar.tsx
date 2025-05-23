@@ -5,6 +5,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import DoneButton from "../DoneButton/DoneButton";
 import { useTranslation } from "react-i18next";
 import { toTitleCase } from "../../../../utils/custom_string";
+import Backdrop from "../../../../components/Backdrop/Backdrop";
 
 interface FilterSidebarProps {
   category: string;
@@ -65,9 +66,11 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   return (
     <>
       {/* 🔳 Backdrop only on mobile */}
-      {toggleFilter && isMobileView && (
-        <div className="sidebar-backdrop" onClick={handleToggleFilter}></div>
-      )}
+
+      <Backdrop
+        enable={toggleFilter && isMobileView}
+        onClick={handleToggleFilter}
+      />
 
       <aside className={`filter-sidebar ${toggleFilter && "active"}`}>
         <span className="close-filter-toggle" onClick={handleToggleFilter}>

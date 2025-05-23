@@ -11,6 +11,7 @@ import Search from "../Search/Search";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toTitleCase } from "../../utils/custom_string";
+import Backdrop from "../Backdrop/Backdrop";
 
 interface HeaderProps {
   onClick?: () => void;
@@ -177,6 +178,8 @@ export const Header: React.FC<HeaderProps> = ({
         ref={searchRef}
         onClose={() => setShowSearch(false)}
       />
+
+      <Backdrop enable={showOffCanvas} />
       <div
         className={`off-canvas-glass ${showOffCanvas ? "active" : undefined}`}
         ref={offCanvasRef}

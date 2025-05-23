@@ -18,6 +18,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useTranslation } from "react-i18next";
 import { ContentDataType } from "../../model/content_model";
 import { capitalizeFirstLetter } from "../../utils/custom_string";
+import Backdrop from "../../components/Backdrop/Backdrop";
 
 interface TutorialProps {
   contentData: ContentDataType;
@@ -146,8 +147,10 @@ const Tutorial = ({ contentData }: TutorialProps) => {
         />
 
         <Container className="content-wrapper">
-          {/* Content Topic */}
+          {/* Backdrop */}
+          <Backdrop enable={showTopic} />
 
+          {/* Content Topic */}
           {isSinglePage && (
             <div
               className={`content-topic ${showTopic ? "active" : undefined}`}
