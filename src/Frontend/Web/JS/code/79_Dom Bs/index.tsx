@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const DomBs = () => {
   return (
     <>
-      <Title>DomBs</Title>
+      <Title>Dom Bs</Title>
     </>
   );
 };

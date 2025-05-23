@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const MouseEvents = () => {
   return (
     <>
-      <Title>MouseEvents</Title>
+      <Title>Mouse Events</Title>
     </>
   );
 };

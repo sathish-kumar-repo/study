@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const FormEvents = () => {
   return (
     <>
-      <Title>FormEvents</Title>
+      <Title>Form Events</Title>
     </>
   );
 };

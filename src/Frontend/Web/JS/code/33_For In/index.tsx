@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ForIn = () => {
   return (
     <>
-      <Title>ForIn</Title>
+      <Title>For In</Title>
     </>
   );
 };

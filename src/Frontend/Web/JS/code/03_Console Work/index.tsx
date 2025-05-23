@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ConsoleWork = () => {
   return (
     <>
-      <Title>ConsoleWork</Title>
+      <Title>Console Work</Title>
     </>
   );
 };

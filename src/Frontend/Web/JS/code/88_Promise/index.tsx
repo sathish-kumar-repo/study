@@ -1,6 +1,6 @@
 import { Title } from "../../../../../Backend/UI";
 
-const PromiseJs = () => {
+const Promise = () => {
   return (
     <>
       <Title>Promise</Title>
@@ -8,4 +8,4 @@ const PromiseJs = () => {
   );
 };
 
-export default PromiseJs;
+export default Promise;

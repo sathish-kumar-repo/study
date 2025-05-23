@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ForeachExamples = () => {
   return (
     <>
-      <Title>ForeachExamples</Title>
+      <Title>Foreach Examples</Title>
     </>
   );
 };

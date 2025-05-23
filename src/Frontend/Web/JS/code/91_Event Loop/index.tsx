@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const EventLoop = () => {
   return (
     <>
-      <Title>EventLoop</Title>
+      <Title>Event Loop</Title>
     </>
   );
 };

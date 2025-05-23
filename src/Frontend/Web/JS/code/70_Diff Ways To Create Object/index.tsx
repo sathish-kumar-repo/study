@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const DiffWaysToCreateObject = () => {
   return (
     <>
-      <Title>DiffWaysToCreateObject</Title>
+      <Title>Diff Ways To Create Object</Title>
     </>
   );
 };

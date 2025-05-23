@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const VarLetConst = () => {
   return (
     <>
-      <Title>VarLetConst</Title>
+      <Title>Var let const</Title>
     </>
   );
 };

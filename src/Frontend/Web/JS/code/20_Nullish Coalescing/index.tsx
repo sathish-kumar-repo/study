@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const NullishCoalescing = () => {
   return (
     <>
-      <Title>NullishCoalescing</Title>
+      <Title>Nullish Coalescing</Title>
     </>
   );
 };

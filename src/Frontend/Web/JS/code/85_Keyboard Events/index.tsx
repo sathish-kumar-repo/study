@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const KeyboardEvents = () => {
   return (
     <>
-      <Title>KeyboardEvents</Title>
+      <Title>Keyboard Events</Title>
     </>
   );
 };

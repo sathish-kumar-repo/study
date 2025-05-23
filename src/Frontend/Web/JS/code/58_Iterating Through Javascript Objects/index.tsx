@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const IteratingThroughJavascriptObjects = () => {
   return (
     <>
-      <Title>IteratingThroughJavascriptObjects</Title>
+      <Title>Iterating Through Javascript Objects</Title>
     </>
   );
 };

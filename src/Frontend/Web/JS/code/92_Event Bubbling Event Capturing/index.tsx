@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const EventBubblingEventCapturing = () => {
   return (
     <>
-      <Title>EventBubblingEventCapturing</Title>
+      <Title>Event Bubbling Event Capturing</Title>
     </>
   );
 };

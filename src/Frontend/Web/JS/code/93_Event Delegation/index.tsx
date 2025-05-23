@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const EventDelegation = () => {
   return (
     <>
-      <Title>EventDelegation</Title>
+      <Title>Event Delegation</Title>
     </>
   );
 };

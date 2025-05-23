@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const CallApplyBind = () => {
   return (
     <>
-      <Title>CallApplyBind</Title>
+      <Title>Call Apply Bind</Title>
     </>
   );
 };

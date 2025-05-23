@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const SomeCodeBasedDataType = () => {
   return (
     <>
-      <Title>SomeCodeBasedDataType</Title>
+      <Title>Some code based data type</Title>
     </>
   );
 };

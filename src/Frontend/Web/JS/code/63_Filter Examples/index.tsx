@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const FilterExamples = () => {
   return (
     <>
-      <Title>FilterExamples</Title>
+      <Title>Filter Examples</Title>
     </>
   );
 };

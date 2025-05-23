@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const TypeCoercion = () => {
   return (
     <>
-      <Title>TypeCoercion</Title>
+      <Title>Type Coercion</Title>
     </>
   );
 };

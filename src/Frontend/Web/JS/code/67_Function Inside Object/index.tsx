@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const FunctionInsideObject = () => {
   return (
     <>
-      <Title>FunctionInsideObject</Title>
+      <Title>Function Inside Object</Title>
     </>
   );
 };

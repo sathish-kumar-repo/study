@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const StoreArrayOfObjectsInLocalStorage = () => {
   return (
     <>
-      <Title>StoreArrayOfObjectsInLocalStorage</Title>
+      <Title>Store Array Of Objects In Local Storage</Title>
     </>
   );
 };

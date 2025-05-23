@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ObjectClone = () => {
   return (
     <>
-      <Title>ObjectClone</Title>
+      <Title>Object Clone</Title>
     </>
   );
 };

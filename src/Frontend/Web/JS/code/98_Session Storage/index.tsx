@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const SessionStorage = () => {
   return (
     <>
-      <Title>SessionStorage</Title>
+      <Title>Session Storage</Title>
     </>
   );
 };

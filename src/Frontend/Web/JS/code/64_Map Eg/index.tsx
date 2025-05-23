@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const MapEg = () => {
   return (
     <>
-      <Title>MapEg</Title>
+      <Title>Map Eg</Title>
     </>
   );
 };

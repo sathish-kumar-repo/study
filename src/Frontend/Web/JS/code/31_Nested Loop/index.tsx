@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const NestedLoop = () => {
   return (
     <>
-      <Title>NestedLoop</Title>
+      <Title>Nested Loop</Title>
     </>
   );
 };

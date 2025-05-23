@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const NestedIf = () => {
   return (
     <>
-      <Title>NestedIf</Title>
+      <Title>Nested If</Title>
     </>
   );
 };

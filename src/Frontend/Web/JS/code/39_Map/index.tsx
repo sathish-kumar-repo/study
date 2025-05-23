@@ -1,6 +1,6 @@
 import { Title } from "../../../../../Backend/UI";
 
-const MapJs = () => {
+const Map = () => {
   return (
     <>
       <Title>Map</Title>
@@ -8,4 +8,4 @@ const MapJs = () => {
   );
 };
 
-export default MapJs;
+export default Map;

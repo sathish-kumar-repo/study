@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const TemplateLiterals = () => {
   return (
     <>
-      <Title>TemplateLiterals</Title>
+      <Title>Template Literals</Title>
     </>
   );
 };

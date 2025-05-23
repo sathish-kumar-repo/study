@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const AsyncAwait = () => {
   return (
     <>
-      <Title>AsyncAwait</Title>
+      <Title>Async Await</Title>
     </>
   );
 };

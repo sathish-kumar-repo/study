@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ClassAndInheritance = () => {
   return (
     <>
-      <Title>ClassAndInheritance</Title>
+      <Title>Class And Inheritance</Title>
     </>
   );
 };

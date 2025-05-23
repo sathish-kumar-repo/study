@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ForOf = () => {
   return (
     <>
-      <Title>ForOf</Title>
+      <Title>For Of</Title>
     </>
   );
 };

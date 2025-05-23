@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const EveryAndSome = () => {
   return (
     <>
-      <Title>EveryAndSome</Title>
+      <Title>Every And Some</Title>
     </>
   );
 };

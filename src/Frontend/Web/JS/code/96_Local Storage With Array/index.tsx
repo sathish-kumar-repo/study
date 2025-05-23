@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const LocalStorageWithArray = () => {
   return (
     <>
-      <Title>LocalStorageWithArray</Title>
+      <Title>Local Storage With Array</Title>
     </>
   );
 };

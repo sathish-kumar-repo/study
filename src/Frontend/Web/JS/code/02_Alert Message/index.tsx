@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const AlertMessage = () => {
   return (
     <>
-      <Title>AlertMessage</Title>
+      <Title>Alert Message</Title>
     </>
   );
 };

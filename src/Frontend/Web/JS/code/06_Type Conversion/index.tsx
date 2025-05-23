@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const TypeConversion = () => {
   return (
     <>
-      <Title>TypeConversion</Title>
+      <Title>Type Conversion</Title>
     </>
   );
 };

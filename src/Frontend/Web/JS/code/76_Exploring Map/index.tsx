@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ExploringMap = () => {
   return (
     <>
-      <Title>ExploringMap</Title>
+      <Title>Exploring Map</Title>
     </>
   );
 };

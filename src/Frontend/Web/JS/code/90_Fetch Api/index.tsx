@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const FetchApi = () => {
   return (
     <>
-      <Title>FetchApi</Title>
+      <Title>Fetch Api</Title>
     </>
   );
 };

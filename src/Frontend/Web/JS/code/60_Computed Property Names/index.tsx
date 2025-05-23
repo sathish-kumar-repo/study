@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ComputedPropertyNames = () => {
   return (
     <>
-      <Title>ComputedPropertyNames</Title>
+      <Title>Computed Property Names</Title>
     </>
   );
 };

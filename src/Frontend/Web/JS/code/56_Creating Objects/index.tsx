@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const CreatingObjects = () => {
   return (
     <>
-      <Title>CreatingObjects</Title>
+      <Title>Creating Objects</Title>
     </>
   );
 };

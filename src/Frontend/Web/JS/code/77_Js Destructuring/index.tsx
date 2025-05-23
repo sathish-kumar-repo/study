@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const JsDestructuring = () => {
   return (
     <>
-      <Title>JsDestructuring</Title>
+      <Title>Js Destructuring</Title>
     </>
   );
 };

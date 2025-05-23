@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const DomCreateAndRemoveMethod = () => {
   return (
     <>
-      <Title>DomCreateAndRemoveMethod</Title>
+      <Title>Dom Create And Remove Method</Title>
     </>
   );
 };

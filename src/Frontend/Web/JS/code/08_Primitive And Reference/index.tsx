@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const PrimitiveAndReference = () => {
   return (
     <>
-      <Title>PrimitiveAndReference</Title>
+      <Title>Primitive And Reference</Title>
     </>
   );
 };

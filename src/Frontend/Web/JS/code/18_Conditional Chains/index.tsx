@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const ConditionalChains = () => {
   return (
     <>
-      <Title>ConditionalChains</Title>
+      <Title>Conditional Chains</Title>
     </>
   );
 };

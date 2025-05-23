@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const GroupSwitch = () => {
   return (
     <>
-      <Title>GroupSwitch</Title>
+      <Title>Group Switch</Title>
     </>
   );
 };

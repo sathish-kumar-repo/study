@@ -3,7 +3,7 @@ import { Title } from "../../../../../Backend/UI";
 const GettersSetters = () => {
   return (
     <>
-      <Title>GettersSetters</Title>
+      <Title>Getters Setters</Title>
     </>
   );
 };

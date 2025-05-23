@@ -1,4 +1,6 @@
 fileList = [
+    "Basic Program In Js",
+    "Alert Message",
     "Console Work",
     "Var let const",
     "Some code based data type",
