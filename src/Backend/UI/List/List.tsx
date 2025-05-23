@@ -10,14 +10,16 @@ type OrderedSymbol =
   | "lowercase-roman";
 
 type ListItem = {
-  text: string | React.ReactNode; // Allow both strings and components
-  children?: (ListItem | string)[]; // Option for nested items
+  text: string | React.ReactNode;
+  children?: ListItemContent[];
 };
 
+type ListItemContent = string | React.ReactNode | ListItem;
+
 type ListProps = {
-  items: (string | ListItem)[]; // Items can now be strings or full ListItem objects
+  items: ListItemContent[];
   type?: ListType;
-  orderedSymbol?: OrderedSymbol; // New prop for ordered list symbol
+  orderedSymbol?: OrderedSymbol;
   glass?: boolean;
   main?: boolean;
 };
@@ -36,12 +38,12 @@ const List: React.FC<ListProps> = ({
       case "uppercase-alphabet":
         return String.fromCharCode(65 + index); // A, B, C, ...
       case "roman":
-        return toRoman(index + 1); // Convert to Roman numerals
+        return toRoman(index + 1); // I, II, III...
       case "lowercase-roman":
-        return toRoman(index + 1).toLowerCase(); // Convert to lowercase Roman numerals
+        return toRoman(index + 1).toLowerCase(); // i, ii, iii...
       case "number":
       default:
-        return (index + 1).toString();
+        return (index + 1).toString(); // 1, 2, 3...
     }
   };
 
@@ -80,8 +82,9 @@ const List: React.FC<ListProps> = ({
     return result;
   };
 
-  const renderList = (items: (string | ListItem)[], nested = false) => {
+  const renderList = (items: ListItemContent[], nested = false) => {
     const ListTag = type === "ordered" ? "ol" : "ul";
+
     return (
       <ListTag
         className={`glassmorphic-list ${nested ? "nested" : ""} ${
@@ -89,7 +92,13 @@ const List: React.FC<ListProps> = ({
         } ${main ? "main" : ""}`}
       >
         {items.map((item, index) => {
-          const itemText = typeof item === "string" ? item : item.text;
+          const isPlain =
+            typeof item === "string" || React.isValidElement(item);
+
+          const itemText = isPlain ? item : (item as ListItem).text;
+
+          const children = !isPlain && (item as ListItem).children;
+
           return (
             <li key={index} className="list-item">
               <span
@@ -100,9 +109,7 @@ const List: React.FC<ListProps> = ({
                 {type === "ordered" ? `${getOrderedSymbol(index)}.` : ""}
               </span>
               {itemText}
-              {typeof item !== "string" &&
-                item.children &&
-                renderList(item.children, true)}
+              {children && renderList(children, true)}
             </li>
           );
         })}

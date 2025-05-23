@@ -13,7 +13,7 @@
 }
 .glassmorphic-list .glassmorphic-list {
   margin-top: 10px;
-  padding: 16px;
+  /* padding: 16px; */
 }
 .glassmorphic-list.glass {
   padding: 16px;
