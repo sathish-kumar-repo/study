@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { vs2015 as theme } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { monokai as theme } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
   DomainKey,
   getDomainUrl,
