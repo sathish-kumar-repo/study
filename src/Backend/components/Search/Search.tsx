@@ -51,19 +51,27 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
     }
   }, [showSearch]);
 
+  const seenCourseNames = new Set<string>();
+
   const filteredResults: CourseResult[] = Object.entries(mainData)
     .flatMap(([category, courses]) =>
       courses.map((course: Course) => {
         const matchingRoutes = course.route.filter((route) =>
-          route.topic.toLowerCase().includes(searchTerm)
+          route.topic.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        if (matchingRoutes.length > 0) {
+
+        if (
+          matchingRoutes.length > 0 &&
+          !seenCourseNames.has(course.about.name)
+        ) {
+          seenCourseNames.add(course.about.name);
           return {
             category,
             name: course.about.name,
             routes: matchingRoutes,
           };
         }
+
         return null;
       })
     )
