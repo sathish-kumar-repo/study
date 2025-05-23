@@ -1,7 +1,7 @@
 import os
 from main_data import fileList
 
-folder_path = "src\Frontend\Web\CSS\code"
+folder_path = "src\Frontend\Web\JS\code"
 
 
 for index, file in enumerate(fileList):
@@ -22,7 +22,7 @@ for index, file in enumerate(fileList):
 const {camel_case} = () => {{
   return (
     <>
-      <Title>{camel_case}</Title>
+      <Title>{file}</Title>
     </>
   );
 }};
