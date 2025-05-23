@@ -1,7 +1,7 @@
 import os
 from main_data import fileList
 
-folder_path = "src\Frontend\Web\SASS\code"
+folder_path = "src\Frontend\Python Stack\Python\code"
 
 
 for index, file in enumerate(fileList):
