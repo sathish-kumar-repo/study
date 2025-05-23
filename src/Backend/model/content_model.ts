@@ -9,6 +9,7 @@ export type ContentDataType = {
   };
   route: {
     heading?: string;
+    subHeading?: string;
     topic: string;
     page: JSX.Element;
   }[];

@@ -81,6 +81,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     scrollToTop();
   }, [currentTopic]);
 
+  // Close the topic menu when the window is resized
+  useEffect(() => {
+    const handleFn = () => setShowTopic(false);
+    window.addEventListener("resize", handleFn);
+    return () => window.removeEventListener("resize", handleFn);
+  }, []);
+
   // Find the index of the current topic in the route
   const index = contentData.route.findIndex(
     (content) => content.topic === currentTopic
@@ -148,7 +155,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
 
         <Container className="content-wrapper">
           {/* Backdrop */}
-          <Backdrop enable={showTopic} />
+          <Backdrop enable={showTopic} className="tutorial-backdrop" />
 
           {/* Content Topic */}
           {isSinglePage && (
@@ -169,7 +176,13 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                     ref={content.topic === currentTopic ? activeTopicRef : null}
                   >
                     {content.heading && (
-                      <h3 className="topic-subheading">{content.heading}</h3>
+                      <h3 className="topic-heading">{content.heading}</h3>
+                    )}
+                    {content.subHeading && (
+                      <h3 className="topic-subheading">
+                        <span>- </span>
+                        {content.subHeading}
+                      </h3>
                     )}
                     <NavLink
                       end

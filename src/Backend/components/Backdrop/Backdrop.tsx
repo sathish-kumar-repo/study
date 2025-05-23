@@ -5,17 +5,19 @@ interface BackdropProps {
   onClick?: () => void;
   enable?: boolean;
   zIndex?: number;
+  className?: string;
 }
 
 const Backdrop: React.FC<BackdropProps> = ({
   onClick,
   enable = false,
   zIndex = 999,
+  className,
 }) => {
   if (enable) {
     return (
       <div
-        className={styles.backdrop}
+        className={`${styles.backdrop} ${className || ""}`}
         style={{ zIndex }}
         onClick={onClick}
       ></div>
