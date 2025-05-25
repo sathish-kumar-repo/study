@@ -7,7 +7,6 @@ const Rules = () => {
 
       <H1>Five Basic Rules</H1>
       <List
-        main
         type="ordered"
         items={[
           "Proper day routine",
@@ -32,7 +31,6 @@ const Rules = () => {
 
       <H2>3. Train mentally and physically</H2>
       <List
-        main
         type="ordered"
         items={[
           "Consume self development or feed any positive things",
@@ -45,7 +43,6 @@ const Rules = () => {
       <H2>4. Optimise your intake</H2>
 
       <List
-        main
         // glass
         type="ordered"
         items={[
@@ -61,7 +58,6 @@ const Rules = () => {
 
       <H2>5. Don’t be in Comfort zone</H2>
       <List
-        main
         type="ordered"
         items={[
           "Follow discipline",
