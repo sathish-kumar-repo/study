@@ -1,4 +1,4 @@
-import { H1, H2, H3, Para, Syntax, Title } from "../../../../../../Backend/UI";
+import { H1, Para, Syntax, Title } from "../../../../../../Backend/UI";
 
 const AtributeSelectors = () => {
   return (
