@@ -200,3 +200,15 @@
 .navigation-button:active {
   transform: scale(0.95);
 }
+
+.topic-h1 {
+  padding-left: 0px;
+}
+
+.topic-h2 {
+  padding-left: 16px;
+}
+
+.topic-h3 {
+  padding-left: 32px;
+}

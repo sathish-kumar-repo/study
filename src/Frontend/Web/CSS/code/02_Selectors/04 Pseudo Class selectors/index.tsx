@@ -6,6 +6,7 @@ import {
   Note,
   List,
   Title,
+  HL,
 } from "../../../../../../Backend/UI";
 
 const PseudoClassSelectors = () => {
@@ -69,26 +70,58 @@ const PseudoClassSelectors = () => {
       <Note>This only works if the element has a parent container.</Note>
 
       <H1>:nth-child(n)</H1>
-      <Para>Selects the nth child of its parent (starting from 1).</Para>
+      <Para>
+        Selects the <b>nth child</b> (of any type) among its parent's children.
+        Accepts patterns like <code>2n</code>, <code>odd</code>,{" "}
+        <code>even</code>, and <code>3n-1</code>.
+      </Para>
       <Syntax title="style.css" language="css" code={nthChildCSS} />
       <Syntax title="index.html" language="html" code={nthChildHTML} />
 
-      {/* dfdfd */}
       <H1>:nth-last-child(n)</H1>
-      <Para>Selects the nth last child of its parent.</Para>
-      <Syntax title="style.css" language="css" code={nthChildCSS} />
-      <Syntax title="index.html" language="html" code={nthChildHTML} />
+      <Para>
+        Selects the <b>nth child from the end</b> among its siblings. Useful
+        with patterns like <code>2n</code>, <code>odd</code>, <code>even</code>,{" "}
+        <code>3n-1</code>.
+      </Para>
+      <Syntax title="style.css" language="css" code={nthLastChildCSS} />
+      <Syntax title="index.html" language="html" code={nthLastChildHTML} />
 
       <H1>:nth-of-type(n)</H1>
-      <Para>Selects the nth child of a specific type among its siblings.</Para>
+      <Para>
+        Selects the <b>nth element of a specific type</b> among its siblings.
+        Counts only siblings of the same type. You can use formulas like{" "}
+        <code>2n</code> (even), <code>2n+1</code> (odd), <code>3n-1</code>, etc.
+      </Para>
       <Syntax title="style.css" language="css" code={nthOfTypeCSS} />
       <Syntax title="index.html" language="html" code={nthOfTypeHTML} />
 
+      <H1>:nth-last-of-type(n)</H1>
+      <Para>
+        Selects the <b>nth element of a specific type</b> counting from the end
+        among its siblings. Counts only siblings of the same type. Like{" "}
+        <code>:nth-of-type</code>, formulas like <code>2n</code>,{" "}
+        <code>odd</code>, or <code>3n-1</code> can be used.
+      </Para>
+      <Syntax title="style.css" language="css" code={nthLastOfTypeCSS} />
+      <Syntax title="index.html" language="html" code={nthLastOfTypeHTML} />
       <H1>:only-child</H1>
-      <Para>Selects an element that is the only child of its parent.</Para>
+      <Para>
+        Selects an element that is the <b>only child</b> of its parent,
+        regardless of type. If the parent has more than one child element, none
+        will be selected.
+      </Para>
       <Syntax title="style.css" language="css" code={onlyChildCSS} />
       <Syntax title="index.html" language="html" code={onlyChildHTML} />
-      <Note>Parent element is necessary.</Note>
+
+      <H1>:only-of-type</H1>
+      <Para>
+        Selects an element that is the <b>only one of its type</b> among its
+        siblings. If there are multiple elements of the same type, none will be
+        selected.
+      </Para>
+      <Syntax title="style.css" language="css" code={onlyOfTypeCSS} />
+      <Syntax title="index.html" language="html" code={onlyOfTypeHTML} />
 
       <H1>:empty</H1>
       <Para>
@@ -128,10 +161,18 @@ const PseudoClassSelectors = () => {
       </Para>
       <List
         items={[
-          "<code>:link</code> - Unvisited links",
-          "<code>:visited</code> - Visited links",
-          "<code>:hover</code> - When mouse is over the link",
-          "<code>:active</code> - When the link is being clicked",
+          <>
+            <HL>:link</HL> - Unvisited links
+          </>,
+          <>
+            <HL>:visited</HL> - Visited links
+          </>,
+          <>
+            <HL>:hover</HL> - When mouse is over the link
+          </>,
+          <>
+            <HL>:active</HL> - When the link is being clicked
+          </>,
         ]}
       />
       <Syntax title="style.css" language="css" code={linkStatesCSS} />
@@ -239,46 +280,179 @@ const lastChildHTML = `
 `;
 
 const nthChildCSS = `
-li:nth-child(2) {
-  color: green;
+/* Even children */
+ul li:nth-child(even) {
+  background-color: #e0f7fa;
+}
+
+/* Odd children */
+ul li:nth-child(odd) {
+  background-color: #fce4ec;
+}
+
+/* Every 2nd child */
+ul li:nth-child(2n) {
+  font-style: italic;
+}
+
+/* Custom pattern: 3n-1 */
+ul li:nth-child(3n-1) {
+  font-weight: bold;
+  color: seagreen;
 }
 `;
 
-const nthChildHTML = `
-<ul>
-  <li>First item</li>
-  <li>Second item (green)</li>
-  <li>Third item</li>
-</ul>
+const nthLastChildCSS = `
+/* Even children from end */
+ul li:nth-last-child(even) {
+  background-color: #ffecb3;
+}
+
+/* Odd children from end */
+ul li:nth-last-child(odd) {
+  background-color: #e1bee7;
+}
+
+/* Every 2nd child from end */
+ul li:nth-last-child(2n) {
+  text-decoration: underline;
+}
+
+/* Custom pattern: 3n-1 from end */
+ul li:nth-last-child(3n-1) {
+  border: 1px dashed #777;
+}
 `;
 
 const nthOfTypeCSS = `
-p:nth-of-type(2) {
-  color: blue;
+/* Even paragraphs */
+section p:nth-of-type(even) {
+  background-color: #f1f1f1;
+}
+
+/* Odd paragraphs */
+section p:nth-of-type(odd) {
+  color: darkblue;
+}
+
+/* Every 2nd element (same as even) */
+section p:nth-of-type(2n) {
+  font-weight: bold;
+}
+
+/* Custom pattern: 3n-1 */
+section p:nth-of-type(3n-1) {
+  text-decoration: underline;
+  color: seagreen;
+}
+`;
+
+const nthLastOfTypeCSS = `
+/* Even paragraphs from end */
+section p:nth-last-of-type(even) {
+  background-color: #ffe4e1;
+}
+
+/* Odd paragraphs from end */
+section p:nth-last-of-type(odd) {
+  color: maroon;
+}
+
+/* Every 2nd element from end */
+section p:nth-last-of-type(2n) {
+  font-style: italic;
+}
+
+/* Custom pattern: 3n-1 from end */
+section p:nth-last-of-type(3n-1) {
+  border-bottom: 1px dashed black;
 }
 `;
 
 const nthOfTypeHTML = `
-<div>
-  <p>First paragraph</p>
-  <span>Not a paragraph</span>
-  <p>Second paragraph (blue)</p>
-</div>
+<section>
+  <p>Paragraph 1 (1st child)</p>
+  <p>Paragraph 2 (2nd child)</p>
+  <p>Paragraph 3 (3rd child)</p>
+  <spam>ignored</spam>
+  <p>Paragraph 4 (4th child)</p>
+  <p>Paragraph 5 (5th child)</p>
+</section>
 `;
 
+const nthLastOfTypeHTML = nthOfTypeHTML;
+
+const nthChildHTML = `
+<ul>
+  <li>Item 1 (1st child)</li>
+  <li>Item 2 (2nd child)</li>
+  <li>Item 3 (3rd child)</li>
+  <li>Item 4 (4th child)</li>
+  <li>Item 5 (5th child)</li>
+  <li>Item 6 (6th child)</li>
+</ul>
+`;
+
+const nthLastChildHTML = nthChildHTML;
+
 const onlyChildCSS = `
-div > p:only-child {
-  color: purple;
+/* Style any element that is the only child of its parent */
+p:only-child {
+  color: white;
+  background-color: #ff7043;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+div > h2:only-child {
+  font-style: italic;
+  border-bottom: 2px solid #673ab7;
 }
 `;
 
 const onlyChildHTML = `
 <div>
-  <p>This paragraph is the only child and purple.</p>
+  <p>This paragraph is the only child of its parent div and will be styled.</p>
 </div>
+
 <div>
-  <p>First child</p>
-  <p>Second child</p>
+  <h2>This h2 is the only child inside this div and will be styled.</h2>
+</div>
+
+<div>
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+</div>
+`;
+
+const onlyOfTypeCSS = `
+/* Style the only <p> element among siblings */
+p:only-of-type {
+  color: white;
+  background-color: #4caf50;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Style the only <h2> element among siblings */
+h2:only-of-type {
+  font-style: italic;
+  border-bottom: 2px solid #2196f3;
+}
+`;
+
+const onlyOfTypeHTML = `
+<div>
+  <p>This paragraph is the only paragraph inside this div and will be styled.</p>
+  <h2>This heading is the only h2 here and will be styled.</h2>
+  <span>Some other element</span>
+</div>
+
+<div>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <h2>Heading 1</h2>
+  <h2>Heading 2</h2>
 </div>
 `;
 

@@ -1,5 +1,7 @@
 import { JSX } from "react";
 
+type TopicType = "H1" | "H2" | "H3";
+
 export type ContentDataType = {
   about: {
     subCategory?: string;
@@ -11,9 +13,7 @@ export type ContentDataType = {
     heading?: string;
     subHeading?: string;
     topic: string;
-    topicH1: string;
-    topicH2: string;
-    topicH3: string;
+    type?: TopicType;
     page: JSX.Element;
   }[];
 };

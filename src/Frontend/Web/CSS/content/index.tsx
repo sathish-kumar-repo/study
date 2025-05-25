@@ -81,28 +81,32 @@ const cssContent = {
       page: <CssReference />,
     },
     {
-      heading: "Selector",
       topic: "Selectors types",
       page: <Selectors />,
     },
     {
       topic: "Simple Selectors",
+      type: "H2",
       page: <SimpleSelectors />,
     },
     {
       topic: "Combinators Selectors",
+      type: "H2",
       page: <CombinatorsSelectors />,
     },
     {
       topic: "Atribute Selectors",
+      type: "H2",
       page: <AtributeSelectors />,
     },
     {
       topic: "Pseudo Class Selectors",
+      type: "H2",
       page: <PseudoClassSelectors />,
     },
     {
       topic: "Pseudo Element Selectors",
+      type: "H2",
       page: <PseudoElementSelectors />,
     },
     {

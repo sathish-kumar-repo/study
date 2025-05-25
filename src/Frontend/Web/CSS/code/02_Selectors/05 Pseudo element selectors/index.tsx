@@ -1,15 +1,22 @@
-import { H1, Para, Syntax, Table, Title } from "../../../../../../Backend/UI";
+import {
+  H1,
+  HL,
+  Para,
+  Syntax,
+  Table,
+  Title,
+} from "../../../../../../Backend/UI";
 
 const PseudoElementSelectors = () => {
   return (
     <>
       <Title>Pseudo Elements in CSS</Title>
-      <Para>
+      <Para tab>
         A <b>pseudo-element</b> is a special keyword added to a selector that
         allows you to style specific parts of an element. While pseudo-classes
-        style the element in a certain state, pseudo-elements style parts
-        **inside** the element — like the first letter, line, or generated
-        content.
+        style the element in a certain state, pseudo-elements style parts{" "}
+        <b>**inside**</b> the element — like the first letter, line, or
+        generated content.
       </Para>
 
       <Table>

@@ -170,33 +170,43 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 </span>
               </div>
               <ul>
-                {contentData.route.map((content, index) => (
-                  <li
-                    key={index}
-                    ref={content.topic === currentTopic ? activeTopicRef : null}
-                  >
-                    {content.heading && (
-                      <h3 className="topic-heading">{content.heading}</h3>
-                    )}
-                    {content.subHeading && (
-                      <h3 className="topic-subheading">
-                        <span>- </span>
-                        {content.subHeading}
-                      </h3>
-                    )}
-                    <NavLink
-                      end
-                      to={`/${category}/${contentData.about.name}/${content.topic}`}
-                      onClick={() => {
-                        setCurrentTopic(content.topic);
-                        setShowTopic(false);
-                        scrollToTop();
-                      }}
+                {contentData.route.map((content, index) => {
+                  const isActive = content.topic === currentTopic;
+                  const indentClass =
+                    content.type === "H2"
+                      ? "topic-h2"
+                      : content.type === "H3"
+                      ? "topic-h3"
+                      : "topic-h1";
+                  return (
+                    <li
+                      key={index}
+                      ref={isActive ? activeTopicRef : null}
+                      className={`topic-item ${indentClass}`}
                     >
-                      {capitalizeFirstLetter(content.topic)}
-                    </NavLink>
-                  </li>
-                ))}
+                      {content.heading && (
+                        <h3 className="topic-heading">{content.heading}</h3>
+                      )}
+                      {content.subHeading && (
+                        <h3 className="topic-subheading">
+                          <span>- </span>
+                          {content.subHeading}
+                        </h3>
+                      )}
+                      <NavLink
+                        end
+                        to={`/${category}/${contentData.about.name}/${content.topic}`}
+                        onClick={() => {
+                          setCurrentTopic(content.topic);
+                          setShowTopic(false);
+                          scrollToTop();
+                        }}
+                      >
+                        {capitalizeFirstLetter(content.topic)}
+                      </NavLink>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
