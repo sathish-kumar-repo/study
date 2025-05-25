@@ -25,7 +25,7 @@ const Rules = () => {
       <Space sB={15} />
 
       <H2>2. Stop any negative addiction </H2>
-      <List main type="ordered" items={["Consuming lot of Entertainment"]} />
+      <List type="ordered" items={["Consuming lot of Entertainment"]} />
 
       <Space />
 
