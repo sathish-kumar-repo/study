@@ -20,6 +20,11 @@
   --off-canvas-color: #ffe3ff;
 }
 
+::selection {
+  background: #ffe3ff;
+  color: #8a2435;
+}
+
 .outfit {
   font-family: "Outfit", sans-serif;
 }
