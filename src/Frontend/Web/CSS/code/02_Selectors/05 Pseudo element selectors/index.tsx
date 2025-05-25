@@ -1,11 +1,4 @@
-import {
-  H1,
-  HL,
-  Para,
-  Syntax,
-  Table,
-  Title,
-} from "../../../../../../Backend/UI";
+import { Para, Syntax, Table, Title } from "../../../../../../Backend/UI";
 
 const PseudoElementSelectors = () => {
   return (
