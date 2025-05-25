@@ -4,6 +4,7 @@ const IntroFlutter = () => {
   return (
     <>
       <Title>Flutter Overview</Title>
+
       <H1>Intro</H1>
       <Para>
         Readme <b>Changelog</b> <u>Installing</u> <i>Example</i> <s>Versions</s>
@@ -17,6 +18,7 @@ const IntroFlutter = () => {
         consequatur recusandae eum consectetur dicta culpa sed perspiciatis?
         Officia, veniam nihil?
       </Para>
+
       <H1>Features</H1>
       <H2>Simple is one of th word</H2>
       <List
@@ -31,14 +33,14 @@ const IntroFlutter = () => {
         ]}
       />
 
+      <H1>Getting Started</H1>
       <Para>Add this package to your project.</Para>
-      {/* <H1>Getting Started</H1>
       <Note>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
         dolorem ullam, quidem officia corporis assumenda quas iusto cupiditate,
         eligendi aliquam sunt optio eius facilis, hic error laboriosam maxime
         quo? Dicta.
-      </Note> */}
+      </Note>
     </>
   );
 };
