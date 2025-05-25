@@ -194,6 +194,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                         </h3>
                       )}
                       <NavLink
+                        className={"my-nav-link"}
                         end
                         to={`/${category}/${contentData.about.name}/${content.topic}`}
                         onClick={() => {

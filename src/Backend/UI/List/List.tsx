@@ -21,7 +21,7 @@ type ListProps = {
   type?: ListType;
   orderedSymbol?: OrderedSymbol;
   glass?: boolean;
-  main?: boolean;
+  small?: boolean;
 };
 
 const List: React.FC<ListProps> = ({
@@ -29,7 +29,7 @@ const List: React.FC<ListProps> = ({
   type = "unordered",
   orderedSymbol = "number",
   glass = false,
-  main = false,
+  small = false,
 }) => {
   const getOrderedSymbol = (index: number): string => {
     switch (orderedSymbol) {
@@ -89,7 +89,7 @@ const List: React.FC<ListProps> = ({
       <ListTag
         className={`glassmorphic-list ${nested ? "nested" : ""} ${
           glass ? "glass" : ""
-        } ${main ? "main" : ""}`}
+        } ${small ? "small" : ""}`}
       >
         {items.map((item, index) => {
           const isPlain =

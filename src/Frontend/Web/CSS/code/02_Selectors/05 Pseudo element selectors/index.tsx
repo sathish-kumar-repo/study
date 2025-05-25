@@ -1,4 +1,10 @@
-import { Para, Syntax, Table, Title } from "../../../../../../Backend/UI";
+import {
+  Para,
+  Space,
+  Syntax,
+  Table,
+  Title,
+} from "../../../../../../Backend/UI";
 
 const PseudoElementSelectors = () => {
   return (
@@ -11,7 +17,7 @@ const PseudoElementSelectors = () => {
         <b>**inside**</b> the element — like the first letter, line, or
         generated content.
       </Para>
-
+      <Space sT={20} />
       <Table>
         <thead>
           <tr>
@@ -64,7 +70,7 @@ const PseudoElementSelectors = () => {
           </tr>
         </tbody>
       </Table>
-
+      <Space sT={20} />
       <Syntax title="style.css" language="css" code={css} />
       <Syntax title="index.html" language="html" code={html} />
     </>

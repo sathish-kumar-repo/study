@@ -1,6 +1,7 @@
 .glassmorphic-list-container {
-  margin-bottom: var(--content-space);
-  overflow: hidden; /* prevent margin collaps*/
+  /* margin-bottom: var(--text-content-space); */
+  /* prevent margin collaps */
+  overflow: hidden;
 }
 
 .glassmorphic-list {
@@ -15,20 +16,25 @@
   margin-top: 10px;
   /* padding: 16px; */
 }
+.glassmorphic-list-container:has(.glassmorphic-list.glass) {
+  margin-bottom: var(--text-content-space);
+}
+
 .glassmorphic-list.glass {
   padding: 16px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.glassmorphic-list.main .list-item {
-  font-size: 1.1rem;
+.glassmorphic-list.small .list-item {
+  font-size: 1rem;
 }
 .list-item {
   position: relative;
   padding-left: 24px;
   margin-bottom: 8px;
   line-height: 1.5rem;
+  font-size: 1.1rem;
   font-family: var(--font-family-body);
 }
 

@@ -19,9 +19,11 @@
   --off-canvas-transition: 0.5s ease;
   --off-canvas-color: #ffe3ff;
   --title-space: 50px;
-  --heading-space: 2rem;
-  --sub-heading-space: 1.8rem;
+  --heading-space: 3rem;
+  --sub-heading-space: 2.28rem;
+  --sub-sub-heading-space: 1.76rem;
   --content-space: 1.4rem;
+  --text-content-space: 15px;
 }
 
 ::selection {

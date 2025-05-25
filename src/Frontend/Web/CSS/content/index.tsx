@@ -81,6 +81,7 @@ const cssContent = {
       page: <CssReference />,
     },
     {
+      heading: "Selectors",
       topic: "Selectors types",
       page: <Selectors />,
     },
