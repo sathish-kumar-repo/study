@@ -1,5 +1,8 @@
 .highlight {
-  background-color: #fff8f998;
-  margin: 0 5px;
+  background-color: var(--off-canvas-color);
+  color: var(--accent-color);
+  padding: 0 5px;
   border-radius: 3px;
+  display: inline-block;
+  font-family: monospace;
 }

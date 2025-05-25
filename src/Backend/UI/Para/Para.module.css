@@ -7,8 +7,31 @@
   text-align: justify;
 }
 
-.para.tabbed {
+.tabbed {
   text-indent: 2em; /* Apply space to the first line only */
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.codeStyle {
+  font-family: monospace;
+  background-color: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
 }
 
 /* @media (max-width: 768px) {
