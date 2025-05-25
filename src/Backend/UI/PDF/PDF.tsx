@@ -12,15 +12,11 @@ interface PDFViewProps extends Record<string, any> {
   name?: string;
   customDomain?: string;
   domainKey?: DomainKey;
+  heading?: boolean;
 }
 
 const PDF: React.FC<PDFViewProps> = (props) => {
-  const {
-    file,
-    name = "Reference",
-    customDomain,
-    domainKey: directKey,
-  } = props;
+  const { file, name, heading, customDomain, domainKey: directKey } = props;
   const navigate = useNavigate();
 
   const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
@@ -44,7 +40,9 @@ const PDF: React.FC<PDFViewProps> = (props) => {
 
   return (
     <div className={styles.pdf_glass_item}>
-      <p className={styles.name}>{name}</p>
+      {(name || heading) && (
+        <p className={styles.name}>{name || "Reference"}</p>
+      )}
       <div className={styles.pdf_info} onClick={openViewer}>
         <img
           className={styles.icon}

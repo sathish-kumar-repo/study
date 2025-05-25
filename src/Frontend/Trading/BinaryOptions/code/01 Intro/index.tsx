@@ -1,4 +1,5 @@
 import { Title, H1, Media, Para } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const Intro = () => {
   return (
@@ -31,7 +32,10 @@ const Intro = () => {
         above a certain price, at a certain time. If you think it will be, you
         buy. If you think it won’t be, you sell.
       </Para>
-      <Media src={"Binary Options/Part A/01 Basic Lesson/binary-option.png"} />
+      <Media
+        customDomain={domain}
+        src={"Part A/01 Basic Lesson/binary-option.png"}
+      />
     </>
   );
 };

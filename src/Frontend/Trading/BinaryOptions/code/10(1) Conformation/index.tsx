@@ -1,4 +1,5 @@
 import { Title, H1, Media, Note, Para } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const Conformation = () => {
   return (
@@ -17,8 +18,9 @@ const Conformation = () => {
       </Note>
 
       <Media
+        customDomain={domain}
         sequence={{
-          base: "Binary Options/Part A/10 Conformation/",
+          base: "Part A/10 Conformation/",
           start: 1,
           end: 2,
         }}

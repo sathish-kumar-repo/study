@@ -1,4 +1,5 @@
 import { Title, H1, Media } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const BuyerPyscology = () => {
   return (
@@ -9,7 +10,7 @@ const BuyerPyscology = () => {
       <Media src="https://youtu.be/y0kGJnD3zXk" />
 
       <H1>Pyscology and Price Action</H1>
-      <Media src={"Binary Options/Part A/11 Buyer Pyscology/1.png"} />
+      <Media customDomain={domain} src={"Part A/11 Buyer Pyscology/1.png"} />
     </>
   );
 };

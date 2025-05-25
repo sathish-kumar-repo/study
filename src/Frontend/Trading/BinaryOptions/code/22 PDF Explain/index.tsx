@@ -1,4 +1,5 @@
 import { Title, H1, Media, PDF } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const PDFExplain = () => {
   return (
@@ -8,7 +9,7 @@ const PDFExplain = () => {
       <H1>Tutorial:</H1>
       <Media src="https://youtu.be/K-GhBQNRCwY" />
 
-      <PDF file="Binary Options/Part B/22 pdf explain/Pattern pdf/candlestickpattern.pdf" />
+      <PDF customDomain={domain} heading file="pdf/candlestickpattern.pdf" />
     </>
   );
 };

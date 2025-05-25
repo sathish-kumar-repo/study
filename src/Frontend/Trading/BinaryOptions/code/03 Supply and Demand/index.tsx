@@ -1,4 +1,5 @@
 import { Title, H1, Media } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const SupplyAndDemand = () => {
   return (
@@ -14,7 +15,10 @@ const SupplyAndDemand = () => {
       />
 
       <H1>Demand:</H1>
-      <Media src={"Binary Options/Part A/04 Supply and Demand/support.png"} />
+      <Media
+        customDomain={domain}
+        src={"Part A/04 Supply and Demand/support.png"}
+      />
     </>
   );
 };

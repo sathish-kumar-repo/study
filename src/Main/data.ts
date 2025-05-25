@@ -8,6 +8,7 @@ import shreddedContent from "../Frontend/Life Style/Shredded/content";
 import pythonContent from "../Frontend/Python Stack/Python/content";
 import BinaryOptionContent from "../Frontend/Trading/BinaryOptions/content";
 import cwrvContent from "../Frontend/Trading/CWRV/content";
+import binaryOptionPdfCollectionContent from "../Frontend/Trading/PDF/content";
 import bootstrapContent from "../Frontend/Web/Bootstrap/content";
 import cssContent from "../Frontend/Web/CSS/content";
 import webDevCurriculumContent from "../Frontend/Web/Curriculum/content";
@@ -26,7 +27,7 @@ import tsContent from "../Frontend/Web/TS/content";
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
-  trading: [BinaryOptionContent, cwrvContent],
+  trading: [BinaryOptionContent, cwrvContent, binaryOptionPdfCollectionContent],
   language: [jsContent, tsContent, javaContent, pythonContent],
   "python stack": [pythonContent],
   "web development": [

@@ -1,4 +1,5 @@
 import { Title, H1, Media } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const SingleCandlestick = () => {
   return (
@@ -10,10 +11,11 @@ const SingleCandlestick = () => {
 
       <H1>Candlestick</H1>
       <Media
+        customDomain={domain}
         src={[
-          "Binary Options/Part A/09 Single Candlestick/1.png",
-          "Binary Options/Part A/09 Single Candlestick/2.png",
-          "Binary Options/Part A/07 Size of Candle/3.png",
+          "Part A/09 Single Candlestick/1.png",
+          "Part A/09 Single Candlestick/2.png",
+          "Part A/07 Size of Candle/3.png",
         ]}
       />
     </>

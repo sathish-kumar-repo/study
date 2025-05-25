@@ -1,4 +1,5 @@
 import { Title, H1, Media, Table } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 
 const SizeOfCandle = () => {
   return (
@@ -39,7 +40,7 @@ const SizeOfCandle = () => {
           </tr>
         </tbody>
       </Table>
-      <Media src={"Binary Options/Part A/07 Size of Candle/2.png"} />
+      <Media customDomain={domain} src={"Part A/07 Size of Candle/2.png"} />
     </>
   );
 };

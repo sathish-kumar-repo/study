@@ -1,4 +1,6 @@
 import { Title, H1, Media, Table } from "../../../../../Backend/UI";
+import { domain } from "../../content";
+
 const AssetsAndOTC = () => {
   return (
     <>
@@ -8,10 +10,10 @@ const AssetsAndOTC = () => {
       <Media src="https://youtu.be/fgRfV2lilRY" />
 
       <H1>Asset:</H1>
-      <Media src={"Binary Options/Part A/03 Asset and OTC/asset.png"} />
+      <Media customDomain={domain} src={"Part A/03 Asset and OTC/asset.png"} />
 
       <H1>OTC:</H1>
-      <Media src={"Binary Options/Part A/03 Asset and OTC/OTC.png"} />
+      <Media customDomain={domain} src={"Part A/03 Asset and OTC/OTC.png"} />
 
       <H1>Option Moneyness:</H1>
       <Table>

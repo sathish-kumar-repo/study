@@ -43,6 +43,9 @@ import MoneyManagement from "../code/41 Money Management";
 import MoneyManagement1 from "../code/42 Money Management";
 import Links from "../code/43 Links";
 
+export const domain =
+  "https://sathish-kumar-repo.github.io/Binary-Options/mumma/";
+
 const BinaryOptionContent = {
   about: {
     subCategory: "Binary Options",
