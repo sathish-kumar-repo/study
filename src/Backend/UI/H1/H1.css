@@ -10,6 +10,7 @@
   color: var(--accent-color);
   margin: var(--heading-space) 0 var(--content-space) 0;
   position: relative;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
