@@ -1,10 +1,11 @@
 import CssReference from "../code/01_Css Reference";
-import Selectors from "../code/02_Selectors";
+
 import SimpleSelectors from "../code/02_Selectors/01 Simple Selectors";
 import CombinatorsSelectors from "../code/02_Selectors/02 Combinators Selectors";
 import AtributeSelectors from "../code/02_Selectors/03 Attribute selectors";
 import PseudoClassSelectors from "../code/02_Selectors/04 Pseudo Class selectors";
 import PseudoElementSelectors from "../code/02_Selectors/05 Pseudo element selectors";
+import Selectors from "../code/02_Selectors/temp";
 import Units from "../code/03_Units";
 import Font from "../code/04_Font";
 import Cursor from "../code/05_Cursor";

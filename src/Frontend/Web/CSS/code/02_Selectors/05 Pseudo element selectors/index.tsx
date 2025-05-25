@@ -3,141 +3,154 @@ import { H1, Para, Syntax, Table, Title } from "../../../../../../Backend/UI";
 const PseudoElementSelectors = () => {
   return (
     <>
-      <Title>Pseudo Elements Property in CSS</Title>
+      <Title>Pseudo Elements in CSS</Title>
       <Para>
-        This pseudo-element can be defined as a keyword which is combined to a
-        selector that defines the special state of the selected elements. Unlike
-        the pseudo-classes, this pseudo-elements are used to style the specific
-        part of an element, whereas the pseudo-classes are used to style the
-        element.
+        A <b>pseudo-element</b> is a special keyword added to a selector that
+        allows you to style specific parts of an element. While pseudo-classes
+        style the element in a certain state, pseudo-elements style parts
+        **inside** the element — like the first letter, line, or generated
+        content.
       </Para>
 
       <Table>
         <thead>
           <tr>
             <th>Selector</th>
-            <th>used for</th>
+            <th>Purpose</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>::after</td>
+            <td>::before</td>
             <td>
-              The insert something after the content of each &lt;p&gt; element
+              Inserts content <b>before</b> the actual content of the element
             </td>
           </tr>
           <tr>
-            <td>::before</td>
+            <td>::after</td>
             <td>
-              The insert something before the content of each &lt;p&gt; element
+              Inserts content <b>after</b> the actual content of the element
             </td>
           </tr>
           <tr>
             <td>::first-letter</td>
-            <td>The selects the first letter of each &lt;p&gt; element</td>
+            <td>
+              Styles the <b>first letter</b> of a block of text
+            </td>
           </tr>
           <tr>
             <td>::first-line</td>
-            <td>The selects the first line of each &lt;p&gt; element</td>
+            <td>
+              Styles the <b>first line</b> of a block of text
+            </td>
           </tr>
           <tr>
             <td>::selection</td>
             <td>
-              he selects the portion of an element that is selected by a user
+              Styles the portion of text <b>highlighted</b> by the user
+            </td>
+          </tr>
+          <tr>
+            <td>::placeholder</td>
+            <td>
+              Styles the <b>placeholder text</b> of an input element
             </td>
           </tr>
           <tr>
             <td>::marker</td>
             <td>
-              The ::marker pseudo-element selects the markers of list items.
+              Styles the <b>bullet or number</b> of list items
             </td>
           </tr>
         </tbody>
       </Table>
 
-      <Syntax title="index.html" language="html" code={code34} />
+      <Syntax title="style.css" language="css" code={css} />
+      <Syntax title="index.html" language="html" code={html} />
     </>
   );
 };
 
 export default PseudoElementSelectors;
 
-var code34 = `
-<!DOCTYPE html>
-<html lang="en">
-<html>
-    <head>
-        <title>Tutorials</title>
-        <style>
-            /* Placeholder */
-            input::placeholder{
-                color: teal;
-            }
-            /* Selection */
-            p::selection{
-                background-color: #222f3e;
-                color: white;
-            }
-            /* First letter pseudo selectors */
-            P::first-letter{
-                font-size: 40px;
-                font-weight: bold;
-                color: red;
-            }
-            p::first-line{
-                color: blue;
-            }
+const css = `
+/* Placeholder text styling */
+input::placeholder {
+  color: teal;
+  font-style: italic;
+}
 
-            .box{
-                background-color: #333;
-                color: white;
-                width: 300px;
-                height: 100px;
-                position: relative;
-            }
-            /* Before and after acts a element
-            speciality, both before and after selectors styling individual
-            before and after selectors inside block la irrukum(eg box)  
-            position property do and style individual */
-            .box::before{
-                /* complusory content irrukanum may empty or some information */
-                content:'';
-                width: 100%;
-                height: 20px;
-                background-color: #ff4757;
-                position: absolute;
-                top:0;
-                left: 0;
-            }
-            .box::after{
-                /* complusory content irrukanum may empty or some information */
-                content:'';
-                width: 100%;
-                height: 20px;
-                background-color: #ff4757;
-                position: absolute;
-                bottom:0;
-                left: 0;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <h1>Pseudo element selectors</h1> 
-        <div class="box">Pseudo elements</div>  
+/* Highlighted text styling */
+p::selection {
+  background-color: #222f3e;
+  color: white;
+}
 
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non ratione nesciunt quasi, earum quo veniam eligendi culpa in, reiciendis quas aperiam quam sint, corrupti dolorum iusto magnam officia! In, porro?
-            </p>
+/* First letter styling */
+p::first-letter {
+  font-size: 40px;
+  font-weight: bold;
+  color: red;
+}
 
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non ratione nesciunt quasi, earum quo veniam eligendi culpa in, reiciendis quas aperiam quam sint, corrupti dolorum iusto magnam officia! In, porro?
-            </p>
-      
-            <input type="text" placeholder="Enter Name">
-        </div>
-        
-        </div>
-    </body>
-</html>
+/* First line styling */
+p::first-line {
+  color: blue;
+  font-style: italic;
+}
+
+/* Box styling with before and after pseudo-elements */
+.box {
+  background-color: #333;
+  color: white;
+  width: 300px;
+  height: 100px;
+  position: relative;
+  padding: 20px;
+}
+
+/* Inserts a red bar at the top */
+.box::before {
+  content: '';
+  width: 100%;
+  height: 20px;
+  background-color: #ff4757;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Inserts a red bar at the bottom */
+.box::after {
+  content: '';
+  width: 100%;
+  height: 20px;
+  background-color: #ff4757;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 `;
+const html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pseudo Elements Demo</title>
+  </head>
+
+  <body>
+    <h1>Pseudo Element Selectors Demo</h1>
+
+    <div class="box">This is a styled box using ::before and ::after</div>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec
+      suscipit nunc. Integer non lectus eget odio mattis lacinia.
+    </p>
+
+    <p>
+      Another paragraph to demonstrate ::first-line and ::first-letter styling.
+    </p>
+
+    <input type="text" placeholder="Enter your name" />
+  </body>
+</html>`;

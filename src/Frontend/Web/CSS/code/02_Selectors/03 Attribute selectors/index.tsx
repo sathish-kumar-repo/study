@@ -1,4 +1,11 @@
-import { H1, Para, Syntax, Title } from "../../../../../../Backend/UI";
+import {
+  H1,
+  HL,
+  List,
+  Para,
+  Syntax,
+  Title,
+} from "../../../../../../Backend/UI";
 
 const AtributeSelectors = () => {
   return (
@@ -8,16 +15,20 @@ const AtributeSelectors = () => {
       <Para>
         CSS Attribute Selectors allow you to apply styles based on attributes in
         HTML elements. You can style elements with:
-        <br />– A specific attribute
-        <br />– A specific value
-        <br />– Values that start with, end with, or contain certain text
       </Para>
-
+      <List
+        items={[
+          "A specific attribute",
+          "A specific value",
+          "Values that start with, end with, or contain certain text",
+        ]}
+      />
       <H1>1. Select elements with a specific attribute</H1>
       <Para>
         Matches elements that contain the given attribute (any value).
         <br />
-        Example: [required] selects inputs with the "required" attribute.
+        <b>Example</b>: <HL>[required]</HL> selects inputs with the "required"
+        attribute.
       </Para>
       <Syntax title="style.css" language="css" code={code10} />
       <Syntax title="index.html" language="html" code={code10_html} />
@@ -26,7 +37,8 @@ const AtributeSelectors = () => {
       <Para>
         Matches elements where the attribute is exactly equal to the value.
         <br />
-        Example: [type="text"] selects only input elements of type text.
+        <b>Example</b>: <HL>[type="text"]</HL> selects only input elements of
+        type text.
       </Para>
       <Syntax title="style.css" language="css" code={code11} />
       <Syntax title="index.html" language="html" code={code11_html} />
@@ -35,7 +47,8 @@ const AtributeSelectors = () => {
       <Para>
         Matches attribute values that start with a certain string.
         <br />
-        Example: [href^="https://"] targets links starting with https.
+        <b>Example</b>: <HL>[href^="https://"]</HL> targets links starting with
+        https.
       </Para>
       <Syntax title="style.css" language="css" code={code12} />
       <Syntax title="index.html" language="html" code={code12_html} />
@@ -44,7 +57,7 @@ const AtributeSelectors = () => {
       <Para>
         Matches attribute values that end with specific text.
         <br />
-        Example: [src$=".png"] selects images ending in ".png".
+        <b>Example</b>: <HL>[src$=".png"]</HL> selects images ending in ".png".
       </Para>
       <Syntax title="style.css" language="css" code={code13} />
       <Syntax title="index.html" language="html" code={code13_html} />
@@ -53,7 +66,8 @@ const AtributeSelectors = () => {
       <Para>
         Matches attribute values that contain specific string anywhere.
         <br />
-        Example: [class*="btn"] selects any class with "btn" in it.
+        <b>Example</b>: <HL>[class*="btn"]</HL> selects any class with "btn" in
+        it.
       </Para>
       <Syntax title="style.css" language="css" code={code14} />
       <Syntax title="index.html" language="html" code={code14_html} />

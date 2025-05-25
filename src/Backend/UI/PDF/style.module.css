@@ -6,7 +6,7 @@
 .pdf_glass_item {
   font-family: "Headland One", serif;
   width: fit-content;
-  margin-bottom: 15px;
+  margin-bottom: var(--content-space);
 }
 .name {
   font-size: 1.1rem;

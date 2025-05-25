@@ -11,6 +11,9 @@ export type ContentDataType = {
     heading?: string;
     subHeading?: string;
     topic: string;
+    topicH1: string;
+    topicH2: string;
+    topicH3: string;
     page: JSX.Element;
   }[];
 };

@@ -1,6 +1,6 @@
 .h {
   font-size: 1.1rem;
   font-family: var(--font-family-body);
-  margin: 10px 0;
+  margin-bottom: var(--content-space);
   color: var(--accent-color);
 }

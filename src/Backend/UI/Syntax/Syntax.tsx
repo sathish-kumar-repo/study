@@ -17,6 +17,7 @@ import { useCopyToClipboard } from "./useCopyToClipboard";
 interface SyntaxProps extends Record<string, any> {
   src?: string;
   code?: string;
+  title?: string;
   language?: Language;
   customDomain?: string;
   domainKey?: DomainKey;
@@ -26,6 +27,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
   const {
     src,
     code: codeProp,
+    title = "Code Snippet",
     language = "typescript",
     customDomain,
     domainKey: directKey,
@@ -97,7 +99,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
   const handleShare = async () => {
     try {
       await navigator.share({
-        title: "Code Snippet",
+        title: title,
         text: code,
       });
     } catch (error) {
@@ -117,7 +119,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
       ) : (
         <>
           <div className="syntax-header">
-            <h3>Code Snippet</h3>
+            <h3>{title}</h3>
             <div className="buttons">
               <span
                 onClick={() => copy(code)}

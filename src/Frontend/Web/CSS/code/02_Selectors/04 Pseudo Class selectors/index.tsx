@@ -33,7 +33,9 @@ const PseudoClassSelectors = () => {
           "first-child",
           "last-child",
           "nth-child",
-          "nth-of-type",
+          ":nth-last-child(n)",
+          ":nth-of-type(n)",
+          ":nth-last-of-type(n)",
           "only-child",
           "only-of-type",
           "first-of-type",
@@ -43,7 +45,8 @@ const PseudoClassSelectors = () => {
           "target",
           "lang",
           "is",
-          "link, visited, hover, active",
+          "Link states",
+          "Form states",
         ]}
       />
 
@@ -67,6 +70,12 @@ const PseudoClassSelectors = () => {
 
       <H1>:nth-child(n)</H1>
       <Para>Selects the nth child of its parent (starting from 1).</Para>
+      <Syntax title="style.css" language="css" code={nthChildCSS} />
+      <Syntax title="index.html" language="html" code={nthChildHTML} />
+
+      {/* dfdfd */}
+      <H1>:nth-last-child(n)</H1>
+      <Para>Selects the nth last child of its parent.</Para>
       <Syntax title="style.css" language="css" code={nthChildCSS} />
       <Syntax title="index.html" language="html" code={nthChildHTML} />
 
@@ -134,6 +143,56 @@ const PseudoClassSelectors = () => {
       </Para>
       <Syntax title="style.css" language="css" code={targetCSS} />
       <Syntax title="index.html" language="html" code={targetHTML} />
+
+      <H1>Form states</H1>
+
+      <Para>
+        <b>:focus</b> styles an element when it has keyboard or mouse focus.
+      </Para>
+      <Syntax title="style.css " language="css" code={cssFocus} />
+      <Syntax title="index.html" language="html" code={htmlFocus} />
+
+      <Para>
+        <b>:checked</b> styles a checkbox or radio button when it is checked.
+      </Para>
+      <Syntax title="style.css" language="css" code={cssChecked} />
+      <Syntax title="index.html" language="html" code={htmlChecked} />
+
+      <Para>
+        <b>:enabled</b> styles enabled form elements, <b>:disabled</b> styles
+        disabled ones, and <b>:required</b> styles required inputs.
+      </Para>
+      <Syntax
+        title="style.css"
+        language="css"
+        code={cssEnableDisableRequired}
+      />
+      <Syntax
+        title="index.html"
+        language="html"
+        code={htmlEnableDisableRequired}
+      />
+
+      <Para>
+        <b>:read-only</b> styles inputs that cannot be edited, and{" "}
+        <b>:read-write</b> styles inputs that can be edited.
+      </Para>
+      <Syntax title="style.css" language="css" code={cssReadOnlyReadWrite} />
+      <Syntax title="index.html" language="html" code={htmlReadOnlyReadWrite} />
+
+      <Para>
+        <b>:valid</b> styles inputs that match their validation pattern, and{" "}
+        <b>:invalid</b> styles those that don’t.
+      </Para>
+      <Syntax title="style.csS" language="css" code={cssValidInvalid} />
+      <Syntax title="index.html" language="html" code={htmlValidInvalid} />
+
+      <Para>
+        <b>:default</b> styles the initially selected radio button or select
+        option.
+      </Para>
+      <Syntax title="style.css" language="css" code={cssDefault} />
+      <Syntax title="index.html" language="html" code={htmlDefault} />
     </>
   );
 };
@@ -307,3 +366,77 @@ const targetHTML = `
 <a href="#section1">Go to Section 1</a>
 <p id="section1">This paragraph is highlighted when targeted.</p>
 `;
+
+// CSS snippets
+const cssFocus = `
+#txt:focus {
+  outline: none;
+  border: 1px solid brown;
+}`;
+
+const htmlFocus = `<input type="text" id="txt" />`;
+
+const cssChecked = `
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px red;
+}`;
+
+const htmlChecked = `<input type="checkbox" id="cricket" />
+<label for="cricket">Cricket</label>`;
+
+const cssEnableDisableRequired = `
+input[type="text"]:enabled {
+  background-color: pink;
+}
+input[type="text"]:disabled {
+  background-color: red;
+}
+input[type="text"]:required {
+  background-color: green;
+}`;
+
+const htmlEnableDisableRequired = `<input type="text" />  <!-- enabled -->
+<input type="text" disabled />  <!-- disabled -->
+<input type="text" required />  <!-- required -->`;
+
+const cssReadOnlyReadWrite = `
+input[type="email"]:read-only {
+  background-color: gray;
+}
+input[type="email"]:read-write {
+  background-color: plum;
+}`;
+
+const htmlReadOnlyReadWrite = `<input type="email" />
+<input type="email" readonly />`;
+
+const cssValidInvalid = `
+input[type="text"]:invalid {
+  border-color: red;
+}
+input[type="text"]:valid {
+  border-color: rgb(15, 225, 15);
+}`;
+
+const htmlValidInvalid = `<input type="text" placeholder="Enter Username" pattern="[a-z]*" />`;
+
+const cssDefault = `
+input[type="radio"]:default {
+  box-shadow: 0 0 0 3px green;
+}
+option:default {
+  color: red;
+}`;
+
+const htmlDefault = `<input type="radio" name="gender" id="male" checked />
+<label for="male">Male</label>
+<input type="radio" name="gender" id="female" />
+<label for="female">Female</label>
+
+<select>
+  <option value="">select</option>
+  <option value="C">C</option>
+  <option value="C++">C++</option>
+  <option value="Java">Java</option>
+  <option value="CSS" selected>CSS</option>
+</select>`;
