@@ -1,5 +1,10 @@
 import CssReference from "../code/01_Css Reference";
 import Selectors from "../code/02_Selectors";
+import SimpleSelectors from "../code/02_Selectors/01 Simple Selectors";
+import CombinatorsSelectors from "../code/02_Selectors/02 Combinators Selectors";
+import AtributeSelectors from "../code/02_Selectors/03 Attribute selectors";
+import PseudoClassSelectors from "../code/02_Selectors/04 Pseudo Class selectors";
+import PseudoElementSelectors from "../code/02_Selectors/05 Pseudo element selectors";
 import Units from "../code/03_Units";
 import Font from "../code/04_Font";
 import Cursor from "../code/05_Cursor";
@@ -75,14 +80,37 @@ const cssContent = {
       page: <CssReference />,
     },
     {
-      topic: "Selectors",
+      heading: "Selector",
+      topic: "Selectors types",
       page: <Selectors />,
     },
     {
+      topic: "Simple Selectors",
+      page: <SimpleSelectors />,
+    },
+    {
+      topic: "Combinators Selectors",
+      page: <CombinatorsSelectors />,
+    },
+    {
+      topic: "Atribute Selectors",
+      page: <AtributeSelectors />,
+    },
+    {
+      topic: "Pseudo Class Selectors",
+      page: <PseudoClassSelectors />,
+    },
+    {
+      topic: "Pseudo Element Selectors",
+      page: <PseudoElementSelectors />,
+    },
+    {
+      heading: "Units",
       topic: "Units",
       page: <Units />,
     },
     {
+      heading: "Properties",
       topic: "Font",
       page: <Font />,
     },
