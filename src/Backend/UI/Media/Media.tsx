@@ -158,20 +158,22 @@ const Media: React.FC<MediaProps> = (props) => {
     <div className={`media-container ${className}`}>
       {/* Videos */}
       {videos.map((videoSrc, index) => (
-        <video
-          key={`video-${index}`}
-          src={videoSrc}
-          poster={poster}
-          controls
-          crossOrigin="anonymous"
-          style={{ width, height }}
-          preload="metadata"
-        />
+        <div className="media-wrapper">
+          <video
+            key={`video-${index}`}
+            src={videoSrc}
+            poster={poster}
+            controls
+            crossOrigin="anonymous"
+            style={{ width, height }}
+            preload="metadata"
+          />
+        </div>
       ))}
 
       {/* YouTube */}
       {youtubeVideos.map((ytSrc, index) => (
-        <div className="video-wrapper" key={`yt-${index}`}>
+        <div className="media-wrapper iframe-wrapper" key={`yt-${index}`}>
           <iframe
             src={getYouTubeEmbedUrl(ytSrc)}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
@@ -184,7 +186,7 @@ const Media: React.FC<MediaProps> = (props) => {
 
       {/* Audios */}
       {audios.map((audioSrc, index) => (
-        <div className="audio-wrapper">
+        <div className="media-wrapper audio-wrapper" key={`audio-${index}`}>
           <audio
             key={`audio-${index}`}
             src={audioSrc}
@@ -225,16 +227,18 @@ const Media: React.FC<MediaProps> = (props) => {
             </>
           )}
         >
-          {images.map((imgSrc, index) => (
-            <PhotoView key={`image-${index}`} src={imgSrc}>
-              <img
-                src={imgSrc}
-                alt={alt}
-                loading="lazy"
-                style={{ width, height }}
-              />
-            </PhotoView>
-          ))}
+          <div className="media-wrapper">
+            {images.map((imgSrc, index) => (
+              <PhotoView key={`image-${index}`} src={imgSrc}>
+                <img
+                  src={imgSrc}
+                  alt={alt}
+                  loading="lazy"
+                  style={{ width, height }}
+                />
+              </PhotoView>
+            ))}
+          </div>
         </PhotoProvider>
       )}
     </div>

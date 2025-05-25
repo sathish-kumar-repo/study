@@ -11,7 +11,8 @@ const SupplyAndDemand = () => {
 
       <H1>Supply:</H1>
       <Media
-        src={"Binary Options/Part A/04 Supply and Demand/resistance.png"}
+        customDomain={domain}
+        src={"Part A/04 Supply and Demand/resistance.png"}
       />
 
       <H1>Demand:</H1>
