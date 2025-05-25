@@ -52,11 +52,21 @@ export const Footer: React.FC = () => {
               <Link to="/author" aria-label="About Us">
                 {t("footer.author")}
               </Link>
-            </li>{" "}
+            </li>
             <li>
               <Link to="/faq" aria-label="Frequently Asked Questions">
                 {t("footer.faq")}
               </Link>
+            </li>
+            <li>
+              <a
+                aria-label="Old learning materials"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://sathish-kumar-repo.github.io/Code-Pro/"
+              >
+                Code Pro Web
+              </a>
             </li>
           </ul>
         </div>
