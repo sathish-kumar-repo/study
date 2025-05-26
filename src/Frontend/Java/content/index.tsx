@@ -1,4 +1,4 @@
-import YourTitle from "../code";
+import Video from "../code/01 Video";
 
 const javaContent = {
   about: {
@@ -10,8 +10,8 @@ const javaContent = {
   },
   route: [
     {
-      topic: "Your Title",
-      page: <YourTitle />,
+      topic: "Video Reference",
+      page: <Video />,
     },
   ],
 };

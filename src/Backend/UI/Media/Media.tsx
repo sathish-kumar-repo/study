@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import "./Media.css";
+import "./Media.scss";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import IconButton from "@mui/material/IconButton";
@@ -30,12 +30,10 @@ interface MediaProps extends Record<string, any> {
   sequence?: SequenceConfig | SequenceConfig[];
   media?: MediaEntry[];
   alt?: string;
-  className?: string;
-  width?: string | number;
-  height?: string | number;
   domainKey?: DomainKey;
   customDomain?: string;
   sort?: boolean;
+  responsive?: boolean;
 }
 
 const padNumber = (num: number, width: number): string =>
@@ -85,13 +83,12 @@ const Media: React.FC<MediaProps> = (props) => {
     src,
     sequence,
     alt = "Media content",
-    className = "",
-    width = "100%",
-    height = "auto",
+
     poster,
     domainKey: directKey,
     customDomain,
     sort = false,
+    responsive = false,
   } = props;
 
   const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
@@ -155,7 +152,7 @@ const Media: React.FC<MediaProps> = (props) => {
   };
 
   return (
-    <div className={`media-container ${className}`}>
+    <div className={`media-container ${responsive && "responsive"}`}>
       {/* Videos */}
       {videos.map((videoSrc, index) => (
         <div className="media-wrapper">
@@ -165,7 +162,6 @@ const Media: React.FC<MediaProps> = (props) => {
             poster={poster}
             controls
             crossOrigin="anonymous"
-            style={{ width, height }}
             preload="metadata"
           />
         </div>
@@ -192,7 +188,6 @@ const Media: React.FC<MediaProps> = (props) => {
             src={audioSrc}
             controls
             crossOrigin="anonymous"
-            style={{ width }}
             preload="metadata"
           />
         </div>
@@ -227,18 +222,13 @@ const Media: React.FC<MediaProps> = (props) => {
             </>
           )}
         >
-          <div className="media-wrapper">
-            {images.map((imgSrc, index) => (
-              <PhotoView key={`image-${index}`} src={imgSrc}>
-                <img
-                  src={imgSrc}
-                  alt={alt}
-                  loading="lazy"
-                  style={{ width, height }}
-                />
+          {images.map((imgSrc, index) => (
+            <div className="media-wrapper" key={`image-${index}`}>
+              <PhotoView src={imgSrc}>
+                <img src={imgSrc} alt={alt} loading="lazy" />
               </PhotoView>
-            ))}
-          </div>
+            </div>
+          ))}
         </PhotoProvider>
       )}
     </div>

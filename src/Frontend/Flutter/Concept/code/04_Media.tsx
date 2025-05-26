@@ -11,6 +11,8 @@ const MediaOverview = () => {
       <Media
         media={[
           "vite.svg",
+          flutter,
+          demo,
           "video/sample.mp4",
           { sequence: { base: "video/", start: 1, end: 1, ext: "mp4" } },
           "video/trailer_hd.mp4",
