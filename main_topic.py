@@ -14,21 +14,21 @@ from main_data import fileList
 #     builder: () => const {file}Widget(),
 #   ),"""
 #     )
-# for index, file in enumerate(fileList):
-#     words = file.split()
-#     camel_case = "".join(word.capitalize() for word in words)
-#     print(
-#         f"""   {{
-#       topic: "{file}",
-#       page: <{camel_case} />,
-#     }},"""
-#     )
 for index, file in enumerate(fileList):
     words = file.split()
     camel_case = "".join(word.capitalize() for word in words)
     print(
         f"""   {{
-      topic: "{file} Widget",
-      page: <{file}Widget />,
+      topic: "{file}",
+      page: <{camel_case} />,
     }},"""
     )
+# for index, file in enumerate(fileList):
+#     words = file.split()
+#     camel_case = "".join(word.capitalize() for word in words)
+#     print(
+#         f"""   {{
+#       topic: "{file} Widget",
+#       page: <{file}Widget />,
+#     }},"""
+#     )
