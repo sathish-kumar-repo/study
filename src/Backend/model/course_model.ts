@@ -4,6 +4,7 @@ export type CourseType = {
   name: string;
   description: string;
   img: string;
+  link?: string;
 };
 
 // Define the structure of the course categories

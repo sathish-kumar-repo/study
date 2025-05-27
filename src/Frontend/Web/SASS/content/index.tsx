@@ -22,73 +22,74 @@ const sassContent = {
     description:
       "Enhance your CSS skills by learning Sass — a powerful CSS preprocessor that helps write cleaner and reusable styles.",
     img: "sass.jpg",
+    link: "https://sass-lang.com/",
   },
-  route: [
-    {
-      topic: "Intro",
-      page: <Intro />,
-    },
-    {
-      topic: "Environmental Setup",
-      page: <EnvironmentalSetup />,
-    },
-    {
-      topic: "Comments",
-      page: <Comments />,
-    },
-    {
-      topic: "Variables",
-      page: <Variables />,
-    },
-    {
-      topic: "Datatypes",
-      page: <Datatypes />,
-    },
-    {
-      topic: "Nesting Rules",
-      page: <NestingRules />,
-    },
-    {
-      topic: "Interpolation",
-      page: <Interpolation />,
-    },
-    {
-      topic: "Import And Partials",
-      page: <ImportAndPartials />,
-    },
-    {
-      topic: "Mixins And Include",
-      page: <MixinsAndInclude />,
-    },
-    {
-      topic: "Functions",
-      page: <Functions />,
-    },
-    {
-      topic: "Extend",
-      page: <Extend />,
-    },
-    {
-      topic: "Errorhandling",
-      page: <Errorhandling />,
-    },
-    {
-      topic: "Buildinmodules",
-      page: <Buildinmodules />,
-    },
-    {
-      topic: "Operators",
-      page: <Operators />,
-    },
-    {
-      topic: "Conditionalstatement",
-      page: <Conditionalstatement />,
-    },
-    {
-      topic: "Looping Statement",
-      page: <LoopingStatement />,
-    },
-  ],
+  // route: [
+  //   {
+  //     topic: "Intro",
+  //     page: <Intro />,
+  //   },
+  //   {
+  //     topic: "Environmental Setup",
+  //     page: <EnvironmentalSetup />,
+  //   },
+  //   {
+  //     topic: "Comments",
+  //     page: <Comments />,
+  //   },
+  //   {
+  //     topic: "Variables",
+  //     page: <Variables />,
+  //   },
+  //   {
+  //     topic: "Datatypes",
+  //     page: <Datatypes />,
+  //   },
+  //   {
+  //     topic: "Nesting Rules",
+  //     page: <NestingRules />,
+  //   },
+  //   {
+  //     topic: "Interpolation",
+  //     page: <Interpolation />,
+  //   },
+  //   {
+  //     topic: "Import And Partials",
+  //     page: <ImportAndPartials />,
+  //   },
+  //   {
+  //     topic: "Mixins And Include",
+  //     page: <MixinsAndInclude />,
+  //   },
+  //   {
+  //     topic: "Functions",
+  //     page: <Functions />,
+  //   },
+  //   {
+  //     topic: "Extend",
+  //     page: <Extend />,
+  //   },
+  //   {
+  //     topic: "Errorhandling",
+  //     page: <Errorhandling />,
+  //   },
+  //   {
+  //     topic: "Buildinmodules",
+  //     page: <Buildinmodules />,
+  //   },
+  //   {
+  //     topic: "Operators",
+  //     page: <Operators />,
+  //   },
+  //   {
+  //     topic: "Conditionalstatement",
+  //     page: <Conditionalstatement />,
+  //   },
+  //   {
+  //     topic: "Looping Statement",
+  //     page: <LoopingStatement />,
+  //   },
+  // ],
 };
 
 export default sassContent;

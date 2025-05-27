@@ -89,17 +89,17 @@ const Tutorial = ({ contentData }: TutorialProps) => {
   }, []);
 
   // Find the index of the current topic in the route
-  const index = contentData.route.findIndex(
+  const index = contentData.route!.findIndex(
     (content) => content.topic === currentTopic
   );
   const currentIndex = index !== -1 ? index : 0; // Default to 0 if not found
 
   // Get the previous and next topics based on the current topic's index
   const previousTopic =
-    currentIndex > 0 ? contentData.route[currentIndex - 1].topic : null;
+    currentIndex > 0 ? contentData.route![currentIndex - 1].topic : null;
   const nextTopic =
-    currentIndex < contentData.route.length - 1
-      ? contentData.route[currentIndex + 1].topic
+    currentIndex < contentData.route!.length - 1
+      ? contentData.route![currentIndex + 1].topic
       : null;
 
   // Handle keyboard navigation for left and right arrows
@@ -133,7 +133,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const isSinglePage = !(contentData.route.length === 1);
+  const isSinglePage = !(contentData.route!.length === 1);
   return (
     <>
       <Helmet>
@@ -170,7 +170,7 @@ const Tutorial = ({ contentData }: TutorialProps) => {
                 </span>
               </div>
               <ul>
-                {contentData.route.map((content, index) => {
+                {contentData.route!.map((content, index) => {
                   const isActive = content.topic === currentTopic;
                   const indentClass =
                     content.type === "H2"

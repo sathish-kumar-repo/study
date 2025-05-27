@@ -19,7 +19,7 @@ interface Route {
 
 interface Course {
   about: { name: string };
-  route: Route[];
+  route?: Route[];
 }
 
 interface CourseResult {
@@ -56,7 +56,10 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
   const filteredResults: CourseResult[] = Object.entries(mainData)
     .flatMap(([category, courses]) =>
       courses.map((course: Course) => {
-        const matchingRoutes = course.route.filter((route) =>
+        if ("link" in course.about) {
+          return null;
+        }
+        const matchingRoutes = course.route!.filter((route) =>
           route.topic.toLowerCase().includes(searchTerm.toLowerCase())
         );
 

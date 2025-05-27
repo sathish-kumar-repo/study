@@ -30,34 +30,38 @@ function App() {
           <Route index element={<Course />} />
 
           {getContentData().map((contents, index) => {
-            return (
-              <Route
-                key={index}
-                path={`${contents.about.name}/`}
-                element={<Tutorial contentData={contents} />}
-              >
-                {contents.route.map((eachContent, topicIndex) => {
-                  const page = eachContent.page;
-                  const topic = eachContent.topic;
-                  return topicIndex === 0 ? (
-                    <>
-                      <Route index element={<Navigate to={topic} replace />} />
+            if (!contents.about.link)
+              return (
+                <Route
+                  key={index}
+                  path={`${contents.about.name}/`}
+                  element={<Tutorial contentData={contents} />}
+                >
+                  {contents.route!.map((eachContent, topicIndex) => {
+                    const page = eachContent.page;
+                    const topic = eachContent.topic;
+                    return topicIndex === 0 ? (
+                      <>
+                        <Route
+                          index
+                          element={<Navigate to={topic} replace />}
+                        />
+                        <Route
+                          path={topic}
+                          element={page}
+                          key={`${contents.about.name}-${topic}`}
+                        />
+                      </>
+                    ) : (
                       <Route
+                        key={`${contents.about.name}-${topic}`}
                         path={topic}
                         element={page}
-                        key={`${contents.about.name}-${topic}`}
                       />
-                    </>
-                  ) : (
-                    <Route
-                      key={`${contents.about.name}-${topic}`}
-                      path={topic}
-                      element={page}
-                    />
-                  );
-                })}
-              </Route>
-            );
+                    );
+                  })}
+                </Route>
+              );
           })}
         </Route>
 

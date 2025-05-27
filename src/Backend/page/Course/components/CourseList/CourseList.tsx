@@ -32,24 +32,41 @@ const CourseList: React.FC<CourseListProps> = ({
             <h2 className="subcategory-title">{subCat}</h2>
             {courses.length > 0 ? (
               <div className="course-list">
-                {courses.map((item, index) => (
-                  <div key={index} className="course-card">
-                    <img
-                      src={`/study/course-images/${item.img}`}
-                      alt={item.name}
-                      className="course-img"
-                    />
-                    <h3>{item.name}</h3>
-                    <p>{item.description}</p>
-                    {/* It navigate to first topic of course */}
-                    <NavLink
-                      to={`/${category}/${item.name}`}
-                      className="course-link"
-                    >
-                      {t("course.learnMore")}
-                    </NavLink>
-                  </div>
-                ))}
+                {courses.map((item, index) => {
+                  // ! = NOT (negation)
+                  // !! = Boolean cast (truthy/falsy to true or false)
+                  const isExternal = !!item.link;
+                  const learnMoreText = t("course.learnMore");
+
+                  return (
+                    <div key={index} className="course-card">
+                      <img
+                        src={`/study/course-images/${item.img}`}
+                        alt={item.name}
+                        className="course-img"
+                      />
+                      <h3>{item.name}</h3>
+                      <p>{item.description}</p>
+
+                      {isExternal ? (
+                        <a
+                          href={item.link}
+                          className="course-link"
+                          rel="noopener noreferrer"
+                        >
+                          {learnMoreText}
+                        </a>
+                      ) : (
+                        <NavLink
+                          to={`/${category}/${item.name}`}
+                          className="course-link"
+                        >
+                          {learnMoreText}
+                        </NavLink>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             ) : (
               !isAll && <NoResultFound searchTerm={searchQuery} />

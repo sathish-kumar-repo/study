@@ -8,8 +8,9 @@ export type ContentDataType = {
     name: string;
     description: string;
     img: string;
+    link?: string;
   };
-  route: {
+  route?: {
     heading?: string;
     subHeading?: string;
     topic: string;
