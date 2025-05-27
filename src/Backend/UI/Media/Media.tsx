@@ -155,9 +155,8 @@ const Media: React.FC<MediaProps> = (props) => {
     <div className={`media-container ${responsive && "responsive"}`}>
       {/* Videos */}
       {videos.map((videoSrc, index) => (
-        <div className="media-wrapper">
+        <div className="media-wrapper" key={`video-${index}`}>
           <video
-            key={`video-${index}`}
             src={videoSrc}
             poster={poster}
             controls
@@ -184,7 +183,6 @@ const Media: React.FC<MediaProps> = (props) => {
       {audios.map((audioSrc, index) => (
         <div className="media-wrapper audio-wrapper" key={`audio-${index}`}>
           <audio
-            key={`audio-${index}`}
             src={audioSrc}
             controls
             crossOrigin="anonymous"
