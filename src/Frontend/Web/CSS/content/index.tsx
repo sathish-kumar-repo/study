@@ -1,3 +1,4 @@
+import { ContentDataType } from "../../../../Backend/model/content_model";
 import CssReference from "../code/01_Css Reference";
 import Selectors from "../code/02_Selectors";
 import SimpleSelectors from "../code/02_Selectors/01 Simple Selectors";
@@ -7,7 +8,7 @@ import PseudoClassSelectors from "../code/02_Selectors/04 Pseudo Class selectors
 import PseudoElementSelectors from "../code/02_Selectors/05 Pseudo element selectors";
 import Units from "../code/03_Units";
 
-const cssContent = {
+const cssContent: ContentDataType = {
   about: {
     subCategory: "Web Development",
     name: "Learn CSS",

@@ -11,6 +11,10 @@ const general = [
   "Candlestick-Pattern-Cheat-Sheet.pdf",
   "Chart Pattern & Candlesticks Clear .PDF",
   "pattern.pdf",
+  "Trading Patterns Guide.pdf",
+  "BinaryOptionsTradingChecklist.pdf",
+  "BOOKBASICTRADINGGUIDEV2-2.pdf",
+  "Service_Agreement_QTX.pdf",
 ];
 const mumma = [
   "17 Candle Formations.pdf",
