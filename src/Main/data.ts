@@ -20,9 +20,9 @@ const mainData = {
     // pythonContent,
     // dfdfdfdfdfdflksdfndflf,
   ],
-  "python stack": [
-    // pythonContent
-  ],
+  // "python stack": [
+  //   // pythonContent
+  // ],
   "web development": [
     // htmlContent,
     cssContent,
@@ -42,14 +42,14 @@ const mainData = {
     flutterWidgetsContent,
     // flutterFirebaseContent,
   ],
-  db: [
-    // flutterFirebaseContent,
-    // mongodbContent,
-    // webFirebaseContent
-  ],
-  "Version Control": [
-    // githubContent
-  ],
+  // db: [
+  //   // flutterFirebaseContent,
+  //   // mongodbContent,
+  //   // webFirebaseContent
+  // ],
+  // "Version Control": [
+  //   // githubContent
+  // ],
   // maths: [mathsSem2Content],
 };
 
