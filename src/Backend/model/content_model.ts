@@ -1,6 +1,6 @@
 import { JSX } from "react";
 
-type TopicType = "H1" | "H2" | "H3";
+export type TopicType = "H1" | "H2" | "H3";
 
 export type ContentDataType = {
   about: {
