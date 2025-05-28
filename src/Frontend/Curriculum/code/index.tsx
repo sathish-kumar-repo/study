@@ -1,4 +1,4 @@
-import { H1, PDF, Title } from "../../../../Backend/UI";
+import { Title, H1, PDF } from "../../../Backend/UI";
 
 const Curriculum = () => {
   return (
