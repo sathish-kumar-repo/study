@@ -1,4 +1,4 @@
-import Video from "../code/00 Video";
+import Intro from "../code/00 Intro";
 import BasicProgramInJava from "../code/01 Basic Program in Java";
 import CommandLineArgumentsInJava from "../code/02 Command Line Arguments in Java";
 import SingleAndMultiLineCommentsInJava from "../code/03 Single and Multi Line Comments in Java";
@@ -113,8 +113,8 @@ const javaContent = {
   },
   route: [
     {
-      topic: "Video Reference",
-      page: <Video />,
+      topic: "Intro in Java",
+      page: <Intro />,
     },
     {
       topic: "Basic Program in Java",

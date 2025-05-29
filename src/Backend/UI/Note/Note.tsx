@@ -1,5 +1,6 @@
 import React from "react";
 import "./Note.css";
+import { A } from "..";
 
 interface NoteProps {
   children?: React.ReactNode;
@@ -19,10 +20,7 @@ const Note = ({ children, link }: NoteProps) => {
       <div className="notes">
         {link ? (
           <>
-            Click here to learn more{" "}
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              {link}
-            </a>
+            Click here to learn more <A link={link}>{link}</A>
           </>
         ) : (
           children
