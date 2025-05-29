@@ -20,7 +20,7 @@ const Note = ({ children, link }: NoteProps) => {
       <div className="notes">
         {link ? (
           <>
-            Click here to learn more <A link={link}>{link}</A>
+            Further details can be found at: <A link={link}>{link}</A>
           </>
         ) : (
           children
