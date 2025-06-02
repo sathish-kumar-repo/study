@@ -1,4 +1,4 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const PrimeNumberBetween100to999InJava = () => {

@@ -1,4 +1,4 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const ArmstrongNumberBetween100to999InJava = () => {

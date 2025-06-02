@@ -222,6 +222,7 @@ const javaContent: ContentDataType = {
       page: <BreakAndContinueInJava />,
     },
     {
+      heading: "Eg Program",
       topic: "Factorial in Java",
       page: <FactorialInJava />,
     },
