@@ -5,12 +5,13 @@ const SumAndAverageOfNNumbersInJava = () => {
   return (
     <>
       <Title>Sum and Average of N Numbers in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="27 Sum and Average of N Numbers in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default SumAndAverageOfNNumbersInJava;
-
-

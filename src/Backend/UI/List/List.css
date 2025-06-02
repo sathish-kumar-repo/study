@@ -1,5 +1,5 @@
 .glassmorphic-list-container {
-  /* margin-bottom: var(--text-content-space); */
+  margin-bottom: var(--text-content-space);
   /* prevent margin collaps */
   overflow: hidden;
 }

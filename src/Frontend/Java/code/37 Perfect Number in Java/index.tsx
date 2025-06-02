@@ -5,12 +5,13 @@ const PerfectNumberInJava = () => {
   return (
     <>
       <Title>Perfect Number in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="37 Perfect Number in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default PerfectNumberInJava;
-
-

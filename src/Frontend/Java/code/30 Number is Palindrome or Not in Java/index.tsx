@@ -5,12 +5,13 @@ const NumberIsPalindromeOrNotInJava = () => {
   return (
     <>
       <Title>Number is Palindrome or Not in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="30 Number is Palindrome or Not in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default NumberIsPalindromeOrNotInJava;
-
-

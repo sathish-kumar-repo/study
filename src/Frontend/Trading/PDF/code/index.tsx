@@ -15,6 +15,10 @@ const general = [
   "BinaryOptionsTradingChecklist.pdf",
   "BOOKBASICTRADINGGUIDEV2-2.pdf",
   "Service_Agreement_QTX.pdf",
+  "Hi_Trading Udyog Chart Patterns.pdf",
+  "My favorite Trading Books.pdf",
+  "Trading Index.pdf",
+  "Trading Roadmap.pdf",
 ];
 const mumma = [
   "17 Candle Formations.pdf",

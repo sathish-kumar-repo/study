@@ -1,3 +1,4 @@
+import { ContentDataType } from "../../../Backend/model/content_model";
 import Intro from "../code/00 Intro";
 import BasicProgramInJava from "../code/01 Basic Program in Java";
 import CommandLineArgumentsInJava from "../code/02 Command Line Arguments in Java";
@@ -21,7 +22,7 @@ import NestedIfInJava from "../code/17 Nested If in Java";
 import SwitchStatementInJava from "../code/18 Switch Statement in Java";
 import GroupSwitchStatementInJava from "../code/19 Group Switch Statement in Java";
 import WhileLoopInJava from "../code/20 While Loop in Java";
-import DoWhileLoopInJava from "../code/21 do While Loop in Java";
+import DoWhileLoopInJava from "../code/21 Do While Loop in Java";
 import ForLoopInJava from "../code/22 For Loop in Java";
 import EnhancedForLoopInJava from "../code/23 Enhanced for loop in Java";
 import NestedForLoopInJava from "../code/24 Nested For Loop in Java";
@@ -50,12 +51,12 @@ import Jagged_arrayUsingForEachLoopInJava from "../code/46 Jagged-Array Using Fo
 import AsciiInJava from "../code/47 ASCII in Java";
 import StringInJava from "../code/48 String in Java";
 import StringbufferAndStringbuilderInJava from "../code/49 StringBuffer & StringBuilder in Java";
-import CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava from "../code/50 count Vowels,Capital letters,small letters,numbers and space in Java";
+import CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava from "../code/50 Count Vowels, Capital letters, small letters, numbers and space in Java";
 import ReverseAStringInJava from "../code/51 Reverse A String in Java";
-import ConvertTheGivenStringIntoUppercaseInJava from "../code/52 convert the given string into UPPERCASE in Java";
-import ConvertTheGivenStringIntoLowercaseInJava from "../code/53 convert the given string into lowercase in Java";
-import ConvertTheGivenStringIntoCapitalizedEachWordInJava from "../code/54 convert the given string into Capitalized Each Word in Java";
-import ConvertTheGivenStringIntoToggleCaseWordInJava from "../code/55 convert the given string into tOGGLE cASE wORD in Java";
+import ConvertTheGivenStringIntoUppercaseInJava from "../code/52 Convert the given string into UPPERCASE in Java";
+import ConvertTheGivenStringIntoLowercaseInJava from "../code/53 Convert the given string into lowercase in Java";
+import ConvertTheGivenStringIntoCapitalizedEachWordInJava from "../code/54 Convert the given string into Capitalized Each Word in Java";
+import ConvertTheGivenStringIntoToggleCaseWordInJava from "../code/55 Convert the given string into tOGGLE cASE wORD in Java";
 import MathFunctionsInJava from "../code/56 Math Functions in Java";
 import TypesOfMethodsInJava from "../code/57 Types of Methods in Java";
 import ReturningArraysFromMethodInJava from "../code/58 Returning Arrays from Method in Java";
@@ -101,9 +102,9 @@ import WrapperClass_ConvertingNumericStringObjectToPrimitiveNumbersInJava from "
 import ShallowCopyObjectCloningInJava from "../code/98 Shallow Copy Object Cloning in Java";
 import DeepCopyObjectCloningInJava from "../code/99 Deep Copy Object Cloning in Java";
 
-export const domain = "";
+export const domain = "https://sathish-kumar-repo.github.io/tut-java/";
 
-const javaContent = {
+const javaContent: ContentDataType = {
   about: {
     subCategory: "Programming Languages",
     name: "Learn Java",
@@ -137,6 +138,7 @@ const javaContent = {
       page: <TypeCastingInJava />,
     },
     {
+      heading: "Operators",
       topic: "Arithmetic Operators in Java",
       page: <ArithmeticOperatorsInJava />,
     },
@@ -165,10 +167,12 @@ const javaContent = {
       page: <BitwiseAndShiftOperatorsInJava />,
     },
     {
+      heading: "Input",
       topic: "Scanner Class in Java",
       page: <ScannerClassInJava />,
     },
     {
+      heading: "Conditional Statement",
       topic: "IF Statement in Java",
       page: <IfStatementInJava />,
     },
@@ -193,11 +197,12 @@ const javaContent = {
       page: <GroupSwitchStatementInJava />,
     },
     {
+      heading: "Looping Statement",
       topic: "While Loop in Java",
       page: <WhileLoopInJava />,
     },
     {
-      topic: "do While Loop in Java",
+      topic: "Do While Loop in Java",
       page: <DoWhileLoopInJava />,
     },
     {
@@ -314,7 +319,7 @@ const javaContent = {
     },
     {
       topic:
-        "count Vowels,Capital letters,small letters,numbers and space in Java",
+        "Count Vowels, Capital letters, small letters, numbers and space in Java",
       page: <CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava />,
     },
     {

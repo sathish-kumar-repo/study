@@ -12,5 +12,3 @@ const ConvertTheGivenStringIntoUppercaseInJava = () => {
 };
 
 export default ConvertTheGivenStringIntoUppercaseInJava;
-
-

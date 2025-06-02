@@ -5,8 +5,11 @@ const ArmstrongNumberBetween100to999InJava = () => {
   return (
     <>
       <Title>Armstrong Number between 100-999 in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="32 Armstrong Number between 100-999 in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };

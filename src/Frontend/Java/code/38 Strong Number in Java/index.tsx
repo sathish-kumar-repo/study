@@ -5,12 +5,13 @@ const StrongNumberInJava = () => {
   return (
     <>
       <Title>Strong Number in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="38 Strong Number in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default StrongNumberInJava;
-
-

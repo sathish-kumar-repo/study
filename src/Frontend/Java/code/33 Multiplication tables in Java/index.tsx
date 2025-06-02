@@ -5,12 +5,13 @@ const MultiplicationTablesInJava = () => {
   return (
     <>
       <Title>Multiplication tables in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="33 Multiplication tables in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default MultiplicationTablesInJava;
-
-

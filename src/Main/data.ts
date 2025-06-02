@@ -13,7 +13,7 @@ const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
   trading: [BinaryOptionContent, cwrvContent, binaryOptionPdfCollectionContent],
-  language: [
+  programming: [
     // jsContent,
     // tsContent,
     javaContent,

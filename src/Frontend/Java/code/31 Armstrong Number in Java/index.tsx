@@ -5,12 +5,13 @@ const ArmstrongNumberInJava = () => {
   return (
     <>
       <Title>Armstrong Number in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="31 Armstrong Number in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default ArmstrongNumberInJava;
-
-

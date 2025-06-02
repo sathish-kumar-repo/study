@@ -5,12 +5,13 @@ const FactorOfTheGivenNumberInJava = () => {
   return (
     <>
       <Title>Factor of the given number in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="34 Factor of the given number in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default FactorOfTheGivenNumberInJava;
-
-

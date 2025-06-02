@@ -5,12 +5,14 @@ const FactorialInJava = () => {
   return (
     <>
       <Title>Factorial in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+
+      <Syntax
+        src="26 Factorial in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default FactorialInJava;
-
-

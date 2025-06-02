@@ -5,12 +5,13 @@ const ReverseOfNDigitNumberInJava = () => {
   return (
     <>
       <Title>Reverse of n digit number in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="29 Reverse of n digit number in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default ReverseOfNDigitNumberInJava;
-
-

@@ -5,12 +5,13 @@ const FibonacciSeriesInJava = () => {
   return (
     <>
       <Title>Fibonacci Series in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="28 Fibonacci Series in Java\App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default FibonacciSeriesInJava;
-
-
