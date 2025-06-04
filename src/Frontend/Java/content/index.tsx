@@ -61,7 +61,7 @@ import MathFunctionsInJava from "../code/56 Math Functions in Java";
 import TypesOfMethodsInJava from "../code/57 Types of Methods in Java";
 import ReturningArraysFromMethodInJava from "../code/58 Returning Arrays from Method in Java";
 import StaticMemberFunctionInJava from "../code/59 Static Member Function in Java";
-import ConvertDecimalToBinaryInJava from "../code/60 Convert Decimal To Binary in Java";
+import ConvertDecimalToBinaryInJava from "../code/60 Convert Decimal To Binary and Binary to Decimal in Java";
 import IntroductionOfObjectOrientedProgrammingInJava from "../code/61 Introduction of Object Oriented Programming in Java";
 import ClassAndObjectInJava from "../code/62 Class & object in Java";
 import DataHidingGetterAndSetterInJava from "../code/63 Data Hiding Getter & Setter in Java";

@@ -6,11 +6,13 @@ const HierarchicalInheritanceInJava = () => {
     <>
       <Title>Hierarchical Inheritance in Java</Title>
       <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="71 Hierarchical Inheritance in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default HierarchicalInheritanceInJava;
-
-

@@ -1,4 +1,4 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava = () => {
@@ -7,8 +7,11 @@ const CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava = () => {
       <Title>
         count Vowels,Capital letters,small letters,numbers and space in Java
       </Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="50 Count Vowels, Capital letters, small letters, numbers and space in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };

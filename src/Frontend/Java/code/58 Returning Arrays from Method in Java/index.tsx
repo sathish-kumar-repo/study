@@ -1,16 +1,17 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const ReturningArraysFromMethodInJava = () => {
   return (
     <>
       <Title>Returning Arrays from Method in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="58 Returning Arrays from Method in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default ReturningArraysFromMethodInJava;
-
-

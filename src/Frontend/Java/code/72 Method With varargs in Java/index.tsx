@@ -6,11 +6,13 @@ const MethodWithVarargsInJava = () => {
     <>
       <Title>Method With varargs in Java</Title>
       <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="72 Method With varargs in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default MethodWithVarargsInJava;
-
-

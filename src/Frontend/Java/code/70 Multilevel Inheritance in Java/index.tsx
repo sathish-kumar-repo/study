@@ -5,12 +5,22 @@ const MultilevelInheritanceInJava = () => {
   return (
     <>
       <Title>Multilevel Inheritance in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Para>
+        Inheritance in Java is a mechanism in which one object acquires all the
+        properties and behaviors of a parent object. It is an important part of
+        OOPs (Object Oriented programming system). When a class extends a class,
+        which extends anther class then this is called multilevel inheritance.
+      </Para>
+      <b>Example :</b> class Son extends class Father and class Father extends
+      class Grandfather then this type of inheritance is known as multilevel
+      inheritance.
+      <Syntax
+        src="70 Multilevel Inheritance in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default MultilevelInheritanceInJava;
-
-

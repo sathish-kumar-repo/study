@@ -1,16 +1,17 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const ConvertTheGivenStringIntoLowercaseInJava = () => {
   return (
     <>
-      <Title>convert the given string into lowercase in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Title>Convert the given string into lowercase in Java</Title>
+      <Syntax
+        src="53 Convert the given string into lowercase in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
 
 export default ConvertTheGivenStringIntoLowercaseInJava;
-
-

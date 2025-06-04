@@ -27,7 +27,11 @@ const EnhancedForLoopInJava = () => {
         ]}
       />
 
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="23 Enhanced for loop in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };

@@ -19,6 +19,7 @@ interface SyntaxProps extends Record<string, any> {
   code?: string;
   title?: string;
   language?: Language;
+  showLineNumbers?: boolean;
   customDomain?: string;
   domainKey?: DomainKey;
 }
@@ -29,6 +30,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
     code: codeProp,
     title = "Code Snippet",
     language = "typescript",
+    showLineNumbers = true,
     customDomain,
     domainKey: directKey,
   } = props;
@@ -142,7 +144,7 @@ const Syntax: FC<SyntaxProps> = (props) => {
             className="syntax-highlighter"
             language={language}
             style={theme}
-            showLineNumbers
+            showLineNumbers={showLineNumbers}
           >
             {code}
           </SyntaxHighlighter>

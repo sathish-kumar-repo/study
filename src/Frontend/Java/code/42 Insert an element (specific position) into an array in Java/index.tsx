@@ -1,12 +1,15 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const InsertAnElement_specificPosition_IntoAnArrayInJava = () => {
   return (
     <>
       <Title>Insert an element (specific position) into an array in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="42 Insert an element (specific position) into an array in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };

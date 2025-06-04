@@ -5,8 +5,11 @@ const Jagged_arrayUsingForEachLoopInJava = () => {
   return (
     <>
       <Title>Jagged-Array Using For Each Loop in Java</Title>
-      <Para></Para>
-      <Syntax src="" customDomain={domain} language="java" />
+      <Syntax
+        src="46 Jagged-Array Using For Each Loop in Java/App.java"
+        customDomain={domain}
+        language="java"
+      />
     </>
   );
 };
