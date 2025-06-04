@@ -10,8 +10,6 @@ import ArithmeticAssignmentOperatorsInJava from "../code/07 Arithmetic Assignmen
 import RelationalOperatorsInJava from "../code/08 Relational Operators in Java";
 import LogicalOperatorsInJava from "../code/09 Logical Operators in Java";
 import ConditionalOrTernaryOperatorsInJava from "../code/10 Conditional or Ternary Operators in Java";
-import JavaReflectionApiInJava from "../code/100 Java Reflection API in Java";
-import CallingPrivateMethodInJavaClassUsingReflectionApiInJava from "../code/101 Calling Private Method in Java Class using Reflection API in Java";
 import UnaryOperatorsInJava from "../code/11 Unary Operators in Java";
 import BitwiseAndShiftOperatorsInJava from "../code/12 Bitwise & Shift Operators in Java";
 import ScannerClassInJava from "../code/13 Scanner Class in Java";
@@ -61,7 +59,7 @@ import MathFunctionsInJava from "../code/56 Math Functions in Java";
 import TypesOfMethodsInJava from "../code/57 Types of Methods in Java";
 import ReturningArraysFromMethodInJava from "../code/58 Returning Arrays from Method in Java";
 import StaticMemberFunctionInJava from "../code/59 Static Member Function in Java";
-import ConvertDecimalToBinaryInJava from "../code/60 Convert Decimal To Binary and Binary to Decimal in Java";
+import ConvertDecimalToBinaryAndBinarytoDecimalInJava from "../code/60 Convert Decimal To Binary and Binary to Decimal in Java";
 import IntroductionOfObjectOrientedProgrammingInJava from "../code/61 Introduction of Object Oriented Programming in Java";
 import ClassAndObjectInJava from "../code/62 Class & object in Java";
 import DataHidingGetterAndSetterInJava from "../code/63 Data Hiding Getter & Setter in Java";
@@ -93,14 +91,6 @@ import FinalMethodsInJava from "../code/88 Final Methods in Java";
 import FinalClassInJava from "../code/89 Final Class in Java";
 import SingletonClassInJava from "../code/90 Singleton Class in Java";
 import EnumerationInJava from "../code/91 Enumeration in Java";
-import DateAndTimeFunctionsInJava from "../code/92 Date and Time Functions in Java";
-import WrapperClass_ConvertingPrimitiveNumberToNumberObjectInJava from "../code/93 Wrapper Class - Converting primitive number to number object in Java";
-import WrapperClass_ConvertingNumberObjectToPrimitiveNumberInJava from "../code/94 Wrapper Class - Converting number object to primitive number in Java";
-import WrapperClass_ConvertingPrimitiveNumberToStringObjectInJava from "../code/95 Wrapper Class - Converting primitive number to string object in Java";
-import WrapperClass_ConvertingStringObjectToPrimitiveNumbersInJava from "../code/96 Wrapper Class - Converting string object to primitive numbers in Java";
-import WrapperClass_ConvertingNumericStringObjectToPrimitiveNumbersInJava from "../code/97 Wrapper Class - Converting numeric string object to primitive numbers in Java";
-import ShallowCopyObjectCloningInJava from "../code/98 Shallow Copy Object Cloning in Java";
-import DeepCopyObjectCloningInJava from "../code/99 Deep Copy Object Cloning in Java";
 
 export const domain = "https://sathish-kumar-repo.github.io/tut-java/";
 
@@ -130,6 +120,7 @@ const javaContent: ContentDataType = {
       page: <SingleAndMultiLineCommentsInJava />,
     },
     {
+      heading: "Variables",
       topic: "Variables in Java",
       page: <VariablesInJava />,
     },
@@ -274,11 +265,9 @@ const javaContent: ContentDataType = {
       topic: "Strong Number in Java",
       page: <StrongNumberInJava />,
     },
+    { heading: "Array", topic: "Array in Java", page: <ArrayInJava /> },
     {
-      topic: "Array in Java",
-      page: <ArrayInJava />,
-    },
-    {
+      heading: "Eg Program",
       topic: "Count odd or even numbers in Java",
       page: <CountOddOrEvenNumbersInJava />,
     },
@@ -307,6 +296,7 @@ const javaContent: ContentDataType = {
       page: <Jagged_arrayUsingForEachLoopInJava />,
     },
     {
+      heading: "String",
       topic: "ASCII in Java",
       page: <AsciiInJava />,
     },
@@ -319,6 +309,7 @@ const javaContent: ContentDataType = {
       page: <StringbufferAndStringbuilderInJava />,
     },
     {
+      heading: "Eg Program",
       topic:
         "Count Vowels, Capital letters, small letters, numbers and space in Java",
       page: <CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava />,
@@ -328,26 +319,28 @@ const javaContent: ContentDataType = {
       page: <ReverseAStringInJava />,
     },
     {
-      topic: "convert the given string into UPPERCASE in Java",
+      topic: "Convert the given string into UPPERCASE in Java",
       page: <ConvertTheGivenStringIntoUppercaseInJava />,
     },
     {
-      topic: "convert the given string into lowercase in Java",
+      topic: "Convert the given string into lowercase in Java",
       page: <ConvertTheGivenStringIntoLowercaseInJava />,
     },
     {
-      topic: "convert the given string into Capitalized Each Word in Java",
+      topic: "Convert the given string into Capitalized Each Word in Java",
       page: <ConvertTheGivenStringIntoCapitalizedEachWordInJava />,
     },
     {
-      topic: "convert the given string into tOGGLE cASE wORD in Java",
+      topic: "Convert the given string into tOGGLE cASE wORD in Java",
       page: <ConvertTheGivenStringIntoToggleCaseWordInJava />,
     },
     {
+      heading: "Build-in",
       topic: "Math Functions in Java",
       page: <MathFunctionsInJava />,
     },
     {
+      heading: "Methods",
       topic: "Types of Methods in Java",
       page: <TypesOfMethodsInJava />,
     },
@@ -360,10 +353,12 @@ const javaContent: ContentDataType = {
       page: <StaticMemberFunctionInJava />,
     },
     {
-      topic: "Convert Decimal To Binary in Java",
-      page: <ConvertDecimalToBinaryInJava />,
+      heading: "Eg Program",
+      topic: "Decimal To Binary, Binary to Decimal in Java",
+      page: <ConvertDecimalToBinaryAndBinarytoDecimalInJava />,
     },
     {
+      heading: "Oops",
       topic: "Introduction of Object Oriented Programming in Java",
       page: <IntroductionOfObjectOrientedProgrammingInJava />,
     },
@@ -372,10 +367,12 @@ const javaContent: ContentDataType = {
       page: <ClassAndObjectInJava />,
     },
     {
+      heading: "Abstraction and Encapsulation",
       topic: "Data Hiding Getter & Setter in Java",
       page: <DataHidingGetterAndSetterInJava />,
     },
     {
+      heading: "Constructor",
       topic: "Constructor in Java",
       page: <ConstructorInJava />,
     },
@@ -388,6 +385,7 @@ const javaContent: ContentDataType = {
       page: <CopyConstructorInJava />,
     },
     {
+      heading: "Basic concepts",
       topic: "Arrays of Objects in Java",
       page: <ArraysOfObjectsInJava />,
     },
@@ -396,6 +394,7 @@ const javaContent: ContentDataType = {
       page: <NestingOfMethodsInJava />,
     },
     {
+      heading: "Inheritance",
       topic: "Single Inheritance in Java",
       page: <SingleInheritanceInJava />,
     },
@@ -412,6 +411,7 @@ const javaContent: ContentDataType = {
       page: <MethodWithVarargsInJava />,
     },
     {
+      heading: "Polymorphisms",
       topic: "Method Overloading in Java",
       page: <MethodOverloadingInJava />,
     },
@@ -420,6 +420,7 @@ const javaContent: ContentDataType = {
       page: <MethodOverridingInJava />,
     },
     {
+      heading: "Abstract",
       topic: "Abstract Class in Java",
       page: <AbstractClassInJava />,
     },
@@ -428,6 +429,7 @@ const javaContent: ContentDataType = {
       page: <SmartPhoneExampleUsingAbstractClassInJava />,
     },
     {
+      heading: "Interface",
       topic: "What is interface in Java",
       page: <WhatIsInterfaceInJava />,
     },
@@ -444,6 +446,7 @@ const javaContent: ContentDataType = {
       page: <DifferenceBetweenAbstractClassAndInterfaceInJava />,
     },
     {
+      heading: "Inner Class",
       topic: "Nested Inner Class in Java",
       page: <NestedInnerClassInJava />,
     },
@@ -460,6 +463,7 @@ const javaContent: ContentDataType = {
       page: <StaticInnerClassInJava />,
     },
     {
+      heading: "Static",
       topic: "Static Members in Java",
       page: <StaticMembersInJava />,
     },
@@ -467,10 +471,7 @@ const javaContent: ContentDataType = {
       topic: "Static Blocks in Java",
       page: <StaticBlocksInJava />,
     },
-    {
-      topic: "Final in Java",
-      page: <FinalInJava />,
-    },
+    { heading: "Final", topic: "Final in Java", page: <FinalInJava /> },
     {
       topic: "Final Methods in Java",
       page: <FinalMethodsInJava />,
@@ -480,61 +481,63 @@ const javaContent: ContentDataType = {
       page: <FinalClassInJava />,
     },
     {
+      heading: "Singleton",
       topic: "Singleton Class in Java",
       page: <SingletonClassInJava />,
     },
     {
+      heading: "Constant value",
       topic: "Enumeration in Java",
       page: <EnumerationInJava />,
     },
-    {
-      topic: "Date and Time Functions in Java",
-      page: <DateAndTimeFunctionsInJava />,
-    },
-    {
-      topic:
-        "Wrapper Class - Converting primitive number to number object in Java",
-      page: <WrapperClass_ConvertingPrimitiveNumberToNumberObjectInJava />,
-    },
-    {
-      topic:
-        "Wrapper Class - Converting number object to primitive number in Java",
-      page: <WrapperClass_ConvertingNumberObjectToPrimitiveNumberInJava />,
-    },
-    {
-      topic:
-        "Wrapper Class - Converting primitive number to string object in Java",
-      page: <WrapperClass_ConvertingPrimitiveNumberToStringObjectInJava />,
-    },
-    {
-      topic:
-        "Wrapper Class - Converting string object to primitive numbers in Java",
-      page: <WrapperClass_ConvertingStringObjectToPrimitiveNumbersInJava />,
-    },
-    {
-      topic:
-        "Wrapper Class - Converting numeric string object to primitive numbers in Java",
-      page: (
-        <WrapperClass_ConvertingNumericStringObjectToPrimitiveNumbersInJava />
-      ),
-    },
-    {
-      topic: "Shallow Copy Object Cloning in Java",
-      page: <ShallowCopyObjectCloningInJava />,
-    },
-    {
-      topic: "Deep Copy Object Cloning in Java",
-      page: <DeepCopyObjectCloningInJava />,
-    },
-    {
-      topic: "Java Reflection API in Java",
-      page: <JavaReflectionApiInJava />,
-    },
-    {
-      topic:
-        "Calling Private Method in Java Class using Reflection API in Java",
-      page: <CallingPrivateMethodInJavaClassUsingReflectionApiInJava />,
-    },
+    // {
+    //   topic: "Date and Time Functions in Java",
+    //   page: <DateAndTimeFunctionsInJava />,
+    // },
+    // {
+    //   topic:
+    //     "Wrapper Class - Converting primitive number to number object in Java",
+    //   page: <WrapperClass_ConvertingPrimitiveNumberToNumberObjectInJava />,
+    // },
+    // {
+    //   topic:
+    //     "Wrapper Class - Converting number object to primitive number in Java",
+    //   page: <WrapperClass_ConvertingNumberObjectToPrimitiveNumberInJava />,
+    // },
+    // {
+    //   topic:
+    //     "Wrapper Class - Converting primitive number to string object in Java",
+    //   page: <WrapperClass_ConvertingPrimitiveNumberToStringObjectInJava />,
+    // },
+    // {
+    //   topic:
+    //     "Wrapper Class - Converting string object to primitive numbers in Java",
+    //   page: <WrapperClass_ConvertingStringObjectToPrimitiveNumbersInJava />,
+    // },
+    // {
+    //   topic:
+    //     "Wrapper Class - Converting numeric string object to primitive numbers in Java",
+    //   page: (
+    //     <WrapperClass_ConvertingNumericStringObjectToPrimitiveNumbersInJava />
+    //   ),
+    // },
+    // {
+    //   topic: "Shallow Copy Object Cloning in Java",
+    //   page: <ShallowCopyObjectCloningInJava />,
+    // },
+    // {
+    //   topic: "Deep Copy Object Cloning in Java",
+    //   page: <DeepCopyObjectCloningInJava />,
+    // },
+    // {
+    //   topic: "Java Reflection API in Java",
+    //   page: <JavaReflectionApiInJava />,
+    // },
+    // {
+    //   topic:
+    //     "Calling Private Method in Java Class using Reflection API in Java",
+    //   page: <CallingPrivateMethodInJavaClassUsingReflectionApiInJava />,
+    // },
   ],
 };
 
