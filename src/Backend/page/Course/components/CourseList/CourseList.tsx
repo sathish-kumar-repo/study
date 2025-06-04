@@ -44,6 +44,7 @@ const CourseList: React.FC<CourseListProps> = ({
                         src={`/study/course-images/${item.img}`}
                         alt={item.name}
                         className="course-img"
+                        loading="lazy"
                       />
                       <h3>{item.name}</h3>
                       <p>{item.description}</p>
