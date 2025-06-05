@@ -1,4 +1,5 @@
 import webDevCurriculumContent from "../Frontend/Curriculum/content";
+import flutterConceptContent from "../Frontend/Flutter/Concept/content";
 import flutterWidgetsContent from "../Frontend/Flutter/Widgets/content";
 import javaContent from "../Frontend/Java/content";
 import basicRulesToLiveHealthyLifestyleContent from "../Frontend/Life Style/Basic Rules To Live Healthy Lifestyle/content";
@@ -38,7 +39,7 @@ const mainData = {
     // webFirebaseContent,
   ],
   flutter: [
-    // flutterConceptContent,
+    flutterConceptContent,
     flutterWidgetsContent,
     // flutterFirebaseContent,
   ],
