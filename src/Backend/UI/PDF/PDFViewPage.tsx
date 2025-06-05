@@ -45,6 +45,7 @@ const PDFViewerPage: React.FC = () => {
     console.error(message);
     return <NotFound />;
   };
+  if (fullPdfUrl === "") return <NotFound />;
 
   const handleSwitchTheme = (newTheme: string) => {
     setTheme(newTheme);
