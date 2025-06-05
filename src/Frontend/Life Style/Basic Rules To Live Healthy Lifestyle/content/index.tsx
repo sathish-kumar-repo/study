@@ -1,4 +1,5 @@
-import Rules from "../code";
+import Rules from "../code/01 Rules";
+import TrackerUpdates from "../code/02 Tracker Updates";
 
 const basicRulesToLiveHealthyLifestyleContent = {
   about: {
@@ -11,6 +12,10 @@ const basicRulesToLiveHealthyLifestyleContent = {
     {
       topic: "Rules",
       page: <Rules />,
+    },
+    {
+      topic: "Tracker Update",
+      page: <TrackerUpdates />,
     },
   ],
 };

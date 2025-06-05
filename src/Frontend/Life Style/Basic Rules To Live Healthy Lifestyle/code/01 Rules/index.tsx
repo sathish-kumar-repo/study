@@ -1,4 +1,4 @@
-import { Title, H1, H2, Space, List, Table } from "../../../../Backend/UI";
+import { Title, H1, H2, Space, List, Table } from "../../../../../Backend/UI";
 
 const Rules = () => {
   return (
