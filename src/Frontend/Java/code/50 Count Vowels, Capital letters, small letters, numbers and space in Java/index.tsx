@@ -5,7 +5,7 @@ const CountVowels_capitalLetters_smallLetters_numbersAndSpaceInJava = () => {
   return (
     <>
       <Title>
-        count Vowels,Capital letters,small letters,numbers and space in Java
+        Count Vowels,Capital letters,small letters,numbers and space in Java
       </Title>
       <Syntax
         src="50 Count Vowels, Capital letters, small letters, numbers and space in Java/App.java"

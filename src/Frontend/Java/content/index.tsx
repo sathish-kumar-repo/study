@@ -284,6 +284,7 @@ const javaContent: ContentDataType = {
       page: <FindTheDuplicateValuesOfAnArrayInJava />,
     },
     {
+      heading: "Array with dimension",
       topic: "Two Dimension Arrays in Java",
       page: <TwoDimensionArraysInJava />,
     },

@@ -40,7 +40,7 @@ const BasicProgramInJava = () => {
       </Para>
       <H2>Source Code</H2>
       <Syntax
-        src="01 Basic Program/basic.java"
+        src="01 Basic Program in Java/basic.java"
         customDomain={domain}
         title="basic.java"
         language="java"

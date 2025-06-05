@@ -1,4 +1,4 @@
-import { Para, Syntax, Table, Title } from "../../../../Backend/UI";
+import { Media, Para, Syntax, Table, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const DifferenceBetweenAbstractClassAndInterfaceInJava = () => {
@@ -61,7 +61,10 @@ const DifferenceBetweenAbstractClassAndInterfaceInJava = () => {
           </tr>
         </tbody>
       </Table>
-      {/* Todo */}
+      <Media
+        src="80 Difference Between Abstract Class and Interface in Java/img.jpg"
+        customDomain={domain}
+      />
     </>
   );
 };

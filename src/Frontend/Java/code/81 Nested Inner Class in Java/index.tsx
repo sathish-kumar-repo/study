@@ -1,15 +1,10 @@
-import { H1, Media, Para, Syntax, Title } from "../../../../Backend/UI";
+import { H1, Media, Para, Space, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const NestedInnerClassInJava = () => {
   return (
     <>
-      <Title>Inner Class in Java</Title>
-      <Media
-        src="81 Nested Inner Class in Java/img.jpg"
-        customDomain={domain}
-      />
-      <H1>Nested Inner Class</H1>
+      <Title>Nested Inner Class in Java</Title>
       <Para>
         A class is a non-primitive or user-defined data type in Java, while an
         object is an instance of a class. To define a class within another
@@ -20,6 +15,11 @@ const NestedInnerClassInJava = () => {
         Classes.
       </Para>
       <Syntax title="Syntax" code={syntax} />
+      <Media
+        src="81 Nested Inner Class in Java/img.jpg"
+        customDomain={domain}
+      />
+      <Space sT={20} />
       <Syntax
         src="81 Nested Inner Class in Java/App.java"
         customDomain={domain}

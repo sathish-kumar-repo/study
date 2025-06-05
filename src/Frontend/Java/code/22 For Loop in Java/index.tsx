@@ -1,4 +1,4 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Para, Space, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const ForLoopInJava = () => {
@@ -21,6 +21,7 @@ const ForLoopInJava = () => {
         optional. If your business logic contains one of these parts, you can
         omit the corresponding component from your for loop.
       </Para>
+      <Space sT={20} />
       <Syntax
         src="22 For Loop in Java/App.java"
         customDomain={domain}

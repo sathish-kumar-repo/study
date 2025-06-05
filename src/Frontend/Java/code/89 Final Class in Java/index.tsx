@@ -1,4 +1,4 @@
-import { Para, Syntax, Title } from "../../../../Backend/UI";
+import { Media, Para, Space, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const FinalClassInJava = () => {
@@ -12,6 +12,8 @@ const FinalClassInJava = () => {
       </Para>
       <Para>Here's an example of a final class in Java:</Para>
       <Syntax title="Example" code={eg} />
+      <Media src="89 Final Class in Java/img.jpg" customDomain={domain} />
+      <Space sT={20} />
       <Syntax
         src="89 Final Class in Java/App.java"
         customDomain={domain}

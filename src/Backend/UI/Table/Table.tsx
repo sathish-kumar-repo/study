@@ -57,7 +57,8 @@ const Table: FC<TableProps> = (props) => {
   }
 
   const fetchExcelData = async (fullUrl: string) => {
-    setLoading(true);
+    console.log(fullUrl);
+
     setError(null);
     try {
       const response = await fetch(fullUrl);
@@ -68,6 +69,33 @@ const Table: FC<TableProps> = (props) => {
       const ws = wb.Sheets[wsname];
       const jsonData = XLSX.utils.sheet_to_json(ws, { header: 1 });
 
+      // if (jsonData.length > 0) {
+      //   const [headerRow, ...bodyRows] = jsonData as (string[] | any[])[];
+      //   setHeaders(headerRow as string[]);
+      //   const formattedData = bodyRows
+      //     .filter((row, idx) => {
+      //       const isValid = Array.isArray(row) && row.length > 0;
+      //       if (!isValid) {
+      //         console.warn(`⚠️ Skipping invalid row at index ${idx + 1}:`, row);
+      //       }
+      //       return isValid;
+      //     })
+      //     .map((row, _) => {
+      //       const entries = headerRow.map((header, i) => {
+      //         const value = row[i] !== undefined ? row[i] : "";
+      //         return [header, value];
+      //       });
+
+      //       // Ensure every entry is a valid [key, value] pair
+      //       const validEntries = entries.filter(
+      //         (entry) => Array.isArray(entry) && entry.length === 2
+      //       );
+
+      //       return Object.fromEntries(validEntries);
+      //     });
+
+      //   setData(formattedData);
+      // }
       if (jsonData.length > 0) {
         const [headerRow, ...bodyRows] = jsonData as (string[] | any[])[];
         setHeaders(headerRow as string[]);

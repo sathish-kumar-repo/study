@@ -8,8 +8,9 @@ const AbstractClassInJava = () => {
       <Para>
         An abstract class is a class marked with the abstract keyword. It,
         contrary to non-abstract class, may contain abstract -
-        implementation-less - methods. It is, however, valid to create an
-        abstract class without abstract methods.
+        implementation-less - methods(An abstract class may contain abstract
+        methods (methods without code or body)). It is, however, valid to create
+        an abstract class without abstract methods.
       </Para>
       <Para>
         An abstract class cannot be instantiated. It can be sub-classed

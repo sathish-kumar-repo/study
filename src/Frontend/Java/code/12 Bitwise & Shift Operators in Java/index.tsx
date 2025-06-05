@@ -1,4 +1,11 @@
-import { Para, Syntax, Table, Title } from "../../../../Backend/UI";
+import {
+  Media,
+  Para,
+  Space,
+  Syntax,
+  Table,
+  Title,
+} from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const BitwiseAndShiftOperatorsInJava = () => {
@@ -72,13 +79,16 @@ const BitwiseAndShiftOperatorsInJava = () => {
           </tr>
         </tbody>
       </Table>
-
+      <Media
+        src="12 Bitwise & Shift Operators in Java/img.png"
+        customDomain={domain}
+      />
+      <Space sT={20} />
       <Syntax
         src="12 Bitwise & Shift Operators in Java/App.java"
         customDomain={domain}
         language="java"
       />
-      <Table file="12 Bitwise & Shift Operators in Java/excel.xlsx" />
     </>
   );
 };
