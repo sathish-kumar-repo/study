@@ -1,4 +1,4 @@
-import { HL, Para, Space, Syntax, Title } from "../../../../Backend/UI";
+import { Para, Space, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const DataHidingGetterAndSetterInJava = () => {

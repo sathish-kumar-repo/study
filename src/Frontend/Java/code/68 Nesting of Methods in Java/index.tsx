@@ -1,11 +1,4 @@
-import {
-  List,
-  Para,
-  Space,
-  Syntax,
-  Table,
-  Title,
-} from "../../../../Backend/UI";
+import { List, Para, Space, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const NestingOfMethodsInJava = () => {

@@ -1,4 +1,4 @@
-import { H1, Media, Para, Space, Syntax, Title } from "../../../../Backend/UI";
+import { Media, Para, Space, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const NestedInnerClassInJava = () => {

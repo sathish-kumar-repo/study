@@ -1,4 +1,4 @@
-import { Media, Para, Syntax, Table, Title } from "../../../../Backend/UI";
+import { Media, Para, Table, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const DifferenceBetweenAbstractClassAndInterfaceInJava = () => {

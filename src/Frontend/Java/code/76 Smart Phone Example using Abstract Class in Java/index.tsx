@@ -1,4 +1,4 @@
-import { Media, Para, Syntax, Title } from "../../../../Backend/UI";
+import { Media, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const SmartPhoneExampleUsingAbstractClassInJava = () => {

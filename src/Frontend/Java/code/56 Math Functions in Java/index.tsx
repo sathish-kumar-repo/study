@@ -1,4 +1,4 @@
-import { List, Para, Syntax, Table, Title } from "../../../../Backend/UI";
+import { Para, Syntax, Table, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const MathFunctionsInJava = () => {

@@ -1,4 +1,4 @@
-import { H1, Media, Para, Syntax, Title } from "../../../../Backend/UI";
+import { H1, Media, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const MoreAboutInterfaceInJava = () => {

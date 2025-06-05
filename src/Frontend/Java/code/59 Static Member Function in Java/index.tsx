@@ -1,4 +1,4 @@
-import { H1, List, Para, Syntax, Title } from "../../../../Backend/UI";
+import { H1, List, Syntax, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const StaticMemberFunctionInJava = () => {

@@ -1,12 +1,4 @@
-import {
-  H1,
-  HL,
-  List,
-  Media,
-  Para,
-  Syntax,
-  Title,
-} from "../../../../Backend/UI";
+import { H1, HL, List, Media, Para, Title } from "../../../../Backend/UI";
 import { domain } from "../../content";
 
 const IntroductionOfObjectOrientedProgrammingInJava = () => {
