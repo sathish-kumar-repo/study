@@ -103,7 +103,9 @@ const Lang: React.FC<LangProps> = ({
         </button>
       </div>
 
-      {viewType === "Sentence" ? (
+      {filtered.length === 0 ? (
+        <div className={styles.noResult}>No result found.</div>
+      ) : viewType === "Sentence" ? (
         <div className={styles.sentenceContainer}>
           {pageItems.map((sentence, index) => (
             <div className={styles.sentence} key={`sentence-${index}`}>
