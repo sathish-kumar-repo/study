@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import Table from "../Table/Table";
 import styles from "./Lang.module.scss";
-import HighlightMatch from "../../components/High/HighlightMatch";
+import HighlightMatch from "../../components/HighlightMatch";
 
 type ViewType = "Table" | "Sentence";
 type Sentence = { eng: string; tam: string };
