@@ -1,4 +1,5 @@
 import webDevCurriculumContent from "../Frontend/Curriculum/content";
+import englishContent from "../Frontend/English/content";
 import flutterConceptContent from "../Frontend/Flutter/Concept/content";
 import flutterWidgetsContent from "../Frontend/Flutter/Widgets/content";
 import javaContent from "../Frontend/Java/content";
@@ -14,6 +15,7 @@ const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
   trading: [BinaryOptionContent, cwrvContent, binaryOptionPdfCollectionContent],
+  language: [englishContent],
   programming: [
     // jsContent,
     // tsContent,

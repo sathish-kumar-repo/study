@@ -12,6 +12,7 @@ import Note from "./Note/Note";
 import Space from "./Space/Space";
 import PDF from "./PDF/PDF";
 import H3 from "./H3/H3";
+import Lang from "./Lang/Lang";
 
 export {
   Title,
@@ -28,4 +29,5 @@ export {
   Note,
   Space,
   PDF,
+  Lang,
 };
