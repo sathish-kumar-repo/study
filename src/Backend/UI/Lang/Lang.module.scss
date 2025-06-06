@@ -1,0 +1,121 @@
+.wrapper {
+  padding: 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  .searchInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.3);
+    color: #333;
+    backdrop-filter: blur(6px);
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: #0070f3;
+    }
+  }
+
+  .toggleBtn {
+    padding: 0.6rem 1.2rem;
+    background: rgba(0, 112, 243, 0.3);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 112, 243, 0.5);
+    }
+  }
+}
+
+.sentenceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sentence {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+
+  .primary,
+  .secondary {
+    width: 48%;
+    word-break: break-word;
+    color: #fff;
+    font-size: 1rem;
+  }
+}
+
+// react-paginate styles
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 0.4rem;
+  padding: 0.5rem;
+
+  li {
+    list-style: none;
+
+    a {
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+.activePage a {
+  background: #0070f3 !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.disabled a {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ellipsis {
+  a {
+    cursor: default;
+    color: #ccc;
+    font-size: 1.2rem;
+    padding: 0 0.7rem;
+  }
+}

@@ -9,7 +9,7 @@ const YourTitle = () => {
 };
 
 export default YourTitle;
-const sentence = [
+[
   { eng: "Yes", tam: "ஆமாம்" },
   { eng: "No", tam: "இல்லை" },
   { eng: "Nothing", tam: "ஒன்றுமில்லை" },
@@ -37,7 +37,7 @@ const sentence = [
   { eng: "It doesn't appear so", tam: "அப்படித் தோன்றவில்லை" },
 ];
 
-[
+const sentence = [
   { eng: "Does he work with you?", tam: "அவர் உங்களுடன் வேலை செய்கிறாரா?" },
   { eng: "Does she have a car?", tam: "அவளிடம் கார் இருக்கிறதா?" },
   { eng: "Does it snow in winter?", tam: "குளிர்காலத்தில் பனி உண்டா?" },
