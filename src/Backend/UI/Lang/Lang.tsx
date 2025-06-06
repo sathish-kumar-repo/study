@@ -25,13 +25,9 @@ const Lang: React.FC<LangProps> = ({
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Initialize view type from URL or fallback default
+  // Initial states from URL
   const initialViewType = (searchParams.get("view") as ViewType) || type;
-
-  // Initialize search term from URL or empty string
   const initialSearch = searchParams.get("search") || "";
-
-  // Initialize page from URL (1-based), convert to 0-based internally
   const initialPage = Number(searchParams.get("page") || "1") - 1;
 
   const [viewType, setViewType] = useState<ViewType>(initialViewType);
@@ -40,32 +36,44 @@ const Lang: React.FC<LangProps> = ({
     initialPage >= 0 ? initialPage : 0
   );
 
-  // Update URL params when viewType, searchTerm, or currentPage changes
+  // 🔄 Sync URL → State when URL params are changed externally
   useEffect(() => {
-    const params: any = {};
+    const viewParam = searchParams.get("view") as ViewType;
+    const searchParam = searchParams.get("search") || "";
+    const pageParam = Number(searchParams.get("page") || "1") - 1;
 
-    if (viewType !== type) params.view = viewType;
-    if (searchTerm.trim() !== "") params.search = searchTerm.trim();
-    if (currentPage !== 0) params.page = (currentPage + 1).toString();
+    if (viewParam && viewParam !== viewType) setViewType(viewParam);
+    if (searchParam !== searchTerm) setSearchTerm(searchParam);
+    if (!isNaN(pageParam) && pageParam !== currentPage)
+      setCurrentPage(pageParam);
+  }, [searchParams]);
+
+  // 🔄 Sync State → URL when internal state changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    if (viewType !== type) params.set("view", viewType);
+    if (searchTerm.trim() !== "") params.set("search", searchTerm.trim());
+    if (currentPage !== 0) params.set("page", (currentPage + 1).toString());
 
     setSearchParams(params);
-  }, [viewType, searchTerm, currentPage, setSearchParams, type]);
+  }, [viewType, searchTerm, currentPage, type, setSearchParams]);
 
-  // Filter sentences by search term (case insensitive)
+  // 🔍 Filter sentences by search
   const filtered = sentences.filter(
     (s) =>
       s.eng.toLowerCase().includes(searchTerm.toLowerCase()) ||
       s.tam.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination calculations
+  // 📄 Pagination
   const pageCount = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const pageItems = filtered.slice(
     currentPage * ITEMS_PER_PAGE,
     (currentPage + 1) * ITEMS_PER_PAGE
   );
 
-  // Handle page change from pagination component
+  // 🔁 On page change
   const handlePageClick = ({ selected }: { selected: number }) => {
     setCurrentPage(selected);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -81,7 +89,7 @@ const Lang: React.FC<LangProps> = ({
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
-            setCurrentPage(0); // Reset page on search change
+            setCurrentPage(0);
           }}
         />
         <button
@@ -135,8 +143,7 @@ const Lang: React.FC<LangProps> = ({
           containerClassName={styles.pagination}
           activeClassName={styles.activePage}
           disabledClassName={styles.disabled}
-          // breakClassName={styles.ellipsis}
-          forcePage={currentPage} // Important: sync UI to currentPage state (0-based)
+          forcePage={currentPage}
         />
       )}
     </div>
