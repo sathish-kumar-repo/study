@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import Table from "../Table/Table";
 import styles from "./Lang.module.scss";
+import HighlightMatch from "../../components/High/HighlightMatch";
 
 type ViewType = "Table" | "Sentence";
 type Sentence = { eng: string; tam: string };
@@ -36,7 +37,22 @@ const Lang: React.FC<LangProps> = ({
     initialPage >= 0 ? initialPage : 0
   );
 
-  // 🔄 Sync URL → State when URL params are changed externally
+  // 🔍 Filter sentences by search
+  const filtered = sentences.filter(
+    (s) =>
+      s.eng.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      s.tam.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // 📄 Pagination
+  const pageCount = Math.ceil(filtered.length / ITEMS_PER_PAGE) || 1;
+  const safePage = Math.min(Math.max(0, currentPage), pageCount - 1);
+  const pageItems = filtered.slice(
+    safePage * ITEMS_PER_PAGE,
+    (safePage + 1) * ITEMS_PER_PAGE
+  );
+
+  // 🔁 Sync URL → State when URL params are changed externally
   useEffect(() => {
     const viewParam = searchParams.get("view") as ViewType;
     const searchParam = searchParams.get("search") || "";
@@ -44,9 +60,28 @@ const Lang: React.FC<LangProps> = ({
 
     if (viewParam && viewParam !== viewType) setViewType(viewParam);
     if (searchParam !== searchTerm) setSearchTerm(searchParam);
-    if (!isNaN(pageParam) && pageParam !== currentPage)
-      setCurrentPage(pageParam);
-  }, [searchParams]);
+
+    const filteredResults = sentences.filter(
+      (s) =>
+        s.eng.toLowerCase().includes(searchParam.toLowerCase()) ||
+        s.tam.toLowerCase().includes(searchParam.toLowerCase())
+    );
+    const totalPages = Math.max(
+      1,
+      Math.ceil(filteredResults.length / ITEMS_PER_PAGE)
+    );
+    const correctedPage = Math.min(Math.max(0, pageParam), totalPages - 1);
+
+    if (!isNaN(pageParam) && correctedPage !== currentPage) {
+      setCurrentPage(correctedPage);
+
+      if (correctedPage !== pageParam) {
+        const params = new URLSearchParams(searchParams);
+        params.set("page", (correctedPage + 1).toString());
+        setSearchParams(params);
+      }
+    }
+  }, [searchParams, sentences]);
 
   // 🔄 Sync State → URL when internal state changes
   useEffect(() => {
@@ -58,20 +93,6 @@ const Lang: React.FC<LangProps> = ({
 
     setSearchParams(params);
   }, [viewType, searchTerm, currentPage, type, setSearchParams]);
-
-  // 🔍 Filter sentences by search
-  const filtered = sentences.filter(
-    (s) =>
-      s.eng.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      s.tam.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  // 📄 Pagination
-  const pageCount = Math.ceil(filtered.length / ITEMS_PER_PAGE);
-  const pageItems = filtered.slice(
-    currentPage * ITEMS_PER_PAGE,
-    (currentPage + 1) * ITEMS_PER_PAGE
-  );
 
   // 🔁 On page change
   const handlePageClick = ({ selected }: { selected: number }) => {
@@ -125,15 +146,19 @@ const Lang: React.FC<LangProps> = ({
           <tbody>
             {pageItems.map((sentence, index) => (
               <tr key={`sentence-${index}`}>
-                <td>{sentence.eng}</td>
-                <td>{sentence.tam}</td>
+                <td>
+                  <HighlightMatch text={sentence.eng} query={searchTerm} />
+                </td>
+                <td>
+                  <HighlightMatch text={sentence.tam} query={searchTerm} />
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       )}
 
-      {pageCount > 1 && (
+      {pageCount > 1 && filtered.length > 0 && (
         <ReactPaginate
           breakLabel="..."
           nextLabel="Next ▶"
@@ -145,7 +170,7 @@ const Lang: React.FC<LangProps> = ({
           containerClassName={styles.pagination}
           activeClassName={styles.activePage}
           disabledClassName={styles.disabled}
-          forcePage={currentPage}
+          forcePage={safePage}
         />
       )}
     </div>
