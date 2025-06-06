@@ -6,7 +6,7 @@ interface HighlightMatchProps {
   query: string;
 }
 
-// ✅ Escape all regex special characters in query string
+// Escape special regex characters
 function escapeRegExp(input: string): string {
   return input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -15,8 +15,15 @@ const HighlightMatch: React.FC<HighlightMatchProps> = ({ text, query }) => {
   if (!query.trim()) return <>{text}</>;
 
   try {
-    const escapedQuery = escapeRegExp(query);
-    const regex = new RegExp(`(${escapedQuery})`, "gi");
+    // Split query by whitespace and filter out empty strings
+    const words = query.trim().split(/\s+/).filter(Boolean).map(escapeRegExp);
+
+    if (words.length === 0) return <>{text}</>;
+
+    // Build a regex that matches any of the words (word1|word2|word3)
+    const regex = new RegExp(`(${words.join("|")})`, "gi");
+
+    // Split text by the matched words
     const parts = text.split(regex);
 
     return (
@@ -34,7 +41,7 @@ const HighlightMatch: React.FC<HighlightMatchProps> = ({ text, query }) => {
     );
   } catch (error) {
     console.warn("HighlightMatch error:", error);
-    return <>{text}</>; // fallback gracefully
+    return <>{text}</>;
   }
 };
 
