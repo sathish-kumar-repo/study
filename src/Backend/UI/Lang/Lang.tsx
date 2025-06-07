@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 import Table from "../Table/Table";
 import styles from "./Lang.module.scss";
 import HighlightMatch from "../../components/HighlightMatch";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 type ViewType = "Table" | "Sentence";
 type Sentence = { eng: string; tam: string };
@@ -103,7 +104,14 @@ const Lang: React.FC<LangProps> = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.controls}>
-        <input
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={(value) => {
+            setSearchTerm(value);
+            setCurrentPage(0);
+          }}
+        />
+        {/* <input
           type="search"
           className={styles.searchInput}
           placeholder="Search..."
@@ -112,7 +120,7 @@ const Lang: React.FC<LangProps> = ({
             setSearchTerm(e.target.value);
             setCurrentPage(0);
           }}
-        />
+        /> */}
         <button
           className={styles.toggleBtn}
           onClick={() => {
@@ -161,12 +169,12 @@ const Lang: React.FC<LangProps> = ({
       {pageCount > 1 && filtered.length > 0 && (
         <ReactPaginate
           breakLabel="..."
-          nextLabel="Next ▶"
+          nextLabel="▶"
           onPageChange={handlePageClick}
           pageRangeDisplayed={2}
           marginPagesDisplayed={1}
           pageCount={pageCount}
-          previousLabel="◀ Prev"
+          previousLabel="◀"
           containerClassName={styles.pagination}
           activeClassName={styles.activePage}
           disabledClassName={styles.disabled}

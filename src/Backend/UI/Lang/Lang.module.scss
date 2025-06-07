@@ -1,10 +1,10 @@
 .wrapper {
   padding: 1.5rem;
   border-radius: 20px;
-  backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  // backdrop-filter: blur(16px);
+  // background: rgba(255, 255, 255, 0.05);
+  // box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  // border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .controls {
@@ -13,23 +13,6 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.5rem;
-
-  .searchInput {
-    flex: 1;
-    min-width: 200px;
-    padding: 0.6rem 1rem;
-    border-radius: 12px;
-    border: 1px solid #ccc;
-    background: rgba(255, 255, 255, 0.3);
-    color: #333;
-    backdrop-filter: blur(6px);
-    font-size: 1rem;
-
-    &:focus {
-      outline: none;
-      border-color: #0070f3;
-    }
-  }
 
   .toggleBtn {
     padding: 0.6rem 1.2rem;
@@ -54,20 +37,22 @@
 }
 
 .sentence {
-  display: flex;
-  justify-content: space-between;
   padding: 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   .primary,
   .secondary {
-    width: 48%;
-    word-break: break-word;
-    color: #fff;
-    font-size: 1rem;
+    color: var(--text-color);
+    font-family: var(--font-family-body);
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    text-align: justify;
+  }
+  .secondary {
+    color: var(--accent-color);
   }
 }
 
@@ -101,8 +86,8 @@
 }
 
 .activePage a {
-  background: #0070f3 !important;
-  color: #fff !important;
+  background: #fff !important;
+  color: var(--accent-color) !important;
   font-weight: bold;
 }
 
@@ -124,5 +109,5 @@
   text-align: center;
   margin: 2rem 0;
   font-size: 1.2rem;
-  color: #999;
+  color: var(--accent-color);
 }
