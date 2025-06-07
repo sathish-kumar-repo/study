@@ -5,20 +5,8 @@
   gap: 1rem;
   padding: 0 1rem;
   margin-bottom: 2rem;
-
   .toggleBtn {
     padding: 0.6rem 1.2rem;
-    background: rgba(0, 112, 243, 0.3);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
-    font-weight: bold;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(0, 112, 243, 0.5);
-    }
   }
 }
 

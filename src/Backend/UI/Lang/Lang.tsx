@@ -1,9 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import ReactPaginate from "react-paginate";
 import Table from "../Table/Table";
 import styles from "./Lang.module.scss";
 import HighlightMatch from "../../components/HighlightMatch";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import TableIcon from "@mui/icons-material/Window";
+import SentenceIcon from "@mui/icons-material/ViewStream";
 
 type ViewType = "Table" | "Sentence";
 type Sentence = { eng: string; tam: string };
@@ -30,6 +32,9 @@ const Lang: React.FC<LangProps> = ({
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const touchStartX = useRef<number | null>(null);
+
   // 🔍 Filter sentences
   const filtered = useMemo(
     () =>
@@ -54,8 +59,45 @@ const Lang: React.FC<LangProps> = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // 👆 Handle swipe gestures
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (touchStartX.current === null) return;
+
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX.current - touchEndX;
+
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && currentPage < pageCount - 1) {
+          setCurrentPage((prev) => prev + 1); // swipe left → next
+        } else if (diff < 0 && currentPage > 0) {
+          setCurrentPage((prev) => prev - 1); // swipe right → previous
+        }
+      }
+
+      touchStartX.current = null;
+    };
+
+    const node = containerRef.current;
+    if (node) {
+      node.addEventListener("touchstart", handleTouchStart, { passive: true });
+      node.addEventListener("touchend", handleTouchEnd);
+    }
+
+    return () => {
+      if (node) {
+        node.removeEventListener("touchstart", handleTouchStart);
+        node.removeEventListener("touchend", handleTouchEnd);
+      }
+    };
+  }, [currentPage, pageCount]);
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={containerRef}>
       <div className={styles.controls}>
         <SearchBar
           searchTerm={searchTerm}
@@ -64,15 +106,15 @@ const Lang: React.FC<LangProps> = ({
             setCurrentPage(0);
           }}
         />
-        <button
-          className={styles.toggleBtn}
+        <span
+          className={`toggle-button ${styles.toggleBtn}`}
           onClick={() => {
             setViewType(viewType === "Sentence" ? "Table" : "Sentence");
             setCurrentPage(0);
           }}
         >
-          Switch to {viewType === "Sentence" ? "Table" : "Sentence"} View
-        </button>
+          {viewType === "Sentence" ? <TableIcon /> : <SentenceIcon />}
+        </span>
       </div>
 
       {filtered.length === 0 ? (
