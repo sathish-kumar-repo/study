@@ -6,6 +6,8 @@ import HighlightMatch from "../../components/HighlightMatch";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import TableIcon from "@mui/icons-material/Window";
 import SentenceIcon from "@mui/icons-material/ViewStream";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 type ViewType = "Table" | "Sentence";
 type Sentence = { eng: string; tam: string };
@@ -31,11 +33,14 @@ const Lang: React.FC<LangProps> = ({
   const [viewType, setViewType] = useState<ViewType>(type);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
+  const [paginationSettings, setPaginationSettings] = useState({
+    pageRangeDisplayed: 2,
+    marginPagesDisplayed: 1,
+  });
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const touchStartX = useRef<number | null>(null);
 
-  // 🔍 Filter sentences
   const filtered = useMemo(
     () =>
       sentences.filter(
@@ -59,7 +64,32 @@ const Lang: React.FC<LangProps> = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // 👆 Handle swipe gestures
+  useEffect(() => {
+    const updatePaginationSettings = () => {
+      const width = window.innerWidth;
+      if (width < 480) {
+        setPaginationSettings({
+          pageRangeDisplayed: 1,
+          marginPagesDisplayed: 1,
+        });
+      } else if (width < 768) {
+        setPaginationSettings({
+          pageRangeDisplayed: 2,
+          marginPagesDisplayed: 1,
+        });
+      } else {
+        setPaginationSettings({
+          pageRangeDisplayed: 3,
+          marginPagesDisplayed: 2,
+        });
+      }
+    };
+
+    updatePaginationSettings();
+    window.addEventListener("resize", updatePaginationSettings);
+    return () => window.removeEventListener("resize", updatePaginationSettings);
+  }, []);
+
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX.current = e.touches[0].clientX;
@@ -67,18 +97,16 @@ const Lang: React.FC<LangProps> = ({
 
     const handleTouchEnd = (e: TouchEvent) => {
       if (touchStartX.current === null) return;
-
       const touchEndX = e.changedTouches[0].clientX;
       const diff = touchStartX.current - touchEndX;
 
       if (Math.abs(diff) > 50) {
         if (diff > 0 && currentPage < pageCount - 1) {
-          setCurrentPage((prev) => prev + 1); // swipe left → next
+          setCurrentPage((prev) => prev + 1);
         } else if (diff < 0 && currentPage > 0) {
-          setCurrentPage((prev) => prev - 1); // swipe right → previous
+          setCurrentPage((prev) => prev - 1);
         }
       }
-
       touchStartX.current = null;
     };
 
@@ -87,7 +115,6 @@ const Lang: React.FC<LangProps> = ({
       node.addEventListener("touchstart", handleTouchStart, { passive: true });
       node.addEventListener("touchend", handleTouchEnd);
     }
-
     return () => {
       if (node) {
         node.removeEventListener("touchstart", handleTouchStart);
@@ -154,15 +181,17 @@ const Lang: React.FC<LangProps> = ({
       {pageCount > 1 && (
         <ReactPaginate
           breakLabel="..."
-          nextLabel="▶"
+          nextLabel={<ArrowForwardIosIcon />}
+          previousLabel={<ArrowBackIosIcon />}
           onPageChange={handlePageClick}
-          pageRangeDisplayed={2}
-          marginPagesDisplayed={1}
+          pageRangeDisplayed={paginationSettings.pageRangeDisplayed}
+          marginPagesDisplayed={paginationSettings.marginPagesDisplayed}
           pageCount={pageCount}
-          previousLabel="◀"
           containerClassName={styles.pagination}
           activeClassName={styles.activePage}
           disabledClassName={styles.disabled}
+          nextClassName={styles.btn}
+          previousClassName={styles.btn}
           forcePage={safePage}
         />
       )}

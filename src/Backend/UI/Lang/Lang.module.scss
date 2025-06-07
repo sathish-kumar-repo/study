@@ -47,19 +47,16 @@
 
   li {
     list-style: none;
-
     a {
-      padding: 0.5rem 0.9rem;
+      display: block;
+      padding: 0.3rem 0.6rem;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.15);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
       cursor: pointer;
       backdrop-filter: blur(6px);
-      transition: background 0.3s ease;
-
+      transition: color 0.3s ease;
       &:hover {
-        background: rgba(255, 255, 255, 0.3);
+        color: var(--accent-color);
       }
     }
   }
@@ -73,9 +70,12 @@
 
 .disabled a {
   opacity: 0.5;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 
+.btn a {
+  color: var(--accent-color) !important;
+}
 .ellipsis {
   a {
     cursor: default;
