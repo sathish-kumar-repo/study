@@ -46,12 +46,12 @@ import Links from "../code/43 Links";
 export const domain =
   "https://sathish-kumar-repo.github.io/Binary-Options/mumma/";
 
-const BinaryOptionContent = {
+const mummaBinaryOptionContent = {
   about: {
     subCategory: "Binary Options",
-    name: "Binary Options",
+    name: "Binary Options (Mumma)",
     description: "Learn about price action and candlestick physcology.",
-    img: "binary-trading.jpg",
+    img: "binary-trading-mumma.jpg",
   },
   route: [
     {
@@ -236,4 +236,4 @@ const BinaryOptionContent = {
   ],
 };
 
-export default BinaryOptionContent;
+export default mummaBinaryOptionContent;

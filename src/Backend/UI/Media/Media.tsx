@@ -12,7 +12,6 @@ import {
   resolveDomainKeyFromProps,
   getDomainUrl,
 } from "../../utils/domain";
-
 interface SequenceConfig {
   base: string;
   start: number;
@@ -65,7 +64,7 @@ const getExtension = (url: string): string => {
 };
 
 const isYouTubeLink = (url: string) =>
-  /(youtube\.com\/watch\?v=|youtu\.be\/)/.test(url);
+  /(youtube\.com\/(watch\?v=|shorts\/)|youtu\.be\/)/.test(url);
 
 const isAudio = (file: string) => {
   const ext = getExtension(file);
@@ -147,6 +146,9 @@ const Media: React.FC<MediaProps> = (props) => {
       return url.replace("watch?v=", "embed/");
     } else if (url.includes("youtu.be/")) {
       return url.replace("youtu.be/", "youtube.com/embed/");
+    } else if (url.includes("youtube.com/shorts/")) {
+      const id = url.split("/shorts/")[1]?.split(/[?#]/)[0];
+      return `https://www.youtube.com/embed/${id}`;
     }
     return url;
   };

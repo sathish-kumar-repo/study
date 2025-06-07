@@ -14,12 +14,12 @@ import Part7 from "../code/Part 7";
 import Part8 from "../code/Part 8";
 import Part9 from "../code/Part 9";
 
-const cwrvContent = {
+const ybtCwrvContent = {
   about: {
     subCategory: "Binary Options",
-    name: "Binary Options (CWRV)",
+    name: "Binary Options CWRV (YBT)",
     description: "Learn about Candlestick Wick Reading with Volume (CWRV)",
-    img: "CWRV.jpg",
+    img: "binary-trading-ybt-cwrv.jpg",
   },
   route: [
     { topic: "Part 1", page: <Part1 /> },
@@ -40,4 +40,4 @@ const cwrvContent = {
   ],
 };
 
-export default cwrvContent;
+export default ybtCwrvContent;

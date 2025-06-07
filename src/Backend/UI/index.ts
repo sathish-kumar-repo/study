@@ -13,6 +13,7 @@ import Space from "./Space/Space";
 import PDF from "./PDF/PDF";
 import H3 from "./H3/H3";
 import Lang from "./Lang/Lang";
+import Quote from "./Quote/Quote";
 
 export {
   Title,
@@ -30,4 +31,5 @@ export {
   Space,
   PDF,
   Lang,
+  Quote,
 };

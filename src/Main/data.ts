@@ -5,16 +5,28 @@ import flutterWidgetsContent from "../Frontend/Flutter/Widgets/content";
 import javaContent from "../Frontend/Java/content";
 import basicRulesToLiveHealthyLifestyleContent from "../Frontend/Life Style/Basic Rules To Live Healthy Lifestyle/content";
 import shreddedContent from "../Frontend/Life Style/Shredded/content";
-import BinaryOptionContent from "../Frontend/Trading/BinaryOptions/content";
-import cwrvContent from "../Frontend/Trading/CWRV/content";
 import binaryOptionPdfCollectionContent from "../Frontend/Trading/PDF/content";
 import cssContent from "../Frontend/Web/CSS/content";
+import lifeRulesContent from "../Frontend/Books/Rules/content";
+import mummaBinaryOptionContent from "../Frontend/Trading/Mumma Binary Options/content";
+import ybtCwrvContent from "../Frontend/Trading/YBT CWRV/content";
+import mummaPracticeContent from "../Frontend/Trading/Mumma Practice/content";
+import ybtBinaryOptionsContent from "../Frontend/Trading/YBT Binary Options/content";
+import ybtCwrvPracticeContent from "../Frontend/Trading/YBT CWRV Practice/content";
 
 // The course data object
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
-  trading: [BinaryOptionContent, cwrvContent, binaryOptionPdfCollectionContent],
+  books: [lifeRulesContent],
+  trading: [
+    mummaBinaryOptionContent,
+    mummaPracticeContent,
+    ybtCwrvContent,
+    ybtCwrvPracticeContent,
+    ybtBinaryOptionsContent,
+    binaryOptionPdfCollectionContent,
+  ],
   language: [englishContent],
   programming: [
     // jsContent,
