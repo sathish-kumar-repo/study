@@ -150,8 +150,12 @@ const Lang: React.FC<LangProps> = ({
         <div className={styles.sentenceContainer}>
           {pageItems.map((sentence, index) => (
             <div className={styles.sentence} key={`sentence-${index}`}>
-              <div className={styles.primary}>{sentence.eng}</div>
-              <div className={styles.secondary}>{sentence.tam}</div>
+              <div className={styles.primary}>
+                <HighlightMatch text={sentence.eng} query={searchTerm} />
+              </div>
+              <div className={styles.secondary}>
+                <HighlightMatch text={sentence.tam} query={searchTerm} />
+              </div>
             </div>
           ))}
         </div>
