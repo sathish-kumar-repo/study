@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import SearchBar from "../SearchBar/SearchBar";
 import { useTranslation } from "react-i18next";
+import HighlightMatch from "../HighlightMatch";
 
 interface SearchProps {
   showSearch: boolean;
@@ -114,7 +115,11 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
                           onClick={onClose}
                           to={`/${result.category}/${result.name}/${route.topic}`}
                         >
-                          {route.topic}
+                          <HighlightMatch
+                            text={route.topic}
+                            query={searchTerm}
+                          />
+                          {/* {route.topic} */}
                         </Link>
                       </li>
                     ))}
