@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./Para.module.css";
+import { A } from "..";
 
 interface ParaProps {
   children?: React.ReactNode;
+  link?: string;
   tab?: boolean;
   bold?: boolean;
   italic?: boolean;
@@ -13,6 +15,7 @@ interface ParaProps {
 
 const Para: React.FC<ParaProps> = ({
   children,
+  link,
   tab = false,
   bold = false,
   italic = false,
@@ -32,7 +35,22 @@ const Para: React.FC<ParaProps> = ({
     .filter(Boolean)
     .join(" ");
 
-  return <p className={classNames}>{children}</p>;
+  if (children && link) {
+    throw new Error(
+      "Para component cannot have both 'children' and 'link' props."
+    );
+  }
+  return (
+    <p className={classNames}>
+      {link ? (
+        <>
+          Further details can be found at: <A link={link}>{link}</A>
+        </>
+      ) : (
+        children
+      )}
+    </p>
+  );
 };
 
 export default Para;
