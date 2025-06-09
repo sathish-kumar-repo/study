@@ -1,4 +1,4 @@
-import SupplyAndDemand from "../code";
+import SupplyAndDemand from "../code/01 Supply and Demand";
 
 const ybtBinaryOptionsContent = {
   about: {
