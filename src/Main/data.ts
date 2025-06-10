@@ -1,5 +1,4 @@
 import webDevCurriculumContent from "../Frontend/Curriculum/content";
-import englishContent from "../Frontend/Language/01 Sentence/content";
 import flutterConceptContent from "../Frontend/Flutter/Concept/content";
 import flutterWidgetsContent from "../Frontend/Flutter/Widgets/content";
 import javaContent from "../Frontend/Java/content";
@@ -14,6 +13,7 @@ import mummaPracticeContent from "../Frontend/Trading/Mumma Practice/content";
 import ybtBinaryOptionsContent from "../Frontend/Trading/YBT Binary Options/content";
 import ybtCwrvPracticeContent from "../Frontend/Trading/YBT CWRV Practice/content";
 import seducerContent from "../Frontend/Books/9 Types of Seducers/content";
+import englishContent from "../Frontend/Language/Sentence/content";
 
 // The course data object
 const mainData = {
