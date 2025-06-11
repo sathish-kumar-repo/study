@@ -1,3 +1,4 @@
+import HealthRules15ToChangeYourLife from "../code/15 Health Rules to Change your Life";
 import EightRulesToBecomeDangerous from "../code/8 Rules to Become Dangerous";
 import Stop4ThingsImmediately from "../code/Four Things You Have To Stop Doing Immediately";
 import WaitYourTurn from "../code/Wait your turn!";
@@ -22,6 +23,10 @@ const lifeRulesContent = {
     {
       topic: "Wait your Turn",
       page: <WaitYourTurn />,
+    },
+    {
+      topic: "15 Health Rules to Change your Life",
+      page: <HealthRules15ToChangeYourLife />,
     },
   ],
 };
