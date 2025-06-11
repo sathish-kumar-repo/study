@@ -6,7 +6,7 @@ const HealthRules15ToChangeYourLife = () => {
       <Title>15 Health Rules to Change your Life</Title>
       <Media src="https://youtube.com/shorts/IXfYcfwc45E?si=Y8qYL6IvYgbc9p30" />
       <Space sT={20} />
-      <List items={healthyHabits} />
+      <List type="ordered" items={healthyHabits} />
     </>
   );
 };
