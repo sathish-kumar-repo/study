@@ -1,12 +1,18 @@
-import { List, Media, Space, Title } from "../../../../../Backend/UI";
+import { domain } from "../../..";
+import { H1, List, Media, Para, Space, Title } from "../../../../../Backend/UI";
 
 const HealthRules15ToChangeYourLife = () => {
   return (
     <>
       <Title>15 Health Rules to Change your Life</Title>
-      <Media src="https://youtu.be/RIBfFFG9bsU?si=OpHpx_xFjcQ-zxSu" />
-      <Space sT={20} />
+      <Media
+        src="15 Health Rules to Change your Life/img.jpg"
+        customDomain={domain}
+      />
+      <H1>Rules</H1>
       <List type="ordered" items={healthyHabits} />
+      <Space sT={20} />
+      <Para link="https://youtu.be/RIBfFFG9bsU?si=OpHpx_xFjcQ-zxSu" />
     </>
   );
 };
