@@ -10,7 +10,7 @@ import lifeRulesContent from "../Frontend/Books/Rules/content";
 import mummaBinaryOptionContent from "../Frontend/Trading/Mumma Binary Options/content";
 import ybtCwrvContent from "../Frontend/Trading/YBT CWRV/content";
 import mummaPracticeContent from "../Frontend/Trading/Mumma Practice/content";
-import ybtBinaryOptionsContent from "../Frontend/Trading/YBT Binary Options/content";
+import ybtBinaryOptionsContent from "../Frontend/Trading/YBT Binary Options/01 Supply and Demand/content";
 import ybtCwrvPracticeContent from "../Frontend/Trading/YBT CWRV Practice/content";
 import seducerContent from "../Frontend/Books/9 Types of Seducers/content";
 import englishContent from "../Frontend/Language/Sentence/content";
