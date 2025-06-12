@@ -1,18 +1,32 @@
-import { List, Title } from "../../../../Backend/UI";
+import { H1, HL, List, Media, Title } from "../../../../Backend/UI";
 
 const BurnBellyFat = () => {
   return (
     <>
-      <Title></Title>
+      <Title>“BURN BELLY FAT” in 10 Steps!</Title>
+      <Media src="https://youtu.be/p-y918t0PjE?si=9FAjTVMcjU21WB1m" />
+      <H1>Steps</H1>
       <List
         type="ordered"
         items={[
-          "Understand the process (Fitness science)",
-          "Set target weight (gain or lose 1% of body weight weekly)",
-          "Set calories (Body weight * 2.2 * 12 or Body weight * 2.2 * 10)",
-          "Calculate macros (30% protein, 25% fat, 45% carbs)",
+          <>
+            Understand the process (<HL>Fitness science</HL>)
+          </>,
+          <>
+            Set target weight (<HL>Lose 1% of body weight weekly</HL>)
+          </>,
+          <>
+            Set calories (<HL>Body weight * 2.2 * 12</HL> or{" "}
+            <HL>Body weight * 2.2 * 10</HL>)
+          </>,
+          <>
+            Calculate macros (<HL>30% protein</HL>, <HL>25% fat</HL>,{" "}
+            <HL>45% carbs</HL>)
+          </>,
           "Create sustainable diet",
-          "Use calorie tracking app",
+          <>
+            Use <HL>calorie tracking app</HL>
+          </>,
           "Training & cardio",
           {
             text: "Track your progress",
@@ -23,8 +37,12 @@ const BurnBellyFat = () => {
               "Your morning weight",
             ],
           },
-          "Wait, observe and adjust",
-          "Repeat till your target",
+          <>
+            <HL>Wait</HL>, <HL>observe</HL> and <HL>adjust</HL>
+          </>,
+          <>
+            <HL>Repeat</HL> till your <HL>target</HL>
+          </>,
         ]}
       />
     </>

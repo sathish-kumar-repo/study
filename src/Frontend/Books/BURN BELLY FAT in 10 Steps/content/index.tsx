@@ -2,10 +2,11 @@ import BurnBellyFat from "../code";
 
 const burnBellyFatContent = {
   about: {
-    subCategory: "",
-    name: "s",
-    description: "",
-    img: "",
+    subCategory: "Fitness",
+    name: "Fat Loss Strategy Guide",
+    description:
+      "Simple 10-step guide to lose fat through diet, training, and tracking.",
+    img: "burn-bell-fat.jpg",
   },
   route: [
     {
