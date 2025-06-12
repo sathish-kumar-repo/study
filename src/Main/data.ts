@@ -2,7 +2,6 @@ import webDevCurriculumContent from "../Frontend/Curriculum/content";
 import flutterConceptContent from "../Frontend/Flutter/Concept/content";
 import flutterWidgetsContent from "../Frontend/Flutter/Widgets/content";
 import javaContent from "../Frontend/Java/content";
-import basicRulesToLiveHealthyLifestyleContent from "../Frontend/Life Style/Basic Rules To Live Healthy Lifestyle/content";
 import shreddedContent from "../Frontend/Life Style/Shredded/content";
 import binaryOptionPdfCollectionContent from "../Frontend/Trading/PDF/content";
 import cssContent from "../Frontend/Web/CSS/content";
@@ -22,7 +21,7 @@ import richDadPoorDadContent from "../Frontend/Books/Rich Dad & Poor Dad/content
 
 // The course data object
 const mainData = {
-  "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
+  "Life Style": [shreddedContent],
   curriculum: [webDevCurriculumContent],
   books: [
     burnBellyFatContent,

@@ -1,6 +1,7 @@
 import HealthRules15ToChangeYourLife from "../code/15 Health Rules to Change your Life";
 import EightRulesToBecomeDangerous from "../code/8 Rules to Become Dangerous";
 import Stop4ThingsImmediately from "../code/Four Things You Have To Stop Doing Immediately";
+import FundamentalRulesForHealthyLifestyle from "../code/Fundamental Rules for a Healthy Lifestyle";
 import WaitYourTurn from "../code/Wait your turn!";
 
 const lifeRulesContent = {
@@ -12,6 +13,10 @@ const lifeRulesContent = {
     img: "lion.jpg",
   },
   route: [
+    {
+      topic: "Fundamental Rules for a Healthy Lifestyle",
+      page: <FundamentalRulesForHealthyLifestyle />,
+    },
     {
       topic: "8 Rules to Become Dangerous",
       page: <EightRulesToBecomeDangerous />,
