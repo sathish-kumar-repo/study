@@ -17,12 +17,14 @@ import englishContent from "../Frontend/Language/Sentence/content";
 import dopamineDetoxContent from "../Frontend/Books/Dopamine Detox/content";
 import hardDays75ChallengeContent from "../Frontend/Books/75 Days Hard Challenge For Discipline/content";
 import disappear6monthsContent from "../Frontend/Books/Disappear for 6 Months/content";
+import burnBellyFatContent from "../Frontend/Books/BURN BELLY FAT in 10 Steps/content";
 
 // The course data object
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
   books: [
+    burnBellyFatContent,
     lifeRulesContent,
     seducerContent,
     dopamineDetoxContent,
