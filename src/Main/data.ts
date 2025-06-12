@@ -14,13 +14,21 @@ import ybtBinaryOptionsContent from "../Frontend/Trading/YBT Binary Options/01 S
 import ybtCwrvPracticeContent from "../Frontend/Trading/YBT CWRV Practice/content";
 import seducerContent from "../Frontend/Books/9 Types of Seducers/content";
 import englishContent from "../Frontend/Language/Sentence/content";
-import DopamineDetoxContent from "../Frontend/Books/Dopamine Detox/content";
+import dopamineDetoxContent from "../Frontend/Books/Dopamine Detox/content";
+import hardDays75ChallengeContent from "../Frontend/Books/75 Days Hard Challenge For Discipline/content";
+import disappear6monthsContent from "../Frontend/Books/Disappear for 6 Months/content";
 
 // The course data object
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
-  books: [lifeRulesContent, seducerContent, DopamineDetoxContent],
+  books: [
+    lifeRulesContent,
+    seducerContent,
+    dopamineDetoxContent,
+    hardDays75ChallengeContent,
+    disappear6monthsContent,
+  ],
   trading: [
     mummaBinaryOptionContent,
     mummaPracticeContent,

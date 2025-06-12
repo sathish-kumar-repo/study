@@ -1,7 +1,7 @@
 import Reference from "../code/Reference";
 import Summary from "../code/Summary";
 
-const DopamineDetoxContent = {
+const dopamineDetoxContent = {
   about: {
     subCategory: "Self Improvement",
     name: "Dopamine Detox",
@@ -21,4 +21,4 @@ const DopamineDetoxContent = {
   ],
 };
 
-export default DopamineDetoxContent;
+export default dopamineDetoxContent;
