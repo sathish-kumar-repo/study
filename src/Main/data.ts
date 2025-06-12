@@ -18,6 +18,7 @@ import dopamineDetoxContent from "../Frontend/Books/Dopamine Detox/content";
 import hardDays75ChallengeContent from "../Frontend/Books/75 Days Hard Challenge For Discipline/content";
 import disappear6monthsContent from "../Frontend/Books/Disappear for 6 Months/content";
 import burnBellyFatContent from "../Frontend/Books/BURN BELLY FAT in 10 Steps/content";
+import richDadPoorDadContent from "../Frontend/Books/Rich Dad & Poor Dad/content";
 
 // The course data object
 const mainData = {
@@ -30,6 +31,7 @@ const mainData = {
     dopamineDetoxContent,
     hardDays75ChallengeContent,
     disappear6monthsContent,
+    richDadPoorDadContent,
   ],
   trading: [
     mummaBinaryOptionContent,
