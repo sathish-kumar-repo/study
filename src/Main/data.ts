@@ -14,12 +14,13 @@ import ybtBinaryOptionsContent from "../Frontend/Trading/YBT Binary Options/01 S
 import ybtCwrvPracticeContent from "../Frontend/Trading/YBT CWRV Practice/content";
 import seducerContent from "../Frontend/Books/9 Types of Seducers/content";
 import englishContent from "../Frontend/Language/Sentence/content";
+import DopamineDetoxContent from "../Frontend/Books/Dopamine Detox/content";
 
 // The course data object
 const mainData = {
   "Life Style": [basicRulesToLiveHealthyLifestyleContent, shreddedContent],
   curriculum: [webDevCurriculumContent],
-  books: [lifeRulesContent, seducerContent],
+  books: [lifeRulesContent, seducerContent, DopamineDetoxContent],
   trading: [
     mummaBinaryOptionContent,
     mummaPracticeContent,

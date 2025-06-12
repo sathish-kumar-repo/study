@@ -12,7 +12,7 @@ const seducerContent = {
 
   route: [
     {
-      topic: "The 9 Types of Seducers – The Art of Seduction",
+      topic: "Summary",
       page: <Summary />,
     },
     {

@@ -5,7 +5,7 @@ import WaitYourTurn from "../code/Wait your turn!";
 
 const lifeRulesContent = {
   about: {
-    subCategory: "Self-Mastery",
+    subCategory: "Self Improvement",
     name: "Rules of Presence",
     description:
       "Level up your mindset with rules that shape powerful habits and presence.",
