@@ -5,7 +5,6 @@ import javaContent from "../Frontend/Java/content";
 import shreddedContent from "../Frontend/Life Style/Shredded/content";
 import binaryOptionPdfCollectionContent from "../Frontend/Trading/PDF/content";
 import cssContent from "../Frontend/Web/CSS/content";
-import lifeRulesContent from "../Frontend/Books/Rules/content";
 import mummaBinaryOptionContent from "../Frontend/Trading/Mumma Binary Options/content";
 import ybtCwrvContent from "../Frontend/Trading/YBT CWRV/content";
 import mummaPracticeContent from "../Frontend/Trading/Mumma Practice/content";

@@ -6,7 +6,7 @@ const eightRulesToBecomeDangerousContent = {
     subCategory: "Mindset & Self-Discipline",
     name: "8 Rules to Become Dangerous",
     description:
-      "A short but powerful guide to mastering presence, self-control, and mental strength through 8 impactful rules that build unshakable confidence.",
+      "Master presence, control, and power with these 8 life-changing mindset rules.",
     img: "lion.jpg", // thumbnail from the YouTube Shorts video
   },
   route: [

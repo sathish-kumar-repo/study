@@ -1,4 +1,4 @@
-import { Title, Media, H1, Para, HL, Quote } from "../../../../Backend/UI";
+import { Title, Media, H1, Para, HL, Quote } from "../../../../../Backend/UI";
 
 const EightRulesToBecomeDangerous = () => {
   return (
