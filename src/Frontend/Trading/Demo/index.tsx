@@ -1,52 +1,45 @@
-import { H1, H2, Media, Title } from "../../../Backend/UI";
-import { domain } from "../YBT Binary Options/01 Supply and Demand/content";
+import { H1, H2, Media } from "../../../Backend/UI";
+import { domain } from "../PDF/content";
 
 interface DayPracticeProps {
-  title: string;
-  path: string; // e.g., "YBT Supply and Demand/demo/Day 1"
-  count: number; // total images, must be even (each Case-Result pair = 2)
+  title: number;
+  path: string;
+  conditionCount?: number;
+  reactionCount?: number;
 }
 
-const DayPractice: React.FC<DayPracticeProps> = ({ title, path, count }) => {
-  if (count % 2 !== 0) {
-    throw new Error(
-      `DayPractice: Image count (${count}) must be even. Every "Case" must have a "Result".`
-    );
-  }
-  const groups = [];
+const DayPractice: React.FC<DayPracticeProps> = ({
+  title,
+  path,
+  conditionCount = 1,
+  reactionCount = 1,
+}) => {
+  const component = [];
 
-  for (let i = 1; i <= count; i += 2) {
-    const caseIndex = i;
-    const resultIndex = i + 1;
-    const exampleNumber = Math.ceil(i / 2);
-
-    groups.push(
-      <div key={`group-${exampleNumber}`}>
-        <H1>Example {exampleNumber}</H1>
-
-        <H2>Market Condition</H2>
-        <Media
-          key={`media-case-${caseIndex}`}
-          src={`${path}/${caseIndex}.png`}
-          customDomain={domain}
-        />
-
-        <H2>Expected Reaction</H2>
-        <Media
-          key={`media-result-${resultIndex}`}
-          src={`${path}/${resultIndex}.png`}
-          customDomain={domain}
-        />
-      </div>
+  component.push(<H1 key="title">{title}</H1>);
+  component.push(<H2 key="condition-heading">Market Condition</H2>);
+  for (let i = 1; i <= conditionCount; i++) {
+    component.push(
+      <Media
+        key={`media-case-${i}`}
+        src={`${path}/Case/${i}.png`}
+        customDomain={domain}
+      />
     );
   }
 
-  return (
-    <>
-      <Title>{title}</Title>
-      {groups}
-    </>
-  );
+  component.push(<H2 key="reaction-heading">Expected Reaction</H2>);
+  for (let i = 1; i <= reactionCount; i++) {
+    component.push(
+      <Media
+        key={`media-reaction-${i}`}
+        src={`${path}/Result/${i}.png`}
+        customDomain={domain}
+      />
+    );
+  }
+
+  return <>{component}</>; // ✅ Use a fragment to wrap the list
 };
 
 export default DayPractice;

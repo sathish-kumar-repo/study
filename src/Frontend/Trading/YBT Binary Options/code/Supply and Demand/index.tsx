@@ -1,5 +1,5 @@
 import { H1, Media, Title } from "../../../../../Backend/UI";
-import { domain } from "../content";
+import { domain } from "../../content";
 
 const SupplyAndDemand = () => {
   return (
