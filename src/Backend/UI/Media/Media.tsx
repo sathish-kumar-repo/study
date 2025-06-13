@@ -232,7 +232,10 @@ const Media: React.FC<MediaProps> = (props) => {
         >
           <div className="media-group-img">
             {images.map((imgSrc, index) => (
-              <div className="media-wrapper" key={`image-${index}`}>
+              <div
+                className="media-wrapper image-wrapper"
+                key={`image-${index}`}
+              >
                 <PhotoView src={imgSrc}>
                   <img src={imgSrc} alt={alt} loading="lazy" />
                 </PhotoView>
