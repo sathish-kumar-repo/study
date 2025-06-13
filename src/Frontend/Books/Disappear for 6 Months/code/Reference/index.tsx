@@ -18,6 +18,7 @@ const Reference = () => {
       <Para link="https://youtu.be/YoeevdCQk9Q?si=ZqszPUXys0QtLh0X" />
       <Space sT={20} />
       <Media
+        groupImg
         sequence={{
           start: 1,
           end: 43,

@@ -12,6 +12,8 @@ import {
   resolveDomainKeyFromProps,
   getDomainUrl,
 } from "../../utils/domain";
+import clsx from "clsx";
+
 interface SequenceConfig {
   base: string;
   start: number;
@@ -19,9 +21,6 @@ interface SequenceConfig {
   ext?: string;
   leadingZeros?: number;
   pattern?: string;
-  group?: boolean;
-  groupImg?: boolean;
-  groupVideo?: boolean;
 }
 
 type MediaEntry = string | { sequence: SequenceConfig };
@@ -36,6 +35,7 @@ interface MediaProps extends Record<string, any> {
   customDomain?: string;
   sort?: boolean;
   responsive?: boolean;
+  groupImg?: boolean;
 }
 
 const padNumber = (num: number, width: number): string =>
@@ -85,12 +85,12 @@ const Media: React.FC<MediaProps> = (props) => {
     src,
     sequence,
     alt = "Media content",
-
     poster,
     domainKey: directKey,
     customDomain,
     sort = false,
     responsive = false,
+    groupImg = false,
   } = props;
 
   const resolvedKey = resolveDomainKeyFromProps(props) || directKey;
@@ -157,7 +157,12 @@ const Media: React.FC<MediaProps> = (props) => {
   };
 
   return (
-    <div className={`media-container ${responsive && "responsive"}`}>
+    <div
+      className={clsx("media-container", {
+        responsive: responsive,
+        "group-img": groupImg && !responsive,
+      })}
+    >
       {/* Videos */}
       {videos.map((videoSrc, index) => (
         <div className="media-wrapper" key={`video-${index}`}>
@@ -225,13 +230,15 @@ const Media: React.FC<MediaProps> = (props) => {
             </>
           )}
         >
-          {images.map((imgSrc, index) => (
-            <div className="media-wrapper" key={`image-${index}`}>
-              <PhotoView src={imgSrc}>
-                <img src={imgSrc} alt={alt} loading="lazy" />
-              </PhotoView>
-            </div>
-          ))}
+          <div className="media-group-img">
+            {images.map((imgSrc, index) => (
+              <div className="media-wrapper" key={`image-${index}`}>
+                <PhotoView src={imgSrc}>
+                  <img src={imgSrc} alt={alt} loading="lazy" />
+                </PhotoView>
+              </div>
+            ))}
+          </div>
         </PhotoProvider>
       )}
     </div>
