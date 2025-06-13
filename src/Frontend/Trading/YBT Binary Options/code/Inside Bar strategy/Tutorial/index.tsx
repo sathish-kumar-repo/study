@@ -1,16 +1,17 @@
 import {
-  H1,
-  H3,
-  HL,
-  List,
-  Media,
-  Note,
-  Para,
-  Quote,
-  Space,
   Title,
-} from "../../../../../Backend/UI";
-import { domain } from "../../content";
+  H1,
+  Media,
+  H3,
+  Para,
+  Note,
+  List,
+  Quote,
+  HL,
+  Space,
+} from "../../../../../../Backend/UI";
+import { domain } from "../../../content";
+
 // Inside Bar strategy
 const InsideBarStrategy = () => {
   return (

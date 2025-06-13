@@ -1,5 +1,7 @@
 import { ContentDataType } from "../../../../Backend/model/content_model";
-import InsideBarStrategy from "../code/Inside Bar strategy";
+import LossingTrades from "../code/Inside Bar strategy/Losing Trades";
+import InsideBarStrategy from "../code/Inside Bar strategy/Tutorial";
+import WinningTrades from "../code/Inside Bar strategy/Winning Trades";
 
 import SupplyAndDemand from "../code/Supply and Demand";
 
@@ -16,12 +18,22 @@ const ybtBinaryOptionsContent: ContentDataType = {
   },
   route: [
     {
+      heading: "Supply and Demand",
       topic: "Supply and Demand",
       page: <SupplyAndDemand />,
     },
     {
+      heading: "Inside Bar strategy",
       topic: "Inside Bar strategy",
       page: <InsideBarStrategy />,
+    },
+    {
+      topic: "Winning Trades 📈",
+      page: <WinningTrades />,
+    },
+    {
+      topic: "Losing Trades 📉",
+      page: <LossingTrades />,
     },
     // {
     //   subHeading: "Practice",
