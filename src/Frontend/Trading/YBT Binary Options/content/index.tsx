@@ -42,7 +42,7 @@ const ybtBinaryOptionsContent: ContentDataType = {
       page: <WinningTradesInsideBar />,
     },
     {
-      topic: "Losing Trades 📉 (Inside Bar",
+      topic: "Losing Trades 📉 (Inside Bar)",
       page: <LossingTradesInsideBar />,
     },
     // {
