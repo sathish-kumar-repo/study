@@ -19,6 +19,9 @@ interface SequenceConfig {
   ext?: string;
   leadingZeros?: number;
   pattern?: string;
+  group?: boolean;
+  groupImg?: boolean;
+  groupVideo?: boolean;
 }
 
 type MediaEntry = string | { sequence: SequenceConfig };

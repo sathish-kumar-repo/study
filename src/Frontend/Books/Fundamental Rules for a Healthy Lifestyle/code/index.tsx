@@ -1,13 +1,13 @@
 import {
   Title,
+  Para,
   H1,
   H2,
   Space,
+  Quote,
   List,
   Table,
-  Para,
-  Quote,
-} from "../../../../../Backend/UI";
+} from "../../../../Backend/UI";
 
 const FundamentalRulesForHealthyLifestyle = () => {
   return (

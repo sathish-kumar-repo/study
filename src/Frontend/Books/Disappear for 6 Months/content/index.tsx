@@ -3,7 +3,7 @@ import Summary from "../code/Summary";
 
 const disappear6monthsContent = {
   about: {
-    subCategory: "Self-Transformation",
+    subCategory: "Mindset & Self-Discipline",
     name: "Disappear for 6 Months",
     description:
       "A complete 6-month guide to help you silently reinvent your mind, body, habits, and hustle with zero distractions.",

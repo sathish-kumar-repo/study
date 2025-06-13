@@ -1,4 +1,4 @@
-import { List, Media, Space, Title } from "../../../../../Backend/UI";
+import { List, Media, Space, Title } from "../../../../Backend/UI";
 
 const Stop4ThingsImmediately = () => {
   return (

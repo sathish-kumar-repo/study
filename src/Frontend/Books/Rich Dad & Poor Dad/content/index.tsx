@@ -2,7 +2,7 @@ import Summary from "../code";
 
 const richDadPoorDadContent = {
   about: {
-    subCategory: "Finance & Wealth",
+    subCategory: "Wealth & Financial Wisdom",
     name: "Rich Dad Poor Dad",
     description:
       "A powerful guide contrasting two mindsets about money—teaching financial literacy, asset-building, and how to make money work for you.",

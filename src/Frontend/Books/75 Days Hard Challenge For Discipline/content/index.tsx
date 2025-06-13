@@ -2,7 +2,7 @@ import HardDays75Challenge from "../code";
 
 const hardDays75ChallengeContent = {
   about: {
-    subCategory: "Self-Transformation",
+    subCategory: "Health & Fitness",
     name: "75-Day Hard Challenge for Discipline",
     description: "A 75-day journey to build discipline, strength, and focus.",
     img: "75-days-hard-challenge.jpg",
