@@ -10,6 +10,7 @@ import {
   Space,
   Title,
 } from "../../../../../Backend/UI";
+import { domain } from "../../content";
 // Inside Bar strategy
 const InsideBarStrategy = () => {
   return (
@@ -88,6 +89,17 @@ const InsideBarStrategy = () => {
         martingale approach. This is a <HL>rare but highly accurate pattern</HL>
         , typically appearing once every 30 minutes.
       </Note>
+
+      <H1>Quotex Live Example</H1>
+      <Media
+        sequence={{
+          start: 1,
+          end: 3,
+          base: "Inside Bar Strategy/main/",
+          ext: "png",
+        }}
+        customDomain={domain}
+      />
     </>
   );
 };
