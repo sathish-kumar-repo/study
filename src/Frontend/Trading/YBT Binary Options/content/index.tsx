@@ -1,9 +1,11 @@
 import { ContentDataType } from "../../../../Backend/model/content_model";
-import LossingTrades from "../code/Inside Bar strategy/Losing Trades";
+import LossingTradesInsideBar from "../code/Inside Bar strategy/Losing Trades";
 import InsideBarStrategy from "../code/Inside Bar strategy/Tutorial";
-import WinningTrades from "../code/Inside Bar strategy/Winning Trades";
+import WinningTradesInsideBar from "../code/Inside Bar strategy/Winning Trades";
+import LossingTradesSupplyAndDemand from "../code/Supply and Demand/Losing Trades";
 
-import SupplyAndDemand from "../code/Supply and Demand";
+import SupplyAndDemand from "../code/Supply and Demand/Tutorial";
+import WinningTradesSupplyAndDemand from "../code/Supply and Demand/Winning Trades";
 
 export const domain =
   "https://sathish-kumar-repo.github.io/Binary-Options/ybt/";
@@ -23,17 +25,25 @@ const ybtBinaryOptionsContent: ContentDataType = {
       page: <SupplyAndDemand />,
     },
     {
+      topic: "Winning Trades 📈 (SNR)",
+      page: <WinningTradesSupplyAndDemand />,
+    },
+    {
+      topic: "Lossing Trades 📈 (SNR)",
+      page: <LossingTradesSupplyAndDemand />,
+    },
+    {
       heading: "Inside Bar strategy",
       topic: "Inside Bar strategy",
       page: <InsideBarStrategy />,
     },
     {
-      topic: "Winning Trades 📈",
-      page: <WinningTrades />,
+      topic: "Winning Trades 📈 (Inside Bar)",
+      page: <WinningTradesInsideBar />,
     },
     {
-      topic: "Losing Trades 📉",
-      page: <LossingTrades />,
+      topic: "Losing Trades 📉 (Inside Bar",
+      page: <LossingTradesInsideBar />,
     },
     // {
     //   subHeading: "Practice",

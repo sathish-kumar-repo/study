@@ -7,7 +7,7 @@ export function toTitleCase(str: string) {
 
 export function capitalizeFirstLetter(input: string): string {
   if (!input) return input; // Return the input if it's empty or falsy
-  return input[0].toUpperCase() + input.slice(1);
+  return (input[0].toUpperCase() + input.slice(1)).trim();
 }
 
 export function replaceSlashWithUnderscore(input: string): string {

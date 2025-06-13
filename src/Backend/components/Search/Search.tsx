@@ -119,7 +119,6 @@ const Search = ({ showSearch, ref, onClose }: SearchProps) => {
                             text={route.topic}
                             query={searchTerm}
                           />
-                          {/* {route.topic} */}
                         </Link>
                       </li>
                     ))}

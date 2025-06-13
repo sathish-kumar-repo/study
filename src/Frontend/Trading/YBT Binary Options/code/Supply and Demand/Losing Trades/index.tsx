@@ -1,7 +1,7 @@
 import { Media, Title } from "../../../../../../Backend/UI";
 import { domain } from "../../../content";
 
-const LossingTradesInsideBar = () => {
+const LossingTradesSupplyAndDemand = () => {
   return (
     <>
       <Title>Lossing Trades</Title>
@@ -9,8 +9,8 @@ const LossingTradesInsideBar = () => {
         groupImg
         sequence={{
           start: 1,
-          end: 3,
-          base: "Inside Bar Strategy/demo/loss/",
+          end: 1,
+          base: "YBT Supply and Demand/demo/loss/",
           ext: "png",
         }}
         customDomain={domain}
@@ -19,4 +19,4 @@ const LossingTradesInsideBar = () => {
   );
 };
 
-export default LossingTradesInsideBar;
+export default LossingTradesSupplyAndDemand;

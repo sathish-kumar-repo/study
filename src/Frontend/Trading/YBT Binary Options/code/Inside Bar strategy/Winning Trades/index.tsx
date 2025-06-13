@@ -1,7 +1,7 @@
 import { Media, Title } from "../../../../../../Backend/UI";
 import { domain } from "../../../content";
 
-const WinningTrades = () => {
+const WinningTradesInsideBar = () => {
   return (
     <>
       <Title>Winning Trades</Title>
@@ -19,4 +19,4 @@ const WinningTrades = () => {
   );
 };
 
-export default WinningTrades;
+export default WinningTradesInsideBar;
