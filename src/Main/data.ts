@@ -10,7 +10,7 @@ import ybtCwrvContent from "../Frontend/Trading/YBT CWRV/content";
 import mummaPracticeContent from "../Frontend/Trading/Mumma Practice/content";
 import ybtCwrvPracticeContent from "../Frontend/Trading/YBT CWRV Practice/content";
 import seducerContent from "../Frontend/Books/9 Types of Seducers/content";
-import englishContent from "../Frontend/Language/Sentence/content";
+import englishSentenceContent from "../Frontend/Language/Sentence/content";
 import dopamineDetoxContent from "../Frontend/Books/Dopamine Detox/content";
 import hardDays75ChallengeContent from "../Frontend/Books/75 Days Hard Challenge For Discipline/content";
 import disappear6monthsContent from "../Frontend/Books/Disappear for 6 Months/content";
@@ -22,6 +22,7 @@ import brainRules12Content from "../Frontend/Books/12 BRAIN RULES TO CHANGE YOUR
 import healthRules15ToChangeYourLifeContent from "../Frontend/Books/15 Health Rules to Change your Life/content";
 import fundamentalRulesForHealthyLifestyleContent from "../Frontend/Books/Fundamental Rules for a Healthy Lifestyle/content";
 import stop4ThingsImmediatelyContent from "../Frontend/Books/Four Things You Have To Stop Doing Immediately/content";
+import vocabulary500in50minsContent from "../Frontend/Language/500 Vocabulary in 50 Mins";
 
 // The course data object
 const mainData = {
@@ -57,7 +58,7 @@ const mainData = {
     ybtBinaryOptionsContent,
     binaryOptionPdfCollectionContent,
   ],
-  language: [englishContent],
+  language: [englishSentenceContent, vocabulary500in50minsContent],
   programming: [
     // jsContent,
     // tsContent,

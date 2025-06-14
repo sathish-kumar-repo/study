@@ -4,7 +4,7 @@ import DailySentenceInLife from "../code/03 Daily Sentence In Life";
 import DialyUseEnglishSentence from "../code/04 Daily use English Sentence";
 import MindUsingSentences from "../code/05 Mind using Sentences";
 
-const englishContent = {
+const englishSentenceContent = {
   about: {
     subCategory: "English",
     name: "English Sentences with Tamil",
@@ -36,4 +36,4 @@ const englishContent = {
   ],
 };
 
-export default englishContent;
+export default englishSentenceContent;
