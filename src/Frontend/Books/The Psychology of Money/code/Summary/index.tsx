@@ -336,7 +336,7 @@ const Summary = () => {
 
       <H1>Conclusion: Behavior Trumps Math 🧠&gt;➗</H1>
       <Para>The final message is simple but powerful:</Para>
-      <Quote bold>
+      <Quote>
         Doing well with money isn’t about knowledge—it’s about behavior.
       </Quote>
       <Para>

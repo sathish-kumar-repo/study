@@ -11,10 +11,9 @@
   display: flex;
   gap: 10px;
   padding: 0 1.25rem;
+  font-style: italic;
+  font-weight: bolder;
 
-  &.bold {
-    font-weight: bolder;
-  }
   .arrow,
   .quote {
     display: inline-block;

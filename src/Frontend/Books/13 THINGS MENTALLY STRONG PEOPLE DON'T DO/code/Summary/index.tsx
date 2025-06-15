@@ -17,7 +17,7 @@ const Summary = () => {
         based on her experience with clients and her own life tragedies. The
         core message is:
       </Para>
-      <Quote bold>
+      <Quote>
         "Mental strength is more about what you don't do than what you do."
       </Quote>
       <Para>
@@ -48,12 +48,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        After failing an important exam, instead of sulking for weeks, a strong
-        person rewatches their lectures, seeks help, and retakes the test with
-        better preparation.
-      </Para>
-
+      <List
+        items={[
+          "A student fails an exam and immediately starts preparing for the next attempt instead of blaming the teacher.",
+          "A person who lost their job updates their resume, applies online, and learns new skills instead of drowning in self-pity.",
+          "An athlete loses a match but watches the replay to learn from mistakes and train harder.",
+        ]}
+      />
       <H1>✅ 2. They Don’t Give Away Their Power</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -78,11 +79,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        A rude customer yells at you. Instead of yelling back, you calmly
-        respond or walk away, staying in control of your peace.
-      </Para>
-
+      <List
+        items={[
+          "A colleague insults you in front of others. Instead of reacting angrily, you respond calmly and file a formal complaint.",
+          "Your family pressures you into a career choice, but you choose what aligns with your passion.",
+          "You don’t let a social media troll ruin your mood—you ignore or block them and continue confidently.",
+        ]}
+      />
       <H1>✅ 3. They Don’t Shy Away from Change</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -107,11 +110,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You move to a new city for a job. Though unfamiliar at first, you
-        develop confidence, new friendships, and career advancement.
-      </Para>
-
+      <List
+        items={[
+          "You switch careers at 30 despite fear, and after 6 months of learning, you land a new job.",
+          "You move to a new country, learn the language, and build a better life.",
+          "You adopt new habits like morning walks and journaling after realizing your old lifestyle made you unhappy.",
+        ]}
+      />
       <H1>✅ 4. They Don’t Waste Energy on Things They Can’t Control</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -136,11 +141,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        It rains during your vacation. Instead of complaining, you explore
-        indoor museums or enjoy local cafés.
-      </Para>
-
+      <List
+        items={[
+          "Instead of stressing about traffic, you use the time to listen to a podcast.",
+          "You don’t complain about inflation—just adjust your monthly budget.",
+          "You don’t worry about other people’s opinions and stay focused on your own path.",
+        ]}
+      />
       <H1>✅ 5. They Don’t Worry About Pleasing Everyone</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -165,11 +172,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You politely decline a friend’s invitation to focus on your studies,
-        even if they’re upset — because your priorities matter.
-      </Para>
-
+      <List
+        items={[
+          "You say no to a party to focus on self-care, even if friends feel disappointed.",
+          "You wear what you love instead of dressing to impress others.",
+          "You quit a toxic job even though some family members disagree with your decision.",
+        ]}
+      />
       <H1>✅ 6. They Don’t Fear Taking Calculated Risks</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -194,11 +203,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You invest time in learning a new skill like coding—despite
-        uncertainty—because you’ve weighed the long-term career benefits.
-      </Para>
-
+      <List
+        items={[
+          "You invest in a small business after analyzing the market and preparing backup plans.",
+          "You post your art on Instagram despite fear of judgment.",
+          "You say yes to a promotion even though it requires public speaking.",
+        ]}
+      />
       <H1>✅ 7. They Don’t Dwell on the Past</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -223,11 +234,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You messed up in a relationship. Instead of replaying the regret daily,
-        you forgive yourself, grow, and enter the next one with maturity.
-      </Para>
-
+      <List
+        items={[
+          "You made a mistake in a relationship but now apply lessons to your next one.",
+          "You failed a startup but used the experience to launch a better business later.",
+          "You let go of childhood trauma through therapy and focus on building a positive life.",
+        ]}
+      />
       <H1>✅ 8. They Don’t Make the Same Mistakes Over and Over</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -252,11 +265,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You used to overspend every month. After tracking expenses, you stick to
-        a budget and avoid unnecessary buys.
-      </Para>
-
+      <List
+        items={[
+          "You used to arrive late to meetings. Now you use calendar reminders to stay punctual.",
+          "You ignored exercise in the past. After a health scare, you now follow a daily fitness routine.",
+          "You keep failing interviews, so you start recording mock interviews and practicing better answers.",
+        ]}
+      />
       <H1>✅ 9. They Don’t Resent Other People’s Success</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -281,11 +296,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        A friend lands your dream job. Instead of sulking, you ask them for
-        advice, apply again, and work on your resume.
-      </Para>
-
+      <List
+        items={[
+          "Your friend gets married or promoted—you genuinely congratulate them instead of sulking.",
+          "A classmate scores better in exams. You ask how they studied and improve your own method.",
+          "You support your friend's business by sharing their post even if you're struggling financially.",
+        ]}
+      />
       <H1>✅ 10. They Don’t Give Up After the First Failure</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -310,11 +327,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You fail your first driving test. Instead of quitting, you practice,
-        rebook, and pass on your second try.
-      </Para>
-
+      <List
+        items={[
+          "Your friend gets married or promoted—you genuinely congratulate them instead of sulking.",
+          "A classmate scores better in exams. You ask how they studied and improve your own method.",
+          "You support your friend's business by sharing their post even if you're struggling financially.",
+        ]}
+      />
       <H1>✅ 11. They Don’t Fear Alone Time</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -339,11 +358,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You skip a party to stay home, reflect on goals, and wake up feeling
-        focused instead of drained.
-      </Para>
-
+      <List
+        items={[
+          "You travel solo and discover your independence and clarity of purpose.",
+          "You take a social media break and realize how peaceful silence can be.",
+          "You spend 20 mins daily in nature without your phone and feel more energized.",
+        ]}
+      />
       <H1>✅ 12. They Don’t Feel the World Owes Them Anything</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -368,11 +389,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        Instead of waiting for someone to give you an opportunity, you build a
-        personal project and create your own path.
-      </Para>
-
+      <List
+        items={[
+          "Instead of waiting for your boss to notice your work, you showcase your impact and ask for a raise.",
+          "You stop complaining about others' success and start working on your skills every day.",
+          "You don't expect followers or likes just for existing—you build consistent, useful content.",
+        ]}
+      />
       <H1>✅ 13. They Don’t Expect Immediate Results</H1>
       <H3>🔍 Explanation</H3>
       <List
@@ -397,10 +420,13 @@ const Summary = () => {
         ]}
       />
       <H3>✅ Real Life</H3>
-      <Para>
-        You start a YouTube channel and see no views initially. Instead of
-        quitting, you upload consistently for 6 months and grow your audience.
-      </Para>
+      <List
+        items={[
+          "You go to the gym for months without seeing abs, but stay consistent knowing results take time.",
+          "You write blogs weekly for a year before they start ranking on Google.",
+          "You build a habit of waking early and realize real benefits only after 3 weeks.",
+        ]}
+      />
 
       <H1>🧭 Final Message of the Book</H1>
       <Quote>
@@ -411,7 +437,6 @@ const Summary = () => {
         This book is a manual for unlearning weakness-based behaviors and
         becoming resilient, focused, and emotionally mature.
       </Para>
-
       <H1>Summary</H1>
       <Table>
         <thead>

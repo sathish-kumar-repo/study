@@ -1,4 +1,5 @@
 import Reference from "../code/Reference";
+import ShortSummary from "../code/Short Summary";
 import Summary from "../code/Summary";
 
 const things13MentallyStrongPeopleDontDo = {
@@ -13,6 +14,10 @@ const things13MentallyStrongPeopleDontDo = {
     {
       topic: "Summary",
       page: <Summary />,
+    },
+    {
+      topic: "Short Summary",
+      page: <ShortSummary />,
     },
     {
       topic: "Reference",
