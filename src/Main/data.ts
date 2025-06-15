@@ -26,6 +26,7 @@ import vocabulary500in50minsContent from "../Frontend/Language/500 Vocabulary in
 import workoutRoutineContent from "../Frontend/Life Style/Workout Routine/content";
 import thePsychologyOfMoneyContent from "../Frontend/Books/The Psychology of Money/content";
 import sameAsEverContent from "../Frontend/Books/Same as Ever/content";
+import thePowerOfSilenceSituation from "../Frontend/Books/THE POWER OF SILENCE Always Be Silent In These 5 Situations/content";
 
 // The course data object
 const mainData = {
@@ -43,6 +44,7 @@ const mainData = {
     stop4ThingsImmediatelyContent,
     disappear6monthsContent,
     dopamineDetoxContent,
+    thePowerOfSilenceSituation,
 
     // Brain & Learning
     brainRules12Content,

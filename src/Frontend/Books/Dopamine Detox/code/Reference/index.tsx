@@ -6,6 +6,7 @@ import {
   Media,
   Para,
   Quote,
+  Space,
   Title,
 } from "../../../../../Backend/UI";
 
@@ -141,6 +142,8 @@ const Reference = () => {
       <Quote>
         Your attention is the currency of the internet. Spend it wisely.
       </Quote>
+      <Space sT={20} />
+      <Para link="https://youtu.be/KLo4oV9r5dY?si=2Y4b8RKDB7i7yR36" />
     </>
   );
 };
