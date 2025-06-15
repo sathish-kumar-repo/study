@@ -1,4 +1,5 @@
-import ThePsychologyOfMoney from "../code";
+import ShortSummary from "../code/Short Summary";
+import ThePsychologyOfMoney from "../code/Summary";
 
 const thePsychologyOfMoneyContent = {
   about: {
@@ -12,6 +13,10 @@ const thePsychologyOfMoneyContent = {
     {
       topic: "Summary",
       page: <ThePsychologyOfMoney />,
+    },
+    {
+      topic: "Short Summary",
+      page: <ShortSummary />,
     },
   ],
 };

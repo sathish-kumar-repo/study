@@ -1,4 +1,4 @@
-import { H1, List, Para, Quote, Title } from "../../../../Backend/UI";
+import { H1, List, Para, Quote, Title } from "../../../../../Backend/UI";
 
 const ThePsychologyOfMoney = () => {
   return (
