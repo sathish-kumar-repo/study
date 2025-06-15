@@ -12,6 +12,9 @@
   gap: 10px;
   padding: 0 1.25rem;
 
+  &.bold {
+    font-weight: bolder;
+  }
   .arrow,
   .quote {
     display: inline-block;
