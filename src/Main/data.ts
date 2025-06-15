@@ -27,6 +27,7 @@ import workoutRoutineContent from "../Frontend/Life Style/Workout Routine/conten
 import thePsychologyOfMoneyContent from "../Frontend/Books/The Psychology of Money/content";
 import sameAsEverContent from "../Frontend/Books/Same as Ever/content";
 import thePowerOfSilenceSituation from "../Frontend/Books/THE POWER OF SILENCE Always Be Silent In These 5 Situations/content";
+import powerfulQualities5SilentPeople from "../Frontend/Books/5 Powerful Qualities Silent People/content";
 
 // The course data object
 const mainData = {
@@ -45,6 +46,7 @@ const mainData = {
     disappear6monthsContent,
     dopamineDetoxContent,
     thePowerOfSilenceSituation,
+    powerfulQualities5SilentPeople,
 
     // Brain & Learning
     brainRules12Content,
