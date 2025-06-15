@@ -1,6 +1,6 @@
 import { H1, List, Para, Quote, Title } from "../../../../../Backend/UI";
 
-const ThePsychologyOfMoney = () => {
+const Summary = () => {
   return (
     <>
       <Title>The Psychology of Money by Morgan Housel - Detailed Summary</Title>
@@ -347,4 +347,4 @@ const ThePsychologyOfMoney = () => {
   );
 };
 
-export default ThePsychologyOfMoney;
+export default Summary;

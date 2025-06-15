@@ -25,6 +25,7 @@ import stop4ThingsImmediatelyContent from "../Frontend/Books/Four Things You Hav
 import vocabulary500in50minsContent from "../Frontend/Language/500 Vocabulary in 50 Mins";
 import workoutRoutineContent from "../Frontend/Life Style/Workout Routine/content";
 import thePsychologyOfMoneyContent from "../Frontend/Books/The Psychology of Money/content";
+import sameAsEverContent from "../Frontend/Books/Same as Ever/content";
 
 // The course data object
 const mainData = {
@@ -49,6 +50,7 @@ const mainData = {
     // Wealth & Financial Wisdom
     richDadPoorDadContent,
     thePsychologyOfMoneyContent,
+    sameAsEverContent,
 
     // Social & Relationship Skills
     seducerContent,

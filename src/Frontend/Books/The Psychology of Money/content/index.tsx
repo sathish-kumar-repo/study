@@ -1,5 +1,5 @@
 import ShortSummary from "../code/Short Summary";
-import ThePsychologyOfMoney from "../code/Summary";
+import Summary from "../code/Summary";
 
 const thePsychologyOfMoneyContent = {
   about: {
@@ -12,7 +12,7 @@ const thePsychologyOfMoneyContent = {
   route: [
     {
       topic: "Summary",
-      page: <ThePsychologyOfMoney />,
+      page: <Summary />,
     },
     {
       topic: "Short Summary",
