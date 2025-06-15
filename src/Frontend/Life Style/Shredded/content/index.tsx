@@ -4,7 +4,7 @@ import Progress from "../code/Progress";
 
 const shreddedContent = {
   about: {
-    subCategory: "Gym Routines",
+    subCategory: "Fitness",
     name: "Shredded",
     description: "Lean, defined, muscular physique with cuts",
     img: "chad.jpeg",

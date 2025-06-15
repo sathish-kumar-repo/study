@@ -23,10 +23,11 @@ import healthRules15ToChangeYourLifeContent from "../Frontend/Books/15 Health Ru
 import fundamentalRulesForHealthyLifestyleContent from "../Frontend/Books/Fundamental Rules for a Healthy Lifestyle/content";
 import stop4ThingsImmediatelyContent from "../Frontend/Books/Four Things You Have To Stop Doing Immediately/content";
 import vocabulary500in50minsContent from "../Frontend/Language/500 Vocabulary in 50 Mins";
+import workoutRoutineContent from "../Frontend/Life Style/Workout Routine/content";
 
 // The course data object
 const mainData = {
-  "Life Style": [shreddedContent],
+  "Life Style": [shreddedContent, workoutRoutineContent],
   curriculum: [webDevCurriculumContent],
   books: [
     // Health & Fitness

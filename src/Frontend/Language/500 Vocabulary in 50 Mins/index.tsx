@@ -66,10 +66,10 @@ const vocabulary500in50minsContent: ContentDataType = {
       return {
         topic: `Starting with ${letter}`,
         page: (
-          <>
+          <div key={`Starting with ${letter}`}>
             <Title>Starting with {letter}</Title>
             <Media groupImg src={src} customDomain={domain} />
-          </>
+          </div>
         ),
       };
     }),
