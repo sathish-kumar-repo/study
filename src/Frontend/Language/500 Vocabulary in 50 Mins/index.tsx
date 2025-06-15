@@ -1,6 +1,6 @@
 import { domain } from "..";
 import { ContentDataType } from "../../../Backend/model/content_model";
-import { Media, Title } from "../../../Backend/UI";
+import { H1, Media, Title } from "../../../Backend/UI";
 
 const missingImages = new Set([37, 38, 74, 75]);
 
@@ -41,11 +41,17 @@ const vocabulary500in50minsContent: ContentDataType = {
   },
   route: [
     {
-      topic: "Video",
+      topic: "Intro",
       page: (
         <>
-          <Title>Tutorial</Title>
+          <Title>500 Vocabulary in 50 Mins</Title>
+          <H1>Tutorial</H1>
           <Media src="https://youtu.be/STfaMGXOpg8?si=TpYxJsMI781YzGVk" />
+          <H1>Quote</H1>
+          <Media
+            src="500 Vocabulary in 50 Mins/other/quote.png"
+            customDomain={domain}
+          />
         </>
       ),
     },
@@ -73,7 +79,7 @@ const vocabulary500in50minsContent: ContentDataType = {
         <>
           <Title>Sample Test</Title>
           <Media
-            src="500 Vocabulary in 50 Mins/test/img.png"
+            src="500 Vocabulary in 50 Mins/other/test.png"
             customDomain={domain}
           />
         </>
