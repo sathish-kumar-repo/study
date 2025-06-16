@@ -2,17 +2,18 @@ import mainData from "../../Main/data";
 import { ContentDataType, TopicType } from "../model/content_model";
 
 function getContentData(): ContentDataType[] {
-  // This function returns the content data from the courseData object
   const contentData = Object.values(mainData)
     .flat()
     .map((item: any) => ({
       ...item,
-      route: item.route.map((routeItem: any) => ({
-        ...routeItem,
-        // Cast or convert 'type' to TopicType if it exists
-        type: routeItem.type as TopicType | undefined,
-      })),
+      route: Array.isArray(item.route)
+        ? item.route.map((routeItem: any) => ({
+            ...routeItem,
+            type: routeItem.type as TopicType | undefined,
+          }))
+        : undefined, // Keep it undefined if not an array
     }));
+
   return contentData as ContentDataType[];
 }
 
