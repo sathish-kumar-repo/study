@@ -29,7 +29,10 @@ import sameAsEverContent from "../Frontend/Books/Same as Ever/content";
 import thePowerOfSilenceSituation from "../Frontend/Books/THE POWER OF SILENCE Always Be Silent In These 5 Situations/content";
 import powerfulQualities5SilentPeople from "../Frontend/Books/5 Powerful Qualities Silent People/content";
 import things13MentallyStrongPeopleDontDo from "../Frontend/Books/13 THINGS MENTALLY STRONG PEOPLE DON'T DO/content";
-import candlestickStrengthAnalyzerContent from "../Frontend/Trading/Tool";
+import {
+  candlestickStrengthAnalyzerContent,
+  candlestickGeneratorContent,
+} from "../Frontend/Trading/Tool";
 
 // The course data object
 const mainData = {
@@ -70,6 +73,7 @@ const mainData = {
     ybtBinaryOptionsContent,
     binaryOptionPdfCollectionContent,
     candlestickStrengthAnalyzerContent,
+    candlestickGeneratorContent,
   ],
   language: [englishSentenceContent, vocabulary500in50minsContent],
   programming: [
