@@ -21,3 +21,14 @@ export const candlestickGeneratorContent: ContentDataType = {
     link: "https://sathish-kumar-repo.github.io/candlestick_generator/",
   },
 };
+
+export const investmentCalculatorContent = {
+  about: {
+    subCategory: "Tools",
+    name: "Binary Option Investment Calculator",
+    description:
+      "Calculate profits, risks, and reinvestment in binary options. Ideal for planning trades and compounding growth.",
+    img: "investment-calculator.png",
+    link: "https://sathish-kumar-repo.github.io/investment_calculator/",
+  },
+};

@@ -32,6 +32,7 @@ import things13MentallyStrongPeopleDontDo from "../Frontend/Books/13 THINGS MENT
 import {
   candlestickStrengthAnalyzerContent,
   candlestickGeneratorContent,
+  investmentCalculatorContent,
 } from "../Frontend/Trading/Tool";
 
 // The course data object
@@ -74,6 +75,7 @@ const mainData = {
     binaryOptionPdfCollectionContent,
     candlestickStrengthAnalyzerContent,
     candlestickGeneratorContent,
+    investmentCalculatorContent,
   ],
   language: [englishSentenceContent, vocabulary500in50minsContent],
   programming: [
