@@ -1,3 +1,4 @@
+import { ContentDataType } from "../../../../Backend/model/content_model";
 import Part1 from "../code/Part 1";
 import Part10 from "../code/Part 10";
 import Part11 from "../code/Part 11";
@@ -6,6 +7,7 @@ import Part13 from "../code/Part 13";
 import Part14 from "../code/Part 14";
 import Part15 from "../code/Part 15";
 import Part2 from "../code/Part 2";
+
 import Part3 from "../code/Part 3";
 import Part4 from "../code/Part 4";
 import Part5 from "../code/Part 5";
@@ -14,7 +16,10 @@ import Part7 from "../code/Part 7";
 import Part8 from "../code/Part 8";
 import Part9 from "../code/Part 9";
 
-const ybtCwrvContent = {
+export const domain =
+  "https://sathish-kumar-repo.github.io/Binary-Options/ybt cwrv/";
+
+const ybtCwrvContent: ContentDataType = {
   about: {
     subCategory: "Binary Options",
     name: "Binary Options CWRV (YBT)",
@@ -22,7 +27,10 @@ const ybtCwrvContent = {
     img: "binary-trading-ybt-cwrv.jpg",
   },
   route: [
-    { topic: "Part 1", page: <Part1 /> },
+    {
+      topic: "Candlesticks",
+      page: <Part1 />,
+    },
     { topic: "Part 2", page: <Part2 /> },
     { topic: "Part 3", page: <Part3 /> },
     { topic: "Part 4", page: <Part4 /> },

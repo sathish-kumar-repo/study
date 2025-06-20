@@ -99,3 +99,17 @@ import i18n from "i18next";
 git count-objects -vH
 git count-objects -vH | grep 'size-pack'
 git gc
+
+create a quiz website
+
+In mega menu:
+have 50 of quiz topic each quiz topic contains 200 quiz
+
+Quiz time is 5s if exceed 5s automatically change next quiz till end of quiz item
+
+Each Page have one quiz with choice
+
+Dark mode and light mode (preserve with local storage)
+
+Google Adsence info:
+Each quiz page have one ads and each page have new ads and render for every page
